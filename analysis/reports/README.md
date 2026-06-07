@@ -15,13 +15,39 @@
 - `round2_review.md`：Round 2 人工 review。
 - `regression_round2.md`：Round 1 到 Round 2 的同场景回归分析。
 - `source_shape_stats.md`：原著参照切片、Round 1、Round 2 的形状统计报告。
+- `source_chapter_shape.md`：全篇章形状统计报告，包含第五卷第二话 8311 字与 Round 3 1963 字对照。
+- `source_chapter_shape.json`：全篇章形状统计机器可读报告。
 - `round3_style.md`：Round 3 规则型文本风格评估报告。
 - `delta_round3.md`：Round 3 Delta v1 人类可读报告。
 - `delta_round3.json`：Round 3 Delta v1 机器可读报告。
 - `round3_pending_user_review.md`：Round 3 等待用户 review 的 provisional 自动信号说明。
+- `round3_full_arc_analysis.md`：Round 3 全场景链路形状分析，记录篇幅过短与日常段不足风险。
+- `candidates/existing_rounds_audit/`：Harness v1 对 Round 1 / Round 2 / Round 3 的回看报告。
 
 ## 使用原则
 
 - `style_evaluator` 抓规则风险，例如直白情绪、结尾封闭、解释腔、日常物件不足。
 - `diff.md` 记录人工发现的高级失败模式，例如分析泄漏、安达过度清醒、电话段错位不足。
 - Delta v1 只做相对距离观察，不做质量评分，也不输出作者相似度百分比。
+- Harness gate 报告只筛掉明显失败样本，不判定候选成功。
+- 通过 gate 的候选只能进入 `pending_user_review`，最终结论等待用户 review。
+
+## 后续候选报告目录
+
+Harness 候选报告使用：
+
+```text
+analysis/reports/candidates/<run_id>/candidate_001_style.md
+analysis/reports/candidates/<run_id>/candidate_001_style.json
+analysis/reports/candidates/<run_id>/candidate_001_delta.md
+analysis/reports/candidates/<run_id>/candidate_001_delta.json
+analysis/reports/candidates/<run_id>/candidate_001_gate.md
+analysis/reports/candidates/<run_id>/candidate_001_gate.json
+analysis/reports/candidates/<run_id>/manifest.json
+```
+
+`candidate_*_gate.md` 只记录自动 gate 状态和原因。允许状态为：
+
+- `failed_auto_gate`
+- `needs_manual_triage`
+- `pending_user_review`

@@ -1,8 +1,8 @@
 # 文本风格评估报告
 
 - 模式：`draft`
-- 文件：`drafts\round2.md`
-- 生成时间：2026-06-07T23:48:22
+- 文件：`C:\Users\33625\Documents\novel\drafts\round2.md`
+- 生成时间：2026-06-08T00:23:50
 
 ## 基础指标
 

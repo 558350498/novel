@@ -1,0 +1,33 @@
+{
+  "status": "failed_auto_gate",
+  "hard_fail_reasons": [
+    "文本长度 1963 低于 hard gate 最小值 6000"
+  ],
+  "manual_triage_reasons": [
+    "对话占比 为 WARN",
+    "岛村回应解释化 为 WARN",
+    "Delta 第一名为 adachi_daily，不是 adachi_pressure"
+  ],
+  "metrics": {
+    "char_count": 1963,
+    "dialogue_ratio": 0.425,
+    "max_dialogue_len": 577,
+    "dialogue_ge_200": 1,
+    "short_dialogue_pct_1_10": 82.35
+  },
+  "delta_first": "adachi_daily",
+  "notes": [
+    "Harness v1 only filters obvious failures.",
+    "pending_user_review is not a success state.",
+    "Final qualitative judgment must wait for user review."
+  ],
+  "candidate_path": "drafts\\round3.md",
+  "reports": {
+    "style_markdown": "analysis\\reports\\candidates\\existing_rounds_audit\\round3_style.md",
+    "style_json": "analysis\\reports\\candidates\\existing_rounds_audit\\round3_style.json",
+    "delta_markdown": "analysis\\reports\\candidates\\existing_rounds_audit\\round3_delta.md",
+    "delta_json": "analysis\\reports\\candidates\\existing_rounds_audit\\round3_delta.json",
+    "gate_markdown": "analysis\\reports\\candidates\\existing_rounds_audit\\round3_gate.md",
+    "gate_json": "analysis\\reports\\candidates\\existing_rounds_audit\\round3_gate.json"
+  }
+}

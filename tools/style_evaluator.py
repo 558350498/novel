@@ -7,7 +7,7 @@ import sys
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import Iterable
+from typing import Any, Iterable
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,7 +33,17 @@ def load_lexicon(path: Path) -> dict:
 
 
 def read_text(path: Path) -> str:
-    return path.read_text(encoding="utf-8")
+    data = path.read_bytes()
+    if data.startswith((b"\xff\xfe", b"\xfe\xff")):
+        return data.decode("utf-16")
+    if data.startswith(b"\xef\xbb\xbf"):
+        return data.decode("utf-8-sig")
+    for encoding in ("utf-8", "gb18030", "utf-16"):
+        try:
+            return data.decode(encoding)
+        except UnicodeDecodeError:
+            continue
+    raise UnicodeDecodeError("text", data, 0, 1, f"unsupported text encoding: {path}")
 
 
 def approx_chars(text: str) -> int:
@@ -152,6 +162,10 @@ def format_hits(hits: list[TermHit], limit: int = 8) -> str:
     return "、".join(f"{hit.term}×{hit.count}" for hit in hits[:limit])
 
 
+def hits_to_json(hits: list[TermHit]) -> list[dict[str, int | str]]:
+    return [{"term": hit.term, "count": hit.count} for hit in hits]
+
+
 def basic_metrics(text: str) -> dict:
     lines = text.splitlines()
     non_empty_lines = [line for line in lines if line.strip()]
@@ -198,14 +212,48 @@ def dialogue_burst_metrics(dialogue_lines: list[str]) -> dict:
             "count_ge_40": 0,
             "count_ge_80": 0,
             "count_ge_200": 0,
+            "length_bins": {},
         }
+    bins = dialogue_length_bins(lengths)
     return {
         "max_len": max(lengths),
         "avg_len": sum(lengths) / len(lengths),
         "count_ge_40": sum(length >= 40 for length in lengths),
         "count_ge_80": sum(length >= 80 for length in lengths),
         "count_ge_200": sum(length >= 200 for length in lengths),
+        "length_bins": bins,
     }
+
+
+def dialogue_length_bins(lengths: list[int]) -> dict[str, dict[str, float | int]]:
+    ranges = [
+        ("1-5", 1, 5),
+        ("6-10", 6, 10),
+        ("11-20", 11, 20),
+        ("21-40", 21, 40),
+        ("41-80", 41, 80),
+        ("81-160", 81, 160),
+        ("161-320", 161, 320),
+        ("321+", 321, None),
+    ]
+    total = len(lengths)
+    bins: dict[str, dict[str, float | int]] = {}
+    for label, low, high in ranges:
+        count = sum(length >= low and (high is None or length <= high) for length in lengths)
+        bins[label] = {
+            "count": count,
+            "pct": (count * 100.0 / total) if total else 0.0,
+        }
+    return bins
+
+
+def format_dialogue_bins(bins: dict[str, dict[str, float | int]]) -> str:
+    if not bins:
+        return "无"
+    return "；".join(
+        f"{label}: {values['count']} ({values['pct']:.1f}%)"
+        for label, values in bins.items()
+    )
 
 
 def evaluate_prompt(text: str, source: Path, lexicon: dict) -> str:
@@ -270,6 +318,47 @@ def evaluate_prompt(text: str, source: Path, lexicon: dict) -> str:
 
 
 def evaluate_draft(text: str, source: Path, lexicon: dict) -> str:
+    data = evaluate_draft_data(text, source, lexicon)
+    return render_draft_markdown(data, source)
+
+
+def render_draft_markdown(data: dict[str, Any], source: Path) -> str:
+    metrics = data["metrics"]
+
+    lines = [
+        "# 文本风格评估报告",
+        "",
+        f"- 模式：`draft`",
+        f"- 文件：`{source}`",
+        f"- 生成时间：{data['generated_at']}",
+        "",
+        "## 基础指标",
+        "",
+        f"- 字符数：{metrics['char_count']}",
+        f"- 段落数：{metrics['paragraph_count']}",
+        f"- 非空行数：{metrics['non_empty_line_count']}",
+        f"- 对话行数：{metrics['dialogue_line_count']}",
+        f"- 对话占比：{metrics['dialogue_ratio']:.1%}",
+        "",
+        "## 检查结果",
+        "",
+    ]
+    for check in data["checks"]:
+        lines.append(status_line(check["status"], check["label"], check["detail"]))
+
+    lines.extend([
+        "",
+        "## 解释",
+        "",
+        "- `OK` 表示当前指标没有明显风险。",
+        "- `WARN` 表示建议人工复核。",
+        "- `RISK` 表示该项可能破坏目标文本机制。",
+        "- 本工具只做规则提示，不替代人工审稿。",
+    ])
+    return "\n".join(lines) + "\n"
+
+
+def evaluate_draft_data(text: str, source: Path, lexicon: dict) -> dict[str, Any]:
     metrics = basic_metrics(text)
     thresholds = lexicon["thresholds"]
     char_count = metrics["char_count"]
@@ -293,54 +382,75 @@ def evaluate_draft(text: str, source: Path, lexicon: dict) -> str:
     ambiguity_density = per_1000(ambiguity_count, char_count)
     mundane_density = per_1000(sum_hits(mundane_hits), char_count)
     literary_density = per_1000(sum_hits(literary_hits), char_count)
+    checks: list[dict[str, Any]] = []
 
-    lines = [
-        "# 文本风格评估报告",
-        "",
-        f"- 模式：`draft`",
-        f"- 文件：`{source}`",
-        f"- 生成时间：{datetime.now().isoformat(timespec='seconds')}",
-        "",
-        "## 基础指标",
-        "",
-        f"- 字符数：{char_count}",
-        f"- 段落数：{metrics['paragraph_count']}",
-        f"- 非空行数：{metrics['non_empty_line_count']}",
-        f"- 对话行数：{metrics['dialogue_line_count']}",
-        f"- 对话占比：{metrics['dialogue_ratio']:.1%}",
-        "",
-        "## 检查结果",
-        "",
-    ]
+    def add_check(status: str, label: str, detail: str, values: dict[str, Any] | None = None) -> None:
+        checks.append({
+            "status": status,
+            "label": label,
+            "detail": detail,
+            "values": values or {},
+        })
 
     confidence_status = "OK" if char_count >= thresholds["min_chars_for_confident_draft"] else "WARN"
-    lines.append(status_line(confidence_status, "文本长度", f"{char_count} 字符；低于 {thresholds['min_chars_for_confident_draft']} 时只适合做初步提示"))
+    add_check(
+        confidence_status,
+        "文本长度",
+        f"{char_count} 字符；低于 {thresholds['min_chars_for_confident_draft']} 时只适合做初步提示",
+        {"char_count": char_count, "min_chars_for_confident_draft": thresholds["min_chars_for_confident_draft"]},
+    )
 
     direct_status = status_for_max(direct_density, thresholds["direct_emotion_per_1000_warn"], thresholds["direct_emotion_per_1000_risk"])
-    lines.append(status_line(direct_status, "情绪表达直白度", f"密度 {direct_density:.2f}/千字；命中：{format_hits(direct_hits)}"))
+    add_check(
+        direct_status,
+        "情绪表达直白度",
+        f"密度 {direct_density:.2f}/千字；命中：{format_hits(direct_hits)}",
+        {"density_per_1000": round(direct_density, 4), "hits": hits_to_json(direct_hits)},
+    )
 
     ambiguity_status = status_for_min(ambiguity_density, thresholds["ambiguity_per_1000_min"], thresholds["ambiguity_per_1000_low"])
-    lines.append(status_line(ambiguity_status, "含混与自我修正", f"密度 {ambiguity_density:.2f}/千字；含混：{format_hits(hedge_hits)}；否定/修正：{format_hits(negation_hits + correction_hits)}"))
+    add_check(
+        ambiguity_status,
+        "含混与自我修正",
+        f"密度 {ambiguity_density:.2f}/千字；含混：{format_hits(hedge_hits)}；否定/修正：{format_hits(negation_hits + correction_hits)}",
+        {
+            "density_per_1000": round(ambiguity_density, 4),
+            "hedge_hits": hits_to_json(hedge_hits),
+            "negation_correction_hits": hits_to_json(negation_hits + correction_hits),
+        },
+    )
 
     mundane_status = status_for_min(mundane_density, thresholds["mundane_object_per_1000_min"], 1)
-    lines.append(status_line(mundane_status, "日常物件承载", f"密度 {mundane_density:.2f}/千字；命中：{format_hits(mundane_hits)}"))
+    add_check(
+        mundane_status,
+        "日常物件承载",
+        f"密度 {mundane_density:.2f}/千字；命中：{format_hits(mundane_hits)}",
+        {"density_per_1000": round(mundane_density, 4), "hits": hits_to_json(mundane_hits)},
+    )
 
     dialogue_status = status_for_max(metrics["dialogue_ratio"], thresholds["dialogue_ratio_warn"], thresholds["dialogue_ratio_risk"])
-    lines.append(status_line(dialogue_status, "对话占比", f"{metrics['dialogue_ratio']:.1%}；过高时容易变成解释性辩论"))
+    add_check(
+        dialogue_status,
+        "对话占比",
+        f"{metrics['dialogue_ratio']:.1%}；过高时容易变成解释性辩论",
+        {"dialogue_ratio": metrics["dialogue_ratio"]},
+    )
 
     burst_status = status_for_min(
         burst["max_len"],
         thresholds["burst_dialogue_chars_warn"],
         thresholds["burst_dialogue_chars_low"],
     )
-    lines.append(status_line(
+    add_check(
         burst_status,
         "过载长台词",
         (
             f"最长台词 {burst['max_len']} 字符，平均 {burst['avg_len']:.1f} 字符；"
             f">=40：{burst['count_ge_40']} 行，>=80：{burst['count_ge_80']} 行，>=200：{burst['count_ge_200']} 行"
         ),
-    ))
+        burst,
+    )
+    add_check("INFO", "台词长度分布", format_dialogue_bins(burst["length_bins"]), {"length_bins": burst["length_bins"]})
 
     receiver_count = sum_hits(receiver_hits)
     receiver_status = status_for_min(
@@ -348,7 +458,12 @@ def evaluate_draft(text: str, source: Path, lexicon: dict) -> str:
         thresholds["receiver_misalignment_min"],
         thresholds["receiver_misalignment_low"],
     )
-    lines.append(status_line(receiver_status, "接收端错位", f"命中 {receiver_count} 次：{format_hits(receiver_hits)}"))
+    add_check(
+        receiver_status,
+        "接收端错位",
+        f"命中 {receiver_count} 次：{format_hits(receiver_hits)}",
+        {"count": receiver_count, "hits": hits_to_json(receiver_hits)},
+    )
 
     analysis_leak_count = sum_hits(analysis_leak_hits)
     analysis_leak_status = status_for_max(
@@ -356,7 +471,12 @@ def evaluate_draft(text: str, source: Path, lexicon: dict) -> str:
         thresholds["analysis_leak_hits_warn"],
         thresholds["analysis_leak_hits_risk"],
     )
-    lines.append(status_line(analysis_leak_status, "分析概念泄漏", f"命中 {analysis_leak_count} 次：{format_hits(analysis_leak_hits)}"))
+    add_check(
+        analysis_leak_status,
+        "分析概念泄漏",
+        f"命中 {analysis_leak_count} 次：{format_hits(analysis_leak_hits)}",
+        {"count": analysis_leak_count, "hits": hits_to_json(analysis_leak_hits)},
+    )
 
     if shimamura["explicit_count"]:
         shimamura_status = status_for_max(
@@ -371,24 +491,33 @@ def evaluate_draft(text: str, source: Path, lexicon: dict) -> str:
     else:
         shimamura_status = "WARN"
         shimamura_detail = "未检测到 `岛村：` 这类显式说话人标记，无法估算岛村回应长度"
-    lines.append(status_line(shimamura_status, "岛村回应解释化", shimamura_detail))
+    add_check(shimamura_status, "岛村回应解释化", shimamura_detail, shimamura)
 
     closure_status = "RISK" if sum_hits(closure_tail_hits) >= thresholds["closure_tail_warn"] else "OK"
-    lines.append(status_line(closure_status, "结尾封闭化", f"末尾 {thresholds['tail_chars']} 字命中：{format_hits(closure_tail_hits)}"))
+    add_check(
+        closure_status,
+        "结尾封闭化",
+        f"末尾 {thresholds['tail_chars']} 字命中：{format_hits(closure_tail_hits)}",
+        {"tail_chars": thresholds["tail_chars"], "hits": hits_to_json(closure_tail_hits)},
+    )
 
     literary_status = status_for_max(literary_density, thresholds["literary_per_1000_warn"], thresholds["literary_per_1000_warn"] * 2)
-    lines.append(status_line(literary_status, "过度文学化风险", f"密度 {literary_density:.2f}/千字；命中：{format_hits(literary_hits)}"))
+    add_check(
+        literary_status,
+        "过度文学化风险",
+        f"密度 {literary_density:.2f}/千字；命中：{format_hits(literary_hits)}",
+        {"density_per_1000": round(literary_density, 4), "hits": hits_to_json(literary_hits)},
+    )
 
-    lines.extend([
-        "",
-        "## 解释",
-        "",
-        "- `OK` 表示当前指标没有明显风险。",
-        "- `WARN` 表示建议人工复核。",
-        "- `RISK` 表示该项可能破坏目标文本机制。",
-        "- 本工具只做规则提示，不替代人工审稿。",
-    ])
-    return "\n".join(lines) + "\n"
+    public_metrics = {key: value for key, value in metrics.items() if key != "dialogue_lines"}
+    public_metrics["dialogue_burst"] = burst
+    return {
+        "mode": "draft",
+        "file": str(source),
+        "generated_at": datetime.now().isoformat(timespec="seconds"),
+        "metrics": public_metrics,
+        "checks": checks,
+    }
 
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
@@ -397,6 +526,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--mode", choices=["prompt", "draft"], required=True, help="Evaluation mode.")
     parser.add_argument("--lexicon", type=Path, default=DEFAULT_LEXICON, help="Lexicon JSON path.")
     parser.add_argument("--output", type=Path, help="Optional Markdown report output path.")
+    parser.add_argument("--json-output", type=Path, help="Optional structured JSON report output path.")
     return parser.parse_args(argv)
 
 
@@ -411,11 +541,25 @@ def main(argv: list[str]) -> int:
 
     lexicon = load_lexicon(args.lexicon)
     text = read_text(args.path)
-    report = evaluate_prompt(text, args.path, lexicon) if args.mode == "prompt" else evaluate_draft(text, args.path, lexicon)
+    if args.mode == "prompt":
+        report = evaluate_prompt(text, args.path, lexicon)
+        json_report = {
+            "mode": "prompt",
+            "file": str(args.path),
+            "generated_at": datetime.now().isoformat(timespec="seconds"),
+            "metrics": {key: value for key, value in basic_metrics(text).items() if key != "dialogue_lines"},
+            "checks": [],
+        }
+    else:
+        json_report = evaluate_draft_data(text, args.path, lexicon)
+        report = render_draft_markdown(json_report, args.path)
 
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(report, encoding="utf-8")
+    if args.json_output:
+        args.json_output.parent.mkdir(parents=True, exist_ok=True)
+        args.json_output.write_text(json.dumps(json_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     print(report, end="")
     return 0

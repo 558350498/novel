@@ -21,7 +21,8 @@
 6. 人工 review 漏报/误报
 7. 用 diff/review 记录失败模式
 8. 用 Delta 相对距离评估观察草稿与参照组的表层距离
-9. 迭代 prompt、词表、切片和阈值
+9. 用轻量 harness 筛选候选草稿
+10. 迭代 prompt、词表、切片和阈值
 
 ## Current Status
 
@@ -35,6 +36,8 @@
 - 第一轮固定场景测试稿已生成到 `drafts/current.md`。
 - 已生成自动评估报告、Codex 人工 review 和 diff 讨论文档。
 - Delta v1 已可运行：比较生成稿相对 `adachi_pressure`、`adachi_daily`、`shimamura_view`、`analysis_docs` 的表层文体距离。
+- Harness v1 已可运行：先做已有候选评分器，只筛明显失败样本，不替代用户 review。
+- 全篇章形状分析已可运行，用于把“文本太短”和“日常/高压比例”变成可回归指标。
 
 ## Project Navigation
 
@@ -44,6 +47,11 @@
 | 当前进度与计划 | [PROJECT_STATUS.md](./PROJECT_STATUS.md) |
 | 分析产物目录 | [analysis/README.md](./analysis/README.md) |
 | 报告目录 | [analysis/reports/README.md](./analysis/reports/README.md) |
+| Harness v1 计划 | [analysis/harness_plan.md](./analysis/harness_plan.md) |
+| Harness v1 配置 | [analysis/harness_config.json](./analysis/harness_config.json) |
+| Harness v1 工具 | [tools/light_harness.py](./tools/light_harness.py) |
+| 全篇章形状分析工具 | [tools/source_shape_analyzer.py](./tools/source_shape_analyzer.py) |
+| Round 4 长篇候选 prompt | [analysis/generation_prompt_round4.md](./analysis/generation_prompt_round4.md) |
 | 当前测试稿 | [drafts/current.md](./drafts/current.md) |
 | Delta 切片配置 | [corpus_slices/slices.json](./corpus_slices/slices.json) |
 | Delta 工具 | [tools/delta_evaluator.py](./tools/delta_evaluator.py) |
@@ -64,3 +72,15 @@ python tools/delta_evaluator.py --draft drafts/current.md --slices corpus_slices
 ```
 
 Delta 只作为相对指标，不作为质量评分、作者相似度百分比或复刻目标。
+
+全篇章形状分析：
+```powershell
+python tools/source_shape_analyzer.py --index novel_index.json --output-prefix analysis/reports/source_chapter_shape
+```
+
+Harness v1：
+```powershell
+python tools/light_harness.py --run-id existing_rounds_audit --candidates drafts/current.md drafts/round2.md drafts/round3.md --slices corpus_slices/slices.json --config analysis/harness_config.json --reports-root analysis/reports/candidates
+```
+
+Harness v1 暂不自动生成候选；只把通过自动 gate 的候选标记为 `pending_user_review`。

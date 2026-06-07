@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "statuses": [
+    "failed_auto_gate",
+    "needs_manual_triage",
+    "pending_user_review"
+  ],
+  "hard_fail": {
+    "min_chars": 6000,
+    "risk_checks": [
+      "过载长台词",
+      "分析概念泄漏",
+      "结尾封闭化"
+    ],
+    "receiver_misalignment_min": 1,
+    "short_dialogue_max_pct_1_10": 75.0,
+    "short_dialogue_requires_ge_200": true
+  },
+  "manual_triage": {
+    "warn_checks": [
+      "对话占比",
+      "岛村回应解释化"
+    ],
+    "delta_expected_first": "adachi_pressure",
+    "delta_analysis_docs_id": "analysis_docs"
+  },
+  "notes": [
+    "Harness v1 only filters obvious failures.",
+    "pending_user_review is not a success state.",
+    "Final qualitative judgment must wait for user review."
+  ]
+}
