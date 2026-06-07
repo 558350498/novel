@@ -1,0 +1,127 @@
+{
+  "draft_path": "drafts\\current.md",
+  "slices_path": "corpus_slices\\slices.json",
+  "generated_at": "2026-06-07T15:28:00",
+  "feature_set": {
+    "main_delta": "simple average of cosine distances",
+    "blocks": [
+      "char_unigram",
+      "char_bigram",
+      "punctuation"
+    ],
+    "reported_only": [
+      "sentence_length_stats"
+    ]
+  },
+  "draft_stats": {
+    "char_count": 1804,
+    "sentence_count": 150,
+    "sentence_avg": 11.03,
+    "sentence_median": 9.0,
+    "sentence_p90": 21.0
+  },
+  "groups": [
+    {
+      "id": "adachi_pressure",
+      "label": "关系失衡核心段",
+      "slice_count": 1,
+      "distances": {
+        "delta": 0.332526,
+        "char_unigram": 0.193189,
+        "char_bigram": 0.556517,
+        "punctuation": 0.247873
+      },
+      "text_stats": {
+        "char_count": 8311,
+        "sentence_count": 420,
+        "sentence_avg": 18.79,
+        "sentence_median": 16.0,
+        "sentence_p90": 33.0
+      }
+    },
+    {
+      "id": "adachi_daily",
+      "label": "关系错位前置段",
+      "slice_count": 1,
+      "distances": {
+        "delta": 0.242134,
+        "char_unigram": 0.144564,
+        "char_bigram": 0.497226,
+        "punctuation": 0.08461
+      },
+      "text_stats": {
+        "char_count": 28171,
+        "sentence_count": 1470,
+        "sentence_avg": 18.16,
+        "sentence_median": 17.0,
+        "sentence_p90": 31.0
+      }
+    },
+    {
+      "id": "shimamura_view",
+      "label": "岛村平稳叙述段",
+      "slice_count": 1,
+      "distances": {
+        "delta": 0.280171,
+        "char_unigram": 0.169847,
+        "char_bigram": 0.601422,
+        "punctuation": 0.069244
+      },
+      "text_stats": {
+        "char_count": 18794,
+        "sentence_count": 866,
+        "sentence_avg": 20.7,
+        "sentence_median": 18.0,
+        "sentence_p90": 37.0
+      }
+    },
+    {
+      "id": "analysis_docs",
+      "label": "分析腔参照文档",
+      "slice_count": 4,
+      "distances": {
+        "delta": 0.388067,
+        "char_unigram": 0.329894,
+        "char_bigram": 0.589441,
+        "punctuation": 0.244866
+      },
+      "text_stats": {
+        "char_count": 6482,
+        "sentence_count": 268,
+        "sentence_avg": 23.19,
+        "sentence_median": 20.0,
+        "sentence_p90": 39.0
+      }
+    }
+  ],
+  "ranking": [
+    {
+      "rank": 1,
+      "id": "adachi_daily",
+      "label": "关系错位前置段",
+      "delta": 0.242134
+    },
+    {
+      "rank": 2,
+      "id": "shimamura_view",
+      "label": "岛村平稳叙述段",
+      "delta": 0.280171
+    },
+    {
+      "rank": 3,
+      "id": "adachi_pressure",
+      "label": "关系失衡核心段",
+      "delta": 0.332526
+    },
+    {
+      "rank": 4,
+      "id": "analysis_docs",
+      "label": "分析腔参照文档",
+      "delta": 0.388067
+    }
+  ],
+  "notes": [
+    "Delta is a relative surface-distance metric.",
+    "It is not a quality score, author similarity score, or copying target."
+  ]
+}

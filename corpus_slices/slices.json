@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "description": "Delta v1 reference corpus slices. Paths are relative to the project root; line ranges are start-inclusive and end-before.",
+  "groups": [
+    {
+      "id": "adachi_pressure",
+      "label": "关系失衡核心段",
+      "slices": [
+        {
+          "path": "data/raw/vol05_第五卷_岛村之刃.txt",
+          "start_line": 2446,
+          "end_before_line": 2865
+        }
+      ]
+    },
+    {
+      "id": "adachi_daily",
+      "label": "关系错位前置段",
+      "slices": [
+        {
+          "path": "data/raw/vol05_第五卷_岛村之刃.txt",
+          "start_line": 483,
+          "end_before_line": 2446
+        }
+      ]
+    },
+    {
+      "id": "shimamura_view",
+      "label": "岛村平稳叙述段",
+      "slices": [
+        {
+          "path": "data/raw/vol02_第二卷_岛村前往健身房.txt",
+          "start_line": 3,
+          "end_before_line": 928
+        }
+      ]
+    },
+    {
+      "id": "analysis_docs",
+      "label": "分析腔参照文档",
+      "slices": [
+        {
+          "path": "analysis/style_analysis.md"
+        },
+        {
+          "path": "analysis/transferable_rules.md"
+        },
+        {
+          "path": "analysis/generation_prompt.md"
+        },
+        {
+          "path": "analysis/review_checklist.md"
+        }
+      ]
+    }
+  ]
+}

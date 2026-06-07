@@ -15,18 +15,23 @@
 - 已创建分析目录说明 `analysis/README.md`。
 - 已创建轻量文本风格评估器 `tools/style_evaluator.py`。
 - 已创建评估词表 `tools/style_lexicon.json`。
-- 已创建当前待审稿占位文件 `drafts/current.md`。
-- 已创建评估报告目录 `analysis/reports/`，并生成占位稿评估报告 `analysis/reports/current.md`。
+- 已创建当前待审稿文件 `drafts/current.md`，并写入第一轮固定场景测试稿。
+- 已创建评估报告目录 `analysis/reports/`，并生成第一轮自动评估报告 `analysis/reports/current.md`。
+- 已生成第一轮 Codex 人工 review：`analysis/reports/codex_review.md`。
+- 已生成第一轮差异讨论文档：`analysis/reports/diff.md`。
+- 已实现 Delta v1 相对距离评估器：`tools/delta_evaluator.py`。
+- 已创建 Delta v1 切片配置：`corpus_slices/slices.json`。
 - 已生成四份分析产物：
   - `analysis/style_analysis.md`
   - `analysis/transferable_rules.md`
   - `analysis/generation_prompt.md`
   - `analysis/review_checklist.md`
 - 已定位核心素材：
-  - 文件：`vol05_第五卷_岛村之刃.txt`
+  - 文件：`data/raw/vol05_第五卷_岛村之刃.txt`
   - 核心章：第五卷 第二话「岛村之刃」
   - 范围：第 2446 行到第 2864 行
   - 下一章起点：第 2865 行
+- 已确认正文 txt 的实际物理位置在 `data/raw/`，根目录索引中的文件名作为逻辑索引使用。
 
 ### 已确认的技术判断
 
@@ -75,30 +80,56 @@
 
 - 第一篇测试稿固定使用 `generation_prompt.md` 中的场景链：烟花祭后、看见岛村和樽见、回家盯手机、短电话、明天见面、掌心薄痛结尾。
 - 固定场景的目的，是控制剧情变量，优先测试 prompt、评估器和审稿清单是否能约束目标机制。
-- 第一版测试稿由 Codex 先生成，写入 `drafts/current.md`。
-- 生成后立即运行 `tools/style_evaluator.py --mode draft drafts/current.md --output analysis/reports/current.md`。
-- 自动报告只作为风险提示；最终判断采用 Codex 人工 review 与用户人工 review 双审。
-- 双审关注两类问题：脚本没有抓到但人工觉得不对的失败模式，以及脚本提示但人工认为是误报的指标。
+- 第一版测试稿已由 Codex 生成，写入 `drafts/current.md`。
+- 已运行 `tools/style_evaluator.py --mode draft drafts/current.md --output analysis/reports/current.md`。
+- 已完成 Codex 人工 review，并和用户一起把第一轮失败模式写入 `analysis/reports/diff.md`。
+- 当前关键结论：第一轮稿件最大问题不是“不够痛”，而是安达过载时仍然太能组织语言，分析层概念泄漏进了小说层。
+
+### Delta 相对距离评估器 v1
+
+Delta 不替代现有 `style_evaluator.py`，只作为相对距离指标使用。它回答的是“生成稿更靠近哪类参照语料”，不回答“像不像作者”“质量是否合格”。
+
+- 工具：`tools/delta_evaluator.py`。
+- 配置：`corpus_slices/slices.json`，使用范围引用，不复制原文片段。
+- 报告：输出 `analysis/reports/delta_current.json` 和 `analysis/reports/delta_current.md`。
+- 特征：第一版使用字符 unigram、字符 bigram、标点频率；句长分布单独报告，不进入主 Delta 距离向量。
+- 参照组：
+  - `adachi_pressure`：安达高压段，优先使用 `data/raw/vol05_第五卷_岛村之刃.txt` 第 2446 行到第 2864 行前。
+  - `adachi_daily`：安达日常但非高压段，当前使用第 5 卷「来自蔚蓝」第 483 行到第 2445 行。
+  - `shimamura_view`：岛村视角或岛村平稳叙述段，当前使用第 2 卷「岛村 前往健身房」第 3 行到第 927 行。
+  - `analysis_docs`：四份核心分析文档，用于检测生成稿是否靠近分析腔。
+  - `drafts`：生成稿，如 `drafts/current.md`。
+- 解释原则：Delta 越近只表示表层特征更接近该组参照，不等于更好；如果 Delta 趋势与人工读感冲突，以人工 review 为准，并记录为指标盲区。
 
 ## 后续计划
 
-### 第 1 步：固定场景测试稿
+### 第 1 步：Delta v1（已实现初版）
 
-- 用 `generation_prompt.md` 生成一篇固定场景短篇草稿。
-- 放入 `drafts/current.md`。
-- 运行 `tools/style_evaluator.py --mode draft drafts/current.md --output analysis/reports/current.md`。
-- Codex 先基于 `review_checklist.md` 做一轮人工 review。
-- 用户再做一轮人工 review。
-- 汇总“脚本漏报”“脚本误报”“prompt 执行偏差”“文本本身问题”。
+- 已新建 `corpus_slices/README.md` 和 `corpus_slices/slices.json`。
+- 已新建独立脚本 `tools/delta_evaluator.py`，不合并进 `tools/style_evaluator.py`。
+- 推荐命令：
+  - `python tools/delta_evaluator.py --draft drafts/current.md --slices corpus_slices/slices.json --output-prefix analysis/reports/delta_current`
+- 第一版只做当前稿对参照组的距离排序，不做多 draft 历史趋势。
+- 验证 Markdown 报告包含 `adachi_pressure`、`adachi_daily`、`shimamura_view`、`analysis_docs`，并明确写出“相对指标，不等于质量评分”。
+- 验证 JSON 报告包含 draft 路径、feature set、group distances、generated_at。
 
-### 第 2 步：调参
+### 第 2 步：第二轮固定场景改稿
+
+- 保持固定场景链不变。
+- 重写或局部增强电话前后片段，让安达出现更明显的过载发话、断句、重复、抢话和语义传达失败。
+- 减少完整解释句，避免把 `轻`、`普通`、`真正的问题`、`温和所以痛` 等分析结论写进小说层。
+- 生成后继续运行规则型评估器，并结合 `diff.md` 做人工 review。
+- 任何新版草稿在用户 review 前只能标记为 `pending user review`；Codex 可以写 provisional review，但不能自行宣布新版更好或写入最终回归结论。
+
+### 第 3 步：调参
 
 - 根据第一篇测试稿和后续 2 到 3 篇草稿的实际报告，调整 `tools/style_lexicon.json` 的词表和阈值。
 - 必要时回改 `analysis/generation_prompt.md` 和 `analysis/review_checklist.md`。
 - 保留多指标提示，不引入单一总分裁决。
 - 第一版继续不引入 MeCab、Sudachi、Jieba 等重型分词。
+- 根据 Delta v1 与人工 review 的一致性，决定是否调整切片范围、特征集合或增加历史对比。
 
-### 第 3 步：考虑 Codex hook
+### 第 4 步：考虑 Codex hook
 
 等脚本稳定后，再添加 `.codex/hooks.json`。
 
@@ -117,6 +148,7 @@ hook 设计原则：
 - prompt 能引导生成原创中文短篇，而不是贴近复刻。
 - review checklist 能识别情绪表达过度直白、对话过度理性化、结尾封闭化、比喻过度文学化等失败模式。
 - 文本风格评估器能对 prompt 和 draft 分别输出有用的风险提示。
+- Delta 报告能显示生成稿相对 `adachi_pressure`、`adachi_daily`、`shimamura_view`、`analysis_docs` 的距离排序，并清楚标注其相对指标属性。
 
 ## 边界
 
@@ -126,3 +158,4 @@ hook 设计原则：
 - 不把「剑」解释成固定文学符号。
 - 不把统计结果当成风格本体。
 - 不把中文译文误判为日文原文风格。
+- 不把 Delta 距离误用成质量评分、作者相似度百分比或复刻目标。

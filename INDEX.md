@@ -2,22 +2,57 @@
 
 本索引只记录标题和起始行号，方便快速定位，不摘录正文。
 
+## 快速导航
+
+| 用途 | 入口 |
+|---|---|
+| 项目总览 | [README.md](./README.md) |
+| 当前进度与下一步 | [PROJECT_STATUS.md](./PROJECT_STATUS.md) |
+| 机器可读卷/章索引 | [novel_index.json](./novel_index.json) |
+| 分析产物目录 | [analysis/README.md](./analysis/README.md) |
+| 报告目录 | [analysis/reports/README.md](./analysis/reports/README.md) |
+| 当前测试稿 | [drafts/current.md](./drafts/current.md) |
+| 规则型评估器 | [tools/style_evaluator.py](./tools/style_evaluator.py) |
+| 评估词表 | [tools/style_lexicon.json](./tools/style_lexicon.json) |
+
+## 核心工作流入口
+
+| 阶段 | 文件 |
+|---|---|
+| 机制分析 | [analysis/style_analysis.md](./analysis/style_analysis.md) |
+| 可迁移规则 | [analysis/transferable_rules.md](./analysis/transferable_rules.md) |
+| 生成 prompt | [analysis/generation_prompt.md](./analysis/generation_prompt.md) |
+| 审稿清单 | [analysis/review_checklist.md](./analysis/review_checklist.md) |
+| 第一轮自动评估 | [analysis/reports/current.md](./analysis/reports/current.md) |
+| 第一轮 Codex review | [analysis/reports/codex_review.md](./analysis/reports/codex_review.md) |
+| 第一轮 diff 讨论 | [analysis/reports/diff.md](./analysis/reports/diff.md) |
+
+## Delta v1 入口
+
+| 用途 | 路径 |
+|---|---|
+| 语料切片说明 | `corpus_slices/README.md` |
+| 语料切片配置 | `corpus_slices/slices.json` |
+| Delta 工具 | `tools/delta_evaluator.py` |
+| Delta Markdown 报告 | `analysis/reports/delta_current.md` |
+| Delta JSON 报告 | `analysis/reports/delta_current.json` |
+
 ## 卷号映射
 
 | 卷号 | 当前文件 | 原下载文件 |
 |---|---|---|
-| 第 1 卷 | `vol01_第一卷_制服PINPON.txt` | `57157 utf-8.txt` |
-| 第 2 卷 | `vol02_第二卷_岛村前往健身房.txt` | `72353 utf-8.txt` |
-| 第 3 卷 | `vol03_第三卷_请挑选一个适合我的巧克力.txt` | `72363 utf-8.txt` |
-| 第 4 卷 | `vol04_第四卷_樱与春.txt` | `72396 utf-8.txt` |
-| 第 5 卷 | `vol05_第五卷_岛村之刃.txt` | `72409 utf-8.txt` |
-| 第 6 卷 | `vol06_第六卷_Bitter_Sweet_Memories.txt` | `81033 utf-8.txt` |
-| 第 7 卷 | `vol07_第七卷_如果没有在体育馆二楼相遇.txt` | `81043 utf-8.txt` |
-| 第 8 卷 | `vol08_第八卷_远游.txt` | `99285 utf-8.txt` |
+| 第 1 卷 | `data/raw/vol01_第一卷_制服PINPON.txt` | `57157 utf-8.txt` |
+| 第 2 卷 | `data/raw/vol02_第二卷_岛村前往健身房.txt` | `72353 utf-8.txt` |
+| 第 3 卷 | `data/raw/vol03_第三卷_请挑选一个适合我的巧克力.txt` | `72363 utf-8.txt` |
+| 第 4 卷 | `data/raw/vol04_第四卷_樱与春.txt` | `72396 utf-8.txt` |
+| 第 5 卷 | `data/raw/vol05_第五卷_岛村之刃.txt` | `72409 utf-8.txt` |
+| 第 6 卷 | `data/raw/vol06_第六卷_Bitter_Sweet_Memories.txt` | `81033 utf-8.txt` |
+| 第 7 卷 | `data/raw/vol07_第七卷_如果没有在体育馆二楼相遇.txt` | `81043 utf-8.txt` |
+| 第 8 卷 | `data/raw/vol08_第八卷_远游.txt` | `99285 utf-8.txt` |
 
 ## 第 1 卷
 
-文件：`vol01_第一卷_制服PINPON.txt`
+文件：`data/raw/vol01_第一卷_制服PINPON.txt`
 
 | 行号 | 标题 |
 |---:|---|
@@ -31,7 +66,7 @@
 
 ## 第 2 卷
 
-文件：`vol02_第二卷_岛村前往健身房.txt`
+文件：`data/raw/vol02_第二卷_岛村前往健身房.txt`
 
 | 行号 | 标题 |
 |---:|---|
@@ -48,7 +83,7 @@
 
 ## 第 3 卷
 
-文件：`vol03_第三卷_请挑选一个适合我的巧克力.txt`
+文件：`data/raw/vol03_第三卷_请挑选一个适合我的巧克力.txt`
 
 | 行号 | 标题 |
 |---:|---|
@@ -63,7 +98,7 @@
 
 ## 第 4 卷
 
-文件：`vol04_第四卷_樱与春.txt`
+文件：`data/raw/vol04_第四卷_樱与春.txt`
 
 | 行号 | 标题 |
 |---:|---|
@@ -78,7 +113,7 @@
 
 ## 第 5 卷
 
-文件：`vol05_第五卷_岛村之刃.txt`
+文件：`data/raw/vol05_第五卷_岛村之刃.txt`
 
 | 行号 | 标题 |
 |---:|---|
@@ -93,7 +128,7 @@
 
 ## 第 6 卷
 
-文件：`vol06_第六卷_Bitter_Sweet_Memories.txt`
+文件：`data/raw/vol06_第六卷_Bitter_Sweet_Memories.txt`
 
 | 行号 | 标题 |
 |---:|---|
@@ -107,7 +142,7 @@
 
 ## 第 7 卷
 
-文件：`vol07_第七卷_如果没有在体育馆二楼相遇.txt`
+文件：`data/raw/vol07_第七卷_如果没有在体育馆二楼相遇.txt`
 
 | 行号 | 标题 |
 |---:|---|
@@ -123,7 +158,7 @@
 
 ## 第 8 卷
 
-文件：`vol08_第八卷_远游.txt`
+文件：`data/raw/vol08_第八卷_远游.txt`
 
 | 行号 | 标题 |
 |---:|---|
@@ -141,7 +176,7 @@
 
 | 用途 | 文件 | 起始行 |
 |---|---|---:|
-| 情绪张力核心章 | [vol05_第五卷_岛村之刃.txt:2446](./vol05_第五卷_岛村之刃.txt#L2446) | 2446 |
-| 前置情绪上下文 | [vol05_第五卷_岛村之刃.txt:483](./vol05_第五卷_岛村之刃.txt#L483) | 483 |
-| 后续反刍上下文 | [vol05_第五卷_岛村之刃.txt:2865](./vol05_第五卷_岛村之刃.txt#L2865) | 2865 |
-| 安达恢复/行动上下文 | [vol05_第五卷_岛村之刃.txt:4628](./vol05_第五卷_岛村之刃.txt#L4628) | 4628 |
+| 关系失衡核心段 | [data/raw/vol05_第五卷_岛村之刃.txt:2446](./data/raw/vol05_第五卷_岛村之刃.txt#L2446) | 2446 |
+| 关系错位前置段 | [data/raw/vol05_第五卷_岛村之刃.txt:483](./data/raw/vol05_第五卷_岛村之刃.txt#L483) | 483 |
+| 事后反思与重估段 | [data/raw/vol05_第五卷_岛村之刃.txt:2865](./data/raw/vol05_第五卷_岛村之刃.txt#L2865) | 2865 |
+| 主体性恢复与行动段 | [data/raw/vol05_第五卷_岛村之刃.txt:4628](./data/raw/vol05_第五卷_岛村之刃.txt#L4628) | 4628 |

@@ -189,6 +189,25 @@ def shimamura_dialogue_metrics(text: str, lexicon: dict) -> dict:
     }
 
 
+def dialogue_burst_metrics(dialogue_lines: list[str]) -> dict:
+    lengths = [approx_chars(dialogue_content(line)) for line in dialogue_lines]
+    if not lengths:
+        return {
+            "max_len": 0,
+            "avg_len": 0.0,
+            "count_ge_40": 0,
+            "count_ge_80": 0,
+            "count_ge_200": 0,
+        }
+    return {
+        "max_len": max(lengths),
+        "avg_len": sum(lengths) / len(lengths),
+        "count_ge_40": sum(length >= 40 for length in lengths),
+        "count_ge_80": sum(length >= 80 for length in lengths),
+        "count_ge_200": sum(length >= 200 for length in lengths),
+    }
+
+
 def evaluate_prompt(text: str, source: Path, lexicon: dict) -> str:
     metrics = basic_metrics(text)
     thresholds = lexicon["thresholds"]
@@ -264,7 +283,10 @@ def evaluate_draft(text: str, source: Path, lexicon: dict) -> str:
     closure_tail_scope = strip_negated_terms(tail, lexicon["closure_terms"])
     closure_tail_hits = count_terms(closure_tail_scope, lexicon["closure_terms"])
     literary_hits = count_terms(text, lexicon["literary_risk_terms"])
+    analysis_leak_hits = count_terms(text, lexicon["analysis_leak_terms"])
+    receiver_hits = count_terms(text, lexicon["receiver_misalignment_terms"])
     shimamura = shimamura_dialogue_metrics(text, lexicon)
+    burst = dialogue_burst_metrics(metrics["dialogue_lines"])
 
     direct_density = per_1000(sum_hits(direct_hits), char_count)
     ambiguity_count = sum_hits(hedge_hits) + sum_hits(negation_hits) + sum_hits(correction_hits)
@@ -305,6 +327,36 @@ def evaluate_draft(text: str, source: Path, lexicon: dict) -> str:
 
     dialogue_status = status_for_max(metrics["dialogue_ratio"], thresholds["dialogue_ratio_warn"], thresholds["dialogue_ratio_risk"])
     lines.append(status_line(dialogue_status, "对话占比", f"{metrics['dialogue_ratio']:.1%}；过高时容易变成解释性辩论"))
+
+    burst_status = status_for_min(
+        burst["max_len"],
+        thresholds["burst_dialogue_chars_warn"],
+        thresholds["burst_dialogue_chars_low"],
+    )
+    lines.append(status_line(
+        burst_status,
+        "过载长台词",
+        (
+            f"最长台词 {burst['max_len']} 字符，平均 {burst['avg_len']:.1f} 字符；"
+            f">=40：{burst['count_ge_40']} 行，>=80：{burst['count_ge_80']} 行，>=200：{burst['count_ge_200']} 行"
+        ),
+    ))
+
+    receiver_count = sum_hits(receiver_hits)
+    receiver_status = status_for_min(
+        receiver_count,
+        thresholds["receiver_misalignment_min"],
+        thresholds["receiver_misalignment_low"],
+    )
+    lines.append(status_line(receiver_status, "接收端错位", f"命中 {receiver_count} 次：{format_hits(receiver_hits)}"))
+
+    analysis_leak_count = sum_hits(analysis_leak_hits)
+    analysis_leak_status = status_for_max(
+        analysis_leak_count,
+        thresholds["analysis_leak_hits_warn"],
+        thresholds["analysis_leak_hits_risk"],
+    )
+    lines.append(status_line(analysis_leak_status, "分析概念泄漏", f"命中 {analysis_leak_count} 次：{format_hits(analysis_leak_hits)}"))
 
     if shimamura["explicit_count"]:
         shimamura_status = status_for_max(
