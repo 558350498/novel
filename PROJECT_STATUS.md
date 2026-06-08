@@ -36,6 +36,9 @@
   - `analysis/reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md/json`
 - 已新增 corpus profiler v1：`tools/corpus_profiler.py`，输出可解释特征权重，不做 RAG。
 - 已生成 `adachi_pressure` 对照 profile：`analysis/reports/corpus_profile_adachi_pressure.md/json`。
+- 已新增 experimental Eder/Cosine segment Delta：`tools/eder_delta_evaluator.py`，用于把整篇 Delta 拆成片段级 daily/pressure/shimamura_view 诊断；该工具只定位问题，不判定质量。
+- 已新增 rewrite-plan 产品协议：`analysis/rewrite_plan_protocol.md`，确定 `rewrite_plan.json` 作为 gate/segment diagnosis 到一次局部重写之间的执行单。
+- 已新增项目清理计划：`analysis/project_cleanup_plan.md`，区分 active、provenance、可归档和确认后可删除的文件类别。
 - 已生成四份分析产物：
   - `analysis/style_analysis.md`
   - `analysis/transferable_rules.md`
@@ -146,6 +149,9 @@ Harness v1 先做轻量文件式候选筛选，不引入 LangChain，不让 LLM 
 - 第一版不允许任意切换审美内核，只允许在同一内核下调变量。
 - Gate v1 的第一优先级是解释化泄漏，尤其是岛村过度理解安达。
 - 候选协议采用 `candidate_001.md` + `candidate_001.json`：正文给人读，JSON 给 harness 识别说话人、回应关系、表层接收词和深层理解风险。
+- 改稿协议采用 `rewrite_plan.json`：deterministic planner 记录指标/片段证据，agent layer 只在证据基础上生成一次局部重写任务。
+- 诊断源分为 `metric`、`segment_delta`、`agent_close_reading`、`user_feedback`；冲突解释权顺序为 `user_feedback > blocking_metric > segment_delta > agent_close_reading`。
+- 对话约束采用执行语义：`blocking_checks`、`rewrite_triggers`、`review_warnings`，不再依赖抽象的 hard/soft/watch 提示词。
 - Skill `novel-gate-harness` 已可作为初版 agent workflow；项目内 `skills/novel-gate-harness/` 是源码副本，全局 `C:\Users\33625\.codex\skills\novel-gate-harness\` 是当前可发现安装副本。
 
 ### Corpus Tokenization v1
@@ -275,6 +281,22 @@ hook 设计原则：
 - 默认只输出提醒报告，不阻止正常对话。
 - 不在每轮对话里制造噪音。
 
+### 第 9 步：Rewrite Plan 协议落地
+
+- 以 `analysis/rewrite_plan_protocol.md` 为当前协议源。
+- 下一步为当前候选 run 生成第一份真实 `rewrite_plan.json`。
+- 规则库继续放在 `analysis/harness_config.json`；`rewrite_plan.json` 只记录本次触发项、证据、目标 beat/segments、一次局部改稿任务和禁止事项。
+- 当前阶段先采用 human-in-the-loop 执行；未来可接 agent loop 或 function call。
+- 自动重写最多一次，重写后重新 gate，并停止于 `failed_auto_gate`、`needs_manual_triage` 或 `pending_user_review`。
+
+### 第 10 步：项目清理
+
+- 以 `analysis/project_cleanup_plan.md` 为清理入口。
+- 当前不直接删除历史文件。
+- 先确认 `round5_self_prompt_20260608` 是否为用户实验，再决定归档。
+- 旧 prompt、早期 round 报告、重复 distribution-check 报告优先归档。
+- `.tokens.txt` 大型生成 token stream 可在确认后删除或保持忽略状态。
+
 ## 验收标准
 
 - 能快速定位前 8 卷任意章节。
@@ -285,6 +307,8 @@ hook 设计原则：
 - 文本风格评估器能对 prompt 和 draft 分别输出有用的风险提示。
 - Delta 报告能显示生成稿相对 `adachi_pressure`、`adachi_daily`、`shimamura_view`、`analysis_docs` 的距离排序，并清楚标注其相对指标属性。
 - Harness 能把明显失败候选筛掉，并把幸存候选标记为 `pending_user_review`。
+- Segment Delta 能把候选内部的 daily/pressure 分布定位到片段级，但不作为质量评分。
+- Rewrite plan 能把诊断证据翻译成一次局部改稿任务，并保留用户最终 review 权限。
 
 ## 边界
 
@@ -295,4 +319,5 @@ hook 设计原则：
 - 不把统计结果当成风格本体。
 - 不把中文译文误判为日文原文风格。
 - 不把 Delta 距离误用成质量评分、作者相似度百分比或复刻目标。
+- 不把 Segment Delta 或 rewrite plan 误用成质量判断。
 - 不让 harness、Codex 或 subagent 替代用户最终 review。

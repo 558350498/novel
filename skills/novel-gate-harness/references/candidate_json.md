@@ -2,6 +2,8 @@
 
 Use paired JSON so the harness can evaluate speaker roles and response structure without forcing screenplay formatting into the Markdown draft.
 
+The harness automatically looks for a companion JSON file with the same stem as the Markdown candidate. For example, `candidate_001.md` pairs with `candidate_001.json`.
+
 ## Minimal Schema
 
 ```json
@@ -61,6 +63,13 @@ For Shimamura utterances, include:
 - `explanation_markers`: causal or explanatory markers present in the line.
 
 `deep_understanding: true` should usually lead to manual triage. It may be a hard failure if paired with closure or explicit emotional promise.
+
+Harness behavior:
+
+- Shimamura `explanation_markers` or marker terms found in `text` trigger manual triage.
+- `surface_terms_received` can satisfy receiver-misalignment evidence when Markdown has no speaker labels.
+- `deep_understanding: true` triggers manual triage because it may mean Shimamura understands too much.
+- Long Adachi utterance shape is checked from `speaker: "adachi"` utterance lengths, so JSON should include the full quoted overload utterance text.
 
 ## Scene Beat Types
 

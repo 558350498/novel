@@ -1,0 +1,312 @@
+{
+  "version": 1,
+  "candidate": "candidate_001.md",
+  "kernel_id": "adachi_misaligned_overload_v1",
+  "utterances": [
+    {
+      "id": "u001",
+      "speaker": "adachi",
+      "text": "没有看见。"
+    },
+    {
+      "id": "u002",
+      "speaker": "shimamura",
+      "text": "喂？",
+      "responds_to": [],
+      "surface_terms_received": [],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u003",
+      "speaker": "adachi",
+      "text": "啊。"
+    },
+    {
+      "id": "u004",
+      "speaker": "shimamura",
+      "text": "安达？",
+      "responds_to": ["u003"],
+      "surface_terms_received": [],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u005",
+      "speaker": "adachi",
+      "text": "嗯。"
+    },
+    {
+      "id": "u006",
+      "speaker": "shimamura",
+      "text": "怎么了？",
+      "responds_to": ["u005"],
+      "surface_terms_received": [],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u007",
+      "speaker": "adachi",
+      "text": "那个，明天小测，是第二节吧？"
+    },
+    {
+      "id": "u008",
+      "speaker": "shimamura",
+      "text": "嗯，大概是第二节。你忘了？",
+      "responds_to": ["u007"],
+      "surface_terms_received": ["明天", "小测", "第二节"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u009",
+      "speaker": "adachi",
+      "text": "没有。"
+    },
+    {
+      "id": "u010",
+      "speaker": "shimamura",
+      "text": "那你问什么。",
+      "responds_to": ["u009"],
+      "surface_terms_received": ["小测"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u011",
+      "speaker": "adachi",
+      "text": "我只是确认一下。"
+    },
+    {
+      "id": "u012",
+      "speaker": "shimamura",
+      "text": "哦。",
+      "responds_to": ["u011"],
+      "surface_terms_received": ["确认"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u013",
+      "speaker": "adachi",
+      "text": "你在外面吗？"
+    },
+    {
+      "id": "u014",
+      "speaker": "shimamura",
+      "text": "没有，在家。",
+      "responds_to": ["u013"],
+      "surface_terms_received": ["外面", "家"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u015",
+      "speaker": "shimamura",
+      "text": "你呢？",
+      "responds_to": ["u013"],
+      "surface_terms_received": ["在家"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u016",
+      "speaker": "adachi",
+      "text": "我也在家。"
+    },
+    {
+      "id": "u017",
+      "speaker": "shimamura",
+      "text": "那不是很好吗。",
+      "responds_to": ["u016"],
+      "surface_terms_received": ["在家"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u018",
+      "speaker": "adachi",
+      "text": "今天烟花，挺大的。"
+    },
+    {
+      "id": "u019",
+      "speaker": "shimamura",
+      "text": "是啊，最后那个很吵。",
+      "responds_to": ["u018"],
+      "surface_terms_received": ["烟花", "吵"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u020",
+      "speaker": "adachi",
+      "text": "樽见也吓到了吗？"
+    },
+    {
+      "id": "u021",
+      "speaker": "shimamura",
+      "text": "樽见？",
+      "responds_to": ["u020"],
+      "surface_terms_received": ["樽见"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u022",
+      "speaker": "shimamura",
+      "text": "你看见了？",
+      "responds_to": ["u020"],
+      "surface_terms_received": ["看见", "樽见"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u023",
+      "speaker": "adachi",
+      "text": "不是，我不是说你不能和她说话，也不是说你和她说话我就怎么样，我没有怎么样，我只是看见了，然后想了一下，想了一下又觉得自己不应该想，可是不想的话又会一直想，我知道这很奇怪，我知道你们以前就认识，认识的人在烟花祭碰到说几句话很普通，笑一下也很普通，我也会和别人说话，虽然我好像没有那么多别人可以说话，可是这不是你的问题，也不是樽见的问题，我不是在怪她，也不是在怪你，我只是觉得我站在那里，好像突然不知道该站在哪里，叫你也不对，不叫你也不对，走过去不对，走掉也不对，我明明只是看到你们在一起，连你们说了什么都没听见，可是回来的路上一直是那个画面，棉花糖过去以后你还在看她，你笑了一下，可能你只是礼貌，可能你只是觉得烟花很吵，可能她说了很好笑的事，我什么都不知道，可我就是会把不知道的地方塞满很糟糕的东西，然后又觉得这样很差劲，差劲到我不想让你知道，可是不让你知道的话我又很想打电话，打电话以后又只会问小测，我也不知道我想让你说什么，不是说你以后不要和她说话，不是那样，真的不是，我如果这么说就太讨厌了，我不想变成那种人，可是如果你明天和她说话，我可能还是会看见，如果我看见了，我可能又会装作没看见，然后回家以后又这样，我也不想这样，我想普通一点，像你说回家了那样普通，像喝水那样普通，可是我好像做不到，我现在说得太快了吧，你可能听不懂，我自己也有点听不懂，我只是、只是想确认，明天你会在，明天你会和我说话，哪怕只是说小测或者天气或者烟花很吵，什么都可以，我不是要你保证什么，也不是要你选什么，我知道这些词都很奇怪，可是岛村，我现在只能找到这些词，而且找到一个就掉一个，掉到地上以后还会滚到桌子底下，我捡不起来，所以你不要现在就说没事，也不要问我到底想怎样，我真的不知道，我只是看见你和樽见站在一起，然后手到现在还在痛，明明杯子已经丢掉了。"
+    },
+    {
+      "id": "u024",
+      "speaker": "shimamura",
+      "text": "你说太快了。",
+      "responds_to": ["u023"],
+      "surface_terms_received": ["太快"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u025",
+      "speaker": "shimamura",
+      "text": "我只听清了樽见，还有明天，还有手痛。",
+      "responds_to": ["u023"],
+      "surface_terms_received": ["樽见", "明天", "手痛"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u026",
+      "speaker": "shimamura",
+      "text": "手怎么了？",
+      "responds_to": ["u023"],
+      "surface_terms_received": ["手痛"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u027",
+      "speaker": "shimamura",
+      "text": "那就把手放开。",
+      "responds_to": ["u023"],
+      "surface_terms_received": ["手"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u028",
+      "speaker": "shimamura",
+      "text": "喝水。",
+      "responds_to": ["u023"],
+      "surface_terms_received": ["喉咙"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u029",
+      "speaker": "shimamura",
+      "text": "你不是问我会不会来学校吗。",
+      "responds_to": ["u023"],
+      "surface_terms_received": ["明天", "学校"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u030",
+      "speaker": "shimamura",
+      "text": "早上如果你到了，就在楼梯那边等一下。",
+      "responds_to": ["u023"],
+      "surface_terms_received": ["明天", "学校"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u031",
+      "speaker": "shimamura",
+      "text": "你不是说太吵吗。",
+      "responds_to": ["u023"],
+      "surface_terms_received": ["太吵"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u032",
+      "speaker": "shimamura",
+      "text": "刚才那些话像在跑。",
+      "responds_to": ["u023"],
+      "surface_terms_received": ["太快"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u033",
+      "speaker": "adachi",
+      "text": "晚安。"
+    },
+    {
+      "id": "u034",
+      "speaker": "shimamura",
+      "text": "晚安。",
+      "responds_to": ["u033"],
+      "surface_terms_received": ["晚安"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    }
+  ],
+  "scene_beats": [
+    {
+      "id": "b001",
+      "type": "festival_afterimage",
+      "summary": "烟花祭散场后，安达看见岛村和樽见站在一起。"
+    },
+    {
+      "id": "b002",
+      "type": "walk_home",
+      "summary": "安达把看见的画面说成没什么，带着纸杯和手机的沉默回家。"
+    },
+    {
+      "id": "b003",
+      "type": "daily_waiting",
+      "summary": "房间、手机、屏幕、水杯、喉咙和掌心承载等待。"
+    },
+    {
+      "id": "b004",
+      "type": "phone_overload",
+      "summary": "电话从小测和回家开始，绕到樽见后失控成长台词。"
+    },
+    {
+      "id": "b005",
+      "type": "surface_response",
+      "summary": "岛村只接住太快、樽见、明天、手痛、喝水等表层词。"
+    },
+    {
+      "id": "b006",
+      "type": "temporary_care",
+      "summary": "岛村让安达喝水、放开手，约明天楼梯见。"
+    },
+    {
+      "id": "b007",
+      "type": "unresolved_ending",
+      "summary": "掌心红痕仍在，关系未解决，只暂时没有继续流血。"
+    }
+  ],
+  "revision_notes": [
+    {
+      "source": "generator",
+      "note": "自生成提示词采用烟花祭后目击、回家等待、电话过载、岛村表层接收、掌心红痕的固定链路。"
+    },
+    {
+      "source": "generator",
+      "note": "正文避免直接使用关系机制类分析词，岛村不命名安达的深层伤口。"
+    }
+  ]
+}

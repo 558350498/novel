@@ -52,6 +52,43 @@ analysis/harness_config.json
 
 第一版不负责调用模型生成文本。
 
+## Rewrite Plan Extension
+
+Harness 后续应支持一个受控改稿扩展：
+
+```text
+gate reports + segment diagnostics
+-> deterministic rewrite_plan skeleton
+-> agent layer fills rewrite_task
+-> one local rewrite
+-> gate again
+```
+
+`rewrite_plan.json` 应写入候选目录：
+
+```text
+drafts/candidates/<run_id>/rewrite_plan.json
+```
+
+职责边界：
+
+- `analysis/harness_config.json` 是规则库。
+- `rewrite_plan.json` 是本次执行单。
+- deterministic planner 只搬运证据和触发项。
+- agent layer 可以写 `intent`、`do`、`avoid`，但必须标明诊断来源。
+- 自动重写最多一次，之后停止等待 `needs_manual_triage` 或用户 review。
+
+详见 `analysis/rewrite_plan_protocol.md`。
+
+## 评估范围
+
+Harness 支持两种范围：
+
+- `candidate`：完整候选检测，保留 `min_chars` hard gate。低于完整候选长度阈值时，不能进入用户 review。
+- `fragment`：短片段或机制练习检测，跳过 `min_chars` hard gate，但报告只能说明局部机制信号，不能证明完整候选可读。
+
+片段模式仍会检查解释泄漏、接收端错位、长台词形状、Delta 冲突和 paired JSON 结构问题；只是不会因为“不到 6000 字”本身判 hard fail。
+
 ## Hard Fail
 
 以下情况初版直接标记为 `failed_auto_gate`：
@@ -72,6 +109,7 @@ analysis/harness_config.json
 - `对话占比` 为 `WARN`。
 - 未检测到 `岛村：` 这类显式说话人标记，导致岛村回应长度无法估算。
 - Delta 排序没有把 `adachi_pressure` 放在第一。
+- Segment Delta 显示 pressure 只集中在局部，前段仍明显偏 daily。
 - Delta 与 style 指标互相冲突。
 - 候选在表层指标上接近参照组，但存在可能的“长解释冒充过载”风险。
 
@@ -119,6 +157,7 @@ Subagent 不能承担：
 
 - 不引入 LangChain。
 - 不实现长期 agent 记忆或任务队列。
+- 不在 v1 中实现完整 agent loop；先保留 human-in-the-loop rewrite。
 - 不让 LLM 自行打总分。
 - 不把 Delta 当质量分。
 - 不把 hard gate 扩展成自动创作审美判断。

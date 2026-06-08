@@ -13,18 +13,16 @@
 
 ## Pipeline
 
-1. 建立章节索引
-2. 人工分析目标章节机制
-3. 转换为 transferable rules
-4. 生成 writing prompt
-5. 用 style_evaluator 检查草稿风险
-6. 人工 review 漏报/误报
-7. 用 diff/review 记录失败模式
-8. 用 Delta 相对距离评估观察草稿与参照组的表层距离
-9. 用轻量 harness 筛选候选草稿
-10. 用 `md + json` 候选协议增强 gate 可读结构
-11. 用 corpus tokenizer 做词表发现和语料拓展
-12. 迭代 prompt、词表、切片、阈值和用户反馈记录
+当前主线已经从“写 prompt + 跑评估”收敛为一个可产品化的局部改稿 loop：
+
+1. 生成 `candidate.md` + `candidate.json`。
+2. 运行 gate、规则指标和片段级 Delta 诊断。
+3. 生成 `rewrite_plan.json`，把诊断翻译成一次局部改稿任务。
+4. 只允许按 plan 做一次局部重写。
+5. 重跑 gate。
+6. 停在 `failed_auto_gate`、`needs_manual_triage` 或 `pending_user_review`，等待用户 review。
+
+历史分析、旧 prompt、词表发现和 Delta v1 仍保留为 provenance，但不再是入口路径。
 
 ## Current Status
 
@@ -44,6 +42,8 @@
 - 下一步候选协议采用 Markdown 正文 + JSON 结构标注，优先解决“岛村回应解释化”无法稳定识别的问题。
 - `novel-gate-harness` 已初步做成可用 Codex skill：项目内源码位于 `skills/novel-gate-harness/`，并已同步到全局 `C:\Users\33625\.codex\skills\novel-gate-harness\`。
 - Corpus tokenizer v1 已可运行：当前使用稳定 `regex` fallback，并预留可选 `jieba`、OpenAI `tiktoken` 与 Hugging Face/DeepSeek tokenizer 引擎。
+- Experimental Eder/Cosine segment Delta 已可运行：用于定位候选内部哪些片段偏 `daily`、哪些片段出现 `pressure`，不作为质量评分。
+- `rewrite_plan` 协议已锁定为下一步产品接口：规则库归 `harness_config.json`，本次执行单归 `rewrite_plan.json`。
 
 ## Project Navigation
 
@@ -53,9 +53,12 @@
 | 当前进度与计划 | [PROJECT_STATUS.md](./PROJECT_STATUS.md) |
 | 分析产物目录 | [analysis/README.md](./analysis/README.md) |
 | 报告目录 | [analysis/reports/README.md](./analysis/reports/README.md) |
+| Rewrite plan 协议 | [analysis/rewrite_plan_protocol.md](./analysis/rewrite_plan_protocol.md) |
+| 项目清理计划 | [analysis/project_cleanup_plan.md](./analysis/project_cleanup_plan.md) |
 | Harness v1 计划 | [analysis/harness_plan.md](./analysis/harness_plan.md) |
 | Harness v1 配置 | [analysis/harness_config.json](./analysis/harness_config.json) |
 | Harness v1 工具 | [tools/light_harness.py](./tools/light_harness.py) |
+| Segment Delta 实验工具 | [tools/eder_delta_evaluator.py](./tools/eder_delta_evaluator.py) |
 | Gate v1 产品化计划 | [analysis/productization_gate_v1.md](./analysis/productization_gate_v1.md) |
 | Novel Gate Harness skill | [skills/novel-gate-harness/SKILL.md](./skills/novel-gate-harness/SKILL.md) |
 | Skill 架构参考 | [skills/novel-gate-harness/references/project_architecture.md](./skills/novel-gate-harness/references/project_architecture.md) |
@@ -90,6 +93,14 @@ python tools/delta_evaluator.py --draft drafts/current.md --slices corpus_slices
 
 Delta 只作为相对指标，不作为质量评分、作者相似度百分比或复刻目标。
 
+Experimental Eder/Cosine segment Delta：
+
+```powershell
+python tools/eder_delta_evaluator.py --draft drafts/candidates/<run_id>/candidate_001.md --slices corpus_slices/slices.json --output-prefix analysis/reports/candidates/<run_id>/candidate_001_eder_delta --segment-size 500 --min-segment-chars 250 --top-features 800
+```
+
+Segment Delta 只用于定位片段诊断，例如“前段仍偏 daily、电话爆发段出现 pressure”。它不判断文本是否好看。
+
 全篇章形状分析：
 ```powershell
 python tools/source_shape_analyzer.py --index novel_index.json --output-prefix analysis/reports/source_chapter_shape
@@ -110,6 +121,11 @@ python skills/novel-gate-harness/scripts/run_candidate_gate.py --check-only
 通过 skill wrapper 检测候选：
 ```powershell
 python skills/novel-gate-harness/scripts/run_candidate_gate.py --run-id <run_id> --candidates drafts/candidates/<run_id>/candidate_001.md
+```
+
+短片段机制练习可使用 fragment 范围；它不会因低于 6000 字符而 hard fail，但也不能证明完整候选成功：
+```powershell
+python skills/novel-gate-harness/scripts/run_candidate_gate.py --run-id <run_id> --candidates drafts/candidates/<run_id>/candidate_001.md --scope fragment
 ```
 
 Corpus tokenizer：

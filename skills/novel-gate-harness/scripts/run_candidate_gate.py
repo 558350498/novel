@@ -64,6 +64,8 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--run-id", help="Candidate run id under drafts/candidates and analysis/reports/candidates.")
     parser.add_argument("--candidates", nargs="*", help="Candidate Markdown paths. If omitted, infer candidate_*.md from --run-id.")
     parser.add_argument("--reports-root", help="Optional reports root. Defaults to analysis/reports/candidates under the project.")
+    parser.add_argument("--scope", choices=["candidate", "fragment"], default="candidate", help="Use fragment to skip full-candidate length hard gate.")
+    parser.add_argument("--allow-fragment", action="store_true", help="Alias for --scope fragment.")
     return parser.parse_args(argv)
 
 
@@ -94,6 +96,7 @@ def main(argv: list[str]) -> int:
     reports_root = Path(args.reports_root).expanduser() if args.reports_root else project_root / "analysis" / "reports" / "candidates"
     if not reports_root.is_absolute():
         reports_root = project_root / reports_root
+    scope = "fragment" if args.allow_fragment else args.scope
 
     command = [
         sys.executable,
@@ -108,6 +111,8 @@ def main(argv: list[str]) -> int:
         str(project_root / "analysis" / "harness_config.json"),
         "--reports-root",
         str(reports_root),
+        "--scope",
+        scope,
     ]
     completed = subprocess.run(command, cwd=project_root, text=True)
     return completed.returncode

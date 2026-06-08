@@ -2,7 +2,28 @@
 
 这里保存生成稿评估、人工 review、差异讨论和后续 Delta 报告。
 
-## 当前文件
+## 当前报告路线
+
+当前活跃路线优先看候选目录：
+
+```text
+analysis/reports/candidates/<run_id>/
+```
+
+每个活跃候选 run 应尽量包含：
+
+```text
+candidate_001_style.md/json
+candidate_001_delta.md/json
+candidate_001_gate.md/json
+candidate_001_eder_delta.md/json        # optional segment diagnosis
+candidate_001_eder_delta_500.md/json    # optional fine segment diagnosis
+manifest.json
+```
+
+后续如果生成 `rewrite_plan.json`，它应该放在对应 `drafts/candidates/<run_id>/`，报告目录只保留诊断证据。
+
+## 历史文件
 
 - `current.md`：`tools/style_evaluator.py` 对 `drafts/current.md` 的规则型评估报告。
 - `codex_review.md`：Codex 基于 `analysis/review_checklist.md` 写的第一轮人工 review。
@@ -27,6 +48,8 @@
 - `tokenization_vol05_shimamura_blade_deepseek_v4_flash.md/json`：「岛村之刃」核心切片的 DeepSeek V4-Flash tokenizer 对照报告。
 - `corpus_profile_adachi_pressure.md/json`：以 `adachi_pressure` 为目标组的可解释语料 profile 权重报告。
 - `candidates/existing_rounds_audit/`：Harness v1 对 Round 1 / Round 2 / Round 3 的回看报告。
+- `candidates/round4_three_versions/`：Round 4 三候选报告；保留为 manual-triage 失败模式证据。
+- `candidates/round5_auto_prompt_20260608/`：当前自动提示词候选报告，包含 segment Delta 实验输出。
 
 ## 使用原则
 
@@ -40,6 +63,8 @@
 - OpenAI `tiktoken` 可作为模型侧 tokenization 对照，但不作为中文语言学分词。
 - Hugging Face/DeepSeek tokenizer 可作为模型侧 tokenization 对照；DeepSeek 写作表现不能从 tokenizer 单独推出。
 - Corpus profile 用于辅助 gate 调参，不做 RAG，不检索原文片段，不判定质量。
+- Segment Delta 报告用于定位候选内部 daily/pressure 分布，不判定文本是否好看。
+- 旧报告如果只用于 provenance，应在 README 中降权；不要继续把早期候选当作当前入口。
 
 ## 后续候选报告目录
 
@@ -60,3 +85,14 @@ analysis/reports/candidates/<run_id>/manifest.json
 - `failed_auto_gate`
 - `needs_manual_triage`
 - `pending_user_review`
+
+## 清理原则
+
+清理候选见 `analysis/project_cleanup_plan.md`。
+
+推荐处理方式：
+
+- 保留当前 run 的完整报告。
+- 保留 `diff.md`、`source_chapter_shape.md/json`、`corpus_profile_adachi_pressure.md/json` 等关键 provenance。
+- 旧 round 报告可归档，避免占据入口目录。
+- `.tokens.txt` 属于大型生成 token stream，确认后可删除或保持忽略状态。

@@ -78,7 +78,9 @@
 python tools/style_evaluator.py --mode draft drafts/current.md --output analysis/reports/current.md
 ```
 
-重点看这些风险：
+先按 `analysis/lexicon_taxonomy.md` 的粒度理解信号：taxonomy 是泛化语言学维度，下面这些是当前项目 gate 标签。
+
+重点看这些 gate 风险：
 
 - `情绪表达直白度` 是否过高。
 - `含混与自我修正` 是否过低。
@@ -87,4 +89,3 @@ python tools/style_evaluator.py --mode draft drafts/current.md --output analysis
 - `岛村回应解释化` 是否偏高。
 - `结尾封闭化` 是否命中。
 - `过度文学化风险` 是否命中。
-

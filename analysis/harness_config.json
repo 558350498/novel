@@ -14,15 +14,43 @@
     ],
     "receiver_misalignment_min": 1,
     "short_dialogue_max_pct_1_10": 75.0,
-    "short_dialogue_requires_ge_200": true
+    "short_dialogue_requires_ge_200": true,
+    "json_adachi_long_utterance_min": 200
   },
   "manual_triage": {
     "warn_checks": [
       "对话占比",
       "岛村回应解释化"
     ],
+    "dialogue_distribution": {
+      "source": "第五卷 第二话「岛村之刃」",
+      "source_bins": {
+        "1-5": 20.0,
+        "6-10": 28.3,
+        "11-20": 30.0,
+        "21-40": 18.3,
+        "41-80": 0.0,
+        "81-160": 1.7,
+        "161-320": 0.0,
+        "321+": 1.7
+      },
+      "short_1_10_max_pct": 65.0,
+      "mid_11_40_min_pct": 30.0,
+      "max_l1_pct_delta": 60.0
+    },
     "delta_expected_first": "adachi_pressure",
-    "delta_analysis_docs_id": "analysis_docs"
+    "delta_analysis_docs_id": "analysis_docs",
+    "json_shimamura_avg_len_warn": 36.0,
+    "json_explanation_markers": [
+      "因为",
+      "所以",
+      "其实",
+      "我的意思是",
+      "我想说明",
+      "你要理解",
+      "我并不是",
+      "我之所以"
+    ]
   },
   "notes": [
     "Harness v1 only filters obvious failures.",

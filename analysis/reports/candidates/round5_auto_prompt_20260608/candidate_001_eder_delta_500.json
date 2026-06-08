@@ -1,0 +1,479 @@
+{
+  "draft_path": "drafts\\candidates\\round5_auto_prompt_20260608\\candidate_001.md",
+  "slices_path": "corpus_slices\\slices.json",
+  "generated_at": "2026-06-08T21:45:43",
+  "method": {
+    "name": "experimental_cosine_delta_segments",
+    "distance": "cosine distance over z-scored relative-frequency vectors",
+    "feature_selection": "top 800 reference character n-grams",
+    "ngram_range": [
+      1,
+      2
+    ],
+    "segment_size": 500,
+    "min_segment_chars": 250,
+    "scaling": "z-score using reference segments only",
+    "classifier": "nearest reference segment plus group mean-distance ranking",
+    "excluded_groups": [
+      "analysis_docs"
+    ],
+    "keep_punctuation": false
+  },
+  "feature_sample": [
+    "的",
+    "我",
+    "是",
+    "不",
+    "一",
+    "了",
+    "在",
+    "这",
+    "有",
+    "她",
+    "就",
+    "来",
+    "会",
+    "到",
+    "也",
+    "么",
+    "那",
+    "着",
+    "好",
+    "说",
+    "很",
+    "样",
+    "起",
+    "人",
+    "要"
+  ],
+  "feature_scaling": {
+    "feature_count": 800,
+    "zero_variance_features_after_guard": 0,
+    "mean_sample": [
+      19.980505,
+      17.084482,
+      10.797576,
+      9.338616,
+      7.659342,
+      7.155136,
+      6.686357,
+      6.542284,
+      6.269524,
+      5.115294
+    ],
+    "stdev_sample": [
+      4.217601,
+      6.912753,
+      3.402393,
+      3.924502,
+      2.980377,
+      2.986333,
+      3.199801,
+      2.939325,
+      2.887313,
+      3.703052
+    ]
+  },
+  "reference_segments": {
+    "total": 96,
+    "by_group": {
+      "adachi_daily": 49,
+      "adachi_pressure": 14,
+      "shimamura_view": 33
+    }
+  },
+  "draft_segments": 11,
+  "aggregate": [
+    {
+      "group_id": "adachi_daily",
+      "group_label": "关系错位前置段",
+      "nearest_neighbor_votes": 5,
+      "mean_nearest_distance": 0.857828,
+      "mean_group_distance": 0.993468
+    },
+    {
+      "group_id": "adachi_pressure",
+      "group_label": "关系失衡核心段",
+      "nearest_neighbor_votes": 3,
+      "mean_nearest_distance": 0.821037,
+      "mean_group_distance": 0.994937
+    },
+    {
+      "group_id": "shimamura_view",
+      "group_label": "岛村平稳叙述段",
+      "nearest_neighbor_votes": 3,
+      "mean_nearest_distance": 0.855579,
+      "mean_group_distance": 1.011243
+    }
+  ],
+  "assignments": [
+    {
+      "draft_segment": "draft_p001",
+      "char_count": 500,
+      "nearest_neighbor": {
+        "sample_id": "adachi_daily_s01_p025",
+        "group_id": "adachi_daily",
+        "group_label": "关系错位前置段",
+        "distance": 0.847441
+      },
+      "group_ranking": [
+        {
+          "group_id": "adachi_daily",
+          "group_label": "关系错位前置段",
+          "mean_distance": 0.989557,
+          "nearest_distance": 0.847441,
+          "reference_segments": 49
+        },
+        {
+          "group_id": "adachi_pressure",
+          "group_label": "关系失衡核心段",
+          "mean_distance": 1.004994,
+          "nearest_distance": 0.884836,
+          "reference_segments": 14
+        },
+        {
+          "group_id": "shimamura_view",
+          "group_label": "岛村平稳叙述段",
+          "mean_distance": 1.012312,
+          "nearest_distance": 0.878534,
+          "reference_segments": 33
+        }
+      ]
+    },
+    {
+      "draft_segment": "draft_p002",
+      "char_count": 500,
+      "nearest_neighbor": {
+        "sample_id": "shimamura_view_s01_p029",
+        "group_id": "shimamura_view",
+        "group_label": "岛村平稳叙述段",
+        "distance": 0.876515
+      },
+      "group_ranking": [
+        {
+          "group_id": "adachi_pressure",
+          "group_label": "关系失衡核心段",
+          "mean_distance": 0.994666,
+          "nearest_distance": 0.9246,
+          "reference_segments": 14
+        },
+        {
+          "group_id": "adachi_daily",
+          "group_label": "关系错位前置段",
+          "mean_distance": 0.998139,
+          "nearest_distance": 0.911155,
+          "reference_segments": 49
+        },
+        {
+          "group_id": "shimamura_view",
+          "group_label": "岛村平稳叙述段",
+          "mean_distance": 1.004261,
+          "nearest_distance": 0.876515,
+          "reference_segments": 33
+        }
+      ]
+    },
+    {
+      "draft_segment": "draft_p003",
+      "char_count": 500,
+      "nearest_neighbor": {
+        "sample_id": "adachi_daily_s01_p025",
+        "group_id": "adachi_daily",
+        "group_label": "关系错位前置段",
+        "distance": 0.856766
+      },
+      "group_ranking": [
+        {
+          "group_id": "adachi_daily",
+          "group_label": "关系错位前置段",
+          "mean_distance": 0.992426,
+          "nearest_distance": 0.856766,
+          "reference_segments": 49
+        },
+        {
+          "group_id": "shimamura_view",
+          "group_label": "岛村平稳叙述段",
+          "mean_distance": 1.006319,
+          "nearest_distance": 0.867945,
+          "reference_segments": 33
+        },
+        {
+          "group_id": "adachi_pressure",
+          "group_label": "关系失衡核心段",
+          "mean_distance": 1.007526,
+          "nearest_distance": 0.929903,
+          "reference_segments": 14
+        }
+      ]
+    },
+    {
+      "draft_segment": "draft_p004",
+      "char_count": 500,
+      "nearest_neighbor": {
+        "sample_id": "adachi_daily_s01_p027",
+        "group_id": "adachi_daily",
+        "group_label": "关系错位前置段",
+        "distance": 0.849274
+      },
+      "group_ranking": [
+        {
+          "group_id": "adachi_daily",
+          "group_label": "关系错位前置段",
+          "mean_distance": 0.987168,
+          "nearest_distance": 0.849274,
+          "reference_segments": 49
+        },
+        {
+          "group_id": "adachi_pressure",
+          "group_label": "关系失衡核心段",
+          "mean_distance": 0.991747,
+          "nearest_distance": 0.902657,
+          "reference_segments": 14
+        },
+        {
+          "group_id": "shimamura_view",
+          "group_label": "岛村平稳叙述段",
+          "mean_distance": 1.020396,
+          "nearest_distance": 0.91745,
+          "reference_segments": 33
+        }
+      ]
+    },
+    {
+      "draft_segment": "draft_p005",
+      "char_count": 500,
+      "nearest_neighbor": {
+        "sample_id": "adachi_pressure_s01_p004",
+        "group_id": "adachi_pressure",
+        "group_label": "关系失衡核心段",
+        "distance": 0.835544
+      },
+      "group_ranking": [
+        {
+          "group_id": "adachi_daily",
+          "group_label": "关系错位前置段",
+          "mean_distance": 0.986733,
+          "nearest_distance": 0.867892,
+          "reference_segments": 49
+        },
+        {
+          "group_id": "adachi_pressure",
+          "group_label": "关系失衡核心段",
+          "mean_distance": 1.003671,
+          "nearest_distance": 0.835544,
+          "reference_segments": 14
+        },
+        {
+          "group_id": "shimamura_view",
+          "group_label": "岛村平稳叙述段",
+          "mean_distance": 1.015683,
+          "nearest_distance": 0.906542,
+          "reference_segments": 33
+        }
+      ]
+    },
+    {
+      "draft_segment": "draft_p006",
+      "char_count": 500,
+      "nearest_neighbor": {
+        "sample_id": "adachi_pressure_s01_p004",
+        "group_id": "adachi_pressure",
+        "group_label": "关系失衡核心段",
+        "distance": 0.810376
+      },
+      "group_ranking": [
+        {
+          "group_id": "adachi_daily",
+          "group_label": "关系错位前置段",
+          "mean_distance": 0.989858,
+          "nearest_distance": 0.829699,
+          "reference_segments": 49
+        },
+        {
+          "group_id": "adachi_pressure",
+          "group_label": "关系失衡核心段",
+          "mean_distance": 1.003155,
+          "nearest_distance": 0.810376,
+          "reference_segments": 14
+        },
+        {
+          "group_id": "shimamura_view",
+          "group_label": "岛村平稳叙述段",
+          "mean_distance": 1.011104,
+          "nearest_distance": 0.81446,
+          "reference_segments": 33
+        }
+      ]
+    },
+    {
+      "draft_segment": "draft_p007",
+      "char_count": 500,
+      "nearest_neighbor": {
+        "sample_id": "adachi_daily_s01_p025",
+        "group_id": "adachi_daily",
+        "group_label": "关系错位前置段",
+        "distance": 0.846302
+      },
+      "group_ranking": [
+        {
+          "group_id": "adachi_daily",
+          "group_label": "关系错位前置段",
+          "mean_distance": 0.99119,
+          "nearest_distance": 0.846302,
+          "reference_segments": 49
+        },
+        {
+          "group_id": "shimamura_view",
+          "group_label": "岛村平稳叙述段",
+          "mean_distance": 1.00872,
+          "nearest_distance": 0.863491,
+          "reference_segments": 33
+        },
+        {
+          "group_id": "adachi_pressure",
+          "group_label": "关系失衡核心段",
+          "mean_distance": 1.010271,
+          "nearest_distance": 0.938275,
+          "reference_segments": 14
+        }
+      ]
+    },
+    {
+      "draft_segment": "draft_p008",
+      "char_count": 500,
+      "nearest_neighbor": {
+        "sample_id": "shimamura_view_s01_p001",
+        "group_id": "shimamura_view",
+        "group_label": "岛村平稳叙述段",
+        "distance": 0.829226
+      },
+      "group_ranking": [
+        {
+          "group_id": "adachi_daily",
+          "group_label": "关系错位前置段",
+          "mean_distance": 0.993733,
+          "nearest_distance": 0.841905,
+          "reference_segments": 49
+        },
+        {
+          "group_id": "adachi_pressure",
+          "group_label": "关系失衡核心段",
+          "mean_distance": 0.999121,
+          "nearest_distance": 0.953936,
+          "reference_segments": 14
+        },
+        {
+          "group_id": "shimamura_view",
+          "group_label": "岛村平稳叙述段",
+          "mean_distance": 1.009418,
+          "nearest_distance": 0.829226,
+          "reference_segments": 33
+        }
+      ]
+    },
+    {
+      "draft_segment": "draft_p009",
+      "char_count": 500,
+      "nearest_neighbor": {
+        "sample_id": "adachi_pressure_s01_p006",
+        "group_id": "adachi_pressure",
+        "group_label": "关系失衡核心段",
+        "distance": 0.81719
+      },
+      "group_ranking": [
+        {
+          "group_id": "adachi_pressure",
+          "group_label": "关系失衡核心段",
+          "mean_distance": 0.954546,
+          "nearest_distance": 0.81719,
+          "reference_segments": 14
+        },
+        {
+          "group_id": "adachi_daily",
+          "group_label": "关系错位前置段",
+          "mean_distance": 1.003216,
+          "nearest_distance": 0.900978,
+          "reference_segments": 49
+        },
+        {
+          "group_id": "shimamura_view",
+          "group_label": "岛村平稳叙述段",
+          "mean_distance": 1.017835,
+          "nearest_distance": 0.929397,
+          "reference_segments": 33
+        }
+      ]
+    },
+    {
+      "draft_segment": "draft_p010",
+      "char_count": 500,
+      "nearest_neighbor": {
+        "sample_id": "adachi_daily_s01_p006",
+        "group_id": "adachi_daily",
+        "group_label": "关系错位前置段",
+        "distance": 0.889357
+      },
+      "group_ranking": [
+        {
+          "group_id": "adachi_daily",
+          "group_label": "关系错位前置段",
+          "mean_distance": 0.993726,
+          "nearest_distance": 0.889357,
+          "reference_segments": 49
+        },
+        {
+          "group_id": "adachi_pressure",
+          "group_label": "关系失衡核心段",
+          "mean_distance": 0.996874,
+          "nearest_distance": 0.89491,
+          "reference_segments": 14
+        },
+        {
+          "group_id": "shimamura_view",
+          "group_label": "岛村平稳叙述段",
+          "mean_distance": 1.011337,
+          "nearest_distance": 0.910323,
+          "reference_segments": 33
+        }
+      ]
+    },
+    {
+      "draft_segment": "draft_p011",
+      "char_count": 467,
+      "nearest_neighbor": {
+        "sample_id": "shimamura_view_s01_p001",
+        "group_id": "shimamura_view",
+        "group_label": "岛村平稳叙述段",
+        "distance": 0.860996
+      },
+      "group_ranking": [
+        {
+          "group_id": "adachi_pressure",
+          "group_label": "关系失衡核心段",
+          "mean_distance": 0.977731,
+          "nearest_distance": 0.916003,
+          "reference_segments": 14
+        },
+        {
+          "group_id": "adachi_daily",
+          "group_label": "关系错位前置段",
+          "mean_distance": 1.0024,
+          "nearest_distance": 0.87827,
+          "reference_segments": 49
+        },
+        {
+          "group_id": "shimamura_view",
+          "group_label": "岛村平稳叙述段",
+          "mean_distance": 1.006285,
+          "nearest_distance": 0.860996,
+          "reference_segments": 33
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "This is an experimental diagnostic, not a quality score.",
+    "Small reference sets make nearest-neighbor votes unstable; use the output as a triage signal.",
+    "Delta-family metrics should stay subordinate to human review and source-shape checks."
+  ]
+}

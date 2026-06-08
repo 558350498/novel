@@ -25,19 +25,9 @@ This is higher priority than Delta calibration because Delta can easily pull the
 
 ## Lexicon Taxonomy
 
-Do not use project gate labels as the base linguistic taxonomy.
+Use `analysis/lexicon_taxonomy.md` as the source of truth for taxonomy granularity.
 
-Use the general taxonomy in `tools/lexicon_taxonomy.json`:
-
-- `affect_intensity`
-- `stance_uncertainty`
-- `cognitive_explanation`
-- `dialogic_alignment`
-- `concrete_grounding`
-- `closure_resolution`
-- `prompt_boundary`
-
-Then map combined signals back to project gate language such as explanation leakage, receiver misalignment, mundane object support, and closure risk.
+This productization plan should only consume mapped gate signals such as explanation leakage, receiver misalignment, mundane object support, and closure risk. Do not redefine taxonomy categories here.
 
 ## Candidate File Protocol
 
@@ -93,13 +83,46 @@ The first JSON version should only include fields needed for gate reliability:
 
 The initial purpose is not perfect literary parsing. It is to stop the evaluator from guessing who said which line.
 
+## Rewrite Plan Protocol
+
+After candidate gate and segment diagnostics, the next product artifact is:
+
+```text
+drafts/candidates/<run_id>/rewrite_plan.json
+```
+
+The rewrite plan is an execution order for one local rewrite. It is not a rules database and not a review conclusion.
+
+Rules and thresholds belong in `analysis/harness_config.json`.
+
+The rewrite plan should record:
+
+- deterministic evidence copied from gate and segment reports;
+- the affected beat and segment ids;
+- one rewrite intent;
+- concrete `do` and `avoid` constraints;
+- dialogue constraints for the current rewrite;
+- conflicts between metric signals, segment Delta, agent close reading, and user feedback.
+
+See `analysis/rewrite_plan_protocol.md` for the current schema.
+
+## Diagnostic Source Priority
+
+The product should keep diagnostic sources explicit:
+
+```text
+user_feedback > blocking_metric > segment_delta > agent_close_reading
+```
+
+Metric signals can block or trigger a rewrite. Segment Delta can localize where a candidate is too `daily` or where `pressure` appears. Agent close reading can add warnings, but it must not pretend to be a metric. User feedback is the final aesthetic authority.
+
 ## Explanation Gate
 
 The explanation gate should split signals into three levels.
 
 ### Lexical Signals
 
-Markers such as:
+These are `cognitive_explanation` candidates when they appear in the wrong role or location:
 
 - `因为`
 - `所以`
@@ -110,7 +133,7 @@ Markers such as:
 - `我并不是`
 - `我之所以`
 
-These are weak signals alone. They become more important when attached to Shimamura utterances or the candidate ending.
+These are weak signals alone. They become important when attached to Shimamura utterances, narrative summaries, or the candidate ending.
 
 ### Role Violation Signals
 
@@ -147,7 +170,10 @@ Passing the gate only means the candidate is worth reading. It never means the d
 3. Update `light_harness.py` to read optional candidate JSON when present.
 4. Make Shimamura explanation checks use JSON utterances first.
 5. Fall back to current text heuristics when JSON is missing.
-6. Record user review as feedback ledger entries after each candidate pass.
+6. Add segment-level Delta diagnostics for local daily/pressure localization.
+7. Generate a deterministic `rewrite_plan.json` skeleton from gate and segment reports.
+8. Let the agent layer translate that skeleton into one local rewrite task.
+9. Record user review as feedback ledger entries after each candidate pass.
 
 ## Non-Goals
 
@@ -155,4 +181,6 @@ Passing the gate only means the candidate is worth reading. It never means the d
 - Do not make Delta a quality score.
 - Do not require the Markdown draft to use explicit `岛村：` speaker labels.
 - Do not let the structure JSON replace user review.
+- Do not let `rewrite_plan.json` replace user review.
+- Do not hard-code literary action labels such as `extend_prewarm` as product-level enums.
 - Do not turn the gate into a final literary judge.

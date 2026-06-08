@@ -1,0 +1,64 @@
+{
+  "status": "needs_manual_triage",
+  "hard_fail_reasons": [],
+  "manual_triage_reasons": [
+    "Delta 第一名为 adachi_daily，不是 adachi_pressure"
+  ],
+  "metrics": {
+    "char_count": 6423,
+    "evaluation_scope": "candidate",
+    "dialogue_ratio": 0.34763948497854075,
+    "max_dialogue_len": 557,
+    "dialogue_ge_200": 1,
+    "short_dialogue_pct_1_10": 61.73,
+    "mid_dialogue_pct_11_40": 37.04,
+    "dialogue_distribution_l1": 50.62
+  },
+  "candidate_json": {
+    "present": true,
+    "path": "drafts\\candidates\\round5_auto_prompt_20260608\\candidate_001.json",
+    "errors": [],
+    "utterance_count": 81,
+    "shimamura_utterance_count": 41,
+    "shimamura_avg_len": 9.76,
+    "shimamura_max_len": 27,
+    "shimamura_surface_terms_count": 47,
+    "shimamura_surface_terms": [
+      "一直盯",
+      "下午",
+      "人很多",
+      "人挤",
+      "什么都可以",
+      "刚才没有",
+      "到家",
+      "哪里都可以",
+      "喝什么",
+      "声音小",
+      "太快",
+      "学校附近"
+    ],
+    "shimamura_deep_understanding_ids": [],
+    "shimamura_explanation_marker_hits": [],
+    "adachi_utterance_count": 40,
+    "adachi_max_len": 557,
+    "adachi_ge_long_threshold": 1,
+    "adachi_long_threshold": 200
+  },
+  "suppressed_reasons": [],
+  "delta_first": "adachi_daily",
+  "notes": [
+    "Harness v1 only filters obvious failures.",
+    "pending_user_review is not a success state.",
+    "Final qualitative judgment must wait for user review."
+  ],
+  "candidate_path": "drafts\\candidates\\round5_auto_prompt_20260608\\candidate_001.md",
+  "reports": {
+    "style_markdown": "analysis\\reports\\candidates\\round5_auto_prompt_20260608\\candidate_001_style.md",
+    "style_json": "analysis\\reports\\candidates\\round5_auto_prompt_20260608\\candidate_001_style.json",
+    "delta_markdown": "analysis\\reports\\candidates\\round5_auto_prompt_20260608\\candidate_001_delta.md",
+    "delta_json": "analysis\\reports\\candidates\\round5_auto_prompt_20260608\\candidate_001_delta.json",
+    "gate_markdown": "analysis\\reports\\candidates\\round5_auto_prompt_20260608\\candidate_001_gate.md",
+    "gate_json": "analysis\\reports\\candidates\\round5_auto_prompt_20260608\\candidate_001_gate.json",
+    "candidate_json": "drafts\\candidates\\round5_auto_prompt_20260608\\candidate_001.json"
+  }
+}

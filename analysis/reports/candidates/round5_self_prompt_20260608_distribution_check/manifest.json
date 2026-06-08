@@ -1,0 +1,89 @@
+{
+  "run_id": "round5_self_prompt_20260608_distribution_check",
+  "generated_at": "2026-06-08T20:01:21",
+  "slices_path": "corpus_slices\\slices.json",
+  "config_path": "analysis\\harness_config.json",
+  "evaluation_scope": "candidate",
+  "reports_dir": "analysis\\reports\\candidates\\round5_self_prompt_20260608_distribution_check",
+  "status_counts": {
+    "failed_auto_gate": 0,
+    "needs_manual_triage": 1,
+    "pending_user_review": 0
+  },
+  "candidates": [
+    {
+      "status": "needs_manual_triage",
+      "hard_fail_reasons": [],
+      "manual_triage_reasons": [
+        "台词分布偏短：1-10 字占比 89.6% 高于 第五卷 第二话「岛村之刃」 自检上限 65.0%",
+        "台词分布中段不足：11-40 字占比 9.6% 低于 第五卷 第二话「岛村之刃」 自检下限 30.0%",
+        "台词分布整体偏离：bins L1 偏差 82.6 高于 第五卷 第二话「岛村之刃」 自检上限 60.0",
+        "Delta 第一名为 adachi_daily，不是 adachi_pressure"
+      ],
+      "metrics": {
+        "char_count": 6645,
+        "evaluation_scope": "candidate",
+        "dialogue_ratio": 0.41254125412541254,
+        "max_dialogue_len": 766,
+        "dialogue_ge_200": 1,
+        "short_dialogue_pct_1_10": 89.6,
+        "mid_dialogue_pct_11_40": 9.6,
+        "dialogue_distribution_l1": 82.6
+      },
+      "candidate_json": {
+        "present": true,
+        "path": "drafts\\candidates\\round5_self_prompt_20260608\\candidate_001.json",
+        "errors": [],
+        "utterance_count": 34,
+        "shimamura_utterance_count": 22,
+        "shimamura_avg_len": 7.0,
+        "shimamura_max_len": 18,
+        "shimamura_surface_terms_count": 28,
+        "shimamura_surface_terms": [
+          "吵",
+          "喉咙",
+          "在家",
+          "外面",
+          "太吵",
+          "太快",
+          "学校",
+          "家",
+          "小测",
+          "手",
+          "手痛",
+          "明天"
+        ],
+        "shimamura_deep_understanding_ids": [],
+        "shimamura_explanation_marker_hits": [],
+        "adachi_utterance_count": 12,
+        "adachi_max_len": 766,
+        "adachi_ge_long_threshold": 1,
+        "adachi_long_threshold": 200
+      },
+      "suppressed_reasons": [
+        "使用 JSON 岛村 utterance 结构替代 Markdown 说话人格式 WARN"
+      ],
+      "delta_first": "adachi_daily",
+      "notes": [
+        "Harness v1 only filters obvious failures.",
+        "pending_user_review is not a success state.",
+        "Final qualitative judgment must wait for user review."
+      ],
+      "candidate_path": "drafts\\candidates\\round5_self_prompt_20260608\\candidate_001.md",
+      "reports": {
+        "style_markdown": "analysis\\reports\\candidates\\round5_self_prompt_20260608_distribution_check\\candidate_001_style.md",
+        "style_json": "analysis\\reports\\candidates\\round5_self_prompt_20260608_distribution_check\\candidate_001_style.json",
+        "delta_markdown": "analysis\\reports\\candidates\\round5_self_prompt_20260608_distribution_check\\candidate_001_delta.md",
+        "delta_json": "analysis\\reports\\candidates\\round5_self_prompt_20260608_distribution_check\\candidate_001_delta.json",
+        "gate_markdown": "analysis\\reports\\candidates\\round5_self_prompt_20260608_distribution_check\\candidate_001_gate.md",
+        "gate_json": "analysis\\reports\\candidates\\round5_self_prompt_20260608_distribution_check\\candidate_001_gate.json",
+        "candidate_json": "drafts\\candidates\\round5_self_prompt_20260608\\candidate_001.json"
+      }
+    }
+  ],
+  "notes": [
+    "Harness v1 only filters obvious failures.",
+    "pending_user_review is not a success state.",
+    "Final qualitative judgment must wait for user review."
+  ]
+}
