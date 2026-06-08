@@ -22,7 +22,9 @@
 7. 用 diff/review 记录失败模式
 8. 用 Delta 相对距离评估观察草稿与参照组的表层距离
 9. 用轻量 harness 筛选候选草稿
-10. 迭代 prompt、词表、切片和阈值
+10. 用 `md + json` 候选协议增强 gate 可读结构
+11. 用 corpus tokenizer 做词表发现和语料拓展
+12. 迭代 prompt、词表、切片、阈值和用户反馈记录
 
 ## Current Status
 
@@ -38,6 +40,9 @@
 - Delta v1 已可运行：比较生成稿相对 `adachi_pressure`、`adachi_daily`、`shimamura_view`、`analysis_docs` 的表层文体距离。
 - Harness v1 已可运行：先做已有候选评分器，只筛明显失败样本，不替代用户 review。
 - 全篇章形状分析已可运行，用于把“文本太短”和“日常/高压比例”变成可回归指标。
+- Productization v1 已锁定为 single-kernel tuning lab：不做任意风格切换，优先把 gate 调成可靠的失败样本过滤器。
+- 下一步候选协议采用 Markdown 正文 + JSON 结构标注，优先解决“岛村回应解释化”无法稳定识别的问题。
+- Corpus tokenizer v1 已可运行：当前使用稳定 `regex` fallback，并预留可选 `jieba`、OpenAI `tiktoken` 与 Hugging Face/DeepSeek tokenizer 引擎。
 
 ## Project Navigation
 
@@ -50,6 +55,15 @@
 | Harness v1 计划 | [analysis/harness_plan.md](./analysis/harness_plan.md) |
 | Harness v1 配置 | [analysis/harness_config.json](./analysis/harness_config.json) |
 | Harness v1 工具 | [tools/light_harness.py](./tools/light_harness.py) |
+| Gate v1 产品化计划 | [analysis/productization_gate_v1.md](./analysis/productization_gate_v1.md) |
+| Novel Gate Harness skill | [skills/novel-gate-harness/SKILL.md](./skills/novel-gate-harness/SKILL.md) |
+| Corpus tokenizer | [tools/corpus_tokenizer.py](./tools/corpus_tokenizer.py) |
+| Lexicon taxonomy | [analysis/lexicon_taxonomy.md](./analysis/lexicon_taxonomy.md) |
+| Corpus profiler | [tools/corpus_profiler.py](./tools/corpus_profiler.py) |
+| Adachi pressure corpus profile | [analysis/reports/corpus_profile_adachi_pressure.md](./analysis/reports/corpus_profile_adachi_pressure.md) |
+| 第 5 卷 tokenization 报告 | [analysis/reports/tokenization_vol05.md](./analysis/reports/tokenization_vol05.md) |
+| 「岛村之刃」tokenization 报告 | [analysis/reports/tokenization_vol05_shimamura_blade.md](./analysis/reports/tokenization_vol05_shimamura_blade.md) |
+| 「岛村之刃」DeepSeek V4 tokenizer 报告 | [analysis/reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md](./analysis/reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md) |
 | 全篇章形状分析工具 | [tools/source_shape_analyzer.py](./tools/source_shape_analyzer.py) |
 | Round 4 长篇候选 prompt | [analysis/generation_prompt_round4.md](./analysis/generation_prompt_round4.md) |
 | 当前测试稿 | [drafts/current.md](./drafts/current.md) |
@@ -84,3 +98,39 @@ python tools/light_harness.py --run-id existing_rounds_audit --candidates drafts
 ```
 
 Harness v1 暂不自动生成候选；只把通过自动 gate 的候选标记为 `pending_user_review`。
+
+Corpus tokenizer：
+```powershell
+python tools/corpus_tokenizer.py --source data/raw/vol05_第五卷_岛村之刃.txt --output-prefix analysis/reports/tokenization_vol05 --engine regex
+```
+
+如本机安装 `jieba`，可将 `--engine regex` 改为 `--engine jieba`。
+如本机安装 OpenAI `tiktoken`，可使用：
+
+```powershell
+python tools/corpus_tokenizer.py --source data/raw/vol05_第五卷_岛村之刃.txt --output-prefix analysis/reports/tokenization_vol05_tiktoken --engine tiktoken --tiktoken-encoding o200k_base
+```
+
+`tiktoken` 只用于模型侧 tokenization 对照，不作为中文语言学分词。
+
+如本机安装 `transformers/tokenizers` 并有模型 tokenizer 文件，可使用 DeepSeek tokenizer 对照：
+
+```powershell
+python tools/corpus_tokenizer.py --source data/raw/vol05_第五卷_岛村之刃.txt --output-prefix analysis/reports/tokenization_vol05_deepseek --engine hf --hf-model deepseek-ai/DeepSeek-V3
+```
+
+DeepSeek tokenizer 同样属于模型侧 tokenization；DeepSeek 写作手感主要来自模型与训练/对齐，不是 tokenizer 单独决定。
+
+当前已安装 Hugging Face tokenizer 依赖到项目本地 `.deps/hf-tokenizer2/`。运行 DeepSeek tokenizer 命令时，需要让 Python 能找到该目录，例如：
+
+```powershell
+$env:PYTHONPATH='C:\Users\33625\Documents\novel\.deps\hf-tokenizer2'
+```
+
+Corpus profiler：
+
+```powershell
+python tools/corpus_profiler.py --slices corpus_slices/slices.json --output-prefix analysis/reports/corpus_profile_adachi_pressure --target-id adachi_pressure
+```
+
+Profiler 生成可解释特征权重，不做 RAG、不召回原文、不作为质量评分。

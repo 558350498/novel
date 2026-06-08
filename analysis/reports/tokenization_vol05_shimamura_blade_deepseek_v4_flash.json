@@ -1,0 +1,2101 @@
+{
+  "source_path": "data\\raw\\vol05_第五卷_岛村之刃.txt",
+  "engine": "hf",
+  "tiktoken_encoding": null,
+  "hf_model": "deepseek-ai/DeepSeek-V4-Flash",
+  "generated_at": "2026-06-08T13:46:29",
+  "slice": {
+    "start_line": 2446,
+    "end_before_line": 2865
+  },
+  "metrics": {
+    "chars_no_ws": 8311,
+    "cjk_chars": 7078,
+    "line_count": 418,
+    "token_count": 5118,
+    "unique_tokens": 1698,
+    "sentence_count": 420,
+    "sentence_avg": 18.79,
+    "sentence_median": 16.0,
+    "sentence_p90": 33.0
+  },
+  "top_tokens": [
+    {
+      "item": "，",
+      "count": 363
+    },
+    {
+      "item": "。",
+      "count": 251
+    },
+    {
+      "item": "岛",
+      "count": 121
+    },
+    {
+      "item": "村",
+      "count": 117
+    },
+    {
+      "item": "？",
+      "count": 115
+    },
+    {
+      "item": "我",
+      "count": 105
+    },
+    {
+      "item": "……",
+      "count": 97
+    },
+    {
+      "item": "吗",
+      "count": 56
+    },
+    {
+      "item": " 「",
+      "count": 48
+    },
+    {
+      "item": "你",
+      "count": 46
+    },
+    {
+      "item": "社",
+      "count": 32
+    },
+    {
+      "item": "�",
+      "count": 30
+    },
+    {
+      "item": "的",
+      "count": 28
+    },
+    {
+      "item": "啊",
+      "count": 28
+    },
+    {
+      "item": "小",
+      "count": 27
+    },
+    {
+      "item": "好",
+      "count": 23
+    },
+    {
+      "item": "跟",
+      "count": 23
+    },
+    {
+      "item": "可是",
+      "count": 22
+    },
+    {
+      "item": "我的",
+      "count": 22
+    },
+    {
+      "item": "很",
+      "count": 21
+    },
+    {
+      "item": "想",
+      "count": 21
+    },
+    {
+      "item": "！",
+      "count": 21
+    },
+    {
+      "item": "她",
+      "count": 19
+    },
+    {
+      "item": "在",
+      "count": 19
+    },
+    {
+      "item": "也",
+      "count": 18
+    },
+    {
+      "item": "我想",
+      "count": 17
+    },
+    {
+      "item": "──",
+      "count": 16
+    },
+    {
+      "item": "吧",
+      "count": 16
+    },
+    {
+      "item": "有",
+      "count": 16
+    },
+    {
+      "item": "？」",
+      "count": 16
+    },
+    {
+      "item": "要",
+      "count": 15
+    },
+    {
+      "item": "。」",
+      "count": 15
+    },
+    {
+      "item": "地",
+      "count": 14
+    },
+    {
+      "item": "一起",
+      "count": 14
+    },
+    {
+      "item": "我不",
+      "count": 14
+    },
+    {
+      "item": "去",
+      "count": 14
+    },
+    {
+      "item": "我希望",
+      "count": 14
+    },
+    {
+      "item": "女生",
+      "count": 13
+    },
+    {
+      "item": "讨厌",
+      "count": 13
+    },
+    {
+      "item": "」",
+      "count": 12
+    },
+    {
+      "item": " 『",
+      "count": 12
+    },
+    {
+      "item": "』",
+      "count": 12
+    },
+    {
+      "item": "是",
+      "count": 12
+    },
+    {
+      "item": "那",
+      "count": 12
+    },
+    {
+      "item": "那个",
+      "count": 12
+    },
+    {
+      "item": "这样",
+      "count": 12
+    },
+    {
+      "item": "一样",
+      "count": 11
+    },
+    {
+      "item": "该",
+      "count": 11
+    },
+    {
+      "item": "……」",
+      "count": 11
+    },
+    {
+      "item": "跟我",
+      "count": 11
+    }
+  ],
+  "top_token_bigrams": [
+    {
+      "item": "岛 村",
+      "count": 116
+    },
+    {
+      "item": "吗 ？",
+      "count": 51
+    },
+    {
+      "item": "。  「",
+      "count": 23
+    },
+    {
+      "item": "村 ，",
+      "count": 23
+    },
+    {
+      "item": "小 社",
+      "count": 22
+    },
+    {
+      "item": "。 我",
+      "count": 21
+    },
+    {
+      "item": "， 我",
+      "count": 20
+    },
+    {
+      "item": "� �",
+      "count": 17
+    },
+    {
+      "item": "， 岛",
+      "count": 16
+    },
+    {
+      "item": "， 可是",
+      "count": 13
+    },
+    {
+      "item": "…… 岛",
+      "count": 11
+    },
+    {
+      "item": "村 ……",
+      "count": 11
+    },
+    {
+      "item": "啊 。",
+      "count": 9
+    },
+    {
+      "item": "那个 女生",
+      "count": 9
+    },
+    {
+      "item": "啊 ，",
+      "count": 9
+    },
+    {
+      "item": "吧 ？",
+      "count": 9
+    },
+    {
+      "item": "， 我想",
+      "count": 8
+    },
+    {
+      "item": "� ，",
+      "count": 8
+    },
+    {
+      "item": "？ 岛",
+      "count": 8
+    },
+    {
+      "item": "？ 我",
+      "count": 8
+    },
+    {
+      "item": "啪 搭",
+      "count": 8
+    },
+    {
+      "item": "。  『",
+      "count": 7
+    },
+    {
+      "item": "。 我的",
+      "count": 7
+    },
+    {
+      "item": "， 也",
+      "count": 6
+    },
+    {
+      "item": "跟 岛",
+      "count": 6
+    },
+    {
+      "item": "的话 ，",
+      "count": 6
+    },
+    {
+      "item": "。 可是",
+      "count": 6
+    },
+    {
+      "item": "我 ……",
+      "count": 6
+    },
+    {
+      "item": "也 ……",
+      "count": 6
+    },
+    {
+      "item": "该 怎么做",
+      "count": 6
+    },
+    {
+      "item": "， 所以",
+      "count": 6
+    },
+    {
+      "item": "。 我想",
+      "count": 6
+    },
+    {
+      "item": "？ 要",
+      "count": 6
+    },
+    {
+      "item": "， 小",
+      "count": 6
+    },
+    {
+      "item": "～ 」",
+      "count": 6
+    },
+    {
+      "item": "搭 啪",
+      "count": 6
+    },
+    {
+      "item": "？」  「",
+      "count": 6
+    },
+    {
+      "item": "怪 人",
+      "count": 6
+    },
+    {
+      "item": "， 却",
+      "count": 5
+    },
+    {
+      "item": "。 』",
+      "count": 5
+    },
+    {
+      "item": "， 就",
+      "count": 5
+    },
+    {
+      "item": "的事情 ，",
+      "count": 5
+    },
+    {
+      "item": "安 达",
+      "count": 5
+    },
+    {
+      "item": "祭 典",
+      "count": 5
+    },
+    {
+      "item": "， 那",
+      "count": 5
+    },
+    {
+      "item": "。 岛",
+      "count": 5
+    },
+    {
+      "item": "呢 ？",
+      "count": 5
+    },
+    {
+      "item": "』  「",
+      "count": 5
+    },
+    {
+      "item": "！ 我",
+      "count": 5
+    },
+    {
+      "item": "， 你有",
+      "count": 5
+    }
+  ],
+  "top_token_trigrams": [
+    {
+      "item": "岛 村 ，",
+      "count": 23
+    },
+    {
+      "item": "， 岛 村",
+      "count": 15
+    },
+    {
+      "item": "…… 岛 村",
+      "count": 10
+    },
+    {
+      "item": "岛 村 ……",
+      "count": 10
+    },
+    {
+      "item": "� � ，",
+      "count": 8
+    },
+    {
+      "item": "？ 岛 村",
+      "count": 8
+    },
+    {
+      "item": "村 ， 岛",
+      "count": 7
+    },
+    {
+      "item": "跟 岛 村",
+      "count": 6
+    },
+    {
+      "item": "啪 搭 啪",
+      "count": 6
+    },
+    {
+      "item": "搭 啪 搭",
+      "count": 6
+    },
+    {
+      "item": "。 岛 村",
+      "count": 5
+    },
+    {
+      "item": "吗 ？ 我",
+      "count": 5
+    },
+    {
+      "item": "在 岛 村",
+      "count": 4
+    },
+    {
+      "item": "村 ， 我",
+      "count": 4
+    },
+    {
+      "item": "跟 那个 女生",
+      "count": 4
+    },
+    {
+      "item": "了解 岛 村",
+      "count": 4
+    },
+    {
+      "item": "岛 村 啊",
+      "count": 4
+    },
+    {
+      "item": "在一起 吗 ？",
+      "count": 4
+    },
+    {
+      "item": "吗 ？ 岛",
+      "count": 4
+    },
+    {
+      "item": "吗 ？ 要",
+      "count": 4
+    },
+    {
+      "item": "？ 我 该",
+      "count": 4
+    },
+    {
+      "item": "， 小 社",
+      "count": 4
+    },
+    {
+      "item": "。」 小 社",
+      "count": 4
+    },
+    {
+      "item": "� � �",
+      "count": 4
+    },
+    {
+      "item": " 「 岛 村",
+      "count": 3
+    },
+    {
+      "item": "和 岛 村",
+      "count": 3
+    },
+    {
+      "item": "那个 女生 是谁",
+      "count": 3
+    },
+    {
+      "item": "女生 是谁 ？",
+      "count": 3
+    },
+    {
+      "item": "待在 岛 村",
+      "count": 3
+    },
+    {
+      "item": "岛 村 身边",
+      "count": 3
+    },
+    {
+      "item": "村 身边 ，",
+      "count": 3
+    },
+    {
+      "item": "…… � �",
+      "count": 3
+    },
+    {
+      "item": "� ， 岛",
+      "count": 3
+    },
+    {
+      "item": "我 该 怎么做",
+      "count": 3
+    },
+    {
+      "item": "？ � �",
+      "count": 3
+    },
+    {
+      "item": "， 你有 在",
+      "count": 3
+    },
+    {
+      "item": "你有 在 听",
+      "count": 3
+    },
+    {
+      "item": "在 听 吗",
+      "count": 3
+    },
+    {
+      "item": "听 吗 ？",
+      "count": 3
+    },
+    {
+      "item": "， 我想 知道",
+      "count": 3
+    },
+    {
+      "item": "， � �",
+      "count": 3
+    },
+    {
+      "item": "的人 吗 ？",
+      "count": 3
+    },
+    {
+      "item": "变成 现在 这样",
+      "count": 3
+    },
+    {
+      "item": "想着 岛 村",
+      "count": 3
+    },
+    {
+      "item": "岛 村 也",
+      "count": 3
+    },
+    {
+      "item": "村 也 ……",
+      "count": 3
+    },
+    {
+      "item": "讨厌 我吗 ？",
+      "count": 3
+    },
+    {
+      "item": "吗 ？」  「",
+      "count": 3
+    },
+    {
+      "item": "怪 人 ，",
+      "count": 3
+    },
+    {
+      "item": "蓬 蓬 松松",
+      "count": 3
+    }
+  ],
+  "top_cjk_bigrams": [
+    {
+      "item": "岛村",
+      "count": 120
+    },
+    {
+      "item": "我不",
+      "count": 39
+    },
+    {
+      "item": "小社",
+      "count": 30
+    },
+    {
+      "item": "一起",
+      "count": 29
+    },
+    {
+      "item": "什么",
+      "count": 28
+    },
+    {
+      "item": "我的",
+      "count": 26
+    },
+    {
+      "item": "知道",
+      "count": 24
+    },
+    {
+      "item": "是我",
+      "count": 24
+    },
+    {
+      "item": "可是",
+      "count": 24
+    },
+    {
+      "item": "不要",
+      "count": 22
+    },
+    {
+      "item": "没有",
+      "count": 21
+    },
+    {
+      "item": "现在",
+      "count": 21
+    },
+    {
+      "item": "一样",
+      "count": 20
+    },
+    {
+      "item": "怎么",
+      "count": 20
+    },
+    {
+      "item": "我想",
+      "count": 19
+    },
+    {
+      "item": "就是",
+      "count": 18
+    },
+    {
+      "item": "不是",
+      "count": 18
+    },
+    {
+      "item": "希望",
+      "count": 18
+    },
+    {
+      "item": "这样",
+      "count": 17
+    },
+    {
+      "item": "我我",
+      "count": 17
+    },
+    {
+      "item": "起来",
+      "count": 16
+    },
+    {
+      "item": "事情",
+      "count": 15
+    },
+    {
+      "item": "吗我",
+      "count": 15
+    },
+    {
+      "item": "觉得",
+      "count": 14
+    },
+    {
+      "item": "我一",
+      "count": 14
+    },
+    {
+      "item": "的事",
+      "count": 14
+    },
+    {
+      "item": "那个",
+      "count": 14
+    },
+    {
+      "item": "自己",
+      "count": 14
+    },
+    {
+      "item": "啊我",
+      "count": 14
+    },
+    {
+      "item": "我希",
+      "count": 14
+    },
+    {
+      "item": "为什",
+      "count": 13
+    },
+    {
+      "item": "变成",
+      "count": 13
+    },
+    {
+      "item": "女生",
+      "count": 13
+    },
+    {
+      "item": "跟我",
+      "count": 13
+    },
+    {
+      "item": "一点",
+      "count": 13
+    },
+    {
+      "item": "也不",
+      "count": 13
+    },
+    {
+      "item": "讨厌",
+      "count": 13
+    },
+    {
+      "item": "的话",
+      "count": 12
+    },
+    {
+      "item": "了我",
+      "count": 12
+    },
+    {
+      "item": "哪里",
+      "count": 12
+    },
+    {
+      "item": "了解",
+      "count": 12
+    },
+    {
+      "item": "村的",
+      "count": 11
+    },
+    {
+      "item": "变得",
+      "count": 11
+    },
+    {
+      "item": "在一",
+      "count": 11
+    },
+    {
+      "item": "我好",
+      "count": 11
+    },
+    {
+      "item": "一直",
+      "count": 11
+    },
+    {
+      "item": "看着",
+      "count": 11
+    },
+    {
+      "item": "朋友",
+      "count": 11
+    },
+    {
+      "item": "因为",
+      "count": 11
+    },
+    {
+      "item": "村我",
+      "count": 11
+    }
+  ],
+  "top_cjk_trigrams": [
+    {
+      "item": "我希望",
+      "count": 14
+    },
+    {
+      "item": "的事情",
+      "count": 13
+    },
+    {
+      "item": "为什么",
+      "count": 13
+    },
+    {
+      "item": "我不要",
+      "count": 12
+    },
+    {
+      "item": "岛村的",
+      "count": 11
+    },
+    {
+      "item": "岛村我",
+      "count": 11
+    },
+    {
+      "item": "在一起",
+      "count": 10
+    },
+    {
+      "item": "希望你",
+      "count": 10
+    },
+    {
+      "item": "游泳池",
+      "count": 10
+    },
+    {
+      "item": "可是我",
+      "count": 9
+    },
+    {
+      "item": "那个女",
+      "count": 9
+    },
+    {
+      "item": "个女生",
+      "count": 9
+    },
+    {
+      "item": "岛村岛",
+      "count": 9
+    },
+    {
+      "item": "村岛村",
+      "count": 9
+    },
+    {
+      "item": "的岛村",
+      "count": 8
+    },
+    {
+      "item": "在岛村",
+      "count": 8
+    },
+    {
+      "item": "告诉我",
+      "count": 8
+    },
+    {
+      "item": "很奇怪",
+      "count": 8
+    },
+    {
+      "item": "岛村你",
+      "count": 8
+    },
+    {
+      "item": "该怎么",
+      "count": 8
+    },
+    {
+      "item": "不要你",
+      "count": 8
+    },
+    {
+      "item": "我知道",
+      "count": 7
+    },
+    {
+      "item": "岛村身",
+      "count": 7
+    },
+    {
+      "item": "想知道",
+      "count": 7
+    },
+    {
+      "item": "跟岛村",
+      "count": 7
+    },
+    {
+      "item": "我好想",
+      "count": 7
+    },
+    {
+      "item": "不知道",
+      "count": 7
+    },
+    {
+      "item": "我一直",
+      "count": 7
+    },
+    {
+      "item": "一点也",
+      "count": 7
+    },
+    {
+      "item": "的地方",
+      "count": 7
+    },
+    {
+      "item": "怎么做",
+      "count": 7
+    },
+    {
+      "item": "的声音",
+      "count": 7
+    },
+    {
+      "item": "是岛村",
+      "count": 6
+    },
+    {
+      "item": "点也不",
+      "count": 6
+    },
+    {
+      "item": "吗岛村",
+      "count": 6
+    },
+    {
+      "item": "我不想",
+      "count": 6
+    },
+    {
+      "item": "我就是",
+      "count": 6
+    },
+    {
+      "item": "在哪里",
+      "count": 6
+    },
+    {
+      "item": "呜呜呜",
+      "count": 6
+    },
+    {
+      "item": "讨厌我",
+      "count": 6
+    },
+    {
+      "item": "啪搭啪",
+      "count": 6
+    },
+    {
+      "item": "搭啪搭",
+      "count": 6
+    },
+    {
+      "item": "一起去",
+      "count": 5
+    },
+    {
+      "item": "没办法",
+      "count": 5
+    },
+    {
+      "item": "不认识",
+      "count": 5
+    },
+    {
+      "item": "想了解",
+      "count": 5
+    },
+    {
+      "item": "我该怎",
+      "count": 5
+    },
+    {
+      "item": "我我不",
+      "count": 5
+    },
+    {
+      "item": "不一样",
+      "count": 5
+    },
+    {
+      "item": "的小社",
+      "count": 5
+    }
+  ],
+  "top_cjk_quadgrams": [
+    {
+      "item": "那个女生",
+      "count": 9
+    },
+    {
+      "item": "岛村岛村",
+      "count": 9
+    },
+    {
+      "item": "我希望你",
+      "count": 8
+    },
+    {
+      "item": "在岛村身",
+      "count": 6
+    },
+    {
+      "item": "一点也不",
+      "count": 6
+    },
+    {
+      "item": "该怎么做",
+      "count": 6
+    },
+    {
+      "item": "我不要你",
+      "count": 6
+    },
+    {
+      "item": "啪搭啪搭",
+      "count": 6
+    },
+    {
+      "item": "我该怎么",
+      "count": 5
+    },
+    {
+      "item": "我想知道",
+      "count": 4
+    },
+    {
+      "item": "你为什么",
+      "count": 4
+    },
+    {
+      "item": "女生一起",
+      "count": 4
+    },
+    {
+      "item": "跟她一起",
+      "count": 4
+    },
+    {
+      "item": "变成现在",
+      "count": 4
+    },
+    {
+      "item": "个女生是",
+      "count": 4
+    },
+    {
+      "item": "跟那个女",
+      "count": 4
+    },
+    {
+      "item": "一起出去",
+      "count": 4
+    },
+    {
+      "item": "我不认识",
+      "count": 4
+    },
+    {
+      "item": "不认识的",
+      "count": 4
+    },
+    {
+      "item": "告诉我我",
+      "count": 4
+    },
+    {
+      "item": "想了解岛",
+      "count": 4
+    },
+    {
+      "item": "了解岛村",
+      "count": 4
+    },
+    {
+      "item": "我我希望",
+      "count": 4
+    },
+    {
+      "item": "在一起吗",
+      "count": 4
+    },
+    {
+      "item": "我很奇怪",
+      "count": 4
+    },
+    {
+      "item": "现在这样",
+      "count": 4
+    },
+    {
+      "item": "想着岛村",
+      "count": 4
+    },
+    {
+      "item": "呜呜呜呜",
+      "count": 4
+    },
+    {
+      "item": "搭啪搭啪",
+      "count": 4
+    },
+    {
+      "item": "去游泳池",
+      "count": 4
+    },
+    {
+      "item": "我不知道",
+      "count": 3
+    },
+    {
+      "item": "我没办法",
+      "count": 3
+    },
+    {
+      "item": "跟我联络",
+      "count": 3
+    },
+    {
+      "item": "不可能有",
+      "count": 3
+    },
+    {
+      "item": "为什么会",
+      "count": 3
+    },
+    {
+      "item": "女生在一",
+      "count": 3
+    },
+    {
+      "item": "生在一起",
+      "count": 3
+    },
+    {
+      "item": "要去哪里",
+      "count": 3
+    },
+    {
+      "item": "起出去玩",
+      "count": 3
+    },
+    {
+      "item": "岛村你有",
+      "count": 3
+    },
+    {
+      "item": "可是我想",
+      "count": 3
+    },
+    {
+      "item": "女生是谁",
+      "count": 3
+    },
+    {
+      "item": "为什么要",
+      "count": 3
+    },
+    {
+      "item": "我想了解",
+      "count": 3
+    },
+    {
+      "item": "待在岛村",
+      "count": 3
+    },
+    {
+      "item": "岛村身边",
+      "count": 3
+    },
+    {
+      "item": "待在我身",
+      "count": 3
+    },
+    {
+      "item": "在你身边",
+      "count": 3
+    },
+    {
+      "item": "在想岛村",
+      "count": 3
+    },
+    {
+      "item": "跟我说话",
+      "count": 3
+    }
+  ],
+  "candidate_phrases": {
+    "cjk_bigrams": [
+      {
+        "item": "岛村",
+        "count": 120
+      },
+      {
+        "item": "小社",
+        "count": 30
+      },
+      {
+        "item": "什么",
+        "count": 28
+      },
+      {
+        "item": "知道",
+        "count": 24
+      },
+      {
+        "item": "怎么",
+        "count": 20
+      },
+      {
+        "item": "我想",
+        "count": 19
+      },
+      {
+        "item": "希望",
+        "count": 18
+      },
+      {
+        "item": "这样",
+        "count": 17
+      },
+      {
+        "item": "起来",
+        "count": 16
+      },
+      {
+        "item": "事情",
+        "count": 15
+      },
+      {
+        "item": "觉得",
+        "count": 14
+      },
+      {
+        "item": "那个",
+        "count": 14
+      },
+      {
+        "item": "自己",
+        "count": 14
+      },
+      {
+        "item": "我希",
+        "count": 14
+      },
+      {
+        "item": "变成",
+        "count": 13
+      },
+      {
+        "item": "女生",
+        "count": 13
+      },
+      {
+        "item": "跟我",
+        "count": 13
+      },
+      {
+        "item": "讨厌",
+        "count": 13
+      },
+      {
+        "item": "哪里",
+        "count": 12
+      },
+      {
+        "item": "变得",
+        "count": 11
+      },
+      {
+        "item": "我好",
+        "count": 11
+      },
+      {
+        "item": "朋友",
+        "count": 11
+      },
+      {
+        "item": "村我",
+        "count": 11
+      },
+      {
+        "item": "那样",
+        "count": 11
+      },
+      {
+        "item": "喜欢",
+        "count": 11
+      },
+      {
+        "item": "奇怪",
+        "count": 10
+      },
+      {
+        "item": "无法",
+        "count": 10
+      },
+      {
+        "item": "跟她",
+        "count": 10
+      },
+      {
+        "item": "感觉",
+        "count": 10
+      },
+      {
+        "item": "所以",
+        "count": 10
+      },
+      {
+        "item": "要去",
+        "count": 10
+      },
+      {
+        "item": "望你",
+        "count": 10
+      },
+      {
+        "item": "要你",
+        "count": 10
+      },
+      {
+        "item": "游泳",
+        "count": 10
+      },
+      {
+        "item": "泳池",
+        "count": 10
+      },
+      {
+        "item": "电话",
+        "count": 9
+      },
+      {
+        "item": "声音",
+        "count": 9
+      },
+      {
+        "item": "这种",
+        "count": 9
+      },
+      {
+        "item": "好想",
+        "count": 9
+      },
+      {
+        "item": "我很",
+        "count": 9
+      },
+      {
+        "item": "个女",
+        "count": 9
+      },
+      {
+        "item": "么做",
+        "count": 9
+      },
+      {
+        "item": "村岛",
+        "count": 9
+      },
+      {
+        "item": "下来",
+        "count": 8
+      },
+      {
+        "item": "告诉",
+        "count": 8
+      },
+      {
+        "item": "诉我",
+        "count": 8
+      },
+      {
+        "item": "让我",
+        "count": 8
+      },
+      {
+        "item": "可能",
+        "count": 8
+      },
+      {
+        "item": "其他",
+        "count": 8
+      },
+      {
+        "item": "很奇",
+        "count": 8
+      }
+    ],
+    "cjk_trigrams": [
+      {
+        "item": "我希望",
+        "count": 14
+      },
+      {
+        "item": "我不要",
+        "count": 12
+      },
+      {
+        "item": "岛村我",
+        "count": 11
+      },
+      {
+        "item": "希望你",
+        "count": 10
+      },
+      {
+        "item": "游泳池",
+        "count": 10
+      },
+      {
+        "item": "可是我",
+        "count": 9
+      },
+      {
+        "item": "那个女",
+        "count": 9
+      },
+      {
+        "item": "个女生",
+        "count": 9
+      },
+      {
+        "item": "岛村岛",
+        "count": 9
+      },
+      {
+        "item": "村岛村",
+        "count": 9
+      },
+      {
+        "item": "告诉我",
+        "count": 8
+      },
+      {
+        "item": "很奇怪",
+        "count": 8
+      },
+      {
+        "item": "岛村你",
+        "count": 8
+      },
+      {
+        "item": "该怎么",
+        "count": 8
+      },
+      {
+        "item": "我知道",
+        "count": 7
+      },
+      {
+        "item": "岛村身",
+        "count": 7
+      },
+      {
+        "item": "想知道",
+        "count": 7
+      },
+      {
+        "item": "跟岛村",
+        "count": 7
+      },
+      {
+        "item": "我好想",
+        "count": 7
+      },
+      {
+        "item": "我一直",
+        "count": 7
+      },
+      {
+        "item": "怎么做",
+        "count": 7
+      },
+      {
+        "item": "我不想",
+        "count": 6
+      },
+      {
+        "item": "讨厌我",
+        "count": 6
+      },
+      {
+        "item": "啪搭啪",
+        "count": 6
+      },
+      {
+        "item": "搭啪搭",
+        "count": 6
+      },
+      {
+        "item": "没办法",
+        "count": 5
+      },
+      {
+        "item": "想了解",
+        "count": 5
+      },
+      {
+        "item": "我该怎",
+        "count": 5
+      },
+      {
+        "item": "听起来",
+        "count": 4
+      },
+      {
+        "item": "我想知",
+        "count": 4
+      },
+      {
+        "item": "你为什",
+        "count": 4
+      },
+      {
+        "item": "生一起",
+        "count": 4
+      },
+      {
+        "item": "我不知",
+        "count": 4
+      },
+      {
+        "item": "她一起",
+        "count": 4
+      },
+      {
+        "item": "变成现",
+        "count": 4
+      },
+      {
+        "item": "跟那个",
+        "count": 4
+      },
+      {
+        "item": "去哪里",
+        "count": 4
+      },
+      {
+        "item": "起出去",
+        "count": 4
+      },
+      {
+        "item": "出去玩",
+        "count": 4
+      },
+      {
+        "item": "我不认",
+        "count": 4
+      },
+      {
+        "item": "以岛村",
+        "count": 4
+      },
+      {
+        "item": "诉我我",
+        "count": 4
+      },
+      {
+        "item": "解岛村",
+        "count": 4
+      },
+      {
+        "item": "其他人",
+        "count": 4
+      },
+      {
+        "item": "那样我",
+        "count": 4
+      },
+      {
+        "item": "跟我说",
+        "count": 4
+      },
+      {
+        "item": "我说话",
+        "count": 4
+      },
+      {
+        "item": "嗳岛村",
+        "count": 4
+      },
+      {
+        "item": "要岛村",
+        "count": 4
+      },
+      {
+        "item": "我我希",
+        "count": 4
+      }
+    ],
+    "cjk_quadgrams": [
+      {
+        "item": "那个女生",
+        "count": 9
+      },
+      {
+        "item": "岛村岛村",
+        "count": 9
+      },
+      {
+        "item": "我希望你",
+        "count": 8
+      },
+      {
+        "item": "该怎么做",
+        "count": 6
+      },
+      {
+        "item": "我不要你",
+        "count": 6
+      },
+      {
+        "item": "啪搭啪搭",
+        "count": 6
+      },
+      {
+        "item": "我该怎么",
+        "count": 5
+      },
+      {
+        "item": "我想知道",
+        "count": 4
+      },
+      {
+        "item": "你为什么",
+        "count": 4
+      },
+      {
+        "item": "女生一起",
+        "count": 4
+      },
+      {
+        "item": "跟她一起",
+        "count": 4
+      },
+      {
+        "item": "跟那个女",
+        "count": 4
+      },
+      {
+        "item": "我不认识",
+        "count": 4
+      },
+      {
+        "item": "告诉我我",
+        "count": 4
+      },
+      {
+        "item": "想了解岛",
+        "count": 4
+      },
+      {
+        "item": "我我希望",
+        "count": 4
+      },
+      {
+        "item": "我很奇怪",
+        "count": 4
+      },
+      {
+        "item": "现在这样",
+        "count": 4
+      },
+      {
+        "item": "想着岛村",
+        "count": 4
+      },
+      {
+        "item": "搭啪搭啪",
+        "count": 4
+      },
+      {
+        "item": "去游泳池",
+        "count": 4
+      },
+      {
+        "item": "我不知道",
+        "count": 3
+      },
+      {
+        "item": "我没办法",
+        "count": 3
+      },
+      {
+        "item": "跟我联络",
+        "count": 3
+      },
+      {
+        "item": "生在一起",
+        "count": 3
+      },
+      {
+        "item": "要去哪里",
+        "count": 3
+      },
+      {
+        "item": "起出去玩",
+        "count": 3
+      },
+      {
+        "item": "可是我想",
+        "count": 3
+      },
+      {
+        "item": "女生是谁",
+        "count": 3
+      },
+      {
+        "item": "我想了解",
+        "count": 3
+      },
+      {
+        "item": "待在岛村",
+        "count": 3
+      },
+      {
+        "item": "岛村身边",
+        "count": 3
+      },
+      {
+        "item": "待在我身",
+        "count": 3
+      },
+      {
+        "item": "跟我说话",
+        "count": 3
+      },
+      {
+        "item": "普通的朋",
+        "count": 3
+      },
+      {
+        "item": "通的朋友",
+        "count": 3
+      },
+      {
+        "item": "你有在听",
+        "count": 3
+      },
+      {
+        "item": "我就是要",
+        "count": 3
+      },
+      {
+        "item": "来我这边",
+        "count": 3
+      },
+      {
+        "item": "你告诉我",
+        "count": 3
+      },
+      {
+        "item": "听你的声",
+        "count": 3
+      },
+      {
+        "item": "你的声音",
+        "count": 3
+      },
+      {
+        "item": "最了解我",
+        "count": 3
+      },
+      {
+        "item": "所以岛村",
+        "count": 3
+      },
+      {
+        "item": "会变成现",
+        "count": 3
+      },
+      {
+        "item": "成现在这",
+        "count": 3
+      },
+      {
+        "item": "讨厌我我",
+        "count": 3
+      },
+      {
+        "item": "我我不要",
+        "count": 3
+      },
+      {
+        "item": "你讨厌我",
+        "count": 3
+      },
+      {
+        "item": "希望你喜",
+        "count": 3
+      }
+    ]
+  },
+  "taxonomy_hits": [
+    {
+      "id": "stance_uncertainty",
+      "label": "Stance / Uncertainty",
+      "count": 158,
+      "matched_terms": [
+        {
+          "item": "可是",
+          "count": 24
+        },
+        {
+          "item": "不要",
+          "count": 22
+        },
+        {
+          "item": "没有",
+          "count": 21
+        },
+        {
+          "item": "不是",
+          "count": 17
+        },
+        {
+          "item": "不会",
+          "count": 10
+        },
+        {
+          "item": "可能",
+          "count": 8
+        },
+        {
+          "item": "有点",
+          "count": 8
+        },
+        {
+          "item": "好像",
+          "count": 7
+        },
+        {
+          "item": "只是",
+          "count": 7
+        },
+        {
+          "item": "应该",
+          "count": 5
+        },
+        {
+          "item": "不对",
+          "count": 5
+        },
+        {
+          "item": "但是",
+          "count": 4
+        },
+        {
+          "item": "明明",
+          "count": 4
+        },
+        {
+          "item": "不过",
+          "count": 3
+        },
+        {
+          "item": "大概",
+          "count": 2
+        },
+        {
+          "item": "不行",
+          "count": 2
+        },
+        {
+          "item": "应该说",
+          "count": 2
+        },
+        {
+          "item": "不是那样",
+          "count": 2
+        },
+        {
+          "item": "说不定",
+          "count": 1
+        },
+        {
+          "item": "总觉得",
+          "count": 1
+        },
+        {
+          "item": "不能",
+          "count": 1
+        },
+        {
+          "item": "无所谓",
+          "count": 1
+        },
+        {
+          "item": "也不是",
+          "count": 1
+        }
+      ],
+      "project_gate_labels": [
+        "含混与自我修正",
+        "安达过载失败传达"
+      ]
+    },
+    {
+      "id": "concrete_grounding",
+      "label": "Concrete Grounding",
+      "count": 27,
+      "matched_terms": [
+        {
+          "item": "电话",
+          "count": 9
+        },
+        {
+          "item": "手机",
+          "count": 6
+        },
+        {
+          "item": "门",
+          "count": 3
+        },
+        {
+          "item": "房间",
+          "count": 2
+        },
+        {
+          "item": "枕头",
+          "count": 2
+        },
+        {
+          "item": "空调",
+          "count": 2
+        },
+        {
+          "item": "喉咙",
+          "count": 1
+        },
+        {
+          "item": "床",
+          "count": 1
+        },
+        {
+          "item": "邮件",
+          "count": 1
+        }
+      ],
+      "project_gate_labels": [
+        "日常物件承载",
+        "身体感承载"
+      ]
+    },
+    {
+      "id": "cognitive_explanation",
+      "label": "Cognitive / Explanation",
+      "count": 23,
+      "matched_terms": [
+        {
+          "item": "因为",
+          "count": 11
+        },
+        {
+          "item": "所以",
+          "count": 10
+        },
+        {
+          "item": "其实",
+          "count": 1
+        },
+        {
+          "item": "我的意思是",
+          "count": 1
+        }
+      ],
+      "project_gate_labels": [
+        "解释化泄漏",
+        "分析概念泄漏",
+        "岛村回应解释化"
+      ]
+    },
+    {
+      "id": "affect_intensity",
+      "label": "Affect / Intensity",
+      "count": 22,
+      "matched_terms": [
+        {
+          "item": "喜欢",
+          "count": 11
+        },
+        {
+          "item": "痛苦",
+          "count": 5
+        },
+        {
+          "item": "嫉妒",
+          "count": 3
+        },
+        {
+          "item": "吃醋",
+          "count": 1
+        },
+        {
+          "item": "害怕",
+          "count": 1
+        },
+        {
+          "item": "崩溃",
+          "count": 1
+        }
+      ],
+      "project_gate_labels": [
+        "过载表达",
+        "过度文学化风险",
+        "情绪表达直白度"
+      ]
+    },
+    {
+      "id": "closure_resolution",
+      "label": "Closure / Resolution",
+      "count": 1,
+      "matched_terms": [
+        {
+          "item": "解决",
+          "count": 1
+        }
+      ],
+      "project_gate_labels": [
+        "封闭结尾",
+        "结尾封闭化"
+      ]
+    },
+    {
+      "id": "dialogic_alignment",
+      "label": "Dialogic Alignment",
+      "count": 0,
+      "matched_terms": [],
+      "project_gate_labels": [
+        "接收端错位",
+        "岛村只接住表层词"
+      ]
+    },
+    {
+      "id": "prompt_boundary",
+      "label": "Instruction Boundary",
+      "count": 0,
+      "matched_terms": [],
+      "project_gate_labels": [
+        "prompt 边界",
+        "复刻风险"
+      ]
+    }
+  ],
+  "notes": [
+    "Tokenization is for lexicon discovery and diagnostics, not a literary quality score.",
+    "The regex engine is deterministic and uses protected lexicon terms plus CJK characters.",
+    "The jieba engine is used only when the optional open-source package is installed.",
+    "The tiktoken engine is OpenAI model-tokenization oriented and should not be treated as linguistic word segmentation.",
+    "The hf engine loads a Hugging Face tokenizer such as DeepSeek and should also be treated as model tokenization, not linguistic word segmentation.",
+    "Taxonomy hits use general linguistic categories before mapping to project gate labels."
+  ]
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Novel Gate Harness"
+  short_description: "Draft candidates with gate-aware JSON."
+  default_prompt: "Use $novel-gate-harness to draft or revise a candidate with paired JSON, run the gate, and decide the next review step."
+policy:
+  allow_implicit_invocation: true

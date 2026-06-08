@@ -1,0 +1,1764 @@
+{
+  "generated_at": "2026-06-08T13:59:18",
+  "slices_path": "corpus_slices\\slices.json",
+  "lexicon_path": "tools\\style_lexicon.json",
+  "taxonomy_path": "tools\\lexicon_taxonomy.json",
+  "target_id": "adachi_pressure",
+  "groups": [
+    {
+      "id": "adachi_pressure",
+      "label": "关系失衡核心段",
+      "slice_count": 1,
+      "metrics": {
+        "chars_no_ws": 8311,
+        "slice_count": 1
+      },
+      "features": {
+        "taxonomy.affect_intensity.per_1000": 2.647094,
+        "taxonomy.stance_uncertainty.per_1000": 19.010949,
+        "taxonomy.cognitive_explanation.per_1000": 2.767417,
+        "taxonomy.dialogic_alignment.per_1000": 0.0,
+        "taxonomy.concrete_grounding.per_1000": 3.248707,
+        "taxonomy.closure_resolution.per_1000": 0.120322,
+        "taxonomy.prompt_boundary.per_1000": 0.0,
+        "shape.char_count": 8311.0,
+        "shape.sentence_avg": 18.7881,
+        "shape.sentence_p90": 33.0,
+        "shape.dialogue_ratio": 0.2857,
+        "shape.dialogue_max": 2898.0,
+        "shape.dialogue_ge_200": 1.0
+      },
+      "taxonomy_hits": {
+        "affect_intensity": {
+          "count": 22,
+          "per_1000": 2.647094,
+          "top_terms": [
+            {
+              "item": "喜欢",
+              "count": 11
+            },
+            {
+              "item": "痛苦",
+              "count": 5
+            },
+            {
+              "item": "嫉妒",
+              "count": 3
+            },
+            {
+              "item": "吃醋",
+              "count": 1
+            },
+            {
+              "item": "害怕",
+              "count": 1
+            },
+            {
+              "item": "崩溃",
+              "count": 1
+            }
+          ]
+        },
+        "stance_uncertainty": {
+          "count": 158,
+          "per_1000": 19.010949,
+          "top_terms": [
+            {
+              "item": "可是",
+              "count": 24
+            },
+            {
+              "item": "不要",
+              "count": 22
+            },
+            {
+              "item": "没有",
+              "count": 21
+            },
+            {
+              "item": "不是",
+              "count": 17
+            },
+            {
+              "item": "不会",
+              "count": 10
+            },
+            {
+              "item": "可能",
+              "count": 8
+            },
+            {
+              "item": "有点",
+              "count": 8
+            },
+            {
+              "item": "只是",
+              "count": 7
+            },
+            {
+              "item": "好像",
+              "count": 7
+            },
+            {
+              "item": "不对",
+              "count": 5
+            },
+            {
+              "item": "应该",
+              "count": 5
+            },
+            {
+              "item": "但是",
+              "count": 4
+            },
+            {
+              "item": "明明",
+              "count": 4
+            },
+            {
+              "item": "不过",
+              "count": 3
+            },
+            {
+              "item": "不是那样",
+              "count": 2
+            },
+            {
+              "item": "应该说",
+              "count": 2
+            },
+            {
+              "item": "不行",
+              "count": 2
+            },
+            {
+              "item": "大概",
+              "count": 2
+            },
+            {
+              "item": "也不是",
+              "count": 1
+            },
+            {
+              "item": "总觉得",
+              "count": 1
+            },
+            {
+              "item": "无所谓",
+              "count": 1
+            },
+            {
+              "item": "说不定",
+              "count": 1
+            },
+            {
+              "item": "不能",
+              "count": 1
+            }
+          ]
+        },
+        "cognitive_explanation": {
+          "count": 23,
+          "per_1000": 2.767417,
+          "top_terms": [
+            {
+              "item": "因为",
+              "count": 11
+            },
+            {
+              "item": "所以",
+              "count": 10
+            },
+            {
+              "item": "我的意思是",
+              "count": 1
+            },
+            {
+              "item": "其实",
+              "count": 1
+            }
+          ]
+        },
+        "dialogic_alignment": {
+          "count": 0,
+          "per_1000": 0.0,
+          "top_terms": []
+        },
+        "concrete_grounding": {
+          "count": 27,
+          "per_1000": 3.248707,
+          "top_terms": [
+            {
+              "item": "电话",
+              "count": 9
+            },
+            {
+              "item": "手机",
+              "count": 6
+            },
+            {
+              "item": "门",
+              "count": 3
+            },
+            {
+              "item": "房间",
+              "count": 2
+            },
+            {
+              "item": "枕头",
+              "count": 2
+            },
+            {
+              "item": "空调",
+              "count": 2
+            },
+            {
+              "item": "喉咙",
+              "count": 1
+            },
+            {
+              "item": "邮件",
+              "count": 1
+            },
+            {
+              "item": "床",
+              "count": 1
+            }
+          ]
+        },
+        "closure_resolution": {
+          "count": 1,
+          "per_1000": 0.120322,
+          "top_terms": [
+            {
+              "item": "解决",
+              "count": 1
+            }
+          ]
+        },
+        "prompt_boundary": {
+          "count": 0,
+          "per_1000": 0.0,
+          "top_terms": []
+        }
+      },
+      "top_cjk_trigrams": [
+        {
+          "item": "我希望",
+          "count": 14
+        },
+        {
+          "item": "的事情",
+          "count": 13
+        },
+        {
+          "item": "为什么",
+          "count": 13
+        },
+        {
+          "item": "我不要",
+          "count": 12
+        },
+        {
+          "item": "岛村的",
+          "count": 11
+        },
+        {
+          "item": "岛村我",
+          "count": 11
+        },
+        {
+          "item": "在一起",
+          "count": 10
+        },
+        {
+          "item": "希望你",
+          "count": 10
+        },
+        {
+          "item": "游泳池",
+          "count": 10
+        },
+        {
+          "item": "可是我",
+          "count": 9
+        },
+        {
+          "item": "那个女",
+          "count": 9
+        },
+        {
+          "item": "个女生",
+          "count": 9
+        },
+        {
+          "item": "岛村岛",
+          "count": 9
+        },
+        {
+          "item": "村岛村",
+          "count": 9
+        },
+        {
+          "item": "的岛村",
+          "count": 8
+        },
+        {
+          "item": "在岛村",
+          "count": 8
+        },
+        {
+          "item": "告诉我",
+          "count": 8
+        },
+        {
+          "item": "很奇怪",
+          "count": 8
+        },
+        {
+          "item": "岛村你",
+          "count": 8
+        },
+        {
+          "item": "该怎么",
+          "count": 8
+        },
+        {
+          "item": "不要你",
+          "count": 8
+        },
+        {
+          "item": "我知道",
+          "count": 7
+        },
+        {
+          "item": "岛村身",
+          "count": 7
+        },
+        {
+          "item": "想知道",
+          "count": 7
+        },
+        {
+          "item": "跟岛村",
+          "count": 7
+        },
+        {
+          "item": "我好想",
+          "count": 7
+        },
+        {
+          "item": "不知道",
+          "count": 7
+        },
+        {
+          "item": "我一直",
+          "count": 7
+        },
+        {
+          "item": "一点也",
+          "count": 7
+        },
+        {
+          "item": "的地方",
+          "count": 7
+        }
+      ]
+    },
+    {
+      "id": "adachi_daily",
+      "label": "关系错位前置段",
+      "slice_count": 1,
+      "metrics": {
+        "chars_no_ws": 28171,
+        "slice_count": 1
+      },
+      "features": {
+        "taxonomy.affect_intensity.per_1000": 0.390472,
+        "taxonomy.stance_uncertainty.per_1000": 16.896809,
+        "taxonomy.cognitive_explanation.per_1000": 2.55582,
+        "taxonomy.dialogic_alignment.per_1000": 0.035497,
+        "taxonomy.concrete_grounding.per_1000": 3.159277,
+        "taxonomy.closure_resolution.per_1000": 0.035497,
+        "taxonomy.prompt_boundary.per_1000": 0.070995,
+        "shape.char_count": 28171.0,
+        "shape.sentence_avg": 18.1639,
+        "shape.sentence_p90": 31.0,
+        "shape.dialogue_ratio": 0.3585,
+        "shape.dialogue_max": 139.0,
+        "shape.dialogue_ge_200": 0.0
+      },
+      "taxonomy_hits": {
+        "affect_intensity": {
+          "count": 11,
+          "per_1000": 0.390472,
+          "top_terms": [
+            {
+              "item": "喜欢",
+              "count": 4
+            },
+            {
+              "item": "不安",
+              "count": 3
+            },
+            {
+              "item": "命运",
+              "count": 1
+            },
+            {
+              "item": "害怕",
+              "count": 1
+            },
+            {
+              "item": "永恒",
+              "count": 1
+            },
+            {
+              "item": "痛苦",
+              "count": 1
+            }
+          ]
+        },
+        "stance_uncertainty": {
+          "count": 476,
+          "per_1000": 16.896809,
+          "top_terms": [
+            {
+              "item": "没有",
+              "count": 77
+            },
+            {
+              "item": "不是",
+              "count": 46
+            },
+            {
+              "item": "不过",
+              "count": 44
+            },
+            {
+              "item": "不会",
+              "count": 43
+            },
+            {
+              "item": "好像",
+              "count": 40
+            },
+            {
+              "item": "应该",
+              "count": 36
+            },
+            {
+              "item": "大概",
+              "count": 23
+            },
+            {
+              "item": "可是",
+              "count": 21
+            },
+            {
+              "item": "只是",
+              "count": 16
+            },
+            {
+              "item": "有点",
+              "count": 15
+            },
+            {
+              "item": "可能",
+              "count": 11
+            },
+            {
+              "item": "不要",
+              "count": 10
+            },
+            {
+              "item": "不对",
+              "count": 9
+            },
+            {
+              "item": "似乎",
+              "count": 9
+            },
+            {
+              "item": "不能",
+              "count": 8
+            },
+            {
+              "item": "明明",
+              "count": 8
+            },
+            {
+              "item": "总觉得",
+              "count": 7
+            },
+            {
+              "item": "没关系",
+              "count": 7
+            },
+            {
+              "item": "但是",
+              "count": 6
+            },
+            {
+              "item": "算了",
+              "count": 6
+            },
+            {
+              "item": "应该说",
+              "count": 5
+            },
+            {
+              "item": "或许",
+              "count": 5
+            },
+            {
+              "item": "稍微",
+              "count": 5
+            },
+            {
+              "item": "不行",
+              "count": 4
+            },
+            {
+              "item": "话说回来",
+              "count": 3
+            },
+            {
+              "item": "也不是",
+              "count": 3
+            },
+            {
+              "item": "与其说",
+              "count": 2
+            },
+            {
+              "item": "差不多",
+              "count": 2
+            },
+            {
+              "item": "说不定",
+              "count": 2
+            },
+            {
+              "item": "不是那样",
+              "count": 1
+            }
+          ]
+        },
+        "cognitive_explanation": {
+          "count": 72,
+          "per_1000": 2.55582,
+          "top_terms": [
+            {
+              "item": "因为",
+              "count": 36
+            },
+            {
+              "item": "所以",
+              "count": 28
+            },
+            {
+              "item": "其实",
+              "count": 7
+            },
+            {
+              "item": "我并不是",
+              "count": 1
+            }
+          ]
+        },
+        "dialogic_alignment": {
+          "count": 1,
+          "per_1000": 0.035497,
+          "top_terms": [
+            {
+              "item": "太快了",
+              "count": 1
+            }
+          ]
+        },
+        "concrete_grounding": {
+          "count": 89,
+          "per_1000": 3.159277,
+          "top_terms": [
+            {
+              "item": "门",
+              "count": 17
+            },
+            {
+              "item": "电话",
+              "count": 16
+            },
+            {
+              "item": "窗",
+              "count": 10
+            },
+            {
+              "item": "房间",
+              "count": 8
+            },
+            {
+              "item": "手指",
+              "count": 6
+            },
+            {
+              "item": "风扇",
+              "count": 6
+            },
+            {
+              "item": "灯",
+              "count": 6
+            },
+            {
+              "item": "影子",
+              "count": 4
+            },
+            {
+              "item": "手机",
+              "count": 4
+            },
+            {
+              "item": "鞋",
+              "count": 4
+            },
+            {
+              "item": "书包",
+              "count": 1
+            },
+            {
+              "item": "喉咙",
+              "count": 1
+            },
+            {
+              "item": "地板",
+              "count": 1
+            },
+            {
+              "item": "掌心",
+              "count": 1
+            },
+            {
+              "item": "空调",
+              "count": 1
+            },
+            {
+              "item": "窗帘",
+              "count": 1
+            },
+            {
+              "item": "胸口",
+              "count": 1
+            },
+            {
+              "item": "邮件",
+              "count": 1
+            }
+          ]
+        },
+        "closure_resolution": {
+          "count": 1,
+          "per_1000": 0.035497,
+          "top_terms": [
+            {
+              "item": "解决",
+              "count": 1
+            }
+          ]
+        },
+        "prompt_boundary": {
+          "count": 2,
+          "per_1000": 0.070995,
+          "top_terms": [
+            {
+              "item": "一模一样",
+              "count": 2
+            }
+          ]
+        }
+      },
+      "top_cjk_trigrams": [
+        {
+          "item": "的时候",
+          "count": 28
+        },
+        {
+          "item": "不知道",
+          "count": 23
+        },
+        {
+          "item": "的事情",
+          "count": 18
+        },
+        {
+          "item": "烟火大",
+          "count": 17
+        },
+        {
+          "item": "火大会",
+          "count": 17
+        },
+        {
+          "item": "是因为",
+          "count": 15
+        },
+        {
+          "item": "的声音",
+          "count": 15
+        },
+        {
+          "item": "自己的",
+          "count": 14
+        },
+        {
+          "item": "一起去",
+          "count": 12
+        },
+        {
+          "item": "我还是",
+          "count": 12
+        },
+        {
+          "item": "的妹妹",
+          "count": 12
+        },
+        {
+          "item": "我觉得",
+          "count": 12
+        },
+        {
+          "item": "的社妹",
+          "count": 12
+        },
+        {
+          "item": "岛村的",
+          "count": 11
+        },
+        {
+          "item": "这件事",
+          "count": 11
+        },
+        {
+          "item": "不过我",
+          "count": 11
+        },
+        {
+          "item": "的地方",
+          "count": 11
+        },
+        {
+          "item": "的烟火",
+          "count": 11
+        },
+        {
+          "item": "樽见的",
+          "count": 11
+        },
+        {
+          "item": "看起来",
+          "count": 11
+        },
+        {
+          "item": "笔记本",
+          "count": 11
+        },
+        {
+          "item": "岛村一",
+          "count": 10
+        },
+        {
+          "item": "感受到",
+          "count": 10
+        },
+        {
+          "item": "我现在",
+          "count": 10
+        },
+        {
+          "item": "没办法",
+          "count": 10
+        },
+        {
+          "item": "的感觉",
+          "count": 10
+        },
+        {
+          "item": "了一下",
+          "count": 10
+        },
+        {
+          "item": "我的手",
+          "count": 10
+        },
+        {
+          "item": "和岛村",
+          "count": 9
+        },
+        {
+          "item": "没什么",
+          "count": 9
+        }
+      ]
+    },
+    {
+      "id": "shimamura_view",
+      "label": "岛村平稳叙述段",
+      "slice_count": 1,
+      "metrics": {
+        "chars_no_ws": 18794,
+        "slice_count": 1
+      },
+      "features": {
+        "taxonomy.affect_intensity.per_1000": 0.372459,
+        "taxonomy.stance_uncertainty.per_1000": 18.037672,
+        "taxonomy.cognitive_explanation.per_1000": 3.990635,
+        "taxonomy.dialogic_alignment.per_1000": 0.0,
+        "taxonomy.concrete_grounding.per_1000": 2.660424,
+        "taxonomy.closure_resolution.per_1000": 0.0,
+        "taxonomy.prompt_boundary.per_1000": 0.106417,
+        "shape.char_count": 18794.0,
+        "shape.sentence_avg": 20.7021,
+        "shape.sentence_p90": 37.0,
+        "shape.dialogue_ratio": 0.3737,
+        "shape.dialogue_max": 94.0,
+        "shape.dialogue_ge_200": 0.0
+      },
+      "taxonomy_hits": {
+        "affect_intensity": {
+          "count": 7,
+          "per_1000": 0.372459,
+          "top_terms": [
+            {
+              "item": "喜欢",
+              "count": 5
+            },
+            {
+              "item": "害怕",
+              "count": 2
+            }
+          ]
+        },
+        "stance_uncertainty": {
+          "count": 339,
+          "per_1000": 18.037672,
+          "top_terms": [
+            {
+              "item": "没有",
+              "count": 51
+            },
+            {
+              "item": "不过",
+              "count": 30
+            },
+            {
+              "item": "不是",
+              "count": 27
+            },
+            {
+              "item": "好像",
+              "count": 23
+            },
+            {
+              "item": "应该",
+              "count": 22
+            },
+            {
+              "item": "不会",
+              "count": 18
+            },
+            {
+              "item": "只是",
+              "count": 17
+            },
+            {
+              "item": "似乎",
+              "count": 16
+            },
+            {
+              "item": "明明",
+              "count": 16
+            },
+            {
+              "item": "大概",
+              "count": 11
+            },
+            {
+              "item": "稍微",
+              "count": 11
+            },
+            {
+              "item": "不要",
+              "count": 10
+            },
+            {
+              "item": "可能",
+              "count": 10
+            },
+            {
+              "item": "有点",
+              "count": 10
+            },
+            {
+              "item": "差不多",
+              "count": 9
+            },
+            {
+              "item": "但是",
+              "count": 7
+            },
+            {
+              "item": "可是",
+              "count": 7
+            },
+            {
+              "item": "没关系",
+              "count": 6
+            },
+            {
+              "item": "说不定",
+              "count": 5
+            },
+            {
+              "item": "或许",
+              "count": 5
+            },
+            {
+              "item": "与其说",
+              "count": 4
+            },
+            {
+              "item": "也不是",
+              "count": 3
+            },
+            {
+              "item": "应该说",
+              "count": 3
+            },
+            {
+              "item": "不能",
+              "count": 3
+            },
+            {
+              "item": "算了",
+              "count": 3
+            },
+            {
+              "item": "不太清楚",
+              "count": 2
+            },
+            {
+              "item": "话说回来",
+              "count": 2
+            },
+            {
+              "item": "不可以",
+              "count": 2
+            },
+            {
+              "item": "不如说",
+              "count": 2
+            },
+            {
+              "item": "总觉得",
+              "count": 2
+            }
+          ]
+        },
+        "cognitive_explanation": {
+          "count": 75,
+          "per_1000": 3.990635,
+          "top_terms": [
+            {
+              "item": "因为",
+              "count": 38
+            },
+            {
+              "item": "所以",
+              "count": 35
+            },
+            {
+              "item": "其实",
+              "count": 2
+            }
+          ]
+        },
+        "dialogic_alignment": {
+          "count": 0,
+          "per_1000": 0.0,
+          "top_terms": []
+        },
+        "concrete_grounding": {
+          "count": 50,
+          "per_1000": 2.660424,
+          "top_terms": [
+            {
+              "item": "门",
+              "count": 17
+            },
+            {
+              "item": "电话",
+              "count": 8
+            },
+            {
+              "item": "房间",
+              "count": 7
+            },
+            {
+              "item": "鞋",
+              "count": 5
+            },
+            {
+              "item": "手指",
+              "count": 4
+            },
+            {
+              "item": "地板",
+              "count": 2
+            },
+            {
+              "item": "枕头",
+              "count": 2
+            },
+            {
+              "item": "邮件",
+              "count": 2
+            },
+            {
+              "item": "窗",
+              "count": 2
+            },
+            {
+              "item": "灯",
+              "count": 1
+            }
+          ]
+        },
+        "closure_resolution": {
+          "count": 0,
+          "per_1000": 0.0,
+          "top_terms": []
+        },
+        "prompt_boundary": {
+          "count": 2,
+          "per_1000": 0.106417,
+          "top_terms": [
+            {
+              "item": "一模一样",
+              "count": 2
+            }
+          ]
+        }
+      },
+      "top_cjk_trigrams": [
+        {
+          "item": "的母亲",
+          "count": 43
+        },
+        {
+          "item": "安达的",
+          "count": 39
+        },
+        {
+          "item": "达的母",
+          "count": 26
+        },
+        {
+          "item": "的时候",
+          "count": 18
+        },
+        {
+          "item": "自己的",
+          "count": 18
+        },
+        {
+          "item": "的样子",
+          "count": 16
+        },
+        {
+          "item": "游泳池",
+          "count": 15
+        },
+        {
+          "item": "健身房",
+          "count": 14
+        },
+        {
+          "item": "很奇怪",
+          "count": 14
+        },
+        {
+          "item": "是因为",
+          "count": 14
+        },
+        {
+          "item": "三温暖",
+          "count": 14
+        },
+        {
+          "item": "了一下",
+          "count": 13
+        },
+        {
+          "item": "不知道",
+          "count": 12
+        },
+        {
+          "item": "看起来",
+          "count": 12
+        },
+        {
+          "item": "怪家伙",
+          "count": 12
+        },
+        {
+          "item": "仰卧起",
+          "count": 11
+        },
+        {
+          "item": "卧起坐",
+          "count": 11
+        },
+        {
+          "item": "我觉得",
+          "count": 11
+        },
+        {
+          "item": "所以我",
+          "count": 11
+        },
+        {
+          "item": "的声音",
+          "count": 10
+        },
+        {
+          "item": "是什么",
+          "count": 10
+        },
+        {
+          "item": "也没有",
+          "count": 10
+        },
+        {
+          "item": "可乐饼",
+          "count": 10
+        },
+        {
+          "item": "差不多",
+          "count": 9
+        },
+        {
+          "item": "是不是",
+          "count": 9
+        },
+        {
+          "item": "感受到",
+          "count": 9
+        },
+        {
+          "item": "的感觉",
+          "count": 9
+        },
+        {
+          "item": "的地方",
+          "count": 9
+        },
+        {
+          "item": "了安达",
+          "count": 8
+        },
+        {
+          "item": "说什么",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "id": "analysis_docs",
+      "label": "分析腔参照文档",
+      "slice_count": 4,
+      "metrics": {
+        "chars_no_ws": 6482,
+        "slice_count": 4
+      },
+      "features": {
+        "taxonomy.affect_intensity.per_1000": 4.628201,
+        "taxonomy.stance_uncertainty.per_1000": 28.386301,
+        "taxonomy.cognitive_explanation.per_1000": 4.319654,
+        "taxonomy.dialogic_alignment.per_1000": 0.154273,
+        "taxonomy.concrete_grounding.per_1000": 12.033323,
+        "taxonomy.closure_resolution.per_1000": 1.234187,
+        "taxonomy.prompt_boundary.per_1000": 4.936748,
+        "shape.char_count": 6482.0,
+        "shape.sentence_avg": 23.1866,
+        "shape.sentence_p90": 39.0,
+        "shape.dialogue_ratio": 0.0326,
+        "shape.dialogue_max": 91.0,
+        "shape.dialogue_ge_200": 0.0
+      },
+      "taxonomy_hits": {
+        "affect_intensity": {
+          "count": 30,
+          "per_1000": 4.628201,
+          "top_terms": [
+            {
+              "item": "嫉妒",
+              "count": 8
+            },
+            {
+              "item": "崩溃",
+              "count": 4
+            },
+            {
+              "item": "救赎",
+              "count": 2
+            },
+            {
+              "item": "永恒",
+              "count": 2
+            },
+            {
+              "item": "深渊",
+              "count": 2
+            },
+            {
+              "item": "痛苦",
+              "count": 2
+            },
+            {
+              "item": "灵魂深处",
+              "count": 1
+            },
+            {
+              "item": "破碎的心",
+              "count": 1
+            },
+            {
+              "item": "苍白月光",
+              "count": 1
+            },
+            {
+              "item": "吃醋",
+              "count": 1
+            },
+            {
+              "item": "命运",
+              "count": 1
+            },
+            {
+              "item": "害怕",
+              "count": 1
+            },
+            {
+              "item": "宿命",
+              "count": 1
+            },
+            {
+              "item": "恐惧",
+              "count": 1
+            },
+            {
+              "item": "撕裂",
+              "count": 1
+            },
+            {
+              "item": "血色",
+              "count": 1
+            }
+          ]
+        },
+        "stance_uncertainty": {
+          "count": 184,
+          "per_1000": 28.386301,
+          "top_terms": [
+            {
+              "item": "不要",
+              "count": 53
+            },
+            {
+              "item": "没有",
+              "count": 53
+            },
+            {
+              "item": "不是",
+              "count": 35
+            },
+            {
+              "item": "只是",
+              "count": 10
+            },
+            {
+              "item": "应该",
+              "count": 6
+            },
+            {
+              "item": "稍微",
+              "count": 4
+            },
+            {
+              "item": "不是那样",
+              "count": 3
+            },
+            {
+              "item": "不太懂",
+              "count": 3
+            },
+            {
+              "item": "也不是",
+              "count": 3
+            },
+            {
+              "item": "不会",
+              "count": 3
+            },
+            {
+              "item": "不能",
+              "count": 3
+            },
+            {
+              "item": "有点",
+              "count": 3
+            },
+            {
+              "item": "明明",
+              "count": 2
+            },
+            {
+              "item": "但是",
+              "count": 1
+            },
+            {
+              "item": "可是",
+              "count": 1
+            },
+            {
+              "item": "好像",
+              "count": 1
+            }
+          ]
+        },
+        "cognitive_explanation": {
+          "count": 28,
+          "per_1000": 4.319654,
+          "top_terms": [
+            {
+              "item": "情绪张力",
+              "count": 6
+            },
+            {
+              "item": "机制",
+              "count": 5
+            },
+            {
+              "item": "潜台词",
+              "count": 4
+            },
+            {
+              "item": "表层问题",
+              "count": 3
+            },
+            {
+              "item": "轻回应",
+              "count": 3
+            },
+            {
+              "item": "因为",
+              "count": 3
+            },
+            {
+              "item": "关系错位",
+              "count": 2
+            },
+            {
+              "item": "所以",
+              "count": 2
+            }
+          ]
+        },
+        "dialogic_alignment": {
+          "count": 1,
+          "per_1000": 0.154273,
+          "top_terms": [
+            {
+              "item": "我不太懂",
+              "count": 1
+            }
+          ]
+        },
+        "concrete_grounding": {
+          "count": 78,
+          "per_1000": 12.033323,
+          "top_terms": [
+            {
+              "item": "手机",
+              "count": 10
+            },
+            {
+              "item": "掌心",
+              "count": 10
+            },
+            {
+              "item": "电话",
+              "count": 10
+            },
+            {
+              "item": "屏幕",
+              "count": 9
+            },
+            {
+              "item": "手指",
+              "count": 8
+            },
+            {
+              "item": "喉咙",
+              "count": 6
+            },
+            {
+              "item": "房间",
+              "count": 6
+            },
+            {
+              "item": "空调",
+              "count": 5
+            },
+            {
+              "item": "胸口",
+              "count": 3
+            },
+            {
+              "item": "枕头",
+              "count": 2
+            },
+            {
+              "item": "烟花",
+              "count": 2
+            },
+            {
+              "item": "被子",
+              "count": 2
+            },
+            {
+              "item": "灯",
+              "count": 2
+            },
+            {
+              "item": "手心",
+              "count": 1
+            },
+            {
+              "item": "邮件",
+              "count": 1
+            },
+            {
+              "item": "床",
+              "count": 1
+            }
+          ]
+        },
+        "closure_resolution": {
+          "count": 8,
+          "per_1000": 1.234187,
+          "top_terms": [
+            {
+              "item": "解决",
+              "count": 5
+            },
+            {
+              "item": "安心",
+              "count": 2
+            },
+            {
+              "item": "和好",
+              "count": 1
+            }
+          ]
+        },
+        "prompt_boundary": {
+          "count": 32,
+          "per_1000": 4.936748,
+          "top_terms": [
+            {
+              "item": "复刻原文",
+              "count": 5
+            },
+            {
+              "item": "原创",
+              "count": 5
+            },
+            {
+              "item": "机制",
+              "count": 5
+            },
+            {
+              "item": "照搬原文",
+              "count": 3
+            },
+            {
+              "item": "可迁移",
+              "count": 3
+            },
+            {
+              "item": "不要复刻",
+              "count": 2
+            },
+            {
+              "item": "不要照搬",
+              "count": 2
+            },
+            {
+              "item": "不复刻",
+              "count": 2
+            },
+            {
+              "item": "不模仿",
+              "count": 2
+            },
+            {
+              "item": "不要模仿",
+              "count": 1
+            },
+            {
+              "item": "照搬句式",
+              "count": 1
+            },
+            {
+              "item": "不照搬",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "top_cjk_trigrams": [
+        {
+          "item": "岛村没",
+          "count": 16
+        },
+        {
+          "item": "村没有",
+          "count": 16
+        },
+        {
+          "item": "安达的",
+          "count": 13
+        },
+        {
+          "item": "岛村的",
+          "count": 11
+        },
+        {
+          "item": "不要写",
+          "count": 10
+        },
+        {
+          "item": "不要让",
+          "count": 10
+        },
+        {
+          "item": "而不是",
+          "count": 9
+        },
+        {
+          "item": "要写成",
+          "count": 8
+        },
+        {
+          "item": "是岛村",
+          "count": 7
+        },
+        {
+          "item": "岛村不",
+          "count": 7
+        },
+        {
+          "item": "情绪张",
+          "count": 6
+        },
+        {
+          "item": "绪张力",
+          "count": 6
+        },
+        {
+          "item": "意识流",
+          "count": 6
+        },
+        {
+          "item": "日常物",
+          "count": 6
+        },
+        {
+          "item": "常物件",
+          "count": 6
+        },
+        {
+          "item": "手机屏",
+          "count": 6
+        },
+        {
+          "item": "机屏幕",
+          "count": 6
+        },
+        {
+          "item": "但不要",
+          "count": 6
+        },
+        {
+          "item": "复刻原",
+          "count": 5
+        },
+        {
+          "item": "刻原文",
+          "count": 5
+        },
+        {
+          "item": "岛村主",
+          "count": 5
+        },
+        {
+          "item": "没有恶",
+          "count": 5
+        },
+        {
+          "item": "有恶意",
+          "count": 5
+        },
+        {
+          "item": "做错事",
+          "count": 5
+        },
+        {
+          "item": "真正想",
+          "count": 5
+        },
+        {
+          "item": "正想问",
+          "count": 5
+        },
+        {
+          "item": "出口的",
+          "count": 5
+        },
+        {
+          "item": "解释成",
+          "count": 5
+        },
+        {
+          "item": "的问题",
+          "count": 5
+        },
+        {
+          "item": "解释自",
+          "count": 5
+        }
+      ]
+    }
+  ],
+  "contrast_weights": [
+    {
+      "feature": "shape.dialogue_ge_200",
+      "target": 1.0,
+      "others_mean": 0.0,
+      "effect": 2.309401,
+      "abs_effect": 2.309401,
+      "direction": "higher_in_target"
+    },
+    {
+      "feature": "shape.dialogue_max",
+      "target": 2898.0,
+      "others_mean": 108.0,
+      "effect": 2.309115,
+      "abs_effect": 2.309115,
+      "direction": "higher_in_target"
+    },
+    {
+      "feature": "taxonomy.cognitive_explanation.per_1000",
+      "target": 2.767417,
+      "others_mean": 3.622036,
+      "effect": -1.125295,
+      "abs_effect": 1.125295,
+      "direction": "lower_in_target"
+    },
+    {
+      "feature": "shape.char_count",
+      "target": 8311.0,
+      "others_mean": 17815.666667,
+      "effect": -1.08955,
+      "abs_effect": 1.08955,
+      "direction": "lower_in_target"
+    },
+    {
+      "feature": "taxonomy.dialogic_alignment.per_1000",
+      "target": 0.0,
+      "others_mean": 0.063257,
+      "effect": -0.998398,
+      "abs_effect": 0.998398,
+      "direction": "lower_in_target"
+    },
+    {
+      "feature": "shape.sentence_avg",
+      "target": 18.7881,
+      "others_mean": 20.6842,
+      "effect": -0.969158,
+      "abs_effect": 0.969158,
+      "direction": "lower_in_target"
+    },
+    {
+      "feature": "shape.sentence_p90",
+      "target": 33.0,
+      "others_mean": 35.666667,
+      "effect": -0.843274,
+      "abs_effect": 0.843274,
+      "direction": "lower_in_target"
+    },
+    {
+      "feature": "taxonomy.prompt_boundary.per_1000",
+      "target": 0.0,
+      "others_mean": 1.70472,
+      "effect": -0.807001,
+      "abs_effect": 0.807001,
+      "direction": "lower_in_target"
+    },
+    {
+      "feature": "taxonomy.concrete_grounding.per_1000",
+      "target": 3.248707,
+      "others_mean": 5.951008,
+      "effect": -0.691461,
+      "abs_effect": 0.691461,
+      "direction": "lower_in_target"
+    },
+    {
+      "feature": "taxonomy.closure_resolution.per_1000",
+      "target": 0.120322,
+      "others_mean": 0.423228,
+      "effect": -0.589551,
+      "abs_effect": 0.589551,
+      "direction": "lower_in_target"
+    },
+    {
+      "feature": "taxonomy.affect_intensity.per_1000",
+      "target": 2.647094,
+      "others_mean": 1.797044,
+      "effect": 0.47961,
+      "abs_effect": 0.47961,
+      "direction": "higher_in_target"
+    },
+    {
+      "feature": "taxonomy.stance_uncertainty.per_1000",
+      "target": 19.010949,
+      "others_mean": 21.106927,
+      "effect": -0.458941,
+      "abs_effect": 0.458941,
+      "direction": "lower_in_target"
+    },
+    {
+      "feature": "shape.dialogue_ratio",
+      "target": 0.2857,
+      "others_mean": 0.254933,
+      "effect": 0.224727,
+      "abs_effect": 0.224727,
+      "direction": "higher_in_target"
+    }
+  ],
+  "notes": [
+    "This is a corpus profile, not RAG and not a quality score.",
+    "Weights are simple standardized contrasts against non-target groups.",
+    "Use weights to decide which dimensions deserve human review or gate tuning."
+  ]
+}

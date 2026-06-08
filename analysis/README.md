@@ -12,6 +12,11 @@
 - `review_checklist.md`：成稿审稿清单。
 - `harness_plan.md`：轻量候选筛选 harness 计划，定义 gate 状态、subagent 分工和用户 review 边界。
 - `harness_config.json`：Harness v1 gate 配置。
+- `productization_gate_v1.md`：Single-kernel tuning lab 产品化方向，定义 `md + json` 候选协议与解释化 gate 优先级。
+- `lexicon_taxonomy.md`：泛化语言学 taxonomy，将词表发现维度映射回项目 gate。
+- `../skills/novel-gate-harness/SKILL.md`：项目内 skill 草案，用于候选生成、结构 JSON、harness 检测和下一轮决策。
+- `../tools/corpus_tokenizer.py`：语料 tokenization 与词表发现工具，默认 `regex`，可选 `jieba`、OpenAI `tiktoken` 和 Hugging Face/DeepSeek tokenizer。
+- `../tools/corpus_profiler.py`：语料 profile 与可解释特征权重工具，不做 RAG。
 
 ## 当前实验产物
 
@@ -35,6 +40,26 @@
 - 通过 gate 的候选只能进入 `pending_user_review`。
 - Subagent 可以生成候选或写 provisional notes，但不能写最终回归结论。
 - 可用入口：`python tools/light_harness.py --run-id existing_rounds_audit --candidates drafts/current.md drafts/round2.md drafts/round3.md --slices corpus_slices/slices.json --config analysis/harness_config.json --reports-root analysis/reports/candidates`
+
+## Productization v1
+
+- 第一版定位为 single-kernel tuning lab，不允许任意切换审美内核。
+- Gate v1 的第一优先级是解释化泄漏，尤其是岛村过度理解安达。
+- 后续候选建议采用 `candidate_001.md` + `candidate_001.json`：Markdown 给人读，JSON 给 harness 识别说话人、回应关系和表层接收词。
+
+## Tokenization v1
+
+- 当前报告：`reports/tokenization_vol05.md/json` 与 `reports/tokenization_vol05_shimamura_blade.md/json`。
+- DeepSeek V4-Flash tokenizer 对照：`reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md/json`。
+- 用途是发现词表候选和语料差异，不做质量评分。
+- 本机当前没有安装 `jieba` 或 `tiktoken`；Hugging Face tokenizer 依赖已安装到项目本地 `.deps/hf-tokenizer2/`。
+- 报告按 `../tools/lexicon_taxonomy.json` 先汇总泛化语言学类别，再映射回当前 gate 标签。
+
+## Corpus Profile v1
+
+- 当前报告：`reports/corpus_profile_adachi_pressure.md/json`。
+- 用途是比较参照组的 taxonomy/shape/token 特征权重，辅助 gate 调参。
+- 不做 RAG，不召回原文，不替代人工 review。
 
 ## 重点定位
 

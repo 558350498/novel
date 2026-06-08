@@ -24,6 +24,18 @@
 - 已实现 Harness v1：`tools/light_harness.py`、`analysis/harness_config.json`、`analysis/harness_plan.md`。
 - 已实现全篇章形状分析：`tools/source_shape_analyzer.py`，输出 `analysis/reports/source_chapter_shape.md/json`。
 - 已新增 Round 4 长篇候选 prompt：`analysis/generation_prompt_round4.md`。
+- 已确认产品化第一版定位：single-kernel tuning lab，不允许任意切换审美内核。
+- 已新增 Gate v1 产品化计划：`analysis/productization_gate_v1.md`，确定候选采用 Markdown 正文 + JSON 结构标注。
+- 已新增项目内 skill 草案：`skills/novel-gate-harness/SKILL.md`，用于候选生成、JSON 结构标注、harness 检测和下一轮决策。
+- 已新增 corpus tokenizer v1：`tools/corpus_tokenizer.py`，用于词表发现、语料拓展和第 5 卷 tokenization 报告；支持 `regex`，并预留 `jieba`、OpenAI `tiktoken` 与 Hugging Face/DeepSeek tokenizer 可选引擎。
+- 已新增泛化词表 taxonomy：`tools/lexicon_taxonomy.json` 与 `analysis/lexicon_taxonomy.md`，将项目 gate 标签映射到语言学维度。
+- 已生成第 5 卷与「岛村之刃」核心切片的 tokenization 报告：
+  - `analysis/reports/tokenization_vol05.md/json`
+  - `analysis/reports/tokenization_vol05_shimamura_blade.md/json`
+- 已安装 Hugging Face tokenizer 依赖到项目本地 `.deps/hf-tokenizer2/`，并生成 DeepSeek V4-Flash tokenizer 对照：
+  - `analysis/reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md/json`
+- 已新增 corpus profiler v1：`tools/corpus_profiler.py`，输出可解释特征权重，不做 RAG。
+- 已生成 `adachi_pressure` 对照 profile：`analysis/reports/corpus_profile_adachi_pressure.md/json`。
 - 已生成四份分析产物：
   - `analysis/style_analysis.md`
   - `analysis/transferable_rules.md`
@@ -123,6 +135,76 @@ Harness v1 先做轻量文件式候选筛选，不引入 LangChain，不让 LLM 
 - Subagent 可作为候选生产者、盲读记录员或指标复核员；不能作为最终裁判，不能写最终回归结论。
 - 最终定性必须等待用户 review。
 
+### Productization v1
+
+第一版产品路线不是通用小说生成器，而是 single-kernel tuning lab：固定一个审美内核，围绕同一作品/同一方向调 gate、词表、语料标签、prompt 和用户反馈记录。
+
+当前已锁定的产品化判断：
+
+- 高参与创作者不要求自己会稳定写文章，但必须作为审美 owner 参与判断。
+- Codex 负责执行写作、分析、候选生成和归因。
+- 第一版不允许任意切换审美内核，只允许在同一内核下调变量。
+- Gate v1 的第一优先级是解释化泄漏，尤其是岛村过度理解安达。
+- 候选协议采用 `candidate_001.md` + `candidate_001.json`：正文给人读，JSON 给 harness 识别说话人、回应关系、表层接收词和深层理解风险。
+- 项目内 skill `skills/novel-gate-harness/` 已可作为初版 agent workflow；当前仍是项目内草案，尚未安装到全局 Codex skills 目录。
+
+### Corpus Tokenization v1
+
+Corpus tokenizer 用于词表发现和语料拓展，不作为质量评分，也不替代人工 review。
+
+当前设计：
+
+- 默认 `regex` 引擎可稳定运行，不依赖外部包。
+- 预留 `--engine jieba`，本机安装开源 `jieba` 后可切换。
+- 预留 `--engine tiktoken`，本机安装 OpenAI `tiktoken` 后可生成模型侧 tokenization 对照；它不是中文语言学分词。
+- 预留 `--engine hf --hf-model deepseek-ai/DeepSeek-V3`，本机安装 `transformers/tokenizers` 并具备模型 tokenizer 文件后可生成 DeepSeek tokenizer 对照；它同样不是中文语言学分词。
+- 输出 Markdown 报告、JSON 报告和 token stream。
+- `.tokens.txt` token stream 受 `.gitignore` 的 `*.txt` 规则忽略，默认不作为版本化产物。
+- 报告重点看高频 token、token n-gram、CJK n-gram 和 candidate phrase seeds。
+- 报告已接入 `tools/lexicon_taxonomy.json`，优先按泛化 taxonomy 汇总，再映射回项目 gate。
+- 本机当前未安装 `tiktoken`。
+- Hugging Face tokenizer 依赖已安装到 `.deps/hf-tokenizer2/`，DeepSeek V4-Flash tokenizer 文件约 `6.37 MB`，已生成核心切片对照报告。
+- DeepSeek tokenizer 报告的少数 top token 可能显示 `�`，这是模型 tokenizer byte 片段单 token 解码不完整导致的；taxonomy hits 与 CJK n-gram 仍可读。
+
+当前初步信号：
+
+- 第 5 卷整卷报告显示大量功能词和通用叙述词，只能作为宽背景。
+- 「岛村之刃」核心切片更适合做当前 kernel 词表发现。taxonomy hits 显示 `stance_uncertainty` 是最高维度，其次是 `concrete_grounding`、`cognitive_explanation` 和 `affect_intensity`。
+- 核心切片的 candidate phrase seeds 已出现 `我希望`、`我不要`、`希望你`、`告诉我`、`想知道`、`我好想` 等候选。
+- 这些候选只能作为人工 review 的词表种子，不能直接全部加入 gate。
+
+### Lexicon Taxonomy v1
+
+底层分类使用更泛化的语言学维度，项目 gate 标签只作为映射层：
+
+- `affect_intensity`：情绪与强度。
+- `stance_uncertainty`：不确定、否定、修正。
+- `cognitive_explanation`：因果、洞察、解释化。
+- `dialogic_alignment`：回应、错位、接收端。
+- `concrete_grounding`：身体、感官、物件、空间。
+- `closure_resolution`：解决、和解、封闭。
+- `prompt_boundary`：prompt 边界和复刻风险。
+
+当前不再把 `过载表达`、`接收端错位`、`解释化泄漏`、`日常物件`、`封闭结尾` 当作底层 taxonomy；它们只保留为当前作品的 gate 语言。
+
+### Corpus Profile v1
+
+Corpus profile 用于细致化分析原作参照组，不做 RAG，不召回原文片段，不把统计权重当成质量分。
+
+当前实现：
+
+- 输入 `corpus_slices/slices.json`。
+- 对每个参照组生成 taxonomy 密度、句长、对话占比、最长台词、超长台词数、CJK n-gram。
+- 以 `adachi_pressure` 为目标组，计算其相对其他参照组的标准化 effect。
+- 输出 Markdown 与 JSON：`analysis/reports/corpus_profile_adachi_pressure.md/json`。
+
+当前初步结论：
+
+- 区分 `adachi_pressure` 的最强信号是 `shape.dialogue_ge_200` 和 `shape.dialogue_max`，即超长台词形状，而不是单个情绪词。
+- `cognitive_explanation` 在目标组反而低于其他组，说明核心高压不应写成解释化分析。
+- `affect_intensity` 略高，但效应不如台词形状强，提示 gate 不应只盯情绪词。
+- 这些权重只辅助人工 review 和 gate 调参，不能自动决定候选成功。
+
 ## 后续计划
 
 ### 第 1 步：Delta v1（已实现初版）
@@ -162,11 +244,27 @@ Harness v1 先做轻量文件式候选筛选，不引入 LangChain，不让 LLM 
 ### 第 5 步：长篇候选与日常段扩展
 
 - 使用 `analysis/generation_prompt_round4.md` 生成 6500-8500 字符候选。
-- 候选写入 `drafts/candidates/<run_id>/candidate_001.md`，再交由 harness 筛选。
+- 候选写入 `drafts/candidates/<run_id>/candidate_001.md`，并配套写入 `candidate_001.json` 结构标注，再交由 harness 筛选。
 - 通过 gate 后仍只进入 `pending_user_review`。
 - 回归时对照 `analysis/reports/source_chapter_shape.md/json`，同时看日常段和高压段，不只看高潮。
 
-### 第 6 步：考虑 Codex hook
+### 第 6 步：Gate 结构层
+
+- 更新 `tools/light_harness.py`，优先读取候选 JSON。
+- 让 `岛村回应解释化` 使用结构化 utterances，而不是只依赖 `岛村：` 显式说话人格式。
+- JSON 缺失时保留当前启发式文本检查作为 fallback。
+- Gate 继续只筛明显失败，不写成功结论。
+
+### 第 7 步：词表迭代
+
+- 基于 `analysis/reports/tokenization_vol05_shimamura_blade.md/json` 提取词表候选。
+- 结合 `analysis/reports/corpus_profile_adachi_pressure.md/json` 看哪些 taxonomy/shape 维度真正区分目标组。
+- 先将候选分到泛化 taxonomy：`affect_intensity`、`stance_uncertainty`、`cognitive_explanation`、`dialogic_alignment`、`concrete_grounding`、`closure_resolution`。
+- 再把 taxonomy 信号映射到项目 gate：过载表达、接收端错位、解释化泄漏、日常物件、封闭结尾、翻译腔。
+- 只把经过用户 review 或候选回归验证的词加入 `tools/style_lexicon.json`。
+- 避免把全卷高频词直接当成风格本体。
+
+### 第 8 步：考虑 Codex hook
 
 等脚本稳定后，再添加 `.codex/hooks.json`。
 

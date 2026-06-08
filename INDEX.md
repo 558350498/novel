@@ -14,6 +14,14 @@
 | 当前测试稿 | [drafts/current.md](./drafts/current.md) |
 | 规则型评估器 | [tools/style_evaluator.py](./tools/style_evaluator.py) |
 | 评估词表 | [tools/style_lexicon.json](./tools/style_lexicon.json) |
+| Gate v1 产品化计划 | [analysis/productization_gate_v1.md](./analysis/productization_gate_v1.md) |
+| Novel Gate Harness skill | [skills/novel-gate-harness/SKILL.md](./skills/novel-gate-harness/SKILL.md) |
+| Corpus tokenizer | [tools/corpus_tokenizer.py](./tools/corpus_tokenizer.py) |
+| Lexicon taxonomy | [analysis/lexicon_taxonomy.md](./analysis/lexicon_taxonomy.md) |
+| Corpus profiler | [tools/corpus_profiler.py](./tools/corpus_profiler.py) |
+| Adachi pressure profile | [analysis/reports/corpus_profile_adachi_pressure.md](./analysis/reports/corpus_profile_adachi_pressure.md) |
+| 第 5 卷 tokenization 报告 | [analysis/reports/tokenization_vol05.md](./analysis/reports/tokenization_vol05.md) |
+| 「岛村之刃」DeepSeek V4 tokenizer 报告 | [analysis/reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md](./analysis/reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md) |
 
 ## 核心工作流入口
 
@@ -23,6 +31,12 @@
 | 可迁移规则 | [analysis/transferable_rules.md](./analysis/transferable_rules.md) |
 | 生成 prompt | [analysis/generation_prompt.md](./analysis/generation_prompt.md) |
 | 审稿清单 | [analysis/review_checklist.md](./analysis/review_checklist.md) |
+| Gate v1 产品化计划 | [analysis/productization_gate_v1.md](./analysis/productization_gate_v1.md) |
+| 候选生成/检测 skill | [skills/novel-gate-harness/SKILL.md](./skills/novel-gate-harness/SKILL.md) |
+| 语料 tokenization | [analysis/reports/tokenization_vol05_shimamura_blade.md](./analysis/reports/tokenization_vol05_shimamura_blade.md) |
+| DeepSeek V4 tokenizer 对照 | [analysis/reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md](./analysis/reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md) |
+| 词表 taxonomy | [analysis/lexicon_taxonomy.md](./analysis/lexicon_taxonomy.md) |
+| 语料 profile 权重 | [analysis/reports/corpus_profile_adachi_pressure.md](./analysis/reports/corpus_profile_adachi_pressure.md) |
 | 第一轮自动评估 | [analysis/reports/current.md](./analysis/reports/current.md) |
 | 第一轮 Codex review | [analysis/reports/codex_review.md](./analysis/reports/codex_review.md) |
 | 第一轮 diff 讨论 | [analysis/reports/diff.md](./analysis/reports/diff.md) |

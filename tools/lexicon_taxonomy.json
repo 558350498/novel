@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "description": "General linguistic taxonomy for lexicon discovery. Project gate labels should map onto these categories instead of becoming the base taxonomy.",
+  "categories": {
+    "affect_intensity": {
+      "label": "Affect / Intensity",
+      "basis": ["LIWC affect", "Appraisal attitude", "Appraisal graduation"],
+      "purpose": "Track emotional process words and intensity markers without treating them as style by themselves.",
+      "current_lexicon_keys": [
+        "direct_emotion_terms",
+        "literary_risk_terms"
+      ],
+      "project_gate_labels": [
+        "过载表达",
+        "过度文学化风险",
+        "情绪表达直白度"
+      ]
+    },
+    "stance_uncertainty": {
+      "label": "Stance / Uncertainty",
+      "basis": ["stance markers", "LIWC tentative", "LIWC negation", "Appraisal engagement"],
+      "purpose": "Track uncertainty, negation, hedging, and self-correction as stance behavior.",
+      "current_lexicon_keys": [
+        "hedge_terms",
+        "negation_terms",
+        "self_correction_terms"
+      ],
+      "project_gate_labels": [
+        "含混与自我修正",
+        "安达过载失败传达"
+      ]
+    },
+    "cognitive_explanation": {
+      "label": "Cognitive / Explanation",
+      "basis": ["LIWC cognitive processes", "LIWC causation", "LIWC insight", "Appraisal engagement"],
+      "purpose": "Track explicit insight, causal framing, and analysis-like explanation.",
+      "current_lexicon_keys": [
+        "analysis_leak_terms",
+        "shimamura_explanation_markers"
+      ],
+      "project_gate_labels": [
+        "解释化泄漏",
+        "分析概念泄漏",
+        "岛村回应解释化"
+      ]
+    },
+    "dialogic_alignment": {
+      "label": "Dialogic Alignment",
+      "basis": ["Appraisal engagement", "stance alignment", "dialogue turn-taking"],
+      "purpose": "Track whether a response aligns with, mishears, narrows, or over-understands another voice.",
+      "current_lexicon_keys": [
+        "receiver_misalignment_terms"
+      ],
+      "project_gate_labels": [
+        "接收端错位",
+        "岛村只接住表层词"
+      ]
+    },
+    "concrete_grounding": {
+      "label": "Concrete Grounding",
+      "basis": ["LIWC perceptual processes", "LIWC relativity", "embodied and object grounding"],
+      "purpose": "Track body, perception, object, space, and ordinary-world anchors.",
+      "current_lexicon_keys": [
+        "mundane_object_terms"
+      ],
+      "project_gate_labels": [
+        "日常物件承载",
+        "身体感承载"
+      ]
+    },
+    "closure_resolution": {
+      "label": "Closure / Resolution",
+      "basis": ["discourse closure", "narrative resolution", "certainty markers"],
+      "purpose": "Track words that prematurely close, solve, or reconcile the relationship.",
+      "current_lexicon_keys": [
+        "closure_terms"
+      ],
+      "project_gate_labels": [
+        "封闭结尾",
+        "结尾封闭化"
+      ]
+    },
+    "prompt_boundary": {
+      "label": "Instruction Boundary",
+      "basis": ["copyright boundary", "instruction safety", "prompt constraints"],
+      "purpose": "Track prompt-only constraints around originality and non-imitation.",
+      "current_lexicon_keys": [
+        "prompt_unsafe_phrases",
+        "prompt_boundary_phrases"
+      ],
+      "project_gate_labels": [
+        "prompt 边界",
+        "复刻风险"
+      ]
+    }
+  },
+  "project_mapping_notes": [
+    "Use taxonomy categories for discovery and reporting.",
+    "Use project gate labels only after combining taxonomy signals with kernel-specific rules.",
+    "Do not add high-frequency terms to gates without user review or regression evidence."
+  ]
+}

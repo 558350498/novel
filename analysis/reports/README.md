@@ -22,6 +22,10 @@
 - `delta_round3.json`：Round 3 Delta v1 机器可读报告。
 - `round3_pending_user_review.md`：Round 3 等待用户 review 的 provisional 自动信号说明。
 - `round3_full_arc_analysis.md`：Round 3 全场景链路形状分析，记录篇幅过短与日常段不足风险。
+- `tokenization_vol05.md/json`：第 5 卷整卷 tokenization 报告，用于宽背景词表发现。
+- `tokenization_vol05_shimamura_blade.md/json`：「岛村之刃」核心切片 tokenization 报告，用于当前 kernel 词表发现。
+- `tokenization_vol05_shimamura_blade_deepseek_v4_flash.md/json`：「岛村之刃」核心切片的 DeepSeek V4-Flash tokenizer 对照报告。
+- `corpus_profile_adachi_pressure.md/json`：以 `adachi_pressure` 为目标组的可解释语料 profile 权重报告。
 - `candidates/existing_rounds_audit/`：Harness v1 对 Round 1 / Round 2 / Round 3 的回看报告。
 
 ## 使用原则
@@ -31,6 +35,11 @@
 - Delta v1 只做相对距离观察，不做质量评分，也不输出作者相似度百分比。
 - Harness gate 报告只筛掉明显失败样本，不判定候选成功。
 - 通过 gate 的候选只能进入 `pending_user_review`，最终结论等待用户 review。
+- Tokenization 报告只做词表种子发现，不能直接把高频词当成 gate 规则。
+- Tokenization 报告优先按 `tools/lexicon_taxonomy.json` 的泛化分类汇总，再映射到当前项目 gate 标签。
+- OpenAI `tiktoken` 可作为模型侧 tokenization 对照，但不作为中文语言学分词。
+- Hugging Face/DeepSeek tokenizer 可作为模型侧 tokenization 对照；DeepSeek 写作表现不能从 tokenizer 单独推出。
+- Corpus profile 用于辅助 gate 调参，不做 RAG，不检索原文片段，不判定质量。
 
 ## 后续候选报告目录
 

@@ -1,2 +1,5 @@
 data/raw/
 *.txt
+.deps/
+.venv/
+.venv312/
