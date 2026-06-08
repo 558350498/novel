@@ -42,6 +42,7 @@
 - 全篇章形状分析已可运行，用于把“文本太短”和“日常/高压比例”变成可回归指标。
 - Productization v1 已锁定为 single-kernel tuning lab：不做任意风格切换，优先把 gate 调成可靠的失败样本过滤器。
 - 下一步候选协议采用 Markdown 正文 + JSON 结构标注，优先解决“岛村回应解释化”无法稳定识别的问题。
+- `novel-gate-harness` 已初步做成可用 Codex skill：项目内源码位于 `skills/novel-gate-harness/`，并已同步到全局 `C:\Users\33625\.codex\skills\novel-gate-harness\`。
 - Corpus tokenizer v1 已可运行：当前使用稳定 `regex` fallback，并预留可选 `jieba`、OpenAI `tiktoken` 与 Hugging Face/DeepSeek tokenizer 引擎。
 
 ## Project Navigation
@@ -57,6 +58,8 @@
 | Harness v1 工具 | [tools/light_harness.py](./tools/light_harness.py) |
 | Gate v1 产品化计划 | [analysis/productization_gate_v1.md](./analysis/productization_gate_v1.md) |
 | Novel Gate Harness skill | [skills/novel-gate-harness/SKILL.md](./skills/novel-gate-harness/SKILL.md) |
+| Skill 架构参考 | [skills/novel-gate-harness/references/project_architecture.md](./skills/novel-gate-harness/references/project_architecture.md) |
+| Skill gate wrapper | [skills/novel-gate-harness/scripts/run_candidate_gate.py](./skills/novel-gate-harness/scripts/run_candidate_gate.py) |
 | Corpus tokenizer | [tools/corpus_tokenizer.py](./tools/corpus_tokenizer.py) |
 | Lexicon taxonomy | [analysis/lexicon_taxonomy.md](./analysis/lexicon_taxonomy.md) |
 | Corpus profiler | [tools/corpus_profiler.py](./tools/corpus_profiler.py) |
@@ -98,6 +101,16 @@ python tools/light_harness.py --run-id existing_rounds_audit --candidates drafts
 ```
 
 Harness v1 暂不自动生成候选；只把通过自动 gate 的候选标记为 `pending_user_review`。
+
+Novel Gate Harness skill 自检：
+```powershell
+python skills/novel-gate-harness/scripts/run_candidate_gate.py --check-only
+```
+
+通过 skill wrapper 检测候选：
+```powershell
+python skills/novel-gate-harness/scripts/run_candidate_gate.py --run-id <run_id> --candidates drafts/candidates/<run_id>/candidate_001.md
+```
 
 Corpus tokenizer：
 ```powershell

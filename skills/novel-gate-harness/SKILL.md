@@ -7,7 +7,7 @@ description: Generate or revise single-kernel fiction candidates with paired Mar
 
 ## Quick Start
 
-Use this skill in `C:\Users\33625\Documents\novel` when generating or revising candidates for the fixed single-kernel project.
+Use this skill in `C:\Users\33625\Documents\novel` when generating or revising candidates for the fixed single-kernel project. If the current working directory is elsewhere, pass the project root explicitly to bundled scripts.
 
 Produce paired artifacts:
 
@@ -16,11 +16,20 @@ drafts/candidates/<run_id>/candidate_001.md
 drafts/candidates/<run_id>/candidate_001.json
 ```
 
-Run the project harness after writing candidates:
+Before writing, read:
+
+- `PROJECT_STATUS.md` for the current truth.
+- `analysis/generation_prompt_round4.md` for the current long-candidate prompt.
+- `analysis/reports/README.md` for report roles.
+- [project_architecture.md](references/project_architecture.md) if the project layout is unfamiliar.
+
+Run the gate script after writing candidates:
 
 ```powershell
-python tools/light_harness.py --run-id <run_id> --candidates drafts/candidates/<run_id>/candidate_001.md --slices corpus_slices/slices.json --config analysis/harness_config.json --reports-root analysis/reports/candidates
+python skills/novel-gate-harness/scripts/run_candidate_gate.py --run-id <run_id> --candidates drafts/candidates/<run_id>/candidate_001.md
 ```
+
+Use `--reports-root <path>` for smoke tests or temporary reports; omit it for normal project reports.
 
 ## Kernel
 
@@ -32,12 +41,13 @@ Do not switch styles, authors, genres, or kernels in v1. Adjust only local varia
 
 ## Workflow
 
-1. Read the current prompt, status, and relevant candidate reports.
-2. Generate or revise the Markdown fiction draft.
-3. Generate the paired JSON structure file. See [candidate_json.md](references/candidate_json.md) when schema details are needed.
-4. Run `tools/light_harness.py` on the Markdown candidate.
-5. Read the gate report and manifest.
-6. Decide the next action:
+1. Run `python skills/novel-gate-harness/scripts/run_candidate_gate.py --check-only` to verify the project has the required tools and configs.
+2. Read the current prompt, status, source-shape report, and relevant candidate reports.
+3. Generate or revise the Markdown fiction draft.
+4. Generate the paired JSON structure file. See [candidate_json.md](references/candidate_json.md) when schema details are needed.
+5. Run the gate script on the Markdown candidate.
+6. Read `analysis/reports/candidates/<run_id>/manifest.json` and the candidate gate report.
+7. Decide the next action:
    - `failed_auto_gate`: revise before user review.
    - `needs_manual_triage`: inspect the flagged risk and either revise or ask the user to review the exact uncertainty.
    - `pending_user_review`: present the candidate as ready for user review, not as successful.
@@ -62,6 +72,8 @@ Prioritize explanation leakage:
 - Closure plus explanation can be `failed_auto_gate`.
 
 Do not optimize for Delta rank alone. Delta is a relative-distance observer, not a quality score or imitation target.
+
+If the script or harness disagrees with close reading, preserve both signals and mark the issue as metric blind spot or manual triage. Do not overwrite the user's review path with automated confidence.
 
 ## Feedback Ledger
 

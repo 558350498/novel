@@ -16,6 +16,8 @@
 | 评估词表 | [tools/style_lexicon.json](./tools/style_lexicon.json) |
 | Gate v1 产品化计划 | [analysis/productization_gate_v1.md](./analysis/productization_gate_v1.md) |
 | Novel Gate Harness skill | [skills/novel-gate-harness/SKILL.md](./skills/novel-gate-harness/SKILL.md) |
+| Skill 架构参考 | [skills/novel-gate-harness/references/project_architecture.md](./skills/novel-gate-harness/references/project_architecture.md) |
+| Skill gate wrapper | [skills/novel-gate-harness/scripts/run_candidate_gate.py](./skills/novel-gate-harness/scripts/run_candidate_gate.py) |
 | Corpus tokenizer | [tools/corpus_tokenizer.py](./tools/corpus_tokenizer.py) |
 | Lexicon taxonomy | [analysis/lexicon_taxonomy.md](./analysis/lexicon_taxonomy.md) |
 | Corpus profiler | [tools/corpus_profiler.py](./tools/corpus_profiler.py) |
@@ -33,6 +35,7 @@
 | 审稿清单 | [analysis/review_checklist.md](./analysis/review_checklist.md) |
 | Gate v1 产品化计划 | [analysis/productization_gate_v1.md](./analysis/productization_gate_v1.md) |
 | 候选生成/检测 skill | [skills/novel-gate-harness/SKILL.md](./skills/novel-gate-harness/SKILL.md) |
+| Skill 自检/候选 gate wrapper | [skills/novel-gate-harness/scripts/run_candidate_gate.py](./skills/novel-gate-harness/scripts/run_candidate_gate.py) |
 | 语料 tokenization | [analysis/reports/tokenization_vol05_shimamura_blade.md](./analysis/reports/tokenization_vol05_shimamura_blade.md) |
 | DeepSeek V4 tokenizer 对照 | [analysis/reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md](./analysis/reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md) |
 | 词表 taxonomy | [analysis/lexicon_taxonomy.md](./analysis/lexicon_taxonomy.md) |

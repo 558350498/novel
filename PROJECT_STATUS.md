@@ -26,7 +26,7 @@
 - 已新增 Round 4 长篇候选 prompt：`analysis/generation_prompt_round4.md`。
 - 已确认产品化第一版定位：single-kernel tuning lab，不允许任意切换审美内核。
 - 已新增 Gate v1 产品化计划：`analysis/productization_gate_v1.md`，确定候选采用 Markdown 正文 + JSON 结构标注。
-- 已新增项目内 skill 草案：`skills/novel-gate-harness/SKILL.md`，用于候选生成、JSON 结构标注、harness 检测和下一轮决策。
+- 已将项目初步做成可用 Codex skill：`skills/novel-gate-harness/SKILL.md` 用于候选生成、JSON 结构标注、harness 检测和下一轮决策；`references/project_architecture.md` 记录项目架构；`scripts/run_candidate_gate.py` 提供环境自检和候选 gate wrapper；并已同步到全局 `C:\Users\33625\.codex\skills\novel-gate-harness\`。
 - 已新增 corpus tokenizer v1：`tools/corpus_tokenizer.py`，用于词表发现、语料拓展和第 5 卷 tokenization 报告；支持 `regex`，并预留 `jieba`、OpenAI `tiktoken` 与 Hugging Face/DeepSeek tokenizer 可选引擎。
 - 已新增泛化词表 taxonomy：`tools/lexicon_taxonomy.json` 与 `analysis/lexicon_taxonomy.md`，将项目 gate 标签映射到语言学维度。
 - 已生成第 5 卷与「岛村之刃」核心切片的 tokenization 报告：
@@ -146,7 +146,7 @@ Harness v1 先做轻量文件式候选筛选，不引入 LangChain，不让 LLM 
 - 第一版不允许任意切换审美内核，只允许在同一内核下调变量。
 - Gate v1 的第一优先级是解释化泄漏，尤其是岛村过度理解安达。
 - 候选协议采用 `candidate_001.md` + `candidate_001.json`：正文给人读，JSON 给 harness 识别说话人、回应关系、表层接收词和深层理解风险。
-- 项目内 skill `skills/novel-gate-harness/` 已可作为初版 agent workflow；当前仍是项目内草案，尚未安装到全局 Codex skills 目录。
+- Skill `novel-gate-harness` 已可作为初版 agent workflow；项目内 `skills/novel-gate-harness/` 是源码副本，全局 `C:\Users\33625\.codex\skills\novel-gate-harness\` 是当前可发现安装副本。
 
 ### Corpus Tokenization v1
 
