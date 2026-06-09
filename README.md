@@ -6,26 +6,59 @@
 
 “原创”在本项目里只表示不复制原文、不长篇摘抄、不照搬句式或情节结构；它不是反模仿命令。机制级文风贴近、节奏贴近、翻译腔贴近和角色接收方式贴近，是 harness 要保留和检验的目标。
 
-## Project Shape
+## Fixed Kernel
 
 v1 只服务一个 fixed kernel：
 
 > 情绪过载真实存在，但说出口的表层更轻、更小、更错位、更失败；接收者只接住表层词，给出普通照顾，暂时止血，但不真正解决关系伤口。
 
-当前主线：
+自动化只能筛掉明显失败和定位风险。最终 pass/fail 只能来自用户 review。
+
+## Active Path
+
+当前入口只看这一条路线：
+
+```text
+drafts/candidates/round6_codex_full_loop_20260609/
+-> analysis/reports/candidates/round6_codex_full_loop_20260609/
+-> needs_manual_triage / pending_user_review / failed_auto_gate
+-> user review
+-> review ledger
+```
+
+当前活跃 run：
+
+| Role | Path |
+|---|---|
+| Candidate source | `drafts/candidates/round6_codex_full_loop_20260609/` |
+| Latest candidate | `drafts/candidates/round6_codex_full_loop_20260609/candidate_002.md` |
+| Latest candidate JSON | `drafts/candidates/round6_codex_full_loop_20260609/candidate_002.json` |
+| Rewrite plan | `drafts/candidates/round6_codex_full_loop_20260609/rewrite_plan.json` |
+| Gate manifest | `analysis/reports/candidates/round6_codex_full_loop_20260609/manifest.json` |
+| Latest gate report | `analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_002_gate.md` |
+| Dialogue window review | `analysis/reports/candidates/round6_codex_full_loop_20260609/user_review_dialogue_window.md` |
+
+Current latest gate state: `needs_manual_triage`.
+
+Known latest machine reasons:
+
+- 1-10 字短台词占比偏高。
+- 11-40 字中段台词占比不足。
+- 台词分布整体偏离源切片自检范围。
+- Delta 第一名仍为 `adachi_daily`，不是 `adachi_pressure`。
+
+## Working Loop
 
 ```text
 candidate.md + candidate.json
 -> machine gate + diagnostics
--> mandatory multi-agent review
+-> mandatory multi-agent review for full candidates
 -> rewrite_plan.json
 -> one local rewrite only
 -> regression comparison
 -> user review
 -> review ledger
 ```
-
-自动化只能筛掉明显失败和定位风险。最终 pass/fail 只能来自用户 review。
 
 `novel-gate-harness` 保留为唯一顶层入口，但内部拆成两个 harness：
 
@@ -51,6 +84,7 @@ candidate.md + candidate.json
 - 没有 positive / negative / borderline 三件套的机制只能算 provisional。
 - 正式 regression 只收 `user_confirmed` case。
 - Agent 可以参与评估，但不能替代用户判定。
+- `pending_user_review` 不是成功状态。
 
 ## Candidate Protocol
 
@@ -67,24 +101,13 @@ drafts/candidates/<run_id>/candidate_001.json
 
 短片段练习可以用 fragment scope，但 fragment 只能验证局部机制，不能证明完整候选 ready。
 
-## Gate And Review Flow
-
-1. 生成或修改 paired candidate。
-2. 运行 machine gate。
-3. `failed_auto_gate` 直接停止，不进入用户 review。
-4. `needs_manual_triage` 必须检查具体风险，不能包装成成功。
-5. full candidate 在给用户前必须跑多角色 agent review：
-   - `agent_gate_auditor`
-   - `agent_close_reader`
-   - `agent_regression_checker`，当 prompt、model、gate config、JSON schema 或 rewrite policy 变化时必跑
-6. Agent review 只能输出 `failure_id`、`case_id`、`span_ref`、claim、dissent、user question，不能写综合文学总评。
-7. 如需修复，只能通过 `rewrite_plan.json` 做一次局部改稿。
-8. 重跑 gate 后停在 `failed_auto_gate`、`needs_manual_triage` 或 `pending_user_review`。
-9. 用户 review 后，把判定和原因写入 ledger。
-
-如果无法完成 mandatory multi-agent review，full candidate 必须标记为 `needs_manual_triage: missing_multi_agent_review_round`。
-
 ## Commands
+
+检查项目入口和活跃路径：
+
+```powershell
+python tools/project_doctor.py
+```
 
 检查 harness 环境：
 
@@ -95,7 +118,7 @@ python skills/novel-gate-harness/scripts/run_candidate_gate.py --check-only
 检查完整候选：
 
 ```powershell
-python skills/novel-gate-harness/scripts/run_candidate_gate.py --run-id <run_id> --candidates drafts/candidates/<run_id>/candidate_001.md
+python skills/novel-gate-harness/scripts/run_candidate_gate.py --run-id round6_codex_full_loop_20260609 --candidates drafts/candidates/round6_codex_full_loop_20260609/candidate_002.md
 ```
 
 检查短片段机制：
@@ -104,21 +127,22 @@ python skills/novel-gate-harness/scripts/run_candidate_gate.py --run-id <run_id>
 python skills/novel-gate-harness/scripts/run_candidate_gate.py --run-id <run_id> --candidates drafts/candidates/<run_id>/candidate_001.md --scope fragment
 ```
 
-## Key Docs
+## Progressive Disclosure
 
-- [PROJECT_STATUS.md](./PROJECT_STATUS.md): 当前项目状态和已确认决策。
-- [analysis/failure_taxonomy.md](./analysis/failure_taxonomy.md): 可执行失败分类。
-- [analysis/failure_cases.json](./analysis/failure_cases.json): case registry scaffold。
-- [analysis/gate_report_protocol.md](./analysis/gate_report_protocol.md): gate report artifact contract。
-- [analysis/rewrite_policy.md](./analysis/rewrite_policy.md): 局部改稿策略。
-- [analysis/review_ledger.jsonl](./analysis/review_ledger.jsonl): 用户判定 ledger schema。
-- [analysis/regression_comparison.md](./analysis/regression_comparison.md): 回归比较协议。
-- [analysis/productization_gate_v1.md](./analysis/productization_gate_v1.md): single-kernel 产品边界与 gate 规则。
-- [analysis/rewrite_plan_protocol.md](./analysis/rewrite_plan_protocol.md): 一次局部改稿协议。
-- [analysis/harness_config.json](./analysis/harness_config.json): 当前 gate 配置。
-- [analysis/reports/README.md](./analysis/reports/README.md): 报告目录和证据角色。
-- [skills/novel-gate-harness/SKILL.md](./skills/novel-gate-harness/SKILL.md): Codex 执行 workflow。
-- [skills/novel-gate-harness/references/prompt_generation_harness.md](./skills/novel-gate-harness/references/prompt_generation_harness.md): prompt / candidate generation harness。
-- [skills/novel-gate-harness/references/result_harness.md](./skills/novel-gate-harness/references/result_harness.md): result / evaluation harness。
+Use this order when entering the project:
 
-完整章节索引和旧报告导航放在 [INDEX.md](./INDEX.md) 与 [analysis/README.md](./analysis/README.md)。
+1. `README.md`: current active path and hard rules.
+2. `PROJECT_STATUS.md`: current state, latest risk, and next legal actions.
+3. `skills/novel-gate-harness/SKILL.md`: Codex execution workflow.
+4. `skills/novel-gate-harness/references/project_architecture.md`: directory roles and pipeline.
+5. `analysis/README.md`: durable protocols and analysis artifacts.
+6. `analysis/reports/README.md`: generated report layout and current run reports.
+7. `INDEX.md`: corpus navigation and chapter locations.
+
+## Active And Provenance Split
+
+Active files should point to runnable paths and current evidence.
+
+Provenance files explain how the project reached the current route, but should not dominate first-pass navigation. See `analysis/project_cleanup_plan.md` before moving, archiving, or deleting anything.
+
+Do not delete source texts, user-reviewed evidence, or current protocol docs without explicit confirmation.

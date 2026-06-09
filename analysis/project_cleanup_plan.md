@@ -4,7 +4,7 @@
 
 Reduce navigation noise without losing useful provenance.
 
-This project has accumulated early prompts, old candidates, generated reports, tokenizer outputs, and experimental methods. The current product direction is now:
+The current product direction is:
 
 ```text
 candidate.md + candidate.json
@@ -14,65 +14,70 @@ candidate.md + candidate.json
 -> user review
 ```
 
-Cleanup should make that path easy to find.
+Cleanup should make that path easy to find. Entry-point docs should not link to missing early-round files as active material.
 
 ## Rule
 
-Do not delete source texts, user-reviewed evidence, or current protocol docs.
+Do not delete source texts, user-reviewed evidence, current candidates, current reports, current protocol docs, or skill source files without explicit user confirmation.
 
 Generated artifacts can usually be regenerated, but deletion should happen only after user confirmation.
 
 ## Keep As Active
 
-| path | reason |
+| Path | Reason |
 |---|---|
 | `README.md` | project entrypoint |
-| `PROJECT_STATUS.md` | current truth and high-level tracker |
+| `INDEX.md` | fast active/project/corpus index |
+| `PROJECT_STATUS.md` | current truth and next legal actions |
+| `analysis/README.md` | durable protocol map |
+| `analysis/reports/README.md` | generated report map |
+| `tools/project_doctor.py` | active path and doc drift checker |
 | `analysis/rewrite_plan_protocol.md` | current agent-loop protocol |
 | `analysis/productization_gate_v1.md` | product boundary and gate role |
 | `analysis/harness_config.json` | rule configuration |
+| `analysis/failure_taxonomy.md` | executable failure taxonomy |
+| `analysis/failure_cases.json` | case registry |
+| `analysis/gate_report_protocol.md` | gate report contract |
+| `analysis/rewrite_policy.md` | one-rewrite policy |
+| `analysis/review_ledger.jsonl` | user verdict ledger |
+| `analysis/regression_comparison.md` | regression protocol |
 | `tools/light_harness.py` | gate aggregator |
 | `tools/eder_delta_evaluator.py` | segment-level diagnostic experiment |
-| `drafts/candidates/round5_auto_prompt_20260608/` | current generated candidate set |
-| `analysis/reports/candidates/round5_auto_prompt_20260608/` | current candidate reports |
+| `tools/dialogue_window_analyzer.py` | dialogue-window diagnostic |
+| `drafts/candidates/round6_codex_full_loop_20260609/` | current candidate run |
+| `analysis/reports/candidates/round6_codex_full_loop_20260609/` | current candidate reports |
 | `skills/novel-gate-harness/` | project skill source |
 
-## Keep As Provenance
+## Keep As Supporting Evidence
 
-These are useful for understanding how the project reached the current route, but they should not dominate navigation:
+These remain useful, but should not replace the active run as the first route:
 
-| path | reason |
+| Path | Reason |
 |---|---|
-| `analysis/reports/diff.md` | user/Codex review evidence from early failure modes |
-| `analysis/reports/source_chapter_shape.md/json` | chapter-scale baseline |
 | `analysis/reports/corpus_profile_adachi_pressure.md/json` | reference-group profile |
-| `analysis/reports/candidates/existing_rounds_audit/` | explains why early rounds failed |
-| `analysis/reports/candidates/round4_three_versions/` | explains the shared Round 4 manual-triage issue |
-| `drafts/current.md`, `drafts/round2.md`, `drafts/round3.md` | early draft history |
-| `drafts/candidates/round4_three_versions/` | Round 4 candidate history |
+| `analysis/reports/tokenization_vol05.md/json` | broad volume tokenization background |
+| `analysis/reports/tokenization_vol05_shimamura_blade.md/json` | current kernel tokenization evidence |
+| `analysis/reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md/json` | model-side tokenizer comparison |
+| `analysis/reports/user_review_originality_overconstraint.md` | user-facing review note |
+| `drafts/candidates/round5_auto_prompt_20260608/` | previous automatic prompt candidate set |
+| `analysis/reports/candidates/round5_auto_prompt_20260608/` | previous candidate reports and segment Delta evidence |
 
-Recommended action: move to an `archive/` area only after confirming links do not need to stay stable.
+## Archive Candidates
 
-## Candidate For Archive
+Archive only after confirming the path still exists and is not user-owned:
 
-These can be archived out of the active path:
-
-| path | suggested action |
+| Path pattern | Suggested action |
 |---|---|
-| `analysis/generation_prompt_round3.md` | archive as superseded prompt |
-| `analysis/generation_prompt_round4.md` | keep one link from README or archive after rewrite-plan prompt exists |
-| `analysis/reports/round2_*` | archive under early-round reports |
-| `analysis/reports/round3_*` | archive under early-round reports |
-| `analysis/reports/source_shape_stats.md` | archive if `source_chapter_shape.md/json` remains the canonical baseline |
-| `analysis/reports/candidates/round5_self_prompt_20260608/` | confirm whether this is a user-owned experiment before archiving |
-| `analysis/reports/candidates/round5_self_prompt_20260608_distribution_check/` | confirm whether this is a user-owned experiment before archiving |
-| `drafts/candidates/round5_self_prompt_20260608/` | confirm whether this is a user-owned experiment before archiving |
+| old prompt drafts | archive under `analysis/archive/prompts/` |
+| early-round reports | archive under `analysis/reports/archive/early_rounds/` |
+| superseded candidate runs | archive under `drafts/archive/candidates/` and `analysis/reports/archive/candidates/` |
+| `round5_self_prompt_20260608` paths | confirm whether this was a user-owned experiment before archiving |
 
-## Candidate For Deletion After Confirmation
+## Deletion Candidates After Confirmation
 
 These appear generated and regenerable, but delete only after confirmation:
 
-| path pattern | reason |
+| Path pattern | Reason |
 |---|---|
 | `analysis/reports/*.tokens.txt` | large generated token streams; Markdown/JSON summaries are usually enough |
 | duplicate candidate report reruns | regenerated from candidate + harness config |
@@ -105,9 +110,9 @@ analysis/reports/
 
 ## Cleanup Sequence
 
-1. Update entrypoint docs so active files are clear.
-2. Generate the first real `rewrite_plan.json` for the current candidate.
-3. Confirm which `round5_self_prompt_20260608` files are user-owned.
+1. Keep entrypoint docs focused on active files.
+2. Run `python tools/project_doctor.py` after doc edits.
+3. Confirm which historical candidate paths are user-owned.
 4. Archive old prompts and early-round reports.
 5. Delete generated `.tokens.txt` files only after confirmation.
 
@@ -118,4 +123,5 @@ analysis/reports/
 - `corpus_slices/slices.json`
 - user review records
 - current candidate and reports
+- current protocol docs
 - skill source files

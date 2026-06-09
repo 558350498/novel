@@ -42,7 +42,11 @@ confirmed_cases_checked:
     dialogue_window:
       checked_speakers:
       budget_source:
+      source_slice_id:
+      source_pair_units_p90:
+      source_pair_units_max:
       max_pair_units:
+      alternating_max_pair_units:
       warning_or_hard_exceeded:
     prompt_policy:
       originality_overconstraint:

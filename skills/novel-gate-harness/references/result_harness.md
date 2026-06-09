@@ -49,17 +49,17 @@ analysis/reports/candidates/<run_id>/candidate_001_gate.json
 
 When `F008_dialogue_run_overextension` is active or dialogue shape is under review, run the dialogue-window analyzer.
 
-Single-speaker form:
+Single-speaker form, when isolating one receiver/speaker:
 
 ```powershell
-python tools/dialogue_window_analyzer.py --draft drafts/candidates/<run_id>/candidate_001.md --candidate-json drafts/candidates/<run_id>/candidate_001.json --speaker adachi --output-prefix analysis/reports/candidates/<run_id>/candidate_001_dialogue_window_adachi
-python tools/dialogue_window_analyzer.py --draft drafts/candidates/<run_id>/candidate_001.md --candidate-json drafts/candidates/<run_id>/candidate_001.json --speaker shimamura --output-prefix analysis/reports/candidates/<run_id>/candidate_001_dialogue_window_shimamura
+python tools/dialogue_window_analyzer.py --draft drafts/candidates/<run_id>/candidate_001.md --candidate-json drafts/candidates/<run_id>/candidate_001.json --speaker adachi --config analysis/harness_config.json --slices corpus_slices/slices.json --source-slice-id adachi_pressure --output-prefix analysis/reports/candidates/<run_id>/candidate_001_dialogue_window_adachi
+python tools/dialogue_window_analyzer.py --draft drafts/candidates/<run_id>/candidate_001.md --candidate-json drafts/candidates/<run_id>/candidate_001.json --speaker shimamura --config analysis/harness_config.json --slices corpus_slices/slices.json --source-slice-id adachi_pressure --output-prefix analysis/reports/candidates/<run_id>/candidate_001_dialogue_window_shimamura
 ```
 
-Multi-speaker form, when supported by the local analyzer:
+Multi-speaker form. This produces both per-speaker `L[speaker]..R[speaker]` windows and dual alternating windows:
 
 ```powershell
-python tools/dialogue_window_analyzer.py --draft drafts/candidates/<run_id>/candidate_001.md --candidate-json drafts/candidates/<run_id>/candidate_001.json --speakers adachi shimamura --output-prefix analysis/reports/candidates/<run_id>/candidate_001_dialogue_window
+python tools/dialogue_window_analyzer.py --draft drafts/candidates/<run_id>/candidate_001.md --candidate-json drafts/candidates/<run_id>/candidate_001.json --speakers adachi shimamura --config analysis/harness_config.json --slices corpus_slices/slices.json --source-slice-id adachi_pressure --output-prefix analysis/reports/candidates/<run_id>/candidate_001_dialogue_window
 ```
 
 Interpretation rules:
@@ -69,7 +69,7 @@ Interpretation rules:
 - Chapter-level weak profile emits warning only.
 - Missing source-derived budget emits `missing_source_window_budget` warning only unless the user has confirmed a temporary threshold for the run.
 - Track Adachi and Shimamura separately; do not treat a Shimamura-only check as coverage for Adachi.
-- Dual-speaker alternating-window detection is required before this can become a complete hard machine gate.
+- Track `dual_alternating` windows separately; these catch Q/A chains that neither single-speaker view fully explains.
 
 ## Mandatory Multi-Agent Review
 

@@ -45,6 +45,7 @@
         "adachi",
         "shimamura"
       ],
+      "source_slice_id": "adachi_pressure",
       "preferred_pair_units_max": 2,
       "hard_pair_units_max": 5,
       "budget_source_priority": [

@@ -1,58 +1,85 @@
-# 章节索引
+# 项目索引
 
-本索引只记录标题和起始行号，方便快速定位，不摘录正文。
+本索引用于快速定位当前 harness 路线、工具、报告和源文本章节。它只记录路径、标题和行号，不摘录正文。
 
-## 快速导航
+## Active Navigation
 
 | 用途 | 入口 |
 |---|---|
 | 项目总览 | [README.md](./README.md) |
-| 当前进度与下一步 | [PROJECT_STATUS.md](./PROJECT_STATUS.md) |
-| 机器可读卷/章索引 | [novel_index.json](./novel_index.json) |
+| 当前状态与下一步 | [PROJECT_STATUS.md](./PROJECT_STATUS.md) |
 | 分析产物目录 | [analysis/README.md](./analysis/README.md) |
 | 报告目录 | [analysis/reports/README.md](./analysis/reports/README.md) |
-| 当前测试稿 | [drafts/current.md](./drafts/current.md) |
-| 规则型评估器 | [tools/style_evaluator.py](./tools/style_evaluator.py) |
-| 评估词表 | [tools/style_lexicon.json](./tools/style_lexicon.json) |
-| Gate v1 产品化计划 | [analysis/productization_gate_v1.md](./analysis/productization_gate_v1.md) |
+| 清理/归档策略 | [analysis/project_cleanup_plan.md](./analysis/project_cleanup_plan.md) |
+| 项目自检 | [tools/project_doctor.py](./tools/project_doctor.py) |
 | Novel Gate Harness skill | [skills/novel-gate-harness/SKILL.md](./skills/novel-gate-harness/SKILL.md) |
 | Skill 架构参考 | [skills/novel-gate-harness/references/project_architecture.md](./skills/novel-gate-harness/references/project_architecture.md) |
 | Skill gate wrapper | [skills/novel-gate-harness/scripts/run_candidate_gate.py](./skills/novel-gate-harness/scripts/run_candidate_gate.py) |
-| Corpus tokenizer | [tools/corpus_tokenizer.py](./tools/corpus_tokenizer.py) |
-| Lexicon taxonomy | [analysis/lexicon_taxonomy.md](./analysis/lexicon_taxonomy.md) |
-| Corpus profiler | [tools/corpus_profiler.py](./tools/corpus_profiler.py) |
-| Adachi pressure profile | [analysis/reports/corpus_profile_adachi_pressure.md](./analysis/reports/corpus_profile_adachi_pressure.md) |
-| 第 5 卷 tokenization 报告 | [analysis/reports/tokenization_vol05.md](./analysis/reports/tokenization_vol05.md) |
-| 「岛村之刃」DeepSeek V4 tokenizer 报告 | [analysis/reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md](./analysis/reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md) |
 
-## 核心工作流入口
-
-| 阶段 | 文件 |
-|---|---|
-| 机制分析 | [analysis/style_analysis.md](./analysis/style_analysis.md) |
-| 可迁移规则 | [analysis/transferable_rules.md](./analysis/transferable_rules.md) |
-| 生成 prompt | [analysis/generation_prompt.md](./analysis/generation_prompt.md) |
-| 审稿清单 | [analysis/review_checklist.md](./analysis/review_checklist.md) |
-| Gate v1 产品化计划 | [analysis/productization_gate_v1.md](./analysis/productization_gate_v1.md) |
-| 候选生成/检测 skill | [skills/novel-gate-harness/SKILL.md](./skills/novel-gate-harness/SKILL.md) |
-| Skill 自检/候选 gate wrapper | [skills/novel-gate-harness/scripts/run_candidate_gate.py](./skills/novel-gate-harness/scripts/run_candidate_gate.py) |
-| 语料 tokenization | [analysis/reports/tokenization_vol05_shimamura_blade.md](./analysis/reports/tokenization_vol05_shimamura_blade.md) |
-| DeepSeek V4 tokenizer 对照 | [analysis/reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md](./analysis/reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md) |
-| 词表 taxonomy | [analysis/lexicon_taxonomy.md](./analysis/lexicon_taxonomy.md) |
-| 语料 profile 权重 | [analysis/reports/corpus_profile_adachi_pressure.md](./analysis/reports/corpus_profile_adachi_pressure.md) |
-| 第一轮自动评估 | [analysis/reports/current.md](./analysis/reports/current.md) |
-| 第一轮 Codex review | [analysis/reports/codex_review.md](./analysis/reports/codex_review.md) |
-| 第一轮 diff 讨论 | [analysis/reports/diff.md](./analysis/reports/diff.md) |
-
-## Delta v1 入口
+## Current Run
 
 | 用途 | 路径 |
 |---|---|
+| Run 目录 | `drafts/candidates/round6_codex_full_loop_20260609/` |
+| 最新候选 | `drafts/candidates/round6_codex_full_loop_20260609/candidate_002.md` |
+| 最新候选 JSON | `drafts/candidates/round6_codex_full_loop_20260609/candidate_002.json` |
+| Rewrite plan | `drafts/candidates/round6_codex_full_loop_20260609/rewrite_plan.json` |
+| 报告目录 | `analysis/reports/candidates/round6_codex_full_loop_20260609/` |
+| Manifest | `analysis/reports/candidates/round6_codex_full_loop_20260609/manifest.json` |
+| 最新 gate | `analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_002_gate.md` |
+| 对话窗口 review | `analysis/reports/candidates/round6_codex_full_loop_20260609/user_review_dialogue_window.md` |
+
+当前最新 gate 状态：`needs_manual_triage`。
+
+## Core Protocols
+
+| 用途 | 文件 |
+|---|---|
+| Gate 配置 | [analysis/harness_config.json](./analysis/harness_config.json) |
+| Gate report 协议 | [analysis/gate_report_protocol.md](./analysis/gate_report_protocol.md) |
+| Rewrite plan 协议 | [analysis/rewrite_plan_protocol.md](./analysis/rewrite_plan_protocol.md) |
+| Rewrite policy | [analysis/rewrite_policy.md](./analysis/rewrite_policy.md) |
+| Failure taxonomy | [analysis/failure_taxonomy.md](./analysis/failure_taxonomy.md) |
+| Case registry | [analysis/failure_cases.json](./analysis/failure_cases.json) |
+| Review ledger | [analysis/review_ledger.jsonl](./analysis/review_ledger.jsonl) |
+| Regression comparison | [analysis/regression_comparison.md](./analysis/regression_comparison.md) |
+| Productization v1 | [analysis/productization_gate_v1.md](./analysis/productization_gate_v1.md) |
+| Lexicon taxonomy | [analysis/lexicon_taxonomy.md](./analysis/lexicon_taxonomy.md) |
+
+## Tools
+
+| 用途 | 路径 |
+|---|---|
+| 项目自检 | `tools/project_doctor.py` |
+| 规则型评估器 | `tools/style_evaluator.py` |
+| 评估词表 | `tools/style_lexicon.json` |
+| Delta v1 | `tools/delta_evaluator.py` |
+| Segment Delta | `tools/eder_delta_evaluator.py` |
+| 对话窗口分析 | `tools/dialogue_window_analyzer.py` |
+| Light harness | `tools/light_harness.py` |
+| Source shape | `tools/source_shape_analyzer.py` |
+| Corpus tokenizer | `tools/corpus_tokenizer.py` |
+| Lexicon taxonomy data | `tools/lexicon_taxonomy.json` |
+| Corpus profiler | `tools/corpus_profiler.py` |
+
+## Reports
+
+| 用途 | 路径 |
+|---|---|
+| 当前候选报告 | `analysis/reports/candidates/round6_codex_full_loop_20260609/` |
+| 上一轮候选报告 | `analysis/reports/candidates/round5_auto_prompt_20260608/` |
+| Adachi pressure profile | `analysis/reports/corpus_profile_adachi_pressure.md` |
+| 第 5 卷 tokenization 报告 | `analysis/reports/tokenization_vol05.md` |
+| 「岛村之刃」tokenization 报告 | `analysis/reports/tokenization_vol05_shimamura_blade.md` |
+| DeepSeek V4 tokenizer 对照 | `analysis/reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md` |
+
+## Corpus Index
+
+| 用途 | 路径 |
+|---|---|
+| 机器可读卷/章索引 | `novel_index.json` |
 | 语料切片说明 | `corpus_slices/README.md` |
 | 语料切片配置 | `corpus_slices/slices.json` |
-| Delta 工具 | `tools/delta_evaluator.py` |
-| Delta Markdown 报告 | `analysis/reports/delta_current.md` |
-| Delta JSON 报告 | `analysis/reports/delta_current.json` |
 
 ## 卷号映射
 
@@ -189,11 +216,11 @@
 | 5574 | 第八卷 插图 |
 | 5577 | 第八卷 animate特典 |
 
-## 后续分析重点
+## 重点分析切片
 
 | 用途 | 文件 | 起始行 |
 |---|---|---:|
-| 关系失衡核心段 | [data/raw/vol05_第五卷_岛村之刃.txt:2446](./data/raw/vol05_第五卷_岛村之刃.txt#L2446) | 2446 |
-| 关系错位前置段 | [data/raw/vol05_第五卷_岛村之刃.txt:483](./data/raw/vol05_第五卷_岛村之刃.txt#L483) | 483 |
-| 事后反思与重估段 | [data/raw/vol05_第五卷_岛村之刃.txt:2865](./data/raw/vol05_第五卷_岛村之刃.txt#L2865) | 2865 |
-| 主体性恢复与行动段 | [data/raw/vol05_第五卷_岛村之刃.txt:4628](./data/raw/vol05_第五卷_岛村之刃.txt#L4628) | 4628 |
+| 关系失衡核心段 | `data/raw/vol05_第五卷_岛村之刃.txt` | 2446 |
+| 关系错位前置段 | `data/raw/vol05_第五卷_岛村之刃.txt` | 483 |
+| 事后反思与重估段 | `data/raw/vol05_第五卷_岛村之刃.txt` | 2865 |
+| 主体性恢复与行动段 | `data/raw/vol05_第五卷_岛村之刃.txt` | 4628 |

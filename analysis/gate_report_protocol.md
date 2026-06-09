@@ -73,7 +73,7 @@ agent_regression_checker.md/json
 - Delta findings must be phrased as relative localization, not quality.
 - Missing mandatory multi-agent review for a full candidate should appear as `needs_manual_triage: missing_multi_agent_review_round`.
 - Missing source-derived dialogue-window budget should appear as a warning such as `missing_source_window_budget`, not as an invented hard fail.
-- F008 dialogue-window evidence must name the checked speaker(s), budget source, `pair_units`, warn/hard thresholds if available, and the report path.
+- F008 dialogue-window evidence must name the checked speaker(s), budget source, source slice/profile when available, `pair_units`, warn/hard thresholds, dual alternating max, and the report path.
 - If close reading disagrees with a metric, preserve both as a conflict instead of overwriting either one.
 
 ## Current Evidence Examples

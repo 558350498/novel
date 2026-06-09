@@ -37,6 +37,18 @@ Observed:
 - `hard_exceeded_count`: 1
 - `warn_count`: 10
 
+Updated analyzer after dual-speaker/source-budget support:
+
+- `budget_source`: `source_slice_profile`
+- `source_slice_id`: `adachi_pressure`
+- `source_pair_units_p75`: 1
+- `source_pair_units_p90`: 2
+- `source_pair_units_max`: 3
+- `max_pair_units`: 7
+- `alternating_max_pair_units`: 7
+- `hard_exceeded_count`: 3
+- `warn_count`: 28
+
 This confirms `candidate_002` should remain `needs_manual_triage`.
 
 ## Next Generation Constraint

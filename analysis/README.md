@@ -1,35 +1,47 @@
 # 分析产物目录
 
-这里保存后续围绕「岛村之刃」的写作机制分析与生成辅助文件。
+这里保存围绕「岛村之刃」的 durable 协议、gate 配置、审稿边界、语料分析和生成辅助文件。
 
-## 已完成产物
+当前目录按三层阅读：active protocol、supporting evidence、provenance/archive candidates。入口文件应只指向存在的当前路径；旧 round 如果只用于溯源，不再作为快速入口。
 
-- `style_analysis.md`：本章情绪张力机制、意识流模式、对话节奏、日常物件与翻译腔分析。
-- `transferable_rules.md`：可迁移写作规则。
-- `generation_prompt.md`：用于生成「安达第一人称意识流」机制与文风迁移候选的 prompt。
-- `generation_prompt_round3.md`：Round 3 同场景改稿 prompt，强调长篇失控输出与接收端断续理解。
-- `generation_prompt_round4.md`：Round 4 长篇候选 prompt，将目标长度拓宽到 6500-8500 字符，并要求日常/高压比例。
-- `review_checklist.md`：成稿审稿清单。
-- `harness_plan.md`：轻量候选筛选 harness 计划，定义 gate 状态、subagent 分工和用户 review 边界。
-- `harness_config.json`：Harness v1 gate 配置。
-- `rewrite_plan_protocol.md`：当前产品化 loop 的核心协议；把诊断翻译成一次局部重写任务。
-- `failure_taxonomy.md`：可执行失败分类，不做泛化文学评论；每个正式条目必须绑定 case triplet。
-- `failure_cases.json`：case registry scaffold，记录 positive / negative / borderline case、`case_id`、来源和 review 状态。
-- `gate_report_protocol.md`：gate report 作为硬产物的字段、状态和证据规则。
-- `rewrite_policy.md`：局部修复策略入口；schema 仍以 `rewrite_plan_protocol.md` 为准。
-- `review_ledger.jsonl`：用户最终 review 判定的 ledger schema；正式 case 回归必须来自用户确认。
-- `regression_comparison.md`：prompt/model/gate/schema/rewrite policy 改动后的回归比较协议。
-- `../skills/novel-gate-harness/references/prompt_generation_harness.md`：生成侧内部 harness，消费 taxonomy/cases/ledger/regression 约束。
-- `../skills/novel-gate-harness/references/result_harness.md`：结果侧内部 harness，消费 paired candidate 并产出 gate/review/rewrite/regression/ledger handoff。
-- `project_cleanup_plan.md`：旧候选、旧 prompt、生成报告的保留/归档/待删清单。
-- `lexicon_taxonomy.md`：taxonomy 粒度主文档；先定义泛化语言学维度，再映射回项目 gate。
-- `productization_gate_v1.md`：Single-kernel tuning lab 产品化方向；消费 taxonomy 映射后的 gate 信号，不重新定义 taxonomy。
-- `../skills/novel-gate-harness/SKILL.md`：项目内 skill 草案，用于候选生成、结构 JSON、harness 检测和下一轮决策。
-- `../tools/corpus_tokenizer.py`：语料 tokenization 与词表发现工具，默认 `regex`，可选 `jieba`、OpenAI `tiktoken` 和 Hugging Face/DeepSeek tokenizer。
-- `../tools/corpus_profiler.py`：语料 profile 与可解释特征权重工具，不做 RAG。
-- `../tools/eder_delta_evaluator.py`：实验性片段级 Eder/Cosine Delta 诊断工具，用于定位 daily/pressure 分布。
+## Active Protocols
 
-## 当前主线
+| Path | Role |
+|---|---|
+| `harness_config.json` | 当前 gate 配置和可执行阈值 |
+| `harness_plan.md` | Harness v1 状态、范围和 review 边界 |
+| `failure_taxonomy.md` | 可执行失败分类，不做泛化文学评论 |
+| `failure_cases.json` | case registry scaffold，含 `case_id` 和 review 状态 |
+| `gate_report_protocol.md` | gate report 字段、状态和证据规则 |
+| `rewrite_plan_protocol.md` | 把诊断证据翻译成一次局部重写任务的协议 |
+| `rewrite_policy.md` | 局部修复策略入口，schema 仍以 `rewrite_plan_protocol.md` 为准 |
+| `review_ledger.jsonl` | 用户最终 review 判定 ledger |
+| `regression_comparison.md` | prompt/model/gate/schema/rewrite policy 改动后的回归比较协议 |
+| `productization_gate_v1.md` | Single-kernel tuning lab 产品边界 |
+| `lexicon_taxonomy.md` | 泛化语言学 taxonomy，项目 gate 标签只是映射层 |
+| `project_cleanup_plan.md` | active/provenance/archive/generated 清理策略 |
+
+## Active Run
+
+当前候选主线：
+
+```text
+drafts/candidates/round6_codex_full_loop_20260609/candidate_002.md
+drafts/candidates/round6_codex_full_loop_20260609/candidate_002.json
+-> analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_002_gate.md/json
+-> analysis/reports/candidates/round6_codex_full_loop_20260609/user_review_dialogue_window.md
+```
+
+当前状态：`needs_manual_triage`。
+
+当前主要风险：
+
+- 短台词 1-10 字占比偏高。
+- 11-40 字中段台词占比不足。
+- 台词分布整体偏离源切片自检范围。
+- Delta 第一名为 `adachi_daily`，不是 `adachi_pressure`。
+
+## Current Loop
 
 当前项目主线是受控局部改稿，而不是继续堆 prompt 或黑箱分类器：
 
@@ -42,72 +54,60 @@ candidate.md + candidate.json
 -> user review
 ```
 
-`rewrite_plan.json` 未来可由 deterministic planner + agent layer 生成。当前阶段可以人肉生成和执行，但必须保留证据来源。
+`rewrite_plan.json` 是执行单，不是质量结论。诊断证据可以来自：
 
-诊断源分四类：
+- `metric`: 长度、台词分布、解释标记、结构 JSON 统计。
+- `segment_delta`: 片段级 daily/pressure/shimamura_view 相对距离。
+- `agent_close_reading`: 指标无法覆盖的近读风险。
+- `user_feedback`: 用户审稿结论，优先级最高。
 
-- `metric`：长度、台词分布、解释标记、结构 JSON 统计。
-- `segment_delta`：片段级 daily/pressure/shimamura_view 相对距离。
-- `agent_close_reading`：指标无法覆盖的近读风险。
-- `user_feedback`：用户审稿结论，优先级最高。
+## Tools
 
-## 当前实验产物
+| Tool | Role |
+|---|---|
+| `../tools/project_doctor.py` | 检查 active 路径、候选配对和文档断链 |
+| `../tools/style_evaluator.py` | 规则风险，例如解释泄漏、封闭结尾、接收端错位不足 |
+| `../tools/delta_evaluator.py` | 相对距离观察，不做质量评分 |
+| `../tools/eder_delta_evaluator.py` | 实验性片段级 Eder/Cosine Delta 诊断 |
+| `../tools/dialogue_window_analyzer.py` | 对话窗口和接收端预算诊断 |
+| `../tools/light_harness.py` | 聚合 style、Delta 和 candidate JSON，输出 gate |
+| `../tools/source_shape_analyzer.py` | 章节级形状基线 |
+| `../tools/corpus_tokenizer.py` | 语料 tokenization 与词表发现 |
+| `../tools/corpus_profiler.py` | 语料 profile 与可解释特征权重，不做 RAG |
 
-- `../drafts/current.md`：第一轮固定场景测试稿。
-- `reports/current.md`：规则型文本风格评估器输出。
-- `reports/codex_review.md`：Codex 人工 review。
-- `reports/diff.md`：用户与 Codex 对第一轮稿件失败模式的逐句讨论。
+## Corpus And Profile Evidence
 
-## Delta v1
+| Path | Role |
+|---|---|
+| `../corpus_slices/slices.json` | Delta reference slice 配置 |
+| `reports/tokenization_vol05.md/json` | 第 5 卷整卷 tokenization 宽背景 |
+| `reports/tokenization_vol05_shimamura_blade.md/json` | 「岛村之刃」核心切片 tokenization |
+| `reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md/json` | DeepSeek V4-Flash tokenizer 对照 |
+| `reports/corpus_profile_adachi_pressure.md/json` | `adachi_pressure` 目标组 profile 权重 |
 
-- 已新增 Delta 相对距离评估器。
-- Delta v1 将比较生成稿与 `adachi_pressure`、`adachi_daily`、`shimamura_view`、`analysis_docs` 的表层文体距离。
-- Delta 只作为趋势观察，不作为质量评分或作者相似度百分比。
-- 切片配置：`../corpus_slices/slices.json`
-- 推荐命令：`python tools/delta_evaluator.py --draft drafts/current.md --slices corpus_slices/slices.json --output-prefix analysis/reports/delta_current`
+Corpus profile 和 tokenization 只辅助 gate 调参，不做 RAG，不召回原文片段，不替代人工 review。
 
-## Segment Delta Experiment
+## Skill References
 
-- `../tools/eder_delta_evaluator.py` 是当前片段级诊断实验。
-- 它使用 reference 片段的字符 n-gram 相对频率、z-score 标准化和 cosine distance。
-- 它不替代 Delta v1，不进入质量判断。
-- 它的用途是把整篇平均距离拆成局部诊断：哪些片段还偏 `adachi_daily`，哪些片段进入 `adachi_pressure`。
-- 推荐命令：`python tools/eder_delta_evaluator.py --draft drafts/candidates/<run_id>/candidate_001.md --slices corpus_slices/slices.json --output-prefix analysis/reports/candidates/<run_id>/candidate_001_eder_delta --segment-size 500 --min-segment-chars 250 --top-features 800`
+| Path | Role |
+|---|---|
+| `../skills/novel-gate-harness/SKILL.md` | 顶层 Codex orchestration skill |
+| `../skills/novel-gate-harness/references/project_architecture.md` | 目录角色与执行 pipeline |
+| `../skills/novel-gate-harness/references/prompt_generation_harness.md` | 生成侧内部 harness |
+| `../skills/novel-gate-harness/references/result_harness.md` | 结果侧内部 harness |
+| `../skills/novel-gate-harness/references/candidate_json.md` | paired candidate JSON 结构 |
+| `../skills/novel-gate-harness/references/corpus_profile_gate.md` | gate-facing corpus profile 规则 |
 
-## Harness v1
+## Provenance
 
-- 第一版已实现为已有候选评分器，不自动生成候选。
-- Harness 只筛掉明显失败样本，不判定成功。
-- 通过 gate 的候选只能进入 `pending_user_review`。
-- Subagent 可以生成候选或写 provisional notes，但不能写最终回归结论。
-- 可用入口：`python tools/light_harness.py --run-id existing_rounds_audit --candidates drafts/current.md drafts/round2.md drafts/round3.md --slices corpus_slices/slices.json --config analysis/harness_config.json --reports-root analysis/reports/candidates`
+旧 prompt、早期草稿、早期 round 报告、重复 distribution-check 报告属于 provenance。它们可以解释路线如何形成，但不应放在当前入口的第一层。
 
-## Productization v1
+清理、归档或删除前先看 `project_cleanup_plan.md`。不要删除源文本、用户确认记录、当前 candidate、当前 reports 或 skill source。
 
-- 第一版定位为 single-kernel tuning lab，不允许任意切换审美内核。
-- Gate v1 的第一优先级是解释化泄漏，尤其是岛村过度理解安达。
-- 后续候选建议采用 `candidate_001.md` + `candidate_001.json`：Markdown 给人读，JSON 给 harness 识别说话人、回应关系和表层接收词。
-- 后续改稿建议采用 `rewrite_plan.json`：规则库归 `harness_config.json`，本次执行单归 rewrite plan。
-- taxonomy 粒度以 `lexicon_taxonomy.md` 为准；本节只记录产品 gate 的使用方式。
-
-## Lexicon / Tokenization / Profile
-
-- 主文档：`lexicon_taxonomy.md`。
-- Tokenization 报告只发现候选词与 n-gram，不做质量评分：`reports/tokenization_vol05.md/json`、`reports/tokenization_vol05_shimamura_blade.md/json`。
-- DeepSeek V4-Flash tokenizer 报告只作模型侧 tokenization 对照：`reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md/json`。
-- Corpus Profile 比较参照组的 taxonomy/shape/token 特征权重，辅助 gate 调参：`reports/corpus_profile_adachi_pressure.md/json`。
-- 边界：不做 RAG，不召回原文，不替代人工 review；词表候选必须经过用户 review 或回归验证后再进入 gate。
-
-## 重点定位
-
-- 核心章节：`../data/raw/vol05_第五卷_岛村之刃.txt`
-- 章节标题：第五卷 第二话「岛村之刃」
-- 范围：第 2446 行到第 2864 行
-- 下一章起点：第 2865 行，第三话「灵魂是共有的？」
-
-## 分析边界
+## Boundaries
 
 - 不长篇摘录原文。
 - 不复刻原文句式。
 - 不复制作者专属表达；允许机制级、节奏级、翻译腔级的文风贴近。
-- 只抽取可迁移的机制、节奏、角色关系与审稿标准。
+- 不把 Delta、Segment Delta、corpus profile 或 rewrite plan 当作质量评分。
+- 不让 harness、Codex 或 subagent 替代用户最终 review。
