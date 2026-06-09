@@ -1,0 +1,604 @@
+{
+  "draft": "drafts\\candidates\\round6_codex_full_loop_20260609\\candidate_002.md",
+  "candidate_json": "drafts\\candidates\\round6_codex_full_loop_20260609\\candidate_002.json",
+  "generated_at": "2026-06-10T00:53:22",
+  "speaker": "shimamura",
+  "preferred_pair_units_max": 2,
+  "hard_pair_units_max": 5,
+  "dialogue_lines": 121,
+  "contiguous_dialogue_runs": 27,
+  "windows": [
+    {
+      "run_index": 1,
+      "run_dialogue_count": 1,
+      "line_start": 9,
+      "line_end": 9,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 1,
+      "window_utterance_count": 1,
+      "pair_units": 1,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "ok",
+      "speakers": [
+        "shimamura"
+      ],
+      "texts": [
+        "嗯，我也觉得该回去了。"
+      ]
+    },
+    {
+      "run_index": 2,
+      "run_dialogue_count": 4,
+      "line_start": 19,
+      "line_end": 19,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 1,
+      "window_utterance_count": 1,
+      "pair_units": 1,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "ok",
+      "speakers": [
+        "shimamura"
+      ],
+      "texts": [
+        "那你要怎么跟她说？"
+      ]
+    },
+    {
+      "run_index": 3,
+      "run_dialogue_count": 1,
+      "line_start": 29,
+      "line_end": 29,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 1,
+      "window_utterance_count": 1,
+      "pair_units": 1,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "ok",
+      "speakers": [
+        "shimamura"
+      ],
+      "texts": [
+        "刚才找你好久。”樽见说。"
+      ]
+    },
+    {
+      "run_index": 4,
+      "run_dialogue_count": 3,
+      "line_start": 45,
+      "line_end": 47,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 2,
+      "window_utterance_count": 2,
+      "pair_units": 1,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "ok",
+      "speakers": [
+        "shimamura",
+        "shimamura"
+      ],
+      "texts": [
+        "嗯，我刚才在看杯子。",
+        "你要先去丢杯子吗？"
+      ]
+    },
+    {
+      "run_index": 6,
+      "run_dialogue_count": 2,
+      "line_start": 63,
+      "line_end": 63,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 1,
+      "window_utterance_count": 1,
+      "pair_units": 1,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "ok",
+      "speakers": [
+        "shimamura"
+      ],
+      "texts": [
+        "那我先走了。”樽见说。"
+      ]
+    },
+    {
+      "run_index": 7,
+      "run_dialogue_count": 4,
+      "line_start": 69,
+      "line_end": 75,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 3,
+      "window_utterance_count": 4,
+      "pair_units": 2,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "ok",
+      "speakers": [
+        "shimamura",
+        "shimamura",
+        "adachi",
+        "shimamura"
+      ],
+      "texts": [
+        "那是什么？”我问。",
+        "贴纸。”岛村说，“她说摊位抽到的。",
+        "贴纸啊，是刚才那个袋子。",
+        "嗯。上面有一只很圆的鱼。"
+      ]
+    },
+    {
+      "run_index": 9,
+      "run_dialogue_count": 4,
+      "line_start": 87,
+      "line_end": 93,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 3,
+      "window_utterance_count": 4,
+      "pair_units": 2,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "ok",
+      "speakers": [
+        "shimamura",
+        "shimamura",
+        "adachi",
+        "shimamura"
+      ],
+      "texts": [
+        "没什么，只是碰了一下。",
+        "被杯子划到了？",
+        "没有。只是碰了一下。",
+        "哦，那就没事了。"
+      ]
+    },
+    {
+      "run_index": 10,
+      "run_dialogue_count": 6,
+      "line_start": 101,
+      "line_end": 109,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 3,
+      "window_utterance_count": 5,
+      "pair_units": 3,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "warn",
+      "speakers": [
+        "shimamura",
+        "adachi",
+        "shimamura",
+        "adachi",
+        "shimamura"
+      ],
+      "texts": [
+        "章鱼烧的事我会想办法。",
+        "嗯，我听见你说明天。",
+        "也许说排队太长。",
+        "那比卖完了好一点。",
+        "是吧。"
+      ]
+    },
+    {
+      "run_index": 12,
+      "run_dialogue_count": 1,
+      "line_start": 159,
+      "line_end": 159,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 1,
+      "window_utterance_count": 1,
+      "pair_units": 1,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "ok",
+      "speakers": [
+        "shimamura"
+      ],
+      "texts": [
+        "到了。”我回。"
+      ]
+    },
+    {
+      "run_index": 14,
+      "run_dialogue_count": 6,
+      "line_start": 181,
+      "line_end": 189,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 3,
+      "window_utterance_count": 5,
+      "pair_units": 3,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "warn",
+      "speakers": [
+        "shimamura",
+        "adachi",
+        "shimamura",
+        "adachi",
+        "shimamura"
+      ],
+      "texts": [
+        "安达？”岛村的声音从手机里出来，比刚才路上薄一点，“我刚洗完手。",
+        "嗯，我在这边听着。",
+        "你掌心真的没事？",
+        "没事，只是红了一点。",
+        "那就好。你别一直按着。"
+      ]
+    },
+    {
+      "run_index": 15,
+      "run_dialogue_count": 9,
+      "line_start": 195,
+      "line_end": 207,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 4,
+      "window_utterance_count": 7,
+      "pair_units": 4,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "warn",
+      "speakers": [
+        "shimamura",
+        "adachi",
+        "shimamura",
+        "adachi",
+        "shimamura",
+        "adachi",
+        "shimamura"
+      ],
+      "texts": [
+        "嗯？我在听，你慢慢说。",
+        "贴纸给妹妹了吗？",
+        "还没。她在洗澡。",
+        "哦，我知道了。",
+        "你想要吗？那条鱼。",
+        "不是，我不是想要。",
+        "它太圆了？"
+      ]
+    },
+    {
+      "run_index": 16,
+      "run_dialogue_count": 5,
+      "line_start": 213,
+      "line_end": 221,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 3,
+      "window_utterance_count": 5,
+      "pair_units": 3,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "warn",
+      "speakers": [
+        "shimamura",
+        "adachi",
+        "shimamura",
+        "adachi",
+        "shimamura"
+      ],
+      "texts": [
+        "那是手的问题？”她问。",
+        "也不是，我说不清楚。",
+        "烟花？",
+        "也不是，烟花也不是。",
+        "那我猜不到。你慢一点。"
+      ]
+    },
+    {
+      "run_index": 17,
+      "run_dialogue_count": 6,
+      "line_start": 231,
+      "line_end": 239,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 3,
+      "window_utterance_count": 5,
+      "pair_units": 3,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "warn",
+      "speakers": [
+        "shimamura",
+        "adachi",
+        "shimamura",
+        "adachi",
+        "shimamura"
+      ],
+      "texts": [
+        "嗯，你继续说。",
+        "她把贴纸给我，说那条鱼很像我妹妹。",
+        "很像吗？",
+        "圆圆的地方有点像。",
+        "哦，原来是这样啊。"
+      ]
+    },
+    {
+      "run_index": 18,
+      "run_dialogue_count": 7,
+      "line_start": 245,
+      "line_end": 253,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 3,
+      "window_utterance_count": 5,
+      "pair_units": 3,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "warn",
+      "speakers": [
+        "shimamura",
+        "adachi",
+        "shimamura",
+        "adachi",
+        "shimamura"
+      ],
+      "texts": [
+        "嗯，我还在这边。",
+        "你声音又小了。",
+        "没有，只是有点卡住。",
+        "真的？",
+        "真的，声音没有变小。"
+      ]
+    },
+    {
+      "run_index": 19,
+      "run_dialogue_count": 6,
+      "line_start": 259,
+      "line_end": 267,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 3,
+      "window_utterance_count": 5,
+      "pair_units": 3,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "warn",
+      "speakers": [
+        "shimamura",
+        "adachi",
+        "shimamura",
+        "adachi",
+        "shimamura"
+      ],
+      "texts": [
+        "岛村，我还想问你。",
+        "嗯，我还在听着。",
+        "你明天下午有事吗？",
+        "下午没什么事。",
+        "那，明天可以见面吗？"
+      ]
+    },
+    {
+      "run_index": 20,
+      "run_dialogue_count": 6,
+      "line_start": 273,
+      "line_end": 283,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 4,
+      "window_utterance_count": 6,
+      "pair_units": 3,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "warn",
+      "speakers": [
+        "shimamura",
+        "shimamura",
+        "adachi",
+        "shimamura",
+        "adachi",
+        "shimamura"
+      ],
+      "texts": [
+        "哪里见面比较好？”岛村问。",
+        "哪里都可以，我想不到。",
+        "哪里都可以最难了。",
+        "学校附近就可以。",
+        "嗯，可以，学校附近。",
+        "不要把贴纸带来。"
+      ]
+    },
+    {
+      "run_index": 21,
+      "run_dialogue_count": 2,
+      "line_start": 291,
+      "line_end": 291,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 1,
+      "window_utterance_count": 1,
+      "pair_units": 1,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "ok",
+      "speakers": [
+        "shimamura"
+      ],
+      "texts": [
+        "不是，我不是说贴纸不行。贴纸可以。鱼也可以。你妹妹也可以。樽见也可以。我不是要说谁不可以，我没有那样想，我知道那只是祭典上碰到，她把贴纸给你，你们说了鱼，说了妹妹，说了章鱼烧，可能还说了烟花，都是很普通的事情，我知道普通，我一直知道，可是我看见的时候，那个普通没有进到我这边来，它在你们中间站着，我站在外面，手里拿着空杯子，杯子里面的冰一直响，我就觉得自己好像也是杯子里剩下的东西，倒不出来，也不能喝，我想走过去，又觉得走过去太奇怪，不走过去又更奇怪，我丢杯子的时候杯沿划到手，我还觉得这样正好，这样我就可以看手，不用看你们，可是看手的时候我还是在想你们，我很讨厌这样，讨厌到想把手机关掉，可是关掉以后又想如果你发消息来怎么办，我知道你没有做错，樽见也没有做错，贴纸更没有做错，一条鱼不能做错什么，可是我还是不想让那条鱼明天也在，我这样说很怪吧，不是鱼的问题，也不是明天的问题，我可能只是想要明天见你的时候，桌上不要先放着一个我没办法加入的东西，我也不知道我在说什么，我说得太快了吗，应该很快，我听见自己的声音都像从别人的房间传出来，我本来只想问你到家没有，后来想问手，后来想问烟花，后来想问樽见，问来问去都不是那个，我没有那个词，岛村，我没有，找到的词都太小了，贴纸、小鱼、明天、手痛、嗓子干，每一个都小到可以被你轻轻接住，可是它们后面的东西接不住，我也不想让你接，我不想让你觉得重，不想让你明天看见我就想起麻烦，可是如果你什么都不知道，我又会一直站在垃圾桶旁边，手里没有杯子了还像拿着杯子，我好像真的很麻烦，对不起，我不是要你回答，也不是要你保证，我只是刚才突然很想把那条鱼从明天拿走，可是说出口就变成不要带贴纸。"
+      ]
+    },
+    {
+      "run_index": 22,
+      "run_dialogue_count": 7,
+      "line_start": 305,
+      "line_end": 313,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 3,
+      "window_utterance_count": 5,
+      "pair_units": 3,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "warn",
+      "speakers": [
+        "shimamura",
+        "adachi",
+        "shimamura",
+        "adachi",
+        "shimamura"
+      ],
+      "texts": [
+        "嗯，我说完了。",
+        "你刚才说太快了。",
+        "嗯，我自己也知道。",
+        "我听见贴纸、鱼、明天，还有手痛。",
+        "嗯，那些词都在。"
+      ]
+    },
+    {
+      "run_index": 23,
+      "run_dialogue_count": 4,
+      "line_start": 319,
+      "line_end": 323,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 2,
+      "window_utterance_count": 3,
+      "pair_units": 2,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "ok",
+      "speakers": [
+        "shimamura",
+        "adachi",
+        "shimamura"
+      ],
+      "texts": [
+        "不带也可以吗？”我问。",
+        "可以啊。本来就是给妹妹的。",
+        "哦，那就好一点。"
+      ]
+    },
+    {
+      "run_index": 24,
+      "run_dialogue_count": 15,
+      "line_start": 331,
+      "line_end": 357,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 8,
+      "window_utterance_count": 14,
+      "pair_units": 7,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "hard_exceeded",
+      "speakers": [
+        "shimamura",
+        "shimamura",
+        "adachi",
+        "shimamura",
+        "adachi",
+        "shimamura",
+        "adachi",
+        "shimamura",
+        "adachi",
+        "shimamura",
+        "adachi",
+        "shimamura",
+        "adachi",
+        "shimamura"
+      ],
+      "texts": [
+        "明天呢？”岛村问。",
+        "明天？我说了明天吗？",
+        "你刚才也说了明天。",
+        "我说了吗？不记得了。",
+        "说了好几次。",
+        "对不起，我说得太乱。",
+        "不用道歉。学校附近可以吗？",
+        "可以，学校附近可以。",
+        "那下午。我买茶。",
+        "什么茶都可以吗？",
+        "还没想，明天再看。",
+        "都可以，麦茶也可以。",
+        "又是都可以。那麦茶吧。",
+        "那，麦茶就好了。"
+      ]
+    },
+    {
+      "run_index": 25,
+      "run_dialogue_count": 11,
+      "line_start": 363,
+      "line_end": 381,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 6,
+      "window_utterance_count": 10,
+      "pair_units": 5,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "warn",
+      "speakers": [
+        "shimamura",
+        "shimamura",
+        "adachi",
+        "shimamura",
+        "adachi",
+        "shimamura",
+        "adachi",
+        "shimamura",
+        "adachi",
+        "shimamura"
+      ],
+      "texts": [
+        "安达。",
+        "嗯，我听见了。",
+        "喉咙痛的话，喝点水。",
+        "我喝过了，刚刚喝过。",
+        "那再喝一点。",
+        "嗯，我再喝一点。",
+        "还有，手要不要贴创可贴？",
+        "不用，只是一点红。",
+        "不用啊。那先放着。",
+        "只是红了一点而已。"
+      ]
+    },
+    {
+      "run_index": 26,
+      "run_dialogue_count": 3,
+      "line_start": 387,
+      "line_end": 389,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 2,
+      "window_utterance_count": 2,
+      "pair_units": 1,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "ok",
+      "speakers": [
+        "shimamura",
+        "shimamura"
+      ],
+      "texts": [
+        "你喝了吗？”岛村问。",
+        "喝了，水不太凉。"
+      ]
+    },
+    {
+      "run_index": 27,
+      "run_dialogue_count": 4,
+      "line_start": 397,
+      "line_end": 403,
+      "speaker": "shimamura",
+      "speaker_utterance_count": 3,
+      "window_utterance_count": 4,
+      "pair_units": 2,
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "status": "ok",
+      "speakers": [
+        "shimamura",
+        "shimamura",
+        "adachi",
+        "shimamura"
+      ],
+      "texts": [
+        "那我挂了哦。”岛村说。",
+        "嗯，你挂吧。",
+        "明天见，学校附近。",
+        "明天见，麦茶也见。"
+      ]
+    }
+  ],
+  "max_pair_units": 7,
+  "hard_exceeded_count": 1,
+  "warn_count": 10,
+  "alignment": {
+    "markdown_dialogue_lines": 121,
+    "json_utterances": 122
+  }
+}

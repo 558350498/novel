@@ -1,0 +1,1186 @@
+{
+  "version": 1,
+  "candidate": "candidate_002.md",
+  "kernel_id": "adachi_misaligned_overload_v1",
+  "utterances": [
+    {
+      "id": "u001",
+      "speaker": "shimamura",
+      "text": "回去吧。",
+      "responds_to": [],
+      "surface_terms_received": [
+        "回去"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u002",
+      "speaker": "adachi",
+      "text": "嗯。"
+    },
+    {
+      "id": "u003",
+      "speaker": "adachi",
+      "text": "你带了吗？"
+    },
+    {
+      "id": "u004",
+      "speaker": "shimamura",
+      "text": "没有。我忘了。",
+      "responds_to": [
+        "u003"
+      ],
+      "surface_terms_received": [
+        "章鱼烧"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u005",
+      "speaker": "adachi",
+      "text": "那怎么办？"
+    },
+    {
+      "id": "u006",
+      "speaker": "shimamura",
+      "text": "说卖完了。",
+      "responds_to": [
+        "u005"
+      ],
+      "surface_terms_received": [
+        "章鱼烧"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u007",
+      "speaker": "tarumi",
+      "text": "刚才找你好久。"
+    },
+    {
+      "id": "u008",
+      "speaker": "shimamura",
+      "text": "那我先走了。",
+      "responds_to": [
+        "u007"
+      ],
+      "surface_terms_received": [
+        "离开"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u009",
+      "speaker": "shimamura",
+      "text": "嗯，路上小心。",
+      "responds_to": [
+        "u008"
+      ],
+      "surface_terms_received": [
+        "路上"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u010",
+      "speaker": "adachi",
+      "text": "那是什么？"
+    },
+    {
+      "id": "u011",
+      "speaker": "shimamura",
+      "text": "贴纸。她说摊位抽到的。",
+      "responds_to": [
+        "u010"
+      ],
+      "surface_terms_received": [
+        "贴纸",
+        "摊位"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u012",
+      "speaker": "adachi",
+      "text": "贴纸啊。"
+    },
+    {
+      "id": "u013",
+      "speaker": "shimamura",
+      "text": "嗯。上面有一只很圆的鱼。",
+      "responds_to": [
+        "u012"
+      ],
+      "surface_terms_received": [
+        "贴纸",
+        "鱼"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u014",
+      "speaker": "shimamura",
+      "text": "安达，你手怎么了？",
+      "responds_to": [],
+      "surface_terms_received": [
+        "手"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u015",
+      "speaker": "adachi",
+      "text": "没什么。"
+    },
+    {
+      "id": "u016",
+      "speaker": "shimamura",
+      "text": "被杯子划到了？",
+      "responds_to": [
+        "u015"
+      ],
+      "surface_terms_received": [
+        "杯子",
+        "手"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u017",
+      "speaker": "adachi",
+      "text": "没有。只是碰了一下。"
+    },
+    {
+      "id": "u018",
+      "speaker": "shimamura",
+      "text": "哦。",
+      "responds_to": [
+        "u017"
+      ],
+      "surface_terms_received": [
+        "碰了一下"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u019",
+      "speaker": "shimamura",
+      "text": "明天见。",
+      "responds_to": [],
+      "surface_terms_received": [
+        "明天"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u020",
+      "speaker": "adachi",
+      "text": "明天见。"
+    },
+    {
+      "id": "u021",
+      "speaker": "shimamura",
+      "text": "章鱼烧的事我会想办法。",
+      "responds_to": [],
+      "surface_terms_received": [
+        "章鱼烧"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u022",
+      "speaker": "adachi",
+      "text": "嗯。"
+    },
+    {
+      "id": "u023",
+      "speaker": "shimamura",
+      "text": "也许说排队太长。",
+      "responds_to": [
+        "u021"
+      ],
+      "surface_terms_received": [
+        "排队"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u024",
+      "speaker": "adachi",
+      "text": "那比卖完了好一点。"
+    },
+    {
+      "id": "u025",
+      "speaker": "shimamura",
+      "text": "是吧。",
+      "responds_to": [
+        "u024"
+      ],
+      "surface_terms_received": [
+        "卖完"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u026",
+      "speaker": "adachi",
+      "text": "到家了吗？"
+    },
+    {
+      "id": "u027",
+      "speaker": "shimamura",
+      "text": "到了。你呢？",
+      "responds_to": [
+        "u026"
+      ],
+      "surface_terms_received": [
+        "到家"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u028",
+      "speaker": "adachi",
+      "text": "到了。"
+    },
+    {
+      "id": "u029",
+      "speaker": "shimamura",
+      "text": "手还好吗？",
+      "responds_to": [
+        "u028"
+      ],
+      "surface_terms_received": [
+        "手"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u030",
+      "speaker": "adachi",
+      "text": "没事。"
+    },
+    {
+      "id": "u031",
+      "speaker": "adachi",
+      "text": "喂？"
+    },
+    {
+      "id": "u032",
+      "speaker": "shimamura",
+      "text": "安达？我刚洗完手。",
+      "responds_to": [
+        "u031"
+      ],
+      "surface_terms_received": [
+        "电话"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u033",
+      "speaker": "adachi",
+      "text": "嗯。"
+    },
+    {
+      "id": "u034",
+      "speaker": "shimamura",
+      "text": "你掌心真的没事？",
+      "responds_to": [
+        "u033"
+      ],
+      "surface_terms_received": [
+        "掌心",
+        "手"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u035",
+      "speaker": "adachi",
+      "text": "没事。"
+    },
+    {
+      "id": "u036",
+      "speaker": "shimamura",
+      "text": "那就好。",
+      "responds_to": [
+        "u035"
+      ],
+      "surface_terms_received": [
+        "没事"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u037",
+      "speaker": "adachi",
+      "text": "岛村。"
+    },
+    {
+      "id": "u038",
+      "speaker": "shimamura",
+      "text": "嗯？",
+      "responds_to": [
+        "u037"
+      ],
+      "surface_terms_received": [],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u039",
+      "speaker": "adachi",
+      "text": "贴纸给妹妹了吗？"
+    },
+    {
+      "id": "u040",
+      "speaker": "shimamura",
+      "text": "还没。她在洗澡。",
+      "responds_to": [
+        "u039"
+      ],
+      "surface_terms_received": [
+        "贴纸",
+        "妹妹"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u041",
+      "speaker": "adachi",
+      "text": "哦。"
+    },
+    {
+      "id": "u042",
+      "speaker": "shimamura",
+      "text": "你想要吗？那条鱼。",
+      "responds_to": [
+        "u041"
+      ],
+      "surface_terms_received": [
+        "鱼",
+        "想要"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u043",
+      "speaker": "adachi",
+      "text": "不是。"
+    },
+    {
+      "id": "u044",
+      "speaker": "shimamura",
+      "text": "它太圆了？",
+      "responds_to": [
+        "u043"
+      ],
+      "surface_terms_received": [
+        "鱼",
+        "圆"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u045",
+      "speaker": "adachi",
+      "text": "不是圆的问题。"
+    },
+    {
+      "id": "u046",
+      "speaker": "shimamura",
+      "text": "那是手的问题？",
+      "responds_to": [
+        "u045"
+      ],
+      "surface_terms_received": [
+        "手"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u047",
+      "speaker": "adachi",
+      "text": "也不是。"
+    },
+    {
+      "id": "u048",
+      "speaker": "shimamura",
+      "text": "烟花？",
+      "responds_to": [
+        "u047"
+      ],
+      "surface_terms_received": [
+        "烟花"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u049",
+      "speaker": "adachi",
+      "text": "也不是。"
+    },
+    {
+      "id": "u050",
+      "speaker": "shimamura",
+      "text": "那我猜不到。",
+      "responds_to": [
+        "u049"
+      ],
+      "surface_terms_received": [
+        "猜不到"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u051",
+      "speaker": "adachi",
+      "text": "你刚才和樽见说了什么？"
+    },
+    {
+      "id": "u052",
+      "speaker": "shimamura",
+      "text": "樽见？",
+      "responds_to": [
+        "u051"
+      ],
+      "surface_terms_received": [
+        "樽见"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u053",
+      "speaker": "adachi",
+      "text": "嗯。"
+    },
+    {
+      "id": "u054",
+      "speaker": "shimamura",
+      "text": "她把贴纸给我，说那条鱼很像我妹妹。",
+      "responds_to": [
+        "u053"
+      ],
+      "surface_terms_received": [
+        "樽见",
+        "贴纸",
+        "鱼",
+        "妹妹"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u055",
+      "speaker": "adachi",
+      "text": "很像吗？"
+    },
+    {
+      "id": "u056",
+      "speaker": "shimamura",
+      "text": "圆圆的地方有点像。",
+      "responds_to": [
+        "u055"
+      ],
+      "surface_terms_received": [
+        "圆",
+        "妹妹"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u057",
+      "speaker": "adachi",
+      "text": "哦。"
+    },
+    {
+      "id": "u058",
+      "speaker": "shimamura",
+      "text": "安达？",
+      "responds_to": [
+        "u057"
+      ],
+      "surface_terms_received": [],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u059",
+      "speaker": "adachi",
+      "text": "嗯。"
+    },
+    {
+      "id": "u060",
+      "speaker": "shimamura",
+      "text": "你声音又小了。",
+      "responds_to": [
+        "u059"
+      ],
+      "surface_terms_received": [
+        "声音小"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u061",
+      "speaker": "adachi",
+      "text": "没有。"
+    },
+    {
+      "id": "u062",
+      "speaker": "shimamura",
+      "text": "真的？",
+      "responds_to": [
+        "u061"
+      ],
+      "surface_terms_received": [
+        "没有"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u063",
+      "speaker": "adachi",
+      "text": "真的。"
+    },
+    {
+      "id": "u064",
+      "speaker": "shimamura",
+      "text": "那就好。",
+      "responds_to": [
+        "u063"
+      ],
+      "surface_terms_received": [
+        "真的"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u065",
+      "speaker": "adachi",
+      "text": "岛村。"
+    },
+    {
+      "id": "u066",
+      "speaker": "shimamura",
+      "text": "嗯。",
+      "responds_to": [
+        "u065"
+      ],
+      "surface_terms_received": [],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u067",
+      "speaker": "adachi",
+      "text": "你明天有事吗？"
+    },
+    {
+      "id": "u068",
+      "speaker": "shimamura",
+      "text": "下午没什么事。",
+      "responds_to": [
+        "u067"
+      ],
+      "surface_terms_received": [
+        "明天",
+        "下午"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u069",
+      "speaker": "adachi",
+      "text": "那，明天可以见面吗？"
+    },
+    {
+      "id": "u070",
+      "speaker": "shimamura",
+      "text": "可以啊。",
+      "responds_to": [
+        "u069"
+      ],
+      "surface_terms_received": [
+        "明天",
+        "见面"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u071",
+      "speaker": "shimamura",
+      "text": "哪里？",
+      "responds_to": [
+        "u069"
+      ],
+      "surface_terms_received": [
+        "哪里"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u072",
+      "speaker": "adachi",
+      "text": "哪里都可以。"
+    },
+    {
+      "id": "u073",
+      "speaker": "shimamura",
+      "text": "哪里都可以最难了。",
+      "responds_to": [
+        "u072"
+      ],
+      "surface_terms_received": [
+        "哪里都可以"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u074",
+      "speaker": "adachi",
+      "text": "学校附近。"
+    },
+    {
+      "id": "u075",
+      "speaker": "shimamura",
+      "text": "嗯，可以。",
+      "responds_to": [
+        "u074"
+      ],
+      "surface_terms_received": [
+        "学校附近"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u076",
+      "speaker": "adachi",
+      "text": "不要带贴纸。"
+    },
+    {
+      "id": "u077",
+      "speaker": "shimamura",
+      "text": "贴纸？",
+      "responds_to": [
+        "u076"
+      ],
+      "surface_terms_received": [
+        "贴纸"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u078",
+      "speaker": "adachi",
+      "text": "不是，我不是说贴纸不行。贴纸可以。鱼也可以。你妹妹也可以。樽见也可以。我不是要说谁不可以，我没有那样想，我知道那只是祭典上碰到，她把贴纸给你，你们说了鱼，说了妹妹，说了章鱼烧，可能还说了烟花，都是很普通的事情，我知道普通，我一直知道，可是我看见的时候，那个普通没有进到我这边来，它在你们中间站着，我站在外面，手里拿着空杯子，杯子里面的冰一直响，我就觉得自己好像也是杯子里剩下的东西，倒不出来，也不能喝，我想走过去，又觉得走过去太奇怪，不走过去又更奇怪，我丢杯子的时候杯沿划到手，我还觉得这样正好，这样我就可以看手，不用看你们，可是看手的时候我还是在想你们，我很讨厌这样，讨厌到想把手机关掉，可是关掉以后又想如果你发消息来怎么办，我知道你没有做错，樽见也没有做错，贴纸更没有做错，一条鱼不能做错什么，可是我还是不想让那条鱼明天也在，我这样说很怪吧，不是鱼的问题，也不是明天的问题，我可能只是想要明天见你的时候，桌上不要先放着一个我没办法加入的东西，我也不知道我在说什么，我说得太快了吗，应该很快，我听见自己的声音都像从别人的房间传出来，我本来只想问你到家没有，后来想问手，后来想问烟花，后来想问樽见，问来问去都不是那个，我没有那个词，岛村，我没有，找到的词都太小了，贴纸、小鱼、明天、手痛、嗓子干，每一个都小到可以被你轻轻接住，可是它们后面的东西接不住，我也不想让你接，我不想让你觉得重，不想让你明天看见我就想起麻烦，可是如果你什么都不知道，我又会一直站在垃圾桶旁边，手里没有杯子了还像拿着杯子，我好像真的很麻烦，对不起，我不是要你回答，也不是要你保证，我只是刚才突然很想把那条鱼从明天拿走，可是说出口就变成不要带贴纸。"
+    },
+    {
+      "id": "u079",
+      "speaker": "shimamura",
+      "text": "安达。",
+      "responds_to": [
+        "u078"
+      ],
+      "surface_terms_received": [
+        "安达"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u080",
+      "speaker": "adachi",
+      "text": "嗯。"
+    },
+    {
+      "id": "u081",
+      "speaker": "shimamura",
+      "text": "你刚才说太快了。",
+      "responds_to": [
+        "u078"
+      ],
+      "surface_terms_received": [
+        "太快"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u082",
+      "speaker": "adachi",
+      "text": "嗯。"
+    },
+    {
+      "id": "u083",
+      "speaker": "shimamura",
+      "text": "我听见贴纸、鱼、明天，还有手痛。",
+      "responds_to": [
+        "u078"
+      ],
+      "surface_terms_received": [
+        "贴纸",
+        "鱼",
+        "明天",
+        "手痛"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u084",
+      "speaker": "adachi",
+      "text": "嗯。"
+    },
+    {
+      "id": "u085",
+      "speaker": "shimamura",
+      "text": "贴纸我不带。",
+      "responds_to": [
+        "u078"
+      ],
+      "surface_terms_received": [
+        "贴纸"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u086",
+      "speaker": "adachi",
+      "text": "不带也可以吗？"
+    },
+    {
+      "id": "u087",
+      "speaker": "shimamura",
+      "text": "可以啊。本来就是给妹妹的。",
+      "responds_to": [
+        "u086"
+      ],
+      "surface_terms_received": [
+        "不带",
+        "妹妹"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u088",
+      "speaker": "adachi",
+      "text": "哦。"
+    },
+    {
+      "id": "u089",
+      "speaker": "shimamura",
+      "text": "鱼不会来。",
+      "responds_to": [
+        "u088"
+      ],
+      "surface_terms_received": [
+        "鱼"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u090",
+      "speaker": "shimamura",
+      "text": "明天呢？",
+      "responds_to": [
+        "u078"
+      ],
+      "surface_terms_received": [
+        "明天"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u091",
+      "speaker": "adachi",
+      "text": "明天？"
+    },
+    {
+      "id": "u092",
+      "speaker": "shimamura",
+      "text": "你刚才也说了明天。",
+      "responds_to": [
+        "u091"
+      ],
+      "surface_terms_received": [
+        "明天"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u093",
+      "speaker": "adachi",
+      "text": "我说了吗？"
+    },
+    {
+      "id": "u094",
+      "speaker": "shimamura",
+      "text": "说了好几次。",
+      "responds_to": [
+        "u093"
+      ],
+      "surface_terms_received": [
+        "明天"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u095",
+      "speaker": "adachi",
+      "text": "对不起。"
+    },
+    {
+      "id": "u096",
+      "speaker": "shimamura",
+      "text": "不用道歉。学校附近可以吗？",
+      "responds_to": [
+        "u095"
+      ],
+      "surface_terms_received": [
+        "学校附近"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u097",
+      "speaker": "adachi",
+      "text": "可以。"
+    },
+    {
+      "id": "u098",
+      "speaker": "shimamura",
+      "text": "那下午。我买茶。",
+      "responds_to": [
+        "u097"
+      ],
+      "surface_terms_received": [
+        "下午",
+        "茶"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u099",
+      "speaker": "adachi",
+      "text": "什么茶？"
+    },
+    {
+      "id": "u100",
+      "speaker": "shimamura",
+      "text": "还没想。",
+      "responds_to": [
+        "u099"
+      ],
+      "surface_terms_received": [
+        "茶"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u101",
+      "speaker": "adachi",
+      "text": "都可以。"
+    },
+    {
+      "id": "u102",
+      "speaker": "shimamura",
+      "text": "又是都可以。",
+      "responds_to": [
+        "u101"
+      ],
+      "surface_terms_received": [
+        "都可以"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u103",
+      "speaker": "adachi",
+      "text": "那，麦茶。"
+    },
+    {
+      "id": "u104",
+      "speaker": "shimamura",
+      "text": "好，麦茶。",
+      "responds_to": [
+        "u103"
+      ],
+      "surface_terms_received": [
+        "麦茶"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u105",
+      "speaker": "shimamura",
+      "text": "安达。",
+      "responds_to": [],
+      "surface_terms_received": [
+        "安达"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u106",
+      "speaker": "adachi",
+      "text": "嗯。"
+    },
+    {
+      "id": "u107",
+      "speaker": "shimamura",
+      "text": "喉咙痛的话，喝点水。",
+      "responds_to": [
+        "u078"
+      ],
+      "surface_terms_received": [
+        "喉咙",
+        "喝水"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u108",
+      "speaker": "adachi",
+      "text": "我喝过了。"
+    },
+    {
+      "id": "u109",
+      "speaker": "shimamura",
+      "text": "那再喝一点。",
+      "responds_to": [
+        "u108"
+      ],
+      "surface_terms_received": [
+        "喝水"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u110",
+      "speaker": "adachi",
+      "text": "嗯。"
+    },
+    {
+      "id": "u111",
+      "speaker": "shimamura",
+      "text": "还有，手要不要贴创可贴？",
+      "responds_to": [
+        "u110"
+      ],
+      "surface_terms_received": [
+        "手",
+        "创可贴"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u112",
+      "speaker": "adachi",
+      "text": "不用。"
+    },
+    {
+      "id": "u113",
+      "speaker": "shimamura",
+      "text": "不用啊。",
+      "responds_to": [
+        "u112"
+      ],
+      "surface_terms_received": [
+        "不用"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u114",
+      "speaker": "adachi",
+      "text": "只是红了一点。"
+    },
+    {
+      "id": "u115",
+      "speaker": "shimamura",
+      "text": "那就红着吧。",
+      "responds_to": [
+        "u114"
+      ],
+      "surface_terms_received": [
+        "红"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u116",
+      "speaker": "shimamura",
+      "text": "你喝了吗？",
+      "responds_to": [
+        "u109"
+      ],
+      "surface_terms_received": [
+        "喝水"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u117",
+      "speaker": "adachi",
+      "text": "喝了。"
+    },
+    {
+      "id": "u118",
+      "speaker": "shimamura",
+      "text": "好。",
+      "responds_to": [
+        "u117"
+      ],
+      "surface_terms_received": [
+        "喝水"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u119",
+      "speaker": "shimamura",
+      "text": "那我挂了哦。",
+      "responds_to": [],
+      "surface_terms_received": [
+        "挂电话"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u120",
+      "speaker": "adachi",
+      "text": "嗯。"
+    },
+    {
+      "id": "u121",
+      "speaker": "shimamura",
+      "text": "明天见。",
+      "responds_to": [
+        "u120"
+      ],
+      "surface_terms_received": [
+        "明天"
+      ],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {
+      "id": "u122",
+      "speaker": "adachi",
+      "text": "明天见。"
+    }
+  ],
+  "scene_beats": [
+    {
+      "id": "b001",
+      "type": "festival_afterimage",
+      "summary": "烟花祭结束，人群散开，安达用空杯和掌心红痕承接不适。"
+    },
+    {
+      "id": "b002",
+      "type": "walk_home",
+      "summary": "安达看见岛村和樽见普通说话，贴纸小鱼成为表层触发物。"
+    },
+    {
+      "id": "b003",
+      "type": "daily_waiting",
+      "summary": "回家后通过钥匙、杯子、手机、水印、掌心红痕呈现等待。"
+    },
+    {
+      "id": "b004",
+      "type": "phone_overload",
+      "summary": "电话从到家、手、贴纸、樽见绕入安达长篇过载表达。"
+    },
+    {
+      "id": "b005",
+      "type": "surface_response",
+      "summary": "岛村只接住贴纸、鱼、明天、手痛、喉咙等表层词。"
+    },
+    {
+      "id": "b006",
+      "type": "temporary_care",
+      "summary": "岛村约明天见、买麦茶、提醒喝水，提供普通照应。"
+    },
+    {
+      "id": "b007",
+      "type": "unresolved_ending",
+      "summary": "电话后掌心红痕和水印逐渐淡去，但关系问题未解决。"
+    }
+  ],
+  "revision_notes": [
+    {
+      "source": "rewrite_plan",
+      "note": "candidate_002 performs one local dialogue-shape repair from rewrite_plan.json: selected phone-scene 1-10 character lines were expanded into 11-40 character lines, and the explicit closure marker in the ending was removed."
+    },
+    {
+      "source": "generator",
+      "note": "本候选按 round6 prompt 新写，使用贴纸小鱼作为表层触发物，避免复刻原文情节细节。"
+    },
+    {
+      "source": "generator",
+      "note": "结构层标注岛村 surface_terms_received 和 deep_understanding=false，辅助 gate 检查接收端错位。"
+    },
+    {
+      "source": "generator",
+      "note": "保留一段 300 字以上安达长台词，但让其围绕小物件失焦，避免 clean confession。"
+    }
+  ]
+}

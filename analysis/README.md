@@ -6,7 +6,7 @@
 
 - `style_analysis.md`：本章情绪张力机制、意识流模式、对话节奏、日常物件与翻译腔分析。
 - `transferable_rules.md`：可迁移写作规则。
-- `generation_prompt.md`：用于创作原创「安达第一人称意识流短篇」的 prompt。
+- `generation_prompt.md`：用于生成「安达第一人称意识流」机制与文风迁移候选的 prompt。
 - `generation_prompt_round3.md`：Round 3 同场景改稿 prompt，强调长篇失控输出与接收端断续理解。
 - `generation_prompt_round4.md`：Round 4 长篇候选 prompt，将目标长度拓宽到 6500-8500 字符，并要求日常/高压比例。
 - `review_checklist.md`：成稿审稿清单。
@@ -109,5 +109,5 @@ candidate.md + candidate.json
 
 - 不长篇摘录原文。
 - 不复刻原文句式。
-- 不模仿作者专属表达。
+- 不复制作者专属表达；允许机制级、节奏级、翻译腔级的文风贴近。
 - 只抽取可迁移的机制、节奏、角色关系与审稿标准。

@@ -38,6 +38,24 @@
       "mid_11_40_min_pct": 30.0,
       "max_l1_pct_delta": 60.0
     },
+    "dialogue_window": {
+      "source": "user_review_2026_06_10",
+      "speaker": "shimamura",
+      "speakers": [
+        "adachi",
+        "shimamura"
+      ],
+      "preferred_pair_units_max": 2,
+      "hard_pair_units_max": 5,
+      "budget_source_priority": [
+        "beat_source_alignment",
+        "source_slice_profile",
+        "chapter_profile_warning_only",
+        "missing_source_window_budget"
+      ],
+      "missing_source_budget_action": "warning_only",
+      "definition": "For each contiguous dialogue run, find first and last utterance L..R for each checked speaker. Count the dialogue utterances in that window; pair_units is ceil(window_utterance_count / 2). Insert narration/thought/object/body carrier before the source-derived budget is exhausted. If no beat or slice source budget exists, emit warning only."
+    },
     "delta_expected_first": "adachi_pressure",
     "delta_analysis_docs_id": "analysis_docs",
     "json_shimamura_avg_len_warn": 36.0,

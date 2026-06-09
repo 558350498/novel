@@ -29,6 +29,12 @@ candidate_001_eder_delta.md
 candidate_001_eder_delta.json
 candidate_001_eder_delta_500.md
 candidate_001_eder_delta_500.json
+candidate_001_dialogue_window.md
+candidate_001_dialogue_window.json
+candidate_001_dialogue_window_adachi.md
+candidate_001_dialogue_window_adachi.json
+candidate_001_dialogue_window_shimamura.md
+candidate_001_dialogue_window_shimamura.json
 agent_gate_auditor.md/json
 agent_close_reader.md/json
 agent_regression_checker.md/json
@@ -66,6 +72,8 @@ agent_regression_checker.md/json
 - Every reason should map to a metric, JSON field, report path, or agent claim.
 - Delta findings must be phrased as relative localization, not quality.
 - Missing mandatory multi-agent review for a full candidate should appear as `needs_manual_triage: missing_multi_agent_review_round`.
+- Missing source-derived dialogue-window budget should appear as a warning such as `missing_source_window_budget`, not as an invented hard fail.
+- F008 dialogue-window evidence must name the checked speaker(s), budget source, `pair_units`, warn/hard thresholds if available, and the report path.
 - If close reading disagrees with a metric, preserve both as a conflict instead of overwriting either one.
 
 ## Current Evidence Examples

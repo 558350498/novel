@@ -1,0 +1,57 @@
+{
+  "role": "agent_regression_checker",
+  "scope": "candidate_001 pre-rewrite regression check plus corpus_slices change",
+  "candidate_path": "drafts/candidates/round6_codex_full_loop_20260609/candidate_001.md",
+  "gate_report_path": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json",
+  "claims": [
+    {
+      "failure_id": "F006_dialogue_shape_collapse",
+      "case_id": "F006_NEG_001",
+      "span_ref": "analysis/failure_cases.json:F006_NEG_001; candidate_001_gate.json:metrics",
+      "claim": "F006_NEG_001 remains a provisional risk: current gate again observes short-dialogue dominance and insufficient mid-length dialogue.",
+      "evidence_type": "case_registry_plus_gate_metrics",
+      "confidence": "high"
+    },
+    {
+      "failure_id": "F006_dialogue_shape_collapse",
+      "case_id": "F006_NEG_001",
+      "span_ref": "candidate_001_gate.json:metrics.max_dialogue_len",
+      "claim": "This candidate is not missing a long overload utterance; F006 is specifically a distribution imbalance.",
+      "evidence_type": "gate_metrics_plus_span_check",
+      "confidence": "high"
+    },
+    {
+      "failure_id": "F007_delta_imitation_trap",
+      "case_id": "F007_BORDER_001",
+      "span_ref": "failure_cases.json:F007_BORDER_001; candidate_001_gate.json:delta_first",
+      "claim": "F007_BORDER_001 remains a provisional exploratory risk because Delta first is adachi_daily, but it is not a formal regression failure.",
+      "evidence_type": "case_registry_plus_delta_metric",
+      "confidence": "high"
+    },
+    {
+      "failure_id": null,
+      "case_id": null,
+      "span_ref": "corpus_slices/slices.json:analysis_docs",
+      "claim": "The analysis_docs path update fixed missing-path failure, but changes Delta comparability and should be recorded with this run.",
+      "evidence_type": "config_diff_risk_note",
+      "confidence": "medium"
+    }
+  ],
+  "dissent": [
+    {
+      "against": "treating F007_BORDER_001 as formal regression failure",
+      "reason": "The case remains provisional; only user_confirmed cases enter formal regression.",
+      "span_ref": "analysis/regression_comparison.md"
+    },
+    {
+      "against": "treating daily-first Delta as quality failure",
+      "reason": "Delta is only relative surface distance, not quality or imitation scoring.",
+      "span_ref": "candidate_001_delta.md"
+    }
+  ],
+  "recommended_user_questions": [
+    "Should F006_NEG_001 remain provisional or be promoted after repeated evidence?",
+    "Should F007 be split so daily-first Delta is not conflated with Delta-imitation process violations?",
+    "Should slices.json be version-pinned for future Delta comparisons?"
+  ]
+}

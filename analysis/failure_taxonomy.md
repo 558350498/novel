@@ -102,17 +102,43 @@ Dialogue distribution collapses into tiny call-and-response lines or lacks the r
   - negative: `F006_NEG_001`
   - borderline: `F006_BORDER_001`
 
+### F008_dialogue_run_overextension
+
+Dialogue continues as a long chain of question-answer turns instead of returning to Adachi's thought, body sensation, or object carrier after one or two exchanges.
+
+- Gate signals: a contiguous dialogue run has an oversized `L[speaker]..R[speaker]` window for `adachi` or `shimamura`, or an oversized two-speaker alternating window; when one question-answer exchange is counted as one unit, the passage lacks intervening narration / inner response before the source-derived budget is exhausted.
+- Budget source priority: `beat_source_alignment` > `source_slice_profile` > `chapter_profile_warning_only` > `missing_source_window_budget`.
+- Gate action: if beat-level or slice-level source budget exists, use that budget for `needs_manual_triage` / hard exceed decisions; if only chapter-level weak profile exists, emit warning only; if no source or slice profile exists, emit `missing_source_window_budget` warning only.
+- Rewrite policy: `beat_planner` owns the window budget; `dialogue_agent` writes the spoken surface within budget for both Adachi and Shimamura; `stream_agent` must reset the window with Adachi thought, body sensation, object carrier, delayed thought, or misread residue. Do not merely pad short replies.
+- Required case triplet:
+  - positive: `F008_POS_001`
+  - negative: `F008_NEG_001`
+  - borderline: `F008_BORDER_001`
+
 ### F007_delta_imitation_trap
 
-Delta or segment diagnostics are treated as quality or imitation targets instead of localization evidence.
+Delta or segment diagnostics are treated as quality or copying targets instead of localization evidence.
 
-- Gate signals: outputs claim "closer to author", "better because Delta", or optimize for reference rank while ignoring user review.
+- Gate signals: outputs claim "better because Delta", optimize for reference rank while ignoring user review, or try to copy source text / exclusive phrasing from Delta evidence.
 - Gate action: process violation; mark report/candidate `needs_manual_triage`.
 - Rewrite policy: no prose rewrite from Delta alone; translate only localized evidence into `rewrite_plan.json`.
 - Required case triplet:
   - positive: `F007_POS_001`
   - negative: `F007_NEG_001`
   - borderline: `F007_BORDER_001`
+
+### F009_originality_overconstraint
+
+The prompt, gate, or agent review overprotects "originality" and suppresses the style transfer the harness is supposed to study.
+
+- Gate signals: prompt says "original" or "do not imitate" as a dominant command; agent avoids source-like rhythm, translation texture, dialogue timing, or interior monologue shape because it treats style proximity as copying risk.
+- Allowed target: mechanism-level and style-surface emulation is permitted and desired when it does not copy source text, long excerpts, exact scene structure, or exclusive phrasing.
+- Gate action: `needs_manual_triage` for prompt/spec/review policy; not a prose-quality judgment by itself.
+- Rewrite policy: remove anti-imitation language locally from the prompt/spec/review note; replace it with copying boundaries plus explicit style-mechanism targets.
+- Required case triplet:
+  - positive: `F009_POS_001`
+  - negative: `F009_NEG_001`
+  - borderline: `F009_BORDER_001`
 
 ## Next Work
 

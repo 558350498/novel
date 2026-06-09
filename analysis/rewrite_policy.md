@@ -55,10 +55,39 @@ The rewrite plan records this run's evidence and permitted action. Rules and thr
 
 - Global rewrite without a local target.
 - Adding new plot only to satisfy length or dialogue bins.
+- Padding short replies instead of changing the dialogue-window mechanism.
 - Turning Shimamura into a therapist.
 - Turning Adachi's overload into clean self-analysis.
 - Closing the emotional wound.
 - Declaring the rewrite better before user review.
+
+## Dialogue-Window Repair
+
+When `F008_dialogue_run_overextension` is triggered, the rewrite plan must stay local to the affected dialogue run or beat.
+
+Required handling:
+
+- Use the strongest available budget source: `beat_source_alignment` > `source_slice_profile` > `chapter_profile_warning_only` > `missing_source_window_budget`.
+- If only `chapter_profile_warning_only` or `missing_source_window_budget` is available, record the issue as warning/manual triage instead of inventing a hard threshold.
+- Add `dialogue_windows` budget objects to the rewrite plan before editing prose.
+- Treat `stream_agent` as the window reset agent: it must insert Adachi thought, body sensation, object carrier, delayed thought, or misread residue between overlong spoken windows.
+- Keep `dialogue_agent` responsible only for spoken surface; it must not use long Q/A chains as the pressure carrier.
+
+Suggested `dialogue_windows` entry:
+
+```json
+{
+  "window_id": "",
+  "beat_id": "",
+  "budget_source": "",
+  "speakers": ["adachi", "shimamura"],
+  "pair_units_target": null,
+  "pair_units_warn": null,
+  "pair_units_hard": null,
+  "handoff_after": "",
+  "stream_agent_required": ["body", "object", "delayed_thought"]
+}
+```
 
 ## Next Work
 

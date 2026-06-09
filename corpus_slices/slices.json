@@ -40,13 +40,13 @@
       "label": "分析腔参照文档",
       "slices": [
         {
-          "path": "analysis/style_analysis.md"
+          "path": "analysis/README.md"
         },
         {
-          "path": "analysis/transferable_rules.md"
+          "path": "analysis/productization_gate_v1.md"
         },
         {
-          "path": "analysis/generation_prompt.md"
+          "path": "analysis/failure_taxonomy.md"
         },
         {
           "path": "analysis/review_checklist.md"

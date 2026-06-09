@@ -5,13 +5,14 @@
     "formal_taxonomy_requires_case_triplet": true,
     "regression_requires_review_status": "user_confirmed",
     "source_text_cases_are_mechanism_anchors_only": true,
+    "user_feedback_may_confirm_prompt_policy_failures": true,
     "synthetic_cases_may_test_gate_logic_but_do_not_prove_overall_aesthetic": true
   },
   "case_schema": {
     "case_id": "F001_NEG_001",
     "failure_id": "F001_shimamura_over_understanding",
     "case_type": "positive | negative | borderline",
-    "source_type": "source_text_case | candidate_case | synthetic_case | agent_note",
+    "source_type": "source_text_case | candidate_case | synthetic_case | agent_note | user_feedback",
     "source_path": "path/to/evidence",
     "span_ref": "paragraph, utterance id, segment id, or report field",
     "expected_gate": "failed_auto_gate | needs_manual_triage | pending_user_review | no_gate_action",
@@ -33,6 +34,30 @@
       "user_verdict_ref": null
     },
     {
+      "case_id": "F006_NEG_002",
+      "failure_id": "F006_dialogue_shape_collapse",
+      "case_type": "negative",
+      "source_type": "candidate_case",
+      "source_path": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_002_gate.json",
+      "span_ref": "metrics.short_dialogue_pct_1_10 / metrics.mid_dialogue_pct_11_40 / user review 2026-06-10",
+      "expected_gate": "needs_manual_triage",
+      "review_status": "user_confirmed",
+      "evidence_summary": "User confirmed the recurring issue remains: too many short answers and too few mid-length utterances.",
+      "user_verdict_ref": "ledger_20260610_round6_dialogue_shape"
+    },
+    {
+      "case_id": "F008_NEG_001",
+      "failure_id": "F008_dialogue_run_overextension",
+      "case_type": "negative",
+      "source_type": "candidate_case",
+      "source_path": "drafts/candidates/round6_codex_full_loop_20260609/candidate_002.md",
+      "span_ref": "user review 2026-06-10 / contiguous Shimamura dialogue window",
+      "expected_gate": "needs_manual_triage",
+      "review_status": "user_confirmed",
+      "evidence_summary": "User identified a separate source-shape issue: dialogue runs chain too long; source rhythm should be one answer plus thought paragraph, with question-answer run counts usually 1-2 and rarely above 5.",
+      "user_verdict_ref": "ledger_20260610_round6_dialogue_shape"
+    },
+    {
       "case_id": "F007_BORDER_001",
       "failure_id": "F007_delta_imitation_trap",
       "case_type": "borderline",
@@ -43,6 +68,18 @@
       "review_status": "provisional",
       "evidence_summary": "Gate report flags Delta first as adachi_daily rather than adachi_pressure, but other dialogue-shape metrics are not hard failures; requires agent/user review rather than automatic rejection.",
       "user_verdict_ref": null
+    },
+    {
+      "case_id": "F009_NEG_001",
+      "failure_id": "F009_originality_overconstraint",
+      "case_type": "negative",
+      "source_type": "user_feedback",
+      "source_path": "analysis/reports/user_review_originality_overconstraint.md",
+      "span_ref": "user feedback 2026-06-10 / prompt policy",
+      "expected_gate": "needs_manual_triage",
+      "review_status": "user_confirmed",
+      "evidence_summary": "User identified that forcing originality makes the agent over-avoid source-like style transfer and suppresses useful imitation of rhythm, tone, and mechanism.",
+      "user_verdict_ref": "ledger_20260610_originality_overconstraint"
     }
   ],
   "missing_case_triplets": [
@@ -52,6 +89,8 @@
     "F004_pressure_without_failed_transmission",
     "F005_daily_buildup_missing",
     "F006_dialogue_shape_collapse",
-    "F007_delta_imitation_trap"
+    "F008_dialogue_run_overextension",
+    "F007_delta_imitation_trap",
+    "F009_originality_overconstraint"
   ]
 }

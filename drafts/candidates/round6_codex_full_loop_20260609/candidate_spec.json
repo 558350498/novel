@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "run_id": "round6_codex_full_loop_20260609",
+  "kernel_id": "adachi_misaligned_overload_v1",
+  "prompt_source": "drafts/candidates/round6_codex_full_loop_20260609/prompt.md",
+  "active_failure_ids": [
+    "F001_shimamura_over_understanding",
+    "F002_adachi_clean_self_analysis",
+    "F003_closure_after_care",
+    "F004_pressure_without_failed_transmission",
+    "F005_daily_buildup_missing",
+    "F006_dialogue_shape_collapse",
+    "F007_delta_imitation_trap"
+  ],
+  "case_targets": [
+    {
+      "case_id": "F006_NEG_001",
+      "status": "provisional",
+      "use": "avoid short dialogue collapse while preserving one long failed-transmission utterance"
+    },
+    {
+      "case_id": "F007_BORDER_001",
+      "status": "provisional",
+      "use": "treat Delta as localization evidence only, not as a style score"
+    }
+  ],
+  "scene_beats": [
+    {
+      "id": "b001",
+      "type": "festival_afterimage",
+      "purpose": "keep public ordinary scene before pressure"
+    },
+    {
+      "id": "b002",
+      "type": "walk_home",
+      "purpose": "show ordinary object movement after seeing Shimamura and Tarumi"
+    },
+    {
+      "id": "b003",
+      "type": "daily_waiting",
+      "purpose": "phone, cup, key, palm, throat carry waiting"
+    },
+    {
+      "id": "b004",
+      "type": "phone_overload",
+      "purpose": "one long Adachi overload utterance fails to transmit cleanly"
+    },
+    {
+      "id": "b005",
+      "type": "surface_response",
+      "purpose": "Shimamura catches only literal surface terms"
+    },
+    {
+      "id": "b006",
+      "type": "temporary_care",
+      "purpose": "ordinary care stops bleeding without solving wound"
+    },
+    {
+      "id": "b007",
+      "type": "unresolved_ending",
+      "purpose": "leave residue in body/object image"
+    }
+  ],
+  "dialogue_shape_targets": {
+    "requires_long_failed_transmission": true,
+    "avoid_short_dialogue_collapse": true,
+    "target_adachi_long_utterance_min_chars": 300,
+    "target_shimamura_avg_chars_max": 18
+  },
+  "must_avoid": [
+    "Shimamura naming Adachi's hidden wound",
+    "Adachi clean causal confession",
+    "closure or emotional promise",
+    "Delta-as-quality language",
+    "copying source text or exclusive phrasing"
+  ]
+}

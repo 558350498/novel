@@ -1,0 +1,67 @@
+{
+  "status": "needs_manual_triage",
+  "hard_fail_reasons": [],
+  "manual_triage_reasons": [
+    "台词分布偏短：1-10 字占比 75.2% 高于 第五卷 第二话「岛村之刃」 自检上限 65.0%",
+    "台词分布中段不足：11-40 字占比 24.0% 低于 第五卷 第二话「岛村之刃」 自检下限 30.0%",
+    "台词分布整体偏离：bins L1 偏差 78.9 高于 第五卷 第二话「岛村之刃」 自检上限 60.0",
+    "Delta 第一名为 adachi_daily，不是 adachi_pressure"
+  ],
+  "metrics": {
+    "char_count": 6367,
+    "evaluation_scope": "candidate",
+    "dialogue_ratio": 0.5789473684210527,
+    "max_dialogue_len": 709,
+    "dialogue_ge_200": 1,
+    "short_dialogue_pct_1_10": 75.21,
+    "mid_dialogue_pct_11_40": 23.97,
+    "dialogue_distribution_l1": 78.94
+  },
+  "candidate_json": {
+    "present": true,
+    "path": "drafts\\candidates\\round6_codex_full_loop_20260609\\candidate_002.json",
+    "errors": [],
+    "utterance_count": 122,
+    "shimamura_utterance_count": 64,
+    "shimamura_avg_len": 6.42,
+    "shimamura_max_len": 17,
+    "shimamura_surface_terms_count": 81,
+    "shimamura_surface_terms": [
+      "下午",
+      "不带",
+      "不用",
+      "创可贴",
+      "到家",
+      "卖完",
+      "哪里",
+      "哪里都可以",
+      "喉咙",
+      "喝水",
+      "回去",
+      "圆"
+    ],
+    "shimamura_deep_understanding_ids": [],
+    "shimamura_explanation_marker_hits": [],
+    "adachi_utterance_count": 57,
+    "adachi_max_len": 709,
+    "adachi_ge_long_threshold": 1,
+    "adachi_long_threshold": 200
+  },
+  "suppressed_reasons": [],
+  "delta_first": "adachi_daily",
+  "notes": [
+    "Harness v1 only filters obvious failures.",
+    "pending_user_review is not a success state.",
+    "Final qualitative judgment must wait for user review."
+  ],
+  "candidate_path": "drafts\\candidates\\round6_codex_full_loop_20260609\\candidate_002.md",
+  "reports": {
+    "style_markdown": "analysis\\reports\\candidates\\round6_codex_full_loop_20260609\\candidate_002_style.md",
+    "style_json": "analysis\\reports\\candidates\\round6_codex_full_loop_20260609\\candidate_002_style.json",
+    "delta_markdown": "analysis\\reports\\candidates\\round6_codex_full_loop_20260609\\candidate_002_delta.md",
+    "delta_json": "analysis\\reports\\candidates\\round6_codex_full_loop_20260609\\candidate_002_delta.json",
+    "gate_markdown": "analysis\\reports\\candidates\\round6_codex_full_loop_20260609\\candidate_002_gate.md",
+    "gate_json": "analysis\\reports\\candidates\\round6_codex_full_loop_20260609\\candidate_002_gate.json",
+    "candidate_json": "drafts\\candidates\\round6_codex_full_loop_20260609\\candidate_002.json"
+  }
+}

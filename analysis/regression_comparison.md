@@ -39,6 +39,15 @@ confirmed_cases_checked:
     observed:
     status: preserved | improved | regressed | inconclusive
     evidence:
+    dialogue_window:
+      checked_speakers:
+      budget_source:
+      max_pair_units:
+      warning_or_hard_exceeded:
+    prompt_policy:
+      originality_overconstraint:
+      copying_boundary:
+      style_emulation_target:
 provisional_cases_observed:
 decision:
 ```
@@ -49,6 +58,8 @@ decision:
 |---|---|
 | `round5_auto_prompt_20260608` | Active candidate evidence; currently `needs_manual_triage` because Delta ranks `adachi_daily` first. |
 | `round5_self_prompt_20260608_distribution_check` | Provisional negative evidence for dialogue-shape collapse. |
+| `round6_codex_full_loop_20260609` | Active F008 evidence; `candidate_002` showed overlong dialogue-window behavior and user-confirmed dialogue-run concern. |
+| `ledger_20260610_originality_overconstraint` | Active F009 prompt-policy evidence; originality / anti-imitation language should not suppress source-like style mechanism transfer. |
 | `existing_rounds_audit` | Historical evidence for early-round failure modes. |
 | `round4_three_versions` | Historical manual-triage evidence. |
 

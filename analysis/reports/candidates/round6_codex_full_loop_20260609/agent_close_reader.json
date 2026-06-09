@@ -1,0 +1,57 @@
+{
+  "role": "agent_close_reader",
+  "scope": "candidate_001 pre-rewrite close reading",
+  "candidate_path": "drafts/candidates/round6_codex_full_loop_20260609/candidate_001.md",
+  "gate_report_path": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json",
+  "claims": [
+    {
+      "failure_id": "F001_shimamura_over_understanding",
+      "case_id": null,
+      "span_ref": "candidate_001.md:post-overload surface response",
+      "claim": "Shimamura mainly receives surface terms such as sticker, fish, tomorrow, and hand pain rather than naming the hidden wound.",
+      "evidence_type": "prose_span+candidate_json",
+      "confidence": 0.86
+    },
+    {
+      "failure_id": "F002_adachi_clean_self_analysis",
+      "case_id": null,
+      "span_ref": "candidate_001.md:u078 long utterance",
+      "claim": "The long utterance is too reconstructable as a complete explanation chain, even though the scene later says it was too fast.",
+      "evidence_type": "prose_span+gate_metric",
+      "confidence": 0.93
+    },
+    {
+      "failure_id": "F003_closure_after_care",
+      "case_id": null,
+      "span_ref": "candidate_001.md:ordinary care sequence",
+      "claim": "The sequence of no sticker, no fish, tomorrow, tea, water, and hand care creates mild resolution pressure.",
+      "evidence_type": "prose_span+gate_report",
+      "confidence": 0.88
+    },
+    {
+      "failure_id": "F004_pressure_without_failed_transmission",
+      "case_id": null,
+      "span_ref": "candidate_001.md:waiting and phone setup",
+      "claim": "Pressure buildup through phone, cup, throat, palm, and water mark is effective, but failed transmission is weakened by the readable long speech.",
+      "evidence_type": "prose_span",
+      "confidence": 0.77
+    }
+  ],
+  "dissent": [
+    {
+      "against": "F001 over-understanding concern",
+      "reason": "Candidate JSON marks all Shimamura relevant responses as deep_understanding=false and the prose explicitly limits her receipt to fragments.",
+      "span_ref": "candidate_001.json:shimamura utterances"
+    },
+    {
+      "against": "F003 resolution concern",
+      "reason": "The ending preserves pain and unresolved residue despite ordinary care.",
+      "span_ref": "candidate_001.md:ending"
+    }
+  ],
+  "recommended_user_questions": [
+    "Should the 709-character long utterance stay as one uncontrolled spill, or be broken into several failed attempts?",
+    "Is '鱼不会来' ordinary care or too precise?",
+    "Should one or two care items be removed to reduce closure pressure?"
+  ]
+}

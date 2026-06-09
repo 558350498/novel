@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "run_id": "round6_codex_full_loop_20260609",
+  "candidate": "candidate_001.md",
+  "allowed_auto_rewrite": true,
+  "rewrite_scope": "local",
+  "diagnostic_sources": [
+    "metric",
+    "agent_close_reading"
+  ],
+  "priority": [
+    "user_feedback",
+    "blocking_metric",
+    "segment_delta",
+    "agent_close_reading"
+  ],
+  "target": {
+    "beat": "phone_overload",
+    "segments": [
+      "candidate_001.md:179",
+      "candidate_001.md:403"
+    ],
+    "local_role": "电话段对话形状与结尾未解决标记"
+  },
+  "planner": {
+    "mode": "deterministic",
+    "triggered_checks": [
+      {
+        "source": "metric",
+        "id": "min_chars",
+        "observed": 5996,
+        "threshold": 6000,
+        "action": "rewrite_trigger",
+        "evidence": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json"
+      },
+      {
+        "source": "metric",
+        "id": "short_dialogue_pct_1_10",
+        "observed": 85.95,
+        "threshold": 65.0,
+        "action": "rewrite_trigger",
+        "evidence": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json"
+      },
+      {
+        "source": "metric",
+        "id": "mid_dialogue_pct_11_40",
+        "observed": 13.22,
+        "threshold": 30.0,
+        "action": "rewrite_trigger",
+        "evidence": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json"
+      },
+      {
+        "source": "metric",
+        "id": "dialogue_distribution_l1",
+        "observed": 75.3,
+        "threshold": 60.0,
+        "action": "rewrite_trigger",
+        "evidence": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json"
+      },
+      {
+        "source": "metric",
+        "id": "closure_resolution_marker",
+        "observed": "ending contains 解决",
+        "threshold": "no closure marker in ending",
+        "action": "rewrite_trigger",
+        "evidence": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_style.md"
+      }
+    ],
+    "segment_signals": [
+      {
+        "source": "metric",
+        "id": "delta_first",
+        "observed": "adachi_daily",
+        "expected": "adachi_pressure",
+        "action": "review_warning",
+        "evidence": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_delta.md"
+      }
+    ]
+  },
+  "agent_layer": {
+    "close_reading_notes": [
+      {
+        "source": "agent_gate_auditor",
+        "claim": "Gate correctly caught short dialogue distribution and min length; sender-side explanation leakage may be underdetected."
+      },
+      {
+        "source": "agent_close_reader",
+        "claim": "The long Adachi utterance is readable as a complete explanation chain; ordinary care has mild resolution risk."
+      },
+      {
+        "source": "agent_regression_checker",
+        "claim": "F006 risk is distribution imbalance, not absence of a long overload utterance; F007 remains provisional exploratory signal."
+      }
+    ],
+    "rewrite_task": {
+      "intent": "Repair the local phone-scene dialogue distribution and remove the explicit closure marker while preserving surface-level Shimamura care.",
+      "do": [
+        "Expand a bounded set of 1-10 character phone-scene dialogue lines into 11-40 character lines.",
+        "Keep Shimamura responses ordinary and concrete.",
+        "Remove the explicit ending word that triggers closure detection.",
+        "Preserve the one long Adachi overload utterance and the unresolved aftertaste."
+      ],
+      "avoid": [
+        "Do not rewrite the whole candidate.",
+        "Do not let Shimamura name Adachi's hidden wound.",
+        "Do not convert the long utterance into a cleaner confession.",
+        "Do not add new plot only to satisfy metrics.",
+        "Do not claim the rewrite is better before user review."
+      ]
+    }
+  },
+  "dialogue_constraints": {
+    "blocking_checks": [
+      {
+        "id": "candidate_min_chars",
+        "metric": "char_count",
+        "operator": ">=",
+        "threshold": 6000,
+        "evidence_source": "style_evaluator",
+        "on_violation": "failed_auto_gate"
+      }
+    ],
+    "rewrite_triggers": [
+      {
+        "id": "short_dialogue_pct_1_10",
+        "metric": "short_dialogue_pct_1_10",
+        "target": "<=65",
+        "on_violation": "rewrite_plan"
+      },
+      {
+        "id": "mid_dialogue_pct_11_40",
+        "metric": "mid_dialogue_pct_11_40",
+        "target": ">=30",
+        "on_violation": "rewrite_plan"
+      }
+    ],
+    "review_warnings": [
+      {
+        "id": "long_utterance_too_clean",
+        "signal": "long utterance may be too readable as explanation chain",
+        "evidence_source": "agent_close_reading",
+        "on_violation": "needs_manual_triage"
+      },
+      {
+        "id": "daily_first_delta",
+        "signal": "Delta first is adachi_daily",
+        "evidence_source": "delta_evaluator",
+        "on_violation": "needs_manual_triage"
+      }
+    ]
+  },
+  "conflicts": [
+    {
+      "id": "closure_marker_vs_unresolved_intent",
+      "summary": "The ending phrase meant to state unresolvedness contains the closure keyword that triggers the rule-based closure risk."
+    }
+  ],
+  "output_candidate": "candidate_002.md",
+  "stop_after_rewrite": true
+}

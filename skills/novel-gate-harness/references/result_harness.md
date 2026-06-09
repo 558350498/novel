@@ -45,6 +45,32 @@ analysis/reports/candidates/<run_id>/candidate_001_gate.md
 analysis/reports/candidates/<run_id>/candidate_001_gate.json
 ```
 
+## Dialogue-Window Check
+
+When `F008_dialogue_run_overextension` is active or dialogue shape is under review, run the dialogue-window analyzer.
+
+Single-speaker form:
+
+```powershell
+python tools/dialogue_window_analyzer.py --draft drafts/candidates/<run_id>/candidate_001.md --candidate-json drafts/candidates/<run_id>/candidate_001.json --speaker adachi --output-prefix analysis/reports/candidates/<run_id>/candidate_001_dialogue_window_adachi
+python tools/dialogue_window_analyzer.py --draft drafts/candidates/<run_id>/candidate_001.md --candidate-json drafts/candidates/<run_id>/candidate_001.json --speaker shimamura --output-prefix analysis/reports/candidates/<run_id>/candidate_001_dialogue_window_shimamura
+```
+
+Multi-speaker form, when supported by the local analyzer:
+
+```powershell
+python tools/dialogue_window_analyzer.py --draft drafts/candidates/<run_id>/candidate_001.md --candidate-json drafts/candidates/<run_id>/candidate_001.json --speakers adachi shimamura --output-prefix analysis/reports/candidates/<run_id>/candidate_001_dialogue_window
+```
+
+Interpretation rules:
+
+- Source-aligned beat budget outranks source-slice budget.
+- Source-slice budget outranks chapter-level weak profile.
+- Chapter-level weak profile emits warning only.
+- Missing source-derived budget emits `missing_source_window_budget` warning only unless the user has confirmed a temporary threshold for the run.
+- Track Adachi and Shimamura separately; do not treat a Shimamura-only check as coverage for Adachi.
+- Dual-speaker alternating-window detection is required before this can become a complete hard machine gate.
+
 ## Mandatory Multi-Agent Review
 
 For every full candidate, run separate role-bounded reviews before user review:

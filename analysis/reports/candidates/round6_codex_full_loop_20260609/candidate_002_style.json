@@ -1,0 +1,388 @@
+{
+  "mode": "draft",
+  "file": "C:\\Users\\33625\\Documents\\novel\\drafts\\candidates\\round6_codex_full_loop_20260609\\candidate_002.md",
+  "generated_at": "2026-06-09T22:26:27",
+  "metrics": {
+    "char_count": 6367,
+    "word_context_count": 5302,
+    "paragraph_count": 209,
+    "line_count": 417,
+    "non_empty_line_count": 209,
+    "dialogue_line_count": 121,
+    "dialogue_ratio": 0.5789473684210527,
+    "dialogue_burst": {
+      "max_len": 709,
+      "avg_len": 15.03305785123967,
+      "count_ge_40": 1,
+      "count_ge_80": 1,
+      "count_ge_200": 1,
+      "length_bins": {
+        "1-5": {
+          "count": 9,
+          "pct": 7.43801652892562
+        },
+        "6-10": {
+          "count": 82,
+          "pct": 67.76859504132231
+        },
+        "11-20": {
+          "count": 28,
+          "pct": 23.140495867768596
+        },
+        "21-40": {
+          "count": 1,
+          "pct": 0.8264462809917356
+        },
+        "41-80": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "81-160": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "161-320": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "321+": {
+          "count": 1,
+          "pct": 0.8264462809917356
+        }
+      }
+    }
+  },
+  "checks": [
+    {
+      "status": "OK",
+      "label": "文本长度",
+      "detail": "6367 字符；低于 800 时只适合做初步提示",
+      "values": {
+        "char_count": 6367,
+        "min_chars_for_confident_draft": 800
+      }
+    },
+    {
+      "status": "OK",
+      "label": "情绪表达直白度",
+      "detail": "密度 0.16/千字；命中：喜欢×1",
+      "values": {
+        "density_per_1000": 0.1571,
+        "hits": [
+          {
+            "term": "喜欢",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "status": "OK",
+      "label": "含混与自我修正",
+      "detail": "密度 31.41/千字；含混：也许×9、有点×7、好像×6、应该×5、可能×3、大概×3、稍微×1；否定/修正：没有×53、不是×31、不会×14、不能×4、不要×4、不可以×1、不行×1、没关系×1",
+      "values": {
+        "density_per_1000": 31.412,
+        "hedge_hits": [
+          {
+            "term": "也许",
+            "count": 9
+          },
+          {
+            "term": "有点",
+            "count": 7
+          },
+          {
+            "term": "好像",
+            "count": 6
+          },
+          {
+            "term": "应该",
+            "count": 5
+          },
+          {
+            "term": "可能",
+            "count": 3
+          },
+          {
+            "term": "大概",
+            "count": 3
+          },
+          {
+            "term": "稍微",
+            "count": 1
+          }
+        ],
+        "negation_correction_hits": [
+          {
+            "term": "没有",
+            "count": 53
+          },
+          {
+            "term": "不是",
+            "count": 31
+          },
+          {
+            "term": "不会",
+            "count": 14
+          },
+          {
+            "term": "不能",
+            "count": 4
+          },
+          {
+            "term": "不要",
+            "count": 4
+          },
+          {
+            "term": "不可以",
+            "count": 1
+          },
+          {
+            "term": "不行",
+            "count": 1
+          },
+          {
+            "term": "没关系",
+            "count": 1
+          },
+          {
+            "term": "可是",
+            "count": 30
+          },
+          {
+            "term": "只是",
+            "count": 18
+          },
+          {
+            "term": "也不是",
+            "count": 8
+          },
+          {
+            "term": "应该说",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "status": "OK",
+      "label": "日常物件承载",
+      "detail": "密度 13.98/千字；命中：手机×20、掌心×13、烟花×10、喉咙×9、电话×9、门×6、房间×5、屏幕×4",
+      "values": {
+        "density_per_1000": 13.9783,
+        "hits": [
+          {
+            "term": "手机",
+            "count": 20
+          },
+          {
+            "term": "掌心",
+            "count": 13
+          },
+          {
+            "term": "烟花",
+            "count": 10
+          },
+          {
+            "term": "喉咙",
+            "count": 9
+          },
+          {
+            "term": "电话",
+            "count": 9
+          },
+          {
+            "term": "门",
+            "count": 6
+          },
+          {
+            "term": "房间",
+            "count": 5
+          },
+          {
+            "term": "屏幕",
+            "count": 4
+          },
+          {
+            "term": "影子",
+            "count": 3
+          },
+          {
+            "term": "灯",
+            "count": 3
+          },
+          {
+            "term": "鞋",
+            "count": 3
+          },
+          {
+            "term": "手指",
+            "count": 2
+          },
+          {
+            "term": "空调",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "status": "RISK",
+      "label": "对话占比",
+      "detail": "57.9%；过高时容易变成解释性辩论",
+      "values": {
+        "dialogue_ratio": 0.5789473684210527
+      }
+    },
+    {
+      "status": "OK",
+      "label": "过载长台词",
+      "detail": "最长台词 709 字符，平均 15.0 字符；>=40：1 行，>=80：1 行，>=200：1 行",
+      "values": {
+        "max_len": 709,
+        "avg_len": 15.03305785123967,
+        "count_ge_40": 1,
+        "count_ge_80": 1,
+        "count_ge_200": 1,
+        "length_bins": {
+          "1-5": {
+            "count": 9,
+            "pct": 7.43801652892562
+          },
+          "6-10": {
+            "count": 82,
+            "pct": 67.76859504132231
+          },
+          "11-20": {
+            "count": 28,
+            "pct": 23.140495867768596
+          },
+          "21-40": {
+            "count": 1,
+            "pct": 0.8264462809917356
+          },
+          "41-80": {
+            "count": 0,
+            "pct": 0.0
+          },
+          "81-160": {
+            "count": 0,
+            "pct": 0.0
+          },
+          "161-320": {
+            "count": 0,
+            "pct": 0.0
+          },
+          "321+": {
+            "count": 1,
+            "pct": 0.8264462809917356
+          }
+        }
+      }
+    },
+    {
+      "status": "INFO",
+      "label": "台词长度分布",
+      "detail": "1-5: 9 (7.4%)；6-10: 82 (67.8%)；11-20: 28 (23.1%)；21-40: 1 (0.8%)；41-80: 0 (0.0%)；81-160: 0 (0.0%)；161-320: 0 (0.0%)；321+: 1 (0.8%)",
+      "values": {
+        "length_bins": {
+          "1-5": {
+            "count": 9,
+            "pct": 7.43801652892562
+          },
+          "6-10": {
+            "count": 82,
+            "pct": 67.76859504132231
+          },
+          "11-20": {
+            "count": 28,
+            "pct": 23.140495867768596
+          },
+          "21-40": {
+            "count": 1,
+            "pct": 0.8264462809917356
+          },
+          "41-80": {
+            "count": 0,
+            "pct": 0.0
+          },
+          "81-160": {
+            "count": 0,
+            "pct": 0.0
+          },
+          "161-320": {
+            "count": 0,
+            "pct": 0.0
+          },
+          "321+": {
+            "count": 1,
+            "pct": 0.8264462809917356
+          }
+        }
+      }
+    },
+    {
+      "status": "OK",
+      "label": "接收端错位",
+      "detail": "命中 6 次：太快了×3、刚才说×1、慢一点×1、说得太快×1",
+      "values": {
+        "count": 6,
+        "hits": [
+          {
+            "term": "太快了",
+            "count": 3
+          },
+          {
+            "term": "刚才说",
+            "count": 1
+          },
+          {
+            "term": "慢一点",
+            "count": 1
+          },
+          {
+            "term": "说得太快",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "status": "OK",
+      "label": "分析概念泄漏",
+      "detail": "命中 0 次：无",
+      "values": {
+        "count": 0,
+        "hits": []
+      }
+    },
+    {
+      "status": "OK",
+      "label": "岛村回应解释化",
+      "detail": "显式岛村台词 3 行，平均 5.0 字符，解释标记 0 次",
+      "values": {
+        "explicit_count": 3,
+        "avg_len": 5.0,
+        "explanation_hits": 0
+      }
+    },
+    {
+      "status": "OK",
+      "label": "结尾封闭化",
+      "detail": "末尾 300 字命中：无",
+      "values": {
+        "tail_chars": 300,
+        "hits": []
+      }
+    },
+    {
+      "status": "OK",
+      "label": "过度文学化风险",
+      "detail": "密度 0.00/千字；命中：无",
+      "values": {
+        "density_per_1000": 0.0,
+        "hits": []
+      }
+    }
+  ]
+}
