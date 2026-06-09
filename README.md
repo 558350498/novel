@@ -1,165 +1,109 @@
-# Novel Style Mechanism Lab
+# Narrative Mechanism Failure Harness
 
-一个用于中文轻小说文本机制分析与生成式写作审稿的实验项目。
+这是一个面向中文原创短篇的叙事机制失败分析与约束 harness。
 
-## 目标
+它不是小说 prompt 仓库，不是通用小说生成器，也不是文学质量裁判。项目目标是把一个固定叙事机制拆成可检查、可复盘、可回归的工程流程：生成候选、识别失败、局部修复、记录用户判断，再用这些判断约束下一轮。
 
-本项目不复刻原文，不模仿专属句式，而是抽取可迁移的叙事机制：
-- 关系错位
-- 第一人称意识流反刍
-- 轻回应造成的情绪张力
-- 日常物件承载情绪
-- 结尾未解决感
+## Project Shape
 
-## Pipeline
+v1 只服务一个 fixed kernel：
 
-当前主线已经从“写 prompt + 跑评估”收敛为一个可产品化的局部改稿 loop：
+> 情绪过载真实存在，但说出口的表层更轻、更小、更错位、更失败；接收者只接住表层词，给出普通照顾，暂时止血，但不真正解决关系伤口。
 
-1. 生成 `candidate.md` + `candidate.json`。
-2. 运行 gate、规则指标和片段级 Delta 诊断。
-3. 生成 `rewrite_plan.json`，把诊断翻译成一次局部改稿任务。
-4. 只允许按 plan 做一次局部重写。
-5. 重跑 gate。
-6. 停在 `failed_auto_gate`、`needs_manual_triage` 或 `pending_user_review`，等待用户 review。
+当前主线：
 
-历史分析、旧 prompt、词表发现和 Delta v1 仍保留为 provenance，但不再是入口路径。
-
-## Current Status
-
-- 前 8 卷正文已放入 `data/raw/`，根目录索引用逻辑文件名导航。
-- 第 5 卷「岛村之刃」已定位为核心分析对象：第 2446 行到第 2864 行前。
-- 四份分析产物已完成：
-  - `analysis/style_analysis.md`
-  - `analysis/transferable_rules.md`
-  - `analysis/generation_prompt.md`
-  - `analysis/review_checklist.md`
-- 第一轮固定场景测试稿已生成到 `drafts/current.md`。
-- 已生成自动评估报告、Codex 人工 review 和 diff 讨论文档。
-- Delta v1 已可运行：比较生成稿相对 `adachi_pressure`、`adachi_daily`、`shimamura_view`、`analysis_docs` 的表层文体距离。
-- Harness v1 已可运行：先做已有候选评分器，只筛明显失败样本，不替代用户 review。
-- 全篇章形状分析已可运行，用于把“文本太短”和“日常/高压比例”变成可回归指标。
-- Productization v1 已锁定为 single-kernel tuning lab：不做任意风格切换，优先把 gate 调成可靠的失败样本过滤器。
-- 下一步候选协议采用 Markdown 正文 + JSON 结构标注，优先解决“岛村回应解释化”无法稳定识别的问题。
-- `novel-gate-harness` 已初步做成可用 Codex skill：项目内源码位于 `skills/novel-gate-harness/`，并已同步到全局 `C:\Users\33625\.codex\skills\novel-gate-harness\`。
-- Corpus tokenizer v1 已可运行：当前使用稳定 `regex` fallback，并预留可选 `jieba`、OpenAI `tiktoken` 与 Hugging Face/DeepSeek tokenizer 引擎。
-- Experimental Eder/Cosine segment Delta 已可运行：用于定位候选内部哪些片段偏 `daily`、哪些片段出现 `pressure`，不作为质量评分。
-- `rewrite_plan` 协议已锁定为下一步产品接口：规则库归 `harness_config.json`，本次执行单归 `rewrite_plan.json`。
-
-## Project Navigation
-
-| 用途 | 入口 |
-|---|---|
-| 快速定位总表 | [INDEX.md](./INDEX.md) |
-| 当前进度与计划 | [PROJECT_STATUS.md](./PROJECT_STATUS.md) |
-| 分析产物目录 | [analysis/README.md](./analysis/README.md) |
-| 报告目录 | [analysis/reports/README.md](./analysis/reports/README.md) |
-| Rewrite plan 协议 | [analysis/rewrite_plan_protocol.md](./analysis/rewrite_plan_protocol.md) |
-| 项目清理计划 | [analysis/project_cleanup_plan.md](./analysis/project_cleanup_plan.md) |
-| Harness v1 计划 | [analysis/harness_plan.md](./analysis/harness_plan.md) |
-| Harness v1 配置 | [analysis/harness_config.json](./analysis/harness_config.json) |
-| Harness v1 工具 | [tools/light_harness.py](./tools/light_harness.py) |
-| Segment Delta 实验工具 | [tools/eder_delta_evaluator.py](./tools/eder_delta_evaluator.py) |
-| Gate v1 产品化计划 | [analysis/productization_gate_v1.md](./analysis/productization_gate_v1.md) |
-| Novel Gate Harness skill | [skills/novel-gate-harness/SKILL.md](./skills/novel-gate-harness/SKILL.md) |
-| Skill 架构参考 | [skills/novel-gate-harness/references/project_architecture.md](./skills/novel-gate-harness/references/project_architecture.md) |
-| Skill gate wrapper | [skills/novel-gate-harness/scripts/run_candidate_gate.py](./skills/novel-gate-harness/scripts/run_candidate_gate.py) |
-| Corpus tokenizer | [tools/corpus_tokenizer.py](./tools/corpus_tokenizer.py) |
-| Lexicon taxonomy | [analysis/lexicon_taxonomy.md](./analysis/lexicon_taxonomy.md) |
-| Corpus profiler | [tools/corpus_profiler.py](./tools/corpus_profiler.py) |
-| Adachi pressure corpus profile | [analysis/reports/corpus_profile_adachi_pressure.md](./analysis/reports/corpus_profile_adachi_pressure.md) |
-| 第 5 卷 tokenization 报告 | [analysis/reports/tokenization_vol05.md](./analysis/reports/tokenization_vol05.md) |
-| 「岛村之刃」tokenization 报告 | [analysis/reports/tokenization_vol05_shimamura_blade.md](./analysis/reports/tokenization_vol05_shimamura_blade.md) |
-| 「岛村之刃」DeepSeek V4 tokenizer 报告 | [analysis/reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md](./analysis/reports/tokenization_vol05_shimamura_blade_deepseek_v4_flash.md) |
-| 全篇章形状分析工具 | [tools/source_shape_analyzer.py](./tools/source_shape_analyzer.py) |
-| Round 4 长篇候选 prompt | [analysis/generation_prompt_round4.md](./analysis/generation_prompt_round4.md) |
-| 当前测试稿 | [drafts/current.md](./drafts/current.md) |
-| Delta 切片配置 | [corpus_slices/slices.json](./corpus_slices/slices.json) |
-| Delta 工具 | [tools/delta_evaluator.py](./tools/delta_evaluator.py) |
-| 核心章节 | [data/raw/vol05_第五卷_岛村之刃.txt:2446](./data/raw/vol05_第五卷_岛村之刃.txt#L2446) |
-
-## Usage
-
-规则型评估器：
-
-```powershell
-python tools/style_evaluator.py --mode draft drafts/current.md --output analysis/reports/current.md
+```text
+candidate.md + candidate.json
+-> machine gate + diagnostics
+-> mandatory multi-agent review
+-> rewrite_plan.json
+-> one local rewrite only
+-> regression comparison
+-> user review
+-> review ledger
 ```
 
-Delta v1 相对距离评估：
+自动化只能筛掉明显失败和定位风险。最终 pass/fail 只能来自用户 review。
 
-```powershell
-python tools/delta_evaluator.py --draft drafts/current.md --slices corpus_slices/slices.json --output-prefix analysis/reports/delta_current
+## Hard Artifacts
+
+这个项目的门面产物不是 prompt，而是下面这组 harness artifact：
+
+| Artifact | Purpose | Current home |
+|---|---|---|
+| Failure taxonomy | 可执行失败分类，避免滑成泛化文学评论 | `analysis/productization_gate_v1.md`, next: `analysis/failure_taxonomy.md` |
+| Case registry | 每个机制绑定 positive / negative / borderline case，并带 `case_id` 溯源 | next: `analysis/failure_cases.json` |
+| Gate report | 每次候选输出具体失败点、指标、证据路径 | `analysis/reports/candidates/<run_id>/` |
+| Rewrite policy | 失败后只允许证据约束下的一次局部修复 | `analysis/rewrite_plan_protocol.md` |
+| Review ledger | 用户最终判断 `pass/fail/why`，沉淀审美回归记录 | next: `analysis/review_ledger.jsonl` |
+| Regression comparison | prompt / model / gate 改动后检查旧 case 是否退化 | current reports + next regression suite |
+
+硬规则：
+
+- 没有 `case_id` 的失败分类不能进入正式 taxonomy。
+- 没有 positive / negative / borderline 三件套的机制只能算 provisional。
+- 正式 regression 只收 `user_confirmed` case。
+- Agent 可以参与评估，但不能替代用户判定。
+
+## Candidate Protocol
+
+完整候选必须成对提交：
+
+```text
+drafts/candidates/<run_id>/candidate_001.md
+drafts/candidates/<run_id>/candidate_001.json
 ```
 
-Delta 只作为相对指标，不作为质量评分、作者相似度百分比或复刻目标。
+`candidate_001.md` 给人读，保持小说自然形态。
 
-Experimental Eder/Cosine segment Delta：
+`candidate_001.json` 给 harness 读，记录 speaker、utterance、response relation、surface terms、deep understanding risk、scene beats 等结构信号，避免 gate 从 prose 格式里猜角色关系。
 
-```powershell
-python tools/eder_delta_evaluator.py --draft drafts/candidates/<run_id>/candidate_001.md --slices corpus_slices/slices.json --output-prefix analysis/reports/candidates/<run_id>/candidate_001_eder_delta --segment-size 500 --min-segment-chars 250 --top-features 800
-```
+短片段练习可以用 fragment scope，但 fragment 只能验证局部机制，不能证明完整候选 ready。
 
-Segment Delta 只用于定位片段诊断，例如“前段仍偏 daily、电话爆发段出现 pressure”。它不判断文本是否好看。
+## Gate And Review Flow
 
-全篇章形状分析：
-```powershell
-python tools/source_shape_analyzer.py --index novel_index.json --output-prefix analysis/reports/source_chapter_shape
-```
+1. 生成或修改 paired candidate。
+2. 运行 machine gate。
+3. `failed_auto_gate` 直接停止，不进入用户 review。
+4. `needs_manual_triage` 必须检查具体风险，不能包装成成功。
+5. full candidate 在给用户前必须跑多角色 agent review：
+   - `agent_gate_auditor`
+   - `agent_close_reader`
+   - `agent_regression_checker`，当 prompt、model、gate config、JSON schema 或 rewrite policy 变化时必跑
+6. Agent review 只能输出 `failure_id`、`case_id`、`span_ref`、claim、dissent、user question，不能写综合文学总评。
+7. 如需修复，只能通过 `rewrite_plan.json` 做一次局部改稿。
+8. 重跑 gate 后停在 `failed_auto_gate`、`needs_manual_triage` 或 `pending_user_review`。
+9. 用户 review 后，把判定和原因写入 ledger。
 
-Harness v1：
-```powershell
-python tools/light_harness.py --run-id existing_rounds_audit --candidates drafts/current.md drafts/round2.md drafts/round3.md --slices corpus_slices/slices.json --config analysis/harness_config.json --reports-root analysis/reports/candidates
-```
+如果无法完成 mandatory multi-agent review，full candidate 必须标记为 `needs_manual_triage: missing_multi_agent_review_round`。
 
-Harness v1 暂不自动生成候选；只把通过自动 gate 的候选标记为 `pending_user_review`。
+## Commands
 
-Novel Gate Harness skill 自检：
+检查 harness 环境：
+
 ```powershell
 python skills/novel-gate-harness/scripts/run_candidate_gate.py --check-only
 ```
 
-通过 skill wrapper 检测候选：
+检查完整候选：
+
 ```powershell
 python skills/novel-gate-harness/scripts/run_candidate_gate.py --run-id <run_id> --candidates drafts/candidates/<run_id>/candidate_001.md
 ```
 
-短片段机制练习可使用 fragment 范围；它不会因低于 6000 字符而 hard fail，但也不能证明完整候选成功：
+检查短片段机制：
+
 ```powershell
 python skills/novel-gate-harness/scripts/run_candidate_gate.py --run-id <run_id> --candidates drafts/candidates/<run_id>/candidate_001.md --scope fragment
 ```
 
-Corpus tokenizer：
-```powershell
-python tools/corpus_tokenizer.py --source data/raw/vol05_第五卷_岛村之刃.txt --output-prefix analysis/reports/tokenization_vol05 --engine regex
-```
+## Key Docs
 
-如本机安装 `jieba`，可将 `--engine regex` 改为 `--engine jieba`。
-如本机安装 OpenAI `tiktoken`，可使用：
+- [PROJECT_STATUS.md](./PROJECT_STATUS.md): 当前项目状态和已确认决策。
+- [analysis/productization_gate_v1.md](./analysis/productization_gate_v1.md): single-kernel 产品边界与 gate 规则。
+- [analysis/rewrite_plan_protocol.md](./analysis/rewrite_plan_protocol.md): 一次局部改稿协议。
+- [analysis/harness_config.json](./analysis/harness_config.json): 当前 gate 配置。
+- [analysis/reports/README.md](./analysis/reports/README.md): 报告目录和证据角色。
+- [skills/novel-gate-harness/SKILL.md](./skills/novel-gate-harness/SKILL.md): Codex 执行 workflow。
 
-```powershell
-python tools/corpus_tokenizer.py --source data/raw/vol05_第五卷_岛村之刃.txt --output-prefix analysis/reports/tokenization_vol05_tiktoken --engine tiktoken --tiktoken-encoding o200k_base
-```
-
-`tiktoken` 只用于模型侧 tokenization 对照，不作为中文语言学分词。
-
-如本机安装 `transformers/tokenizers` 并有模型 tokenizer 文件，可使用 DeepSeek tokenizer 对照：
-
-```powershell
-python tools/corpus_tokenizer.py --source data/raw/vol05_第五卷_岛村之刃.txt --output-prefix analysis/reports/tokenization_vol05_deepseek --engine hf --hf-model deepseek-ai/DeepSeek-V3
-```
-
-DeepSeek tokenizer 同样属于模型侧 tokenization；DeepSeek 写作手感主要来自模型与训练/对齐，不是 tokenizer 单独决定。
-
-当前已安装 Hugging Face tokenizer 依赖到项目本地 `.deps/hf-tokenizer2/`。运行 DeepSeek tokenizer 命令时，需要让 Python 能找到该目录，例如：
-
-```powershell
-$env:PYTHONPATH='C:\Users\33625\Documents\novel\.deps\hf-tokenizer2'
-```
-
-Corpus profiler：
-
-```powershell
-python tools/corpus_profiler.py --slices corpus_slices/slices.json --output-prefix analysis/reports/corpus_profile_adachi_pressure --target-id adachi_pressure
-```
-
-Profiler 生成可解释特征权重，不做 RAG、不召回原文、不作为质量评分。
+完整章节索引和旧报告导航放在 [INDEX.md](./INDEX.md) 与 [analysis/README.md](./analysis/README.md)。

@@ -56,7 +56,8 @@ Do not switch styles, authors, genres, or kernels in v1. Adjust only local varia
 4. Generate the paired JSON structure file. See [candidate_json.md](references/candidate_json.md) when schema details are needed.
 5. Run the gate script on the Markdown candidate. Use `--scope candidate` for full candidates and `--scope fragment` for local mechanism checks.
 6. Read `analysis/reports/candidates/<run_id>/manifest.json` and the candidate gate report.
-7. If the gate flags dialogue distribution problems, run one dialogue-distribution repair pass before asking for user review:
+7. For full candidates, run the mandatory multi-agent review round before presenting the candidate to the user. A single all-purpose review agent is a process violation.
+8. If the gate flags dialogue distribution problems, run one dialogue-distribution repair pass before asking for user review:
    - Keep the scene chain, first-person voice, unresolved ending, and the core Adachi overload utterance.
    - Do not rewrite the whole candidate only to chase bins.
    - Merge or lightly expand about 25-35 tiny call-and-response lines into natural `11-40` character utterances.
@@ -64,7 +65,7 @@ Do not switch styles, authors, genres, or kernels in v1. Adjust only local varia
    - Keep Shimamura non-therapeutic: she may catch terms such as "烟花", "樽见", "明天", "太快", "喉咙", or "手痛", but she must not name Adachi's hidden wound.
    - Update the paired JSON `utterances` after revising Markdown.
    - Run the gate again and report `short_dialogue_pct_1_10`, `mid_dialogue_pct_11_40`, `dialogue_distribution_l1`, and status.
-8. Decide the next action:
+9. Decide the next action:
    - `failed_auto_gate`: revise before user review.
    - `needs_manual_triage`: inspect the flagged risk and either revise or ask the user to review the exact uncertainty.
    - `pending_user_review`: present the candidate as ready for user review, not as successful.
@@ -107,6 +108,47 @@ Use Corpus Profile as a prior, not a judge:
 - Weak signal alone: `affect_intensity`; emotion words cannot substitute for dialogue shape.
 
 If the script or harness disagrees with close reading, preserve both signals and mark the issue as metric blind spot or manual triage. Do not overwrite the user's review path with automated confidence.
+
+## Mandatory Multi-Agent Review Round
+
+Full candidates must pass through separate role-bounded agent reviews after the machine gate and before user review. Do not replace this with one combined "literary evaluation" agent.
+
+Required roles for every full candidate:
+
+- `agent_gate_auditor`: checks whether the machine gate report has evidence, span refs, false positives, false negatives, or missing candidate JSON signals.
+- `agent_close_reader`: binds close-reading claims to `failure_id`, `case_id` when available, and exact spans; it may ask user-review questions but must not give a final pass/fail.
+
+Required role when the prompt, model, gate config, JSON schema, or rewrite policy changed:
+
+- `agent_regression_checker`: compares the candidate against confirmed cases and earlier runs, then reports which failure cases improved, stayed unresolved, or regressed.
+
+Each agent review should write a structured note under:
+
+```text
+analysis/reports/candidates/<run_id>/agent_<role>.md
+analysis/reports/candidates/<run_id>/agent_<role>.json
+```
+
+Agent review output must contain only structured evidence:
+
+```text
+role
+scope
+candidate_path
+gate_report_path
+claims[{failure_id, case_id, span_ref, claim, evidence_type, confidence}]
+dissent[{against, reason, span_ref}]
+recommended_user_questions[]
+```
+
+Forbidden in agent reviews:
+
+- final `pass` or `fail` verdicts;
+- broad claims such as "more flavorful", "closer to the original", or "better literary quality";
+- ungrounded rewrites outside the active `rewrite_plan.json`;
+- collapsing gate audit, close reading, and regression comparison into one agent.
+
+If multi-agent tooling is unavailable, mark the candidate as `needs_manual_triage` with the reason `missing_multi_agent_review_round`; do not present it as ready for user review.
 
 ## Feedback Ledger
 
