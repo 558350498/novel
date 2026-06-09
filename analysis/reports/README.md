@@ -21,6 +21,8 @@ candidate_001_eder_delta_500.md/json    # optional fine segment diagnosis
 manifest.json
 ```
 
+Gate report 字段和状态语义见 `../gate_report_protocol.md`。报告只能筛选失败和定位风险，不能写最终成功结论。
+
 后续如果生成 `rewrite_plan.json`，它应该放在对应 `drafts/candidates/<run_id>/`，报告目录只保留诊断证据。
 
 ## 历史文件

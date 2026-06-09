@@ -31,12 +31,12 @@ candidate.md + candidate.json
 
 | Artifact | Purpose | Current home |
 |---|---|---|
-| Failure taxonomy | 可执行失败分类，避免滑成泛化文学评论 | `analysis/productization_gate_v1.md`, next: `analysis/failure_taxonomy.md` |
-| Case registry | 每个机制绑定 positive / negative / borderline case，并带 `case_id` 溯源 | next: `analysis/failure_cases.json` |
-| Gate report | 每次候选输出具体失败点、指标、证据路径 | `analysis/reports/candidates/<run_id>/` |
-| Rewrite policy | 失败后只允许证据约束下的一次局部修复 | `analysis/rewrite_plan_protocol.md` |
-| Review ledger | 用户最终判断 `pass/fail/why`，沉淀审美回归记录 | next: `analysis/review_ledger.jsonl` |
-| Regression comparison | prompt / model / gate 改动后检查旧 case 是否退化 | current reports + next regression suite |
+| Failure taxonomy | 可执行失败分类，避免滑成泛化文学评论 | `analysis/failure_taxonomy.md` |
+| Case registry | 每个机制绑定 positive / negative / borderline case，并带 `case_id` 溯源 | `analysis/failure_cases.json` |
+| Gate report | 每次候选输出具体失败点、指标、证据路径 | `analysis/gate_report_protocol.md`, `analysis/reports/candidates/<run_id>/` |
+| Rewrite policy | 失败后只允许证据约束下的一次局部修复 | `analysis/rewrite_policy.md`, `analysis/rewrite_plan_protocol.md` |
+| Review ledger | 用户最终判断 `pass/fail/why`，沉淀审美回归记录 | `analysis/review_ledger.jsonl` |
+| Regression comparison | prompt / model / gate 改动后检查旧 case 是否退化 | `analysis/regression_comparison.md` |
 
 硬规则：
 
@@ -100,6 +100,12 @@ python skills/novel-gate-harness/scripts/run_candidate_gate.py --run-id <run_id>
 ## Key Docs
 
 - [PROJECT_STATUS.md](./PROJECT_STATUS.md): 当前项目状态和已确认决策。
+- [analysis/failure_taxonomy.md](./analysis/failure_taxonomy.md): 可执行失败分类。
+- [analysis/failure_cases.json](./analysis/failure_cases.json): case registry scaffold。
+- [analysis/gate_report_protocol.md](./analysis/gate_report_protocol.md): gate report artifact contract。
+- [analysis/rewrite_policy.md](./analysis/rewrite_policy.md): 局部改稿策略。
+- [analysis/review_ledger.jsonl](./analysis/review_ledger.jsonl): 用户判定 ledger schema。
+- [analysis/regression_comparison.md](./analysis/regression_comparison.md): 回归比较协议。
 - [analysis/productization_gate_v1.md](./analysis/productization_gate_v1.md): single-kernel 产品边界与 gate 规则。
 - [analysis/rewrite_plan_protocol.md](./analysis/rewrite_plan_protocol.md): 一次局部改稿协议。
 - [analysis/harness_config.json](./analysis/harness_config.json): 当前 gate 配置。

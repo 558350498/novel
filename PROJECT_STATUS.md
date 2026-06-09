@@ -6,6 +6,27 @@
 
 ## 当前进度
 
+### 当前下一步：六个硬产物初版
+
+项目门面已从 prompt 仓库调整为 `Narrative Mechanism Failure Harness`。下一步不是继续堆 prompt，而是把下面六个硬产物做成可执行、可复盘、可回归的初版：
+
+| 产物 | 当前文件 | 状态 |
+|---|---|---|
+| Failure taxonomy | `analysis/failure_taxonomy.md` | v0 scaffold，定义可执行失败分类和 case triplet 规则 |
+| Case registry | `analysis/failure_cases.json` | v0 scaffold，含 provisional cases 和 `case_id` schema |
+| Gate report | `analysis/gate_report_protocol.md` + `analysis/reports/candidates/<run_id>/` | 已有报告输出，新增 artifact contract |
+| Rewrite policy | `analysis/rewrite_policy.md` + `analysis/rewrite_plan_protocol.md` | 已有协议，新增 policy 入口 |
+| Review ledger | `analysis/review_ledger.jsonl` | v0 schema，等待用户 review 条目 |
+| Regression comparison | `analysis/regression_comparison.md` | v0 protocol，正式 regression 仅收 `user_confirmed` case |
+
+硬边界：
+
+- Failure taxonomy 是可执行失败分类，不是泛化文学分类。
+- 正式 taxonomy 条目必须绑定 positive / negative / borderline case。
+- 正式 regression 只接受 `user_confirmed` case。
+- Full candidate 在用户 review 前必须经过多角色 agent review。
+- Gate、Delta、agent review 都不能替代用户最终判定。
+
 ### 已完成
 
 - 前 8 卷 txt 已按卷号重命名为 `vol01` 到 `vol08`。
@@ -38,6 +59,7 @@
 - 已生成 `adachi_pressure` 对照 profile：`analysis/reports/corpus_profile_adachi_pressure.md/json`。
 - 已新增 experimental Eder/Cosine segment Delta：`tools/eder_delta_evaluator.py`，用于把整篇 Delta 拆成片段级 daily/pressure/shimamura_view 诊断；该工具只定位问题，不判定质量。
 - 已新增 rewrite-plan 产品协议：`analysis/rewrite_plan_protocol.md`，确定 `rewrite_plan.json` 作为 gate/segment diagnosis 到一次局部重写之间的执行单。
+- 已新增六个硬产物初版入口：`analysis/failure_taxonomy.md`、`analysis/failure_cases.json`、`analysis/gate_report_protocol.md`、`analysis/rewrite_policy.md`、`analysis/review_ledger.jsonl`、`analysis/regression_comparison.md`。
 - 已新增项目清理计划：`analysis/project_cleanup_plan.md`，区分 active、provenance、可归档和确认后可删除的文件类别。
 - 已生成四份分析产物：
   - `analysis/style_analysis.md`

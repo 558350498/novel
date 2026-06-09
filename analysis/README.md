@@ -13,6 +13,12 @@
 - `harness_plan.md`：轻量候选筛选 harness 计划，定义 gate 状态、subagent 分工和用户 review 边界。
 - `harness_config.json`：Harness v1 gate 配置。
 - `rewrite_plan_protocol.md`：当前产品化 loop 的核心协议；把诊断翻译成一次局部重写任务。
+- `failure_taxonomy.md`：可执行失败分类，不做泛化文学评论；每个正式条目必须绑定 case triplet。
+- `failure_cases.json`：case registry scaffold，记录 positive / negative / borderline case、`case_id`、来源和 review 状态。
+- `gate_report_protocol.md`：gate report 作为硬产物的字段、状态和证据规则。
+- `rewrite_policy.md`：局部修复策略入口；schema 仍以 `rewrite_plan_protocol.md` 为准。
+- `review_ledger.jsonl`：用户最终 review 判定的 ledger schema；正式 case 回归必须来自用户确认。
+- `regression_comparison.md`：prompt/model/gate/schema/rewrite policy 改动后的回归比较协议。
 - `project_cleanup_plan.md`：旧候选、旧 prompt、生成报告的保留/归档/待删清单。
 - `lexicon_taxonomy.md`：taxonomy 粒度主文档；先定义泛化语言学维度，再映射回项目 gate。
 - `productization_gate_v1.md`：Single-kernel tuning lab 产品化方向；消费 taxonomy 映射后的 gate 信号，不重新定义 taxonomy。
