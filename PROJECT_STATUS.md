@@ -27,6 +27,13 @@
 - Full candidate 在用户 review 前必须经过多角色 agent review。
 - Gate、Delta、agent review 都不能替代用户最终判定。
 
+Skill 结构决策：
+
+- `novel-gate-harness` 暂时不拆成两个平级 skill，继续作为唯一顶层 orchestration skill。
+- 内部拆成 `references/prompt_generation_harness.md` 和 `references/result_harness.md`。
+- 生成侧消费 taxonomy / cases / ledger / regression 约束，产出 prompt、candidate spec 或 paired candidate。
+- 结果侧消费 paired candidate，产出 gate report、agent review notes、rewrite plan、regression comparison 和 ledger handoff。
+
 ### 已完成
 
 - 前 8 卷 txt 已按卷号重命名为 `vol01` 到 `vol08`。
@@ -60,6 +67,7 @@
 - 已新增 experimental Eder/Cosine segment Delta：`tools/eder_delta_evaluator.py`，用于把整篇 Delta 拆成片段级 daily/pressure/shimamura_view 诊断；该工具只定位问题，不判定质量。
 - 已新增 rewrite-plan 产品协议：`analysis/rewrite_plan_protocol.md`，确定 `rewrite_plan.json` 作为 gate/segment diagnosis 到一次局部重写之间的执行单。
 - 已新增六个硬产物初版入口：`analysis/failure_taxonomy.md`、`analysis/failure_cases.json`、`analysis/gate_report_protocol.md`、`analysis/rewrite_policy.md`、`analysis/review_ledger.jsonl`、`analysis/regression_comparison.md`。
+- 已将 `novel-gate-harness` 改为顶层 orchestration skill，并新增内部 harness 说明：`skills/novel-gate-harness/references/prompt_generation_harness.md` 与 `skills/novel-gate-harness/references/result_harness.md`。
 - 已新增项目清理计划：`analysis/project_cleanup_plan.md`，区分 active、provenance、可归档和确认后可删除的文件类别。
 - 已生成四份分析产物：
   - `analysis/style_analysis.md`

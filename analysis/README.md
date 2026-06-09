@@ -19,6 +19,8 @@
 - `rewrite_policy.md`：局部修复策略入口；schema 仍以 `rewrite_plan_protocol.md` 为准。
 - `review_ledger.jsonl`：用户最终 review 判定的 ledger schema；正式 case 回归必须来自用户确认。
 - `regression_comparison.md`：prompt/model/gate/schema/rewrite policy 改动后的回归比较协议。
+- `../skills/novel-gate-harness/references/prompt_generation_harness.md`：生成侧内部 harness，消费 taxonomy/cases/ledger/regression 约束。
+- `../skills/novel-gate-harness/references/result_harness.md`：结果侧内部 harness，消费 paired candidate 并产出 gate/review/rewrite/regression/ledger handoff。
 - `project_cleanup_plan.md`：旧候选、旧 prompt、生成报告的保留/归档/待删清单。
 - `lexicon_taxonomy.md`：taxonomy 粒度主文档；先定义泛化语言学维度，再映射回项目 gate。
 - `productization_gate_v1.md`：Single-kernel tuning lab 产品化方向；消费 taxonomy 映射后的 gate 信号，不重新定义 taxonomy。

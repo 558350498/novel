@@ -25,6 +25,11 @@ candidate.md + candidate.json
 
 自动化只能筛掉明显失败和定位风险。最终 pass/fail 只能来自用户 review。
 
+`novel-gate-harness` 保留为唯一顶层入口，但内部拆成两个 harness：
+
+- `prompt_generation_harness`: 从 failure taxonomy、case registry、ledger 和 regression 风险生成 prompt / candidate spec / paired candidate。
+- `result_harness`: 对 paired candidate 跑 gate、multi-agent review、rewrite policy、regression comparison 和 ledger handoff。
+
 ## Hard Artifacts
 
 这个项目的门面产物不是 prompt，而是下面这组 harness artifact：
@@ -111,5 +116,7 @@ python skills/novel-gate-harness/scripts/run_candidate_gate.py --run-id <run_id>
 - [analysis/harness_config.json](./analysis/harness_config.json): 当前 gate 配置。
 - [analysis/reports/README.md](./analysis/reports/README.md): 报告目录和证据角色。
 - [skills/novel-gate-harness/SKILL.md](./skills/novel-gate-harness/SKILL.md): Codex 执行 workflow。
+- [skills/novel-gate-harness/references/prompt_generation_harness.md](./skills/novel-gate-harness/references/prompt_generation_harness.md): prompt / candidate generation harness。
+- [skills/novel-gate-harness/references/result_harness.md](./skills/novel-gate-harness/references/result_harness.md): result / evaluation harness。
 
 完整章节索引和旧报告导航放在 [INDEX.md](./INDEX.md) 与 [analysis/README.md](./analysis/README.md)。
