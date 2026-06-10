@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -12,8 +13,28 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_RUN_ID = "round6_codex_full_loop_20260609"
 
 
+def configure_utf8_stdio() -> None:
+    for stream_name in ("stdout", "stderr"):
+        stream = getattr(sys, stream_name)
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
+
+
 def run_step(name: str, command: list[str]) -> dict[str, Any]:
-    completed = subprocess.run(command, cwd=ROOT, text=True, capture_output=True)
+    env = {
+        **os.environ,
+        "PYTHONIOENCODING": "utf-8",
+        "PYTHONUTF8": "1",
+    }
+    completed = subprocess.run(
+        command,
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        encoding="utf-8",
+        errors="replace",
+        env=env,
+    )
     return {
         "name": name,
         "command": command,
@@ -34,6 +55,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
 
 
 def main(argv: list[str]) -> int:
+    configure_utf8_stdio()
     args = parse_args(argv)
     doctor_cmd = [sys.executable, "tools/project_doctor.py", "--run-id", args.run_id]
     if args.strict_warnings:
