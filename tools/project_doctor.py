@@ -67,6 +67,13 @@ STALE_ACTIVE_REFERENCES = [
 ]
 
 
+def configure_utf8_stdio() -> None:
+    for stream_name in ("stdout", "stderr"):
+        stream = getattr(sys, stream_name)
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
+
+
 @dataclass
 class Finding:
     severity: str
@@ -253,6 +260,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
 
 
 def main(argv: list[str]) -> int:
+    configure_utf8_stdio()
     args = parse_args(argv)
     report = build_report(args.run_id)
     if args.json:

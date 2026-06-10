@@ -109,7 +109,7 @@
           "candidate_structure": {
             "utterances": [
               {"id": "u001", "speaker": "adachi", "text": "这是一段超过二百字的安达失败传输。" },
-              {"id": "u002", "speaker": "shimamura", "text": "你说太快了。", "surface_terms_received": ["太快"], "deep_understanding": true}
+              {"id": "u002", "speaker": "shimamura", "text": "你说太快了。", "surface_terms_received": ["太快"], "deep_understanding": false}
             ]
           }
         },
