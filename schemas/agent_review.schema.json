@@ -1,0 +1,7 @@
+{
+  "schema_doc": "Project-local agent review contract. tools/schema_check.py and tools/agent_review_runner.py are executable validators.",
+  "required": ["role", "scope", "candidate_path", "gate_report_path", "claims", "dissent", "recommended_user_questions"],
+  "allowed_roles": ["agent_gate_auditor", "agent_close_reader", "agent_regression_checker"],
+  "claim_required": ["failure_id", "case_id", "span_ref", "claim", "evidence_type", "confidence"],
+  "forbidden": ["final pass/fail verdicts", "broad literary totalizing claims", "author-similarity scoring"]
+}

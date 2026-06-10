@@ -127,6 +127,36 @@ python skills/novel-gate-harness/scripts/run_candidate_gate.py --run-id round6_c
 python skills/novel-gate-harness/scripts/run_candidate_gate.py --run-id <run_id> --candidates drafts/candidates/<run_id>/candidate_001.md --scope fragment
 ```
 
+运行本地 CI contract：
+
+```powershell
+python tools/project_ci.py --require-regression-review
+```
+
+单独检查 JSON schema / contract：
+
+```powershell
+python tools/schema_check.py
+```
+
+单独检查 multi-agent review contract：
+
+```powershell
+python tools/agent_review_runner.py --run-id round6_codex_full_loop_20260609 --require-regression
+```
+
+运行 fixture/unit tests：
+
+```powershell
+python -m unittest discover -s tests
+```
+
+当前 CI 默认不把 `project_doctor` warning 当作失败；如果需要把文档断链和缺失语料 warning 也升级为失败，使用：
+
+```powershell
+python tools/project_ci.py --strict-warnings --require-regression-review
+```
+
 ## Progressive Disclosure
 
 Use this order when entering the project:

@@ -1,0 +1,207 @@
+{
+  "version": 1,
+  "purpose": "Minimal boundary fixtures for failure taxonomy regression. Samples are synthetic and do not prove aesthetic success.",
+  "gate_config": {
+    "statuses": ["failed_auto_gate", "needs_manual_triage", "pending_user_review"],
+    "hard_fail": {
+      "min_chars": 6000,
+      "risk_checks": ["过载长台词", "分析概念泄漏", "结尾封闭化"],
+      "receiver_misalignment_min": 1,
+      "short_dialogue_max_pct_1_10": 75.0,
+      "json_adachi_long_utterance_min": 10
+    },
+    "manual_triage": {
+      "warn_checks": ["对话占比", "岛村回应解释化"],
+      "dialogue_distribution": {
+        "source": "fixture source",
+        "source_bins": {
+          "1-5": 20.0,
+          "6-10": 28.3,
+          "11-20": 30.0,
+          "21-40": 18.3,
+          "41-80": 0.0,
+          "81-160": 1.7,
+          "161-320": 0.0,
+          "321+": 1.7
+        },
+        "short_1_10_max_pct": 65.0,
+        "mid_11_40_min_pct": 30.0,
+        "max_l1_pct_delta": 60.0
+      },
+      "delta_expected_first": "adachi_pressure",
+      "json_shimamura_avg_len_warn": 36.0,
+      "json_explanation_markers": ["因为", "所以", "其实", "我的意思是"]
+    }
+  },
+  "fixtures": [
+    {
+      "failure_id": "F001_shimamura_over_understanding",
+      "cases": {
+        "positive": {"case_id": "F001_POS_001", "sample": "岛村只接住手痛、贴纸、明天等表层词。", "expected_gate": "pending_user_review"},
+        "negative": {"case_id": "F001_NEG_001", "sample": "岛村直接命名安达真正害怕被排除。", "expected_gate": "needs_manual_triage"},
+        "borderline": {"case_id": "F001_BORDER_001", "sample": "岛村说中一个小物件背后的情绪影子，但仍不解释关系伤口。", "expected_gate": "needs_manual_triage"}
+      }
+    },
+    {
+      "failure_id": "F002_adachi_clean_self_analysis",
+      "cases": {
+        "positive": {"case_id": "F002_POS_001", "sample": "安达绕着杯子、手、明天说，词很小，因果链断裂。", "expected_gate": "pending_user_review"},
+        "negative": {"case_id": "F002_NEG_001", "sample": "安达清楚解释嫉妒原因、关系诉求和解决方案。", "expected_gate": "needs_manual_triage"},
+        "borderline": {"case_id": "F002_BORDER_001", "sample": "安达有一段较完整自述，但仍被小物件和停顿打断。", "expected_gate": "needs_manual_triage"}
+      }
+    },
+    {
+      "failure_id": "F003_closure_after_care",
+      "cases": {
+        "positive": {"case_id": "F003_POS_001", "sample": "普通照顾暂时止血，结尾保留未被解释的刺。", "expected_gate": "pending_user_review"},
+        "negative": {"case_id": "F003_NEG_001", "sample": "岛村保证以后都会理解，关系伤口被明确解决。", "expected_gate": "failed_auto_gate"},
+        "borderline": {"case_id": "F003_BORDER_001", "sample": "照顾项太密集，虽然结尾仍说没有解决。", "expected_gate": "needs_manual_triage"}
+      }
+    },
+    {
+      "failure_id": "F004_pressure_without_failed_transmission",
+      "cases": {
+        "positive": {"case_id": "F004_POS_001", "sample": "压力存在，出口失败，接收者只接住表层。", "expected_gate": "pending_user_review"},
+        "negative": {"case_id": "F004_NEG_001", "sample": "只有情绪词堆叠，没有错位出口和接收失败。", "expected_gate": "failed_auto_gate"},
+        "borderline": {"case_id": "F004_BORDER_001", "sample": "压力铺垫足够，但出口过于清楚。", "expected_gate": "needs_manual_triage"}
+      }
+    },
+    {
+      "failure_id": "F005_daily_buildup_missing",
+      "cases": {
+        "positive": {"case_id": "F005_POS_001", "sample": "日常物、身体感和等待先托住压力。", "expected_gate": "pending_user_review"},
+        "negative": {"case_id": "F005_NEG_001", "sample": "开场直接爆发，没有日常缓冲和物件承载。", "expected_gate": "needs_manual_triage"},
+        "borderline": {"case_id": "F005_BORDER_001", "sample": "有日常物，但只是装饰，没有承载节奏。", "expected_gate": "needs_manual_triage"}
+      }
+    },
+    {
+      "failure_id": "F006_dialogue_shape_collapse",
+      "cases": {
+        "positive": {"case_id": "F006_POS_001", "sample": "短、中、长台词分布接近源切片，含至少一个失败长台词。", "expected_gate": "pending_user_review"},
+        "negative": {"case_id": "F006_NEG_001", "sample": "大量 1-10 字短答，11-40 字中段不足。", "expected_gate": "needs_manual_triage"},
+        "borderline": {"case_id": "F006_BORDER_001", "sample": "短答略超上限，中段接近但不足。", "expected_gate": "needs_manual_triage"}
+      },
+      "executable_gate_cases": {
+        "positive": {
+          "expected_status": "pending_user_review",
+          "style_report": {
+            "checks": [],
+            "metrics": {
+              "char_count": 6200,
+              "dialogue_ratio": 0.45,
+              "dialogue_burst": {
+                "max_len": 260,
+                "count_ge_200": 1,
+                "length_bins": {
+                  "1-5": {"pct": 20.0},
+                  "6-10": {"pct": 28.0},
+                  "11-20": {"pct": 30.0},
+                  "21-40": {"pct": 18.0},
+                  "41-80": {"pct": 0.0},
+                  "81-160": {"pct": 2.0},
+                  "161-320": {"pct": 0.0},
+                  "321+": {"pct": 2.0}
+                }
+              }
+            }
+          },
+          "delta_report": {"ranking": [{"id": "adachi_pressure", "rank": 1}]},
+          "candidate_structure": {
+            "utterances": [
+              {"id": "u001", "speaker": "adachi", "text": "这是一段超过二百字的安达失败传输。" },
+              {"id": "u002", "speaker": "shimamura", "text": "你说太快了。", "surface_terms_received": ["太快"], "deep_understanding": true}
+            ]
+          }
+        },
+        "negative": {
+          "expected_status": "needs_manual_triage",
+          "expected_reason_contains": ["台词分布偏短", "台词分布中段不足"],
+          "style_report": {
+            "checks": [],
+            "metrics": {
+              "char_count": 6200,
+              "dialogue_ratio": 0.7,
+              "dialogue_burst": {
+                "max_len": 260,
+                "count_ge_200": 1,
+                "length_bins": {
+                  "1-5": {"pct": 50.0},
+                  "6-10": {"pct": 36.0},
+                  "11-20": {"pct": 8.0},
+                  "21-40": {"pct": 4.0},
+                  "41-80": {"pct": 0.0},
+                  "81-160": {"pct": 0.0},
+                  "161-320": {"pct": 0.0},
+                  "321+": {"pct": 2.0}
+                }
+              }
+            }
+          },
+          "delta_report": {"ranking": [{"id": "adachi_pressure", "rank": 1}]},
+          "candidate_structure": {
+            "utterances": [
+              {"id": "u001", "speaker": "adachi", "text": "这是一段超过二百字的安达失败传输。" },
+              {"id": "u002", "speaker": "shimamura", "text": "嗯。", "surface_terms_received": ["嗯"], "deep_understanding": false}
+            ]
+          }
+        },
+        "borderline": {
+          "expected_status": "needs_manual_triage",
+          "expected_reason_contains": ["台词分布偏短"],
+          "style_report": {
+            "checks": [],
+            "metrics": {
+              "char_count": 6200,
+              "dialogue_ratio": 0.55,
+              "dialogue_burst": {
+                "max_len": 260,
+                "count_ge_200": 1,
+                "length_bins": {
+                  "1-5": {"pct": 35.0},
+                  "6-10": {"pct": 31.0},
+                  "11-20": {"pct": 20.0},
+                  "21-40": {"pct": 10.0},
+                  "41-80": {"pct": 1.0},
+                  "81-160": {"pct": 1.0},
+                  "161-320": {"pct": 0.0},
+                  "321+": {"pct": 2.0}
+                }
+              }
+            }
+          },
+          "delta_report": {"ranking": [{"id": "adachi_pressure", "rank": 1}]},
+          "candidate_structure": {
+            "utterances": [
+              {"id": "u001", "speaker": "adachi", "text": "这是一段超过二百字的安达失败传输。" },
+              {"id": "u002", "speaker": "shimamura", "text": "我听见贴纸。", "surface_terms_received": ["贴纸"], "deep_understanding": false}
+            ]
+          }
+        }
+      }
+    },
+    {
+      "failure_id": "F008_dialogue_run_overextension",
+      "cases": {
+        "positive": {"case_id": "F008_POS_001", "sample": "一到两个问答后交给身体、物件或内心漂移。", "expected_gate": "pending_user_review"},
+        "negative": {"case_id": "F008_NEG_001", "sample": "连续长串问答推进压力，中间没有叙述重置。", "expected_gate": "needs_manual_triage"},
+        "borderline": {"case_id": "F008_BORDER_001", "sample": "问答链接近上限，只靠一句动作弱重置。", "expected_gate": "needs_manual_triage"}
+      }
+    },
+    {
+      "failure_id": "F007_delta_imitation_trap",
+      "cases": {
+        "positive": {"case_id": "F007_POS_001", "sample": "Delta 仅作定位，生成目标仍是机制。", "expected_gate": "pending_user_review"},
+        "negative": {"case_id": "F007_NEG_001", "sample": "为了追 Delta 排名直接贴近某段表面纹理。", "expected_gate": "needs_manual_triage"},
+        "borderline": {"case_id": "F007_BORDER_001", "sample": "Delta first 异常，但近读还不能定性。", "expected_gate": "needs_manual_triage"}
+      }
+    },
+    {
+      "failure_id": "F009_originality_overconstraint",
+      "cases": {
+        "positive": {"case_id": "F009_POS_001", "sample": "禁止复制原文，同时允许机制、节奏、翻译质地贴近。", "expected_gate": "pending_user_review"},
+        "negative": {"case_id": "F009_NEG_001", "sample": "把原创理解成不可模仿，导致风格机制被压掉。", "expected_gate": "needs_manual_triage"},
+        "borderline": {"case_id": "F009_BORDER_001", "sample": "边界提示过多，让模型犹豫是否保留源节奏。", "expected_gate": "needs_manual_triage"}
+      }
+    }
+  ]
+}

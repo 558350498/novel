@@ -1,0 +1,16 @@
+name: project-ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  project-ci:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run project CI
+        run: python tools/project_ci.py --require-regression-review

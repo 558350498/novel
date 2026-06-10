@@ -95,6 +95,11 @@ Allowed gate states:
 | Gate aggregator | `tools/light_harness.py` |
 | Gate config | `analysis/harness_config.json` |
 | Corpus slices | `corpus_slices/slices.json` |
+| Local CI runner | `tools/project_ci.py` |
+| Schema checker | `tools/schema_check.py` |
+| Agent review contract runner | `tools/agent_review_runner.py` |
+| Failure fixtures | `tests/fixtures/failure_fixtures.json` |
+| Minimal loop demo | `demo/minimal_loop/` |
 
 ## Durable Protocols
 
@@ -121,6 +126,9 @@ Allowed gate states:
 - `tools/corpus_tokenizer.py`: lexicon discovery, not quality scoring.
 - `tools/corpus_profiler.py`: reference-group feature weighting, not RAG.
 - `tools/project_doctor.py`: active path, candidate pairing, and doc drift checks.
+- `tools/schema_check.py`: candidate JSON, rewrite plan, agent review, ledger, and case registry contract checks.
+- `tools/agent_review_runner.py`: verifies mandatory agent review artifacts exist and avoid final verdict claims.
+- `tools/project_ci.py`: local CI wrapper for doctor, gate check, schema check, agent review contract, and tests.
 
 ## Confirmed Boundaries
 

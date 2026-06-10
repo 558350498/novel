@@ -1,0 +1,7 @@
+{
+  "schema_doc": "Project-local candidate JSON contract. tools/schema_check.py is the executable validator.",
+  "required": ["version", "candidate", "kernel_id", "utterances"],
+  "utterance_required": ["id", "speaker", "text"],
+  "allowed_speakers": ["adachi", "shimamura", "tarumi", "narration", "other"],
+  "shimamura_fields": ["responds_to", "surface_terms_received", "deep_understanding", "explanation_markers"]
+}

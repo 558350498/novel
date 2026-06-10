@@ -1,0 +1,12 @@
+{
+  "entry_id": "ledger_demo_minimal_loop",
+  "created_at": "2026-06-10T00:00:00+08:00",
+  "reviewer": "user",
+  "artifact_type": "demo",
+  "artifact_path": "demo/minimal_loop/candidate_002.md",
+  "verdict": "defer",
+  "why": "Demo proves artifact handoff only; it is not a full candidate review.",
+  "case_ids": [],
+  "failure_ids": [],
+  "follow_up": ["Use real candidate paths for formal review."]
+}

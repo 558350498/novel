@@ -1,0 +1,13 @@
+{
+  "status": "failed_auto_gate",
+  "hard_fail_reasons": ["demo fragment is below full-candidate length"],
+  "manual_triage_reasons": ["dialogue shape is too small to prove the mechanism"],
+  "metrics": {
+    "char_count": 43,
+    "evaluation_scope": "demo_fragment"
+  },
+  "notes": [
+    "Demo gate is illustrative only.",
+    "Full candidates must use the real harness."
+  ]
+}

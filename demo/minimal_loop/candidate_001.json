@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "candidate": "candidate_001.md",
+  "kernel_id": "adachi_misaligned_overload_v1",
+  "utterances": [
+    {"id": "u001", "speaker": "adachi", "text": "没事。"},
+    {
+      "id": "u002",
+      "speaker": "shimamura",
+      "text": "真的？",
+      "responds_to": ["u001"],
+      "surface_terms_received": ["没事"],
+      "deep_understanding": false,
+      "explanation_markers": []
+    },
+    {"id": "u003", "speaker": "adachi", "text": "嗯。"}
+  ],
+  "scene_beats": [
+    {"id": "b001", "type": "surface_response", "summary": "手痛成为表层接收词。"}
+  ]
+}

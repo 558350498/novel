@@ -1,5 +1,7 @@
 data/raw/
 *.txt
+__pycache__/
+*.pyc
 .deps/
 .venv/
 .venv312/

@@ -1,0 +1,6 @@
+{
+  "schema_doc": "Project-local rewrite plan contract. tools/schema_check.py is the executable validator.",
+  "required": ["version", "run_id", "candidate", "rewrite_scope", "target", "output_candidate"],
+  "allowed_rewrite_scope": ["local", "fragment", "candidate"],
+  "notes": ["rewrite_plan is an execution order, not a quality conclusion"]
+}
