@@ -12,6 +12,7 @@ Load this reference when orienting inside `C:\Users\33625\Documents\novel` or wh
 - `analysis/`: durable analysis, prompts, plans, review checklists, and configs.
 - `analysis/reports/`: generated evaluator reports, human review notes, diff records, and candidate gate outputs.
 - `analysis/rewrite_plan_protocol.md`: current protocol for turning diagnostics into one local rewrite.
+- `analysis/editing_actions.md`: source of truth for evidence-backed local editing actions.
 - `analysis/project_cleanup_plan.md`: cleanup and archive guidance for old candidates and generated reports.
 - `corpus_slices/`: Delta reference slice configuration by file path and line ranges.
 - `drafts/`: current and historical drafts.
@@ -29,7 +30,7 @@ Load this reference when orienting inside `C:\Users\33625\Documents\novel` or wh
 6. Optionally run `tools/eder_delta_evaluator.py` for segment-level daily/pressure localization.
 7. Run `tools/light_harness.py` through the skill wrapper to produce candidate gate reports and a manifest.
 8. Use `--scope candidate` for full candidates, or `--scope fragment` for short mechanism exercises that should not fail solely on length.
-9. If a local rewrite is allowed, create a `rewrite_plan.json` from deterministic report evidence plus agent-layer rewrite intent.
+9. If a local rewrite is allowed, select an editing action from `analysis/editing_actions.md` and create a `rewrite_plan.json` from deterministic report evidence plus agent-layer rewrite intent.
 10. Stop after one local rewrite and rerun gate.
 11. Stop at `failed_auto_gate`, `needs_manual_triage`, or `pending_user_review`.
 12. Record user review feedback in project docs or reports before changing prompts, lexicons, gates, or corpus labels.
@@ -43,6 +44,7 @@ Load this reference when orienting inside `C:\Users\33625\Documents\novel` or wh
 - `light_harness.py` aggregates style, Delta, and optional companion candidate JSON outputs; it only filters obvious failures.
 - `corpus_tokenizer.py` supports lexicon discovery; it is not a quality score.
 - `corpus_profiler.py` compares reference-group taxonomy and shape weights for gate tuning; it is not RAG and should not retrieve original prose into outputs.
+- Editing actions translate diagnostics into allowed local operations; they are not quality judgments.
 
 ## Non-Negotiable Review Rules
 

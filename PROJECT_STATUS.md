@@ -110,6 +110,7 @@ Allowed gate states:
 | Gate report protocol | `analysis/gate_report_protocol.md` |
 | Rewrite policy | `analysis/rewrite_policy.md` |
 | Rewrite plan protocol | `analysis/rewrite_plan_protocol.md` |
+| Editing actions | `analysis/editing_actions.md` |
 | Review ledger | `analysis/review_ledger.jsonl` |
 | Regression comparison | `analysis/regression_comparison.md` |
 | Productization gate v1 | `analysis/productization_gate_v1.md` |

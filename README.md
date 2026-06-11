@@ -75,6 +75,7 @@ candidate.md + candidate.json
 | Case registry | 每个机制绑定 positive / negative / borderline case，并带 `case_id` 溯源 | `analysis/failure_cases.json` |
 | Gate report | 每次候选输出具体失败点、指标、证据路径 | `analysis/gate_report_protocol.md`, `analysis/reports/candidates/<run_id>/` |
 | Rewrite policy | 失败后只允许证据约束下的一次局部修复 | `analysis/rewrite_policy.md`, `analysis/rewrite_plan_protocol.md` |
+| Editing actions | 把诊断证据翻译成允许的局部改稿操作 | `analysis/editing_actions.md`, `skills/novel-gate-harness/references/editing_actions.md` |
 | Review ledger | 用户最终判断 `pass/fail/why`，沉淀审美回归记录 | `analysis/review_ledger.jsonl` |
 | Regression comparison | prompt / model / gate 改动后检查旧 case 是否退化 | `analysis/regression_comparison.md` |
 

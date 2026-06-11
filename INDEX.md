@@ -38,6 +38,7 @@
 | Gate 配置 | [analysis/harness_config.json](./analysis/harness_config.json) |
 | Gate report 协议 | [analysis/gate_report_protocol.md](./analysis/gate_report_protocol.md) |
 | Rewrite plan 协议 | [analysis/rewrite_plan_protocol.md](./analysis/rewrite_plan_protocol.md) |
+| Editing actions | [analysis/editing_actions.md](./analysis/editing_actions.md) |
 | Rewrite policy | [analysis/rewrite_policy.md](./analysis/rewrite_policy.md) |
 | Failure taxonomy | [analysis/failure_taxonomy.md](./analysis/failure_taxonomy.md) |
 | Case registry | [analysis/failure_cases.json](./analysis/failure_cases.json) |

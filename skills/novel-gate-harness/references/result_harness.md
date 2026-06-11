@@ -18,6 +18,7 @@ Read:
 - `analysis/gate_report_protocol.md`
 - `analysis/rewrite_policy.md`
 - `analysis/rewrite_plan_protocol.md`
+- `analysis/editing_actions.md`
 - `analysis/failure_taxonomy.md`
 - `analysis/failure_cases.json`
 - `analysis/regression_comparison.md`
@@ -135,11 +136,12 @@ If a rewrite is allowed:
 
 1. Create or update `drafts/candidates/<run_id>/rewrite_plan.json`.
 2. Use evidence from gate, segment diagnostics, agent notes, or user feedback.
-3. Target one local beat, segment, utterance group, or dialogue-shape issue.
-4. Perform at most one local rewrite.
-5. Update paired JSON.
-6. Rerun the gate.
-7. Stop again at `failed_auto_gate`, `needs_manual_triage`, or `pending_user_review`.
+3. Select a local editing action from `analysis/editing_actions.md`.
+4. Target one local beat, segment, utterance group, or dialogue-shape issue.
+5. Perform at most one local rewrite.
+6. Update paired JSON.
+7. Rerun the gate.
+8. Stop again at `failed_auto_gate`, `needs_manual_triage`, or `pending_user_review`.
 
 Do not globally rewrite the candidate to chase metrics.
 

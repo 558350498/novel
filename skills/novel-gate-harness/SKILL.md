@@ -27,6 +27,7 @@ Before acting, read:
 - `analysis/failure_cases.json`
 - `analysis/review_ledger.jsonl`
 - `analysis/regression_comparison.md`
+- `analysis/editing_actions.md`
 - `analysis/reports/README.md`
 
 If the task is unfamiliar, also read [project_architecture.md](references/project_architecture.md).
@@ -82,5 +83,6 @@ Do not switch styles, authors, genres, kernels, or quality targets.
 
 - [prompt_generation_harness.md](references/prompt_generation_harness.md): builds prompts, candidate specs, and paired candidate files from kernel constraints, cases, ledger, and regression risk.
 - [result_harness.md](references/result_harness.md): runs gate reports, multi-agent review, rewrite policy, regression comparison, and ledger handoff.
+- [editing_actions.md](references/editing_actions.md): agent-facing summary of allowed local editing actions.
 - [candidate_json.md](references/candidate_json.md): paired JSON structure details.
 - [corpus_profile_gate.md](references/corpus_profile_gate.md): compressed profile rules for gate-facing decisions.
