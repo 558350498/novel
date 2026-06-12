@@ -89,6 +89,7 @@ Allowed gate states:
 | Reports directory map | `analysis/reports/README.md` |
 | Cleanup plan | `analysis/project_cleanup_plan.md` |
 | Project doctor | `tools/project_doctor.py` |
+| Cleanup / drift checker | `tools/cleanup_drift_check.py` |
 | Orchestration skill | `skills/novel-gate-harness/SKILL.md` |
 | Project architecture reference | `skills/novel-gate-harness/references/project_architecture.md` |
 | Gate wrapper | `skills/novel-gate-harness/scripts/run_candidate_gate.py` |
@@ -97,6 +98,7 @@ Allowed gate states:
 | Corpus slices | `corpus_slices/slices.json` |
 | Local CI runner | `tools/project_ci.py` |
 | Schema checker | `tools/schema_check.py` |
+| Evidence ref checker | `tools/evidence_ref_check.py` |
 | Agent review contract runner | `tools/agent_review_runner.py` |
 | Failure fixtures | `tests/fixtures/failure_fixtures.json` |
 | Minimal loop demo | `demo/minimal_loop/` |
@@ -127,9 +129,11 @@ Allowed gate states:
 - `tools/corpus_tokenizer.py`: lexicon discovery, not quality scoring.
 - `tools/corpus_profiler.py`: reference-group feature weighting, not RAG.
 - `tools/project_doctor.py`: active path, candidate pairing, and doc drift checks.
+- `tools/cleanup_drift_check.py`: read-only cleanup-plan automation, active-path summary, and drift artifact generator.
 - `tools/schema_check.py`: candidate JSON, rewrite plan, agent review, ledger, and case registry contract checks.
+- `tools/evidence_ref_check.py`: verifies machine evidence refs point to existing JSON/JSONL fields; Markdown remains a human-readable view.
 - `tools/agent_review_runner.py`: verifies mandatory agent review artifacts exist and avoid final verdict claims.
-- `tools/project_ci.py`: local CI wrapper for doctor, gate check, schema check, agent review contract, and tests.
+- `tools/project_ci.py`: local CI wrapper for doctor, cleanup/drift, gate check, schema check, evidence/action checks, agent review contract, and tests.
 
 ## Confirmed Boundaries
 

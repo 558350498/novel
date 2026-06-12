@@ -108,6 +108,12 @@ drafts/candidates/<run_id>/candidate_001.json
 python tools/project_doctor.py
 ```
 
+生成只读 cleanup / drift summary：
+
+```powershell
+python tools/cleanup_drift_check.py --strict-warnings --output .tmp/project_drift_summary.md
+```
+
 检查 harness 环境：
 
 ```powershell
@@ -136,6 +142,13 @@ python tools/project_ci.py --require-regression-review
 
 ```powershell
 python tools/schema_check.py
+```
+
+单独检查 editing action / evidence ref contract：
+
+```powershell
+python tools/editing_action_check.py
+python tools/evidence_ref_check.py
 ```
 
 单独检查 multi-agent review contract：

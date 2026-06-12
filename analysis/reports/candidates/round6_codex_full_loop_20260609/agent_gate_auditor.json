@@ -8,6 +8,7 @@
       "failure_id": "hard_min_length_under_6000",
       "case_id": null,
       "span_ref": "candidate_001_gate.json:metrics.char_count",
+      "evidence_ref": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json#/metrics/char_count",
       "claim": "Gate correctly caught char_count=5996 below the hard minimum of 6000.",
       "evidence_type": "gate_metric",
       "confidence": "high"
@@ -16,6 +17,11 @@
       "failure_id": "F006_dialogue_shape_collapse",
       "case_id": "F006_NEG_001",
       "span_ref": "candidate_001_gate.json:metrics.short_dialogue_pct_1_10 / mid_dialogue_pct_11_40 / dialogue_distribution_l1",
+      "evidence_refs": [
+        "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json#/metrics/short_dialogue_pct_1_10",
+        "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json#/metrics/mid_dialogue_pct_11_40",
+        "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json#/metrics/dialogue_distribution_l1"
+      ],
       "claim": "Gate correctly caught short-dialogue dominance and insufficient 11-40 character dialogue.",
       "evidence_type": "gate_metric",
       "confidence": "high"
@@ -24,6 +30,10 @@
       "failure_id": "F002_adachi_clean_self_analysis",
       "case_id": null,
       "span_ref": "candidate_001.md:u078 long utterance",
+      "evidence_refs": [
+        "drafts/candidates/round6_codex_full_loop_20260609/candidate_001.json#/utterances/77/id",
+        "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json#/candidate_json/adachi_max_len"
+      ],
       "claim": "Possible sender-side explanation leakage is not fully captured by Shimamura-focused JSON checks.",
       "evidence_type": "candidate_span_plus_json_gap",
       "confidence": "medium_high"
@@ -32,6 +42,7 @@
       "failure_id": "F001_shimamura_over_understanding",
       "case_id": null,
       "span_ref": "candidate_001.md:post-overload Shimamura response",
+      "evidence_ref": "drafts/candidates/round6_codex_full_loop_20260609/candidate_001.json#/utterances/88/surface_terms_received",
       "claim": "The line '鱼不会来' remains mostly surface-level, but may need human judgment because it touches the third-object pressure.",
       "evidence_type": "borderline_candidate_span",
       "confidence": "medium_low"

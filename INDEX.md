@@ -52,6 +52,10 @@
 | 用途 | 路径 |
 |---|---|
 | 项目自检 | `tools/project_doctor.py` |
+| Cleanup / drift check | `tools/cleanup_drift_check.py` |
+| JSON contract | `tools/schema_check.py` |
+| Editing action contract | `tools/editing_action_check.py` |
+| Evidence ref contract | `tools/evidence_ref_check.py` |
 | 规则型评估器 | `tools/style_evaluator.py` |
 | 评估词表 | `tools/style_lexicon.json` |
 | Delta v1 | `tools/delta_evaluator.py` |

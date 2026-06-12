@@ -3,6 +3,9 @@
   "run_id": "demo_minimal_loop",
   "candidate": "candidate_001.md",
   "rewrite_scope": "fragment",
+  "editing_actions": [
+    "preserve_surface_receipt"
+  ],
   "target": {
     "beat": "surface_response",
     "local_role": "add one body/object carrier before ordinary care"

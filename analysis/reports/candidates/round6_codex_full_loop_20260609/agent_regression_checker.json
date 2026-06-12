@@ -8,6 +8,11 @@
       "failure_id": "F006_dialogue_shape_collapse",
       "case_id": "F006_NEG_001",
       "span_ref": "analysis/failure_cases.json:F006_NEG_001; candidate_001_gate.json:metrics",
+      "evidence_refs": [
+        "analysis/failure_cases.json#/cases/0/case_id",
+        "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json#/metrics/short_dialogue_pct_1_10",
+        "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json#/metrics/mid_dialogue_pct_11_40"
+      ],
       "claim": "F006_NEG_001 remains a provisional risk: current gate again observes short-dialogue dominance and insufficient mid-length dialogue.",
       "evidence_type": "case_registry_plus_gate_metrics",
       "confidence": "high"
@@ -16,6 +21,10 @@
       "failure_id": "F006_dialogue_shape_collapse",
       "case_id": "F006_NEG_001",
       "span_ref": "candidate_001_gate.json:metrics.max_dialogue_len",
+      "evidence_refs": [
+        "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json#/metrics/max_dialogue_len",
+        "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json#/metrics/dialogue_ge_200"
+      ],
       "claim": "This candidate is not missing a long overload utterance; F006 is specifically a distribution imbalance.",
       "evidence_type": "gate_metrics_plus_span_check",
       "confidence": "high"
@@ -24,6 +33,10 @@
       "failure_id": "F007_delta_imitation_trap",
       "case_id": "F007_BORDER_001",
       "span_ref": "failure_cases.json:F007_BORDER_001; candidate_001_gate.json:delta_first",
+      "evidence_refs": [
+        "analysis/failure_cases.json#/cases/3/case_id",
+        "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json#/delta_first"
+      ],
       "claim": "F007_BORDER_001 remains a provisional exploratory risk because Delta first is adachi_daily, but it is not a formal regression failure.",
       "evidence_type": "case_registry_plus_delta_metric",
       "confidence": "high"
@@ -32,6 +45,7 @@
       "failure_id": null,
       "case_id": null,
       "span_ref": "corpus_slices/slices.json:analysis_docs",
+      "evidence_ref": "corpus_slices/slices.json#/groups/3/id",
       "claim": "The analysis_docs path update fixed missing-path failure, but changes Delta comparability and should be recorded with this run.",
       "evidence_type": "config_diff_risk_note",
       "confidence": "medium"

@@ -8,6 +8,11 @@
     "user_feedback_may_confirm_prompt_policy_failures": true,
     "synthetic_cases_may_test_gate_logic_but_do_not_prove_overall_aesthetic": true
   },
+  "required_triplet_failure_ids": [
+    "F006_dialogue_shape_collapse",
+    "F008_dialogue_run_overextension",
+    "F009_originality_overconstraint"
+  ],
   "case_schema": {
     "case_id": "F001_NEG_001",
     "failure_id": "F001_shimamura_over_understanding",
@@ -15,6 +20,10 @@
     "source_type": "source_text_case | candidate_case | synthetic_case | agent_note | user_feedback",
     "source_path": "path/to/evidence",
     "span_ref": "paragraph, utterance id, segment id, or report field",
+    "evidence_refs": [
+      "analysis/reports/candidates/<run_id>/candidate_001_gate.json#/metrics/short_dialogue_pct_1_10",
+      "analysis/review_ledger.jsonl#entry_id=<entry_id>"
+    ],
     "expected_gate": "failed_auto_gate | needs_manual_triage | pending_user_review | no_gate_action",
     "review_status": "provisional | user_confirmed | user_rejected",
     "evidence_summary": "Short summary without long source quotation.",
@@ -22,15 +31,50 @@
   },
   "cases": [
     {
+      "case_id": "F006_POS_001",
+      "failure_id": "F006_dialogue_shape_collapse",
+      "case_type": "positive",
+      "source_type": "synthetic_case",
+      "source_path": "tests/fixtures/failure_fixtures.json",
+      "span_ref": "fixtures[5].cases.positive",
+      "evidence_refs": [
+        "tests/fixtures/failure_fixtures.json#/fixtures/5/cases/positive/case_id"
+      ],
+      "expected_gate": "pending_user_review",
+      "review_status": "provisional",
+      "evidence_summary": "Synthetic boundary case: dialogue length distribution is close to the source slice and includes at least one failed long overload utterance.",
+      "user_verdict_ref": null
+    },
+    {
       "case_id": "F006_NEG_001",
       "failure_id": "F006_dialogue_shape_collapse",
       "case_type": "negative",
       "source_type": "candidate_case",
       "source_path": "analysis/reports/candidates/round5_self_prompt_20260608_distribution_check/candidate_001_gate.json",
       "span_ref": "metrics.short_dialogue_pct_1_10 / metrics.mid_dialogue_pct_11_40 / metrics.dialogue_distribution_l1",
+      "evidence_refs": [
+        "analysis/reports/candidates/round5_self_prompt_20260608_distribution_check/candidate_001_gate.json#/metrics/short_dialogue_pct_1_10",
+        "analysis/reports/candidates/round5_self_prompt_20260608_distribution_check/candidate_001_gate.json#/metrics/mid_dialogue_pct_11_40",
+        "analysis/reports/candidates/round5_self_prompt_20260608_distribution_check/candidate_001_gate.json#/metrics/dialogue_distribution_l1"
+      ],
       "expected_gate": "needs_manual_triage",
       "review_status": "provisional",
       "evidence_summary": "Gate report flags short-dialogue dominance, insufficient mid-length dialogue, high distribution deviation, and daily-first Delta.",
+      "user_verdict_ref": null
+    },
+    {
+      "case_id": "F006_BORDER_001",
+      "failure_id": "F006_dialogue_shape_collapse",
+      "case_type": "borderline",
+      "source_type": "synthetic_case",
+      "source_path": "tests/fixtures/failure_fixtures.json",
+      "span_ref": "fixtures[5].cases.borderline",
+      "evidence_refs": [
+        "tests/fixtures/failure_fixtures.json#/fixtures/5/cases/borderline/case_id"
+      ],
+      "expected_gate": "needs_manual_triage",
+      "review_status": "provisional",
+      "evidence_summary": "Synthetic boundary case: short dialogue is slightly above target while mid-length dialogue is near but still below the desired range.",
       "user_verdict_ref": null
     },
     {
@@ -40,10 +84,30 @@
       "source_type": "candidate_case",
       "source_path": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_002_gate.json",
       "span_ref": "metrics.short_dialogue_pct_1_10 / metrics.mid_dialogue_pct_11_40 / user review 2026-06-10",
+      "evidence_refs": [
+        "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_002_gate.json#/metrics/short_dialogue_pct_1_10",
+        "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_002_gate.json#/metrics/mid_dialogue_pct_11_40",
+        "analysis/review_ledger.jsonl#entry_id=ledger_20260610_round6_dialogue_shape"
+      ],
       "expected_gate": "needs_manual_triage",
       "review_status": "user_confirmed",
       "evidence_summary": "User confirmed the recurring issue remains: too many short answers and too few mid-length utterances.",
       "user_verdict_ref": "ledger_20260610_round6_dialogue_shape"
+    },
+    {
+      "case_id": "F008_POS_001",
+      "failure_id": "F008_dialogue_run_overextension",
+      "case_type": "positive",
+      "source_type": "synthetic_case",
+      "source_path": "tests/fixtures/failure_fixtures.json",
+      "span_ref": "fixtures[6].cases.positive",
+      "evidence_refs": [
+        "tests/fixtures/failure_fixtures.json#/fixtures/6/cases/positive/case_id"
+      ],
+      "expected_gate": "pending_user_review",
+      "review_status": "provisional",
+      "evidence_summary": "Synthetic boundary case: one or two question-answer exchanges hand off to body, object, or interior drift before the dialogue window overruns.",
+      "user_verdict_ref": null
     },
     {
       "case_id": "F008_NEG_001",
@@ -52,10 +116,30 @@
       "source_type": "candidate_case",
       "source_path": "drafts/candidates/round6_codex_full_loop_20260609/candidate_002.md",
       "span_ref": "user review 2026-06-10 / contiguous Shimamura dialogue window",
+      "evidence_refs": [
+        "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_002_dialogue_window.json#/hard_exceeded_count",
+        "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_002_dialogue_window.json#/alternating_max_pair_units",
+        "analysis/review_ledger.jsonl#entry_id=ledger_20260610_round6_dialogue_shape"
+      ],
       "expected_gate": "needs_manual_triage",
       "review_status": "user_confirmed",
       "evidence_summary": "User identified a separate source-shape issue: dialogue runs chain too long; source rhythm should be one answer plus thought paragraph, with question-answer run counts usually 1-2 and rarely above 5.",
       "user_verdict_ref": "ledger_20260610_round6_dialogue_shape"
+    },
+    {
+      "case_id": "F008_BORDER_001",
+      "failure_id": "F008_dialogue_run_overextension",
+      "case_type": "borderline",
+      "source_type": "synthetic_case",
+      "source_path": "tests/fixtures/failure_fixtures.json",
+      "span_ref": "fixtures[6].cases.borderline",
+      "evidence_refs": [
+        "tests/fixtures/failure_fixtures.json#/fixtures/6/cases/borderline/case_id"
+      ],
+      "expected_gate": "needs_manual_triage",
+      "review_status": "provisional",
+      "evidence_summary": "Synthetic boundary case: a question-answer chain approaches the source-derived budget and only has a weak action reset.",
+      "user_verdict_ref": null
     },
     {
       "case_id": "F007_BORDER_001",
@@ -64,9 +148,27 @@
       "source_type": "candidate_case",
       "source_path": "analysis/reports/candidates/round5_auto_prompt_20260608/candidate_001_gate.json",
       "span_ref": "delta_first",
+      "evidence_refs": [
+        "analysis/reports/candidates/round5_auto_prompt_20260608/candidate_001_gate.json#/delta_first"
+      ],
       "expected_gate": "needs_manual_triage",
       "review_status": "provisional",
       "evidence_summary": "Gate report flags Delta first as adachi_daily rather than adachi_pressure, but other dialogue-shape metrics are not hard failures; requires agent/user review rather than automatic rejection.",
+      "user_verdict_ref": null
+    },
+    {
+      "case_id": "F009_POS_001",
+      "failure_id": "F009_originality_overconstraint",
+      "case_type": "positive",
+      "source_type": "synthetic_case",
+      "source_path": "tests/fixtures/failure_fixtures.json",
+      "span_ref": "fixtures[8].cases.positive",
+      "evidence_refs": [
+        "tests/fixtures/failure_fixtures.json#/fixtures/8/cases/positive/case_id"
+      ],
+      "expected_gate": "pending_user_review",
+      "review_status": "provisional",
+      "evidence_summary": "Synthetic boundary case: copying boundaries remain narrow while rhythm, timing, translation texture, and mechanism-level emulation stay allowed.",
       "user_verdict_ref": null
     },
     {
@@ -76,10 +178,28 @@
       "source_type": "user_feedback",
       "source_path": "analysis/reports/user_review_originality_overconstraint.md",
       "span_ref": "user feedback 2026-06-10 / prompt policy",
+      "evidence_refs": [
+        "analysis/review_ledger.jsonl#entry_id=ledger_20260610_originality_overconstraint"
+      ],
       "expected_gate": "needs_manual_triage",
       "review_status": "user_confirmed",
       "evidence_summary": "User identified that forcing originality makes the agent over-avoid source-like style transfer and suppresses useful imitation of rhythm, tone, and mechanism.",
       "user_verdict_ref": "ledger_20260610_originality_overconstraint"
+    },
+    {
+      "case_id": "F009_BORDER_001",
+      "failure_id": "F009_originality_overconstraint",
+      "case_type": "borderline",
+      "source_type": "synthetic_case",
+      "source_path": "tests/fixtures/failure_fixtures.json",
+      "span_ref": "fixtures[8].cases.borderline",
+      "evidence_refs": [
+        "tests/fixtures/failure_fixtures.json#/fixtures/8/cases/borderline/case_id"
+      ],
+      "expected_gate": "needs_manual_triage",
+      "review_status": "provisional",
+      "evidence_summary": "Synthetic boundary case: copying boundary language is present but may be strong enough to make the agent suppress useful style-mechanism transfer.",
+      "user_verdict_ref": null
     }
   ],
   "missing_case_triplets": [
@@ -88,9 +208,6 @@
     "F003_closure_after_care",
     "F004_pressure_without_failed_transmission",
     "F005_daily_buildup_missing",
-    "F006_dialogue_shape_collapse",
-    "F008_dialogue_run_overextension",
-    "F007_delta_imitation_trap",
-    "F009_originality_overconstraint"
+    "F007_delta_imitation_trap"
   ]
 }

@@ -8,6 +8,7 @@
       "failure_id": "F001_shimamura_over_understanding",
       "case_id": null,
       "span_ref": "candidate_001.md:post-overload surface response",
+      "evidence_ref": "drafts/candidates/round6_codex_full_loop_20260609/candidate_001.json#/utterances/82/surface_terms_received",
       "claim": "Shimamura mainly receives surface terms such as sticker, fish, tomorrow, and hand pain rather than naming the hidden wound.",
       "evidence_type": "prose_span+candidate_json",
       "confidence": 0.86
@@ -16,6 +17,10 @@
       "failure_id": "F002_adachi_clean_self_analysis",
       "case_id": null,
       "span_ref": "candidate_001.md:u078 long utterance",
+      "evidence_refs": [
+        "drafts/candidates/round6_codex_full_loop_20260609/candidate_001.json#/utterances/77/text",
+        "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json#/candidate_json/adachi_max_len"
+      ],
       "claim": "The long utterance is too reconstructable as a complete explanation chain, even though the scene later says it was too fast.",
       "evidence_type": "prose_span+gate_metric",
       "confidence": 0.93
@@ -24,6 +29,7 @@
       "failure_id": "F003_closure_after_care",
       "case_id": null,
       "span_ref": "candidate_001.md:ordinary care sequence",
+      "evidence_ref": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_style.json#/checks/10/status",
       "claim": "The sequence of no sticker, no fish, tomorrow, tea, water, and hand care creates mild resolution pressure.",
       "evidence_type": "prose_span+gate_report",
       "confidence": 0.88
@@ -32,6 +38,10 @@
       "failure_id": "F004_pressure_without_failed_transmission",
       "case_id": null,
       "span_ref": "candidate_001.md:waiting and phone setup",
+      "evidence_refs": [
+        "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json#/metrics/max_dialogue_len",
+        "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_delta.json#/ranking/0/id"
+      ],
       "claim": "Pressure buildup through phone, cup, throat, palm, and water mark is effective, but failed transmission is weakened by the readable long speech.",
       "evidence_type": "prose_span",
       "confidence": 0.77

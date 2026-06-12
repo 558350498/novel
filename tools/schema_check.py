@@ -174,6 +174,7 @@ def check_failure_cases(path: Path) -> list[Finding]:
     if not expect_type(findings, path, cases, list, "cases"):
         return findings
     seen_ids: set[str] = set()
+    cases_by_failure: dict[str, set[str]] = {}
     required = ["case_id", "failure_id", "case_type", "source_type", "source_path", "span_ref", "expected_gate", "review_status", "evidence_summary", "user_verdict_ref"]
     for index, case in enumerate(cases):
         if not isinstance(case, dict):
@@ -185,8 +186,43 @@ def check_failure_cases(path: Path) -> list[Finding]:
             findings.append(Finding("error", display(path), f"duplicate case_id `{case_id}`"))
         if case_id:
             seen_ids.add(case_id)
-        if case.get("case_type") not in {"positive", "negative", "borderline"}:
+        failure_id = str(case.get("failure_id", "")).strip()
+        case_type = case.get("case_type")
+        if case_type not in {"positive", "negative", "borderline"}:
             findings.append(Finding("error", display(path), f"`cases[{index}].case_type` is invalid"))
+        elif failure_id:
+            cases_by_failure.setdefault(failure_id, set()).add(str(case_type))
+
+    required_triplets = data.get("required_triplet_failure_ids", [])
+    if required_triplets and not isinstance(required_triplets, list):
+        findings.append(Finding("error", display(path), "`required_triplet_failure_ids` must be list"))
+        required_triplets = []
+    missing_triplets = data.get("missing_case_triplets", [])
+    if missing_triplets and not isinstance(missing_triplets, list):
+        findings.append(Finding("error", display(path), "`missing_case_triplets` must be list"))
+        missing_triplets = []
+    missing_triplet_ids = {str(item) for item in missing_triplets}
+    required_case_types = {"positive", "negative", "borderline"}
+    for failure_id in required_triplets:
+        failure_id = str(failure_id)
+        present_types = cases_by_failure.get(failure_id, set())
+        missing_types = sorted(required_case_types - present_types)
+        if missing_types:
+            findings.append(
+                Finding(
+                    "error",
+                    display(path),
+                    f"`{failure_id}` missing required triplet case type(s): {', '.join(missing_types)}",
+                )
+            )
+        if failure_id in missing_triplet_ids:
+            findings.append(
+                Finding(
+                    "error",
+                    display(path),
+                    f"`{failure_id}` is required-complete but still listed in missing_case_triplets",
+                )
+            )
     return findings
 
 

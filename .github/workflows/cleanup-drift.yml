@@ -1,0 +1,25 @@
+name: cleanup-drift
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 2 * * 1"
+
+jobs:
+  cleanup-drift:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run cleanup and drift check
+        run: python tools/cleanup_drift_check.py --strict-warnings --output .tmp/project_drift_summary.md
+      - name: Add summary
+        shell: pwsh
+        run: Get-Content .tmp/project_drift_summary.md | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+      - name: Upload drift summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: project-drift-summary
+          path: .tmp/project_drift_summary.md

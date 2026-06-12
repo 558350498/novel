@@ -67,8 +67,11 @@ candidate.md + candidate.json
 | Tool | Role |
 |---|---|
 | `../tools/project_doctor.py` | 检查 active 路径、候选配对和文档断链 |
-| `../tools/project_ci.py` | 本地 CI contract：doctor、gate check、schema check、agent review contract、unit tests |
+| `../tools/cleanup_drift_check.py` | 从 `project_cleanup_plan.md` 生成只读 cleanup/drift summary |
+| `../tools/project_ci.py` | 本地 CI contract：doctor、cleanup/drift、gate check、schema/evidence/action checks、agent review contract、unit tests |
 | `../tools/schema_check.py` | JSON contract 检查：candidate、rewrite plan、agent review、ledger、case registry |
+| `../tools/editing_action_check.py` | 检查 rewrite plan / agent notes 引用的 editing action id 是否存在 |
+| `../tools/evidence_ref_check.py` | 检查 rewrite plan、agent claims、case registry 的机器证据引用是否指向 JSON/JSONL 字段 |
 | `../tools/agent_review_runner.py` | multi-agent review contract runner，不替代 agent 判断，只检查结构和禁区 |
 | `../tools/style_evaluator.py` | 规则风险，例如解释泄漏、封闭结尾、接收端错位不足 |
 | `../tools/delta_evaluator.py` | 相对距离观察，不做质量评分 |

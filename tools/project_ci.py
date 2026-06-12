@@ -63,8 +63,11 @@ def main(argv: list[str]) -> int:
 
     steps = [
         run_step("project_doctor", doctor_cmd),
+        run_step("cleanup_drift_check", [sys.executable, "tools/cleanup_drift_check.py", "--strict-warnings"]),
         run_step("gate_check", [sys.executable, "skills/novel-gate-harness/scripts/run_candidate_gate.py", "--check-only"]),
         run_step("schema_check", [sys.executable, "tools/schema_check.py"]),
+        run_step("editing_action_check", [sys.executable, "tools/editing_action_check.py"]),
+        run_step("evidence_ref_check", [sys.executable, "tools/evidence_ref_check.py"]),
         run_step(
             "agent_review_contract",
             [

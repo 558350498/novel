@@ -4,6 +4,10 @@
   "candidate": "candidate_001.md",
   "allowed_auto_rewrite": true,
   "rewrite_scope": "local",
+  "editing_actions": [
+    "repair_dialogue_length_distribution",
+    "preserve_surface_receipt"
+  ],
   "diagnostic_sources": [
     "metric",
     "agent_close_reading"
@@ -31,7 +35,7 @@
         "observed": 5996,
         "threshold": 6000,
         "action": "rewrite_trigger",
-        "evidence": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json"
+        "evidence_ref": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json#/metrics/char_count"
       },
       {
         "source": "metric",
@@ -39,7 +43,7 @@
         "observed": 85.95,
         "threshold": 65.0,
         "action": "rewrite_trigger",
-        "evidence": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json"
+        "evidence_ref": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json#/metrics/short_dialogue_pct_1_10"
       },
       {
         "source": "metric",
@@ -47,7 +51,7 @@
         "observed": 13.22,
         "threshold": 30.0,
         "action": "rewrite_trigger",
-        "evidence": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json"
+        "evidence_ref": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json#/metrics/mid_dialogue_pct_11_40"
       },
       {
         "source": "metric",
@@ -55,7 +59,7 @@
         "observed": 75.3,
         "threshold": 60.0,
         "action": "rewrite_trigger",
-        "evidence": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json"
+        "evidence_ref": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_gate.json#/metrics/dialogue_distribution_l1"
       },
       {
         "source": "metric",
@@ -63,7 +67,8 @@
         "observed": "ending contains 解决",
         "threshold": "no closure marker in ending",
         "action": "rewrite_trigger",
-        "evidence": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_style.md"
+        "human_ref": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_style.md",
+        "evidence_ref": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_style.json#/checks/10/values/hits/0/term"
       }
     ],
     "segment_signals": [
@@ -73,7 +78,8 @@
         "observed": "adachi_daily",
         "expected": "adachi_pressure",
         "action": "review_warning",
-        "evidence": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_delta.md"
+        "human_ref": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_delta.md",
+        "evidence_ref": "analysis/reports/candidates/round6_codex_full_loop_20260609/candidate_001_delta.json#/ranking/0/id"
       }
     ]
   },
