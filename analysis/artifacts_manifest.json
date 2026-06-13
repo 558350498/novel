@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "policy_ref": "analysis/artifact_boundary.md",
+  "external_root": "../novel-reports",
+  "external_root_absolute_hint": "C:/Users/33625/Documents/novel-reports",
+  "rules": {
+    "generated_artifacts_external_by_default": true,
+    "evidence_anchors_pinned_in_main_repo": true,
+    "bulk_migration_requires_hashes": true,
+    "user_confirmed_evidence_requires_main_repo_anchor": true
+  },
+  "runs": [
+    {
+      "run_id": "round6_codex_full_loop_20260609",
+      "status": "reserved_not_migrated",
+      "main_repo_candidate_dir": "drafts/candidates/round6_codex_full_loop_20260609",
+      "main_repo_reports_dir": "analysis/reports/candidates/round6_codex_full_loop_20260609",
+      "external_run_root": "../novel-reports/runs/round6_codex_full_loop_20260609",
+      "external_manifest": "../novel-reports/runs/round6_codex_full_loop_20260609/manifest.external.json",
+      "ledger_refs": [
+        "analysis/review_ledger.jsonl#entry_id=ledger_20260610_round6_dialogue_shape",
+        "analysis/review_ledger.jsonl#entry_id=ledger_20260610_originality_overconstraint"
+      ],
+      "artifact_hashes": {},
+      "notes": [
+        "External storage point is reserved, but current active run evidence remains in the main repository until a manifest-backed migration exists.",
+        "Do not delete main-repo evidence anchors when copying generated history to the report layer."
+      ]
+    }
+  ]
+}

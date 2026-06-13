@@ -45,12 +45,16 @@
 | Review ledger | [analysis/review_ledger.jsonl](./analysis/review_ledger.jsonl) |
 | Regression comparison | [analysis/regression_comparison.md](./analysis/regression_comparison.md) |
 | Productization v1 | [analysis/productization_gate_v1.md](./analysis/productization_gate_v1.md) |
+| Artifact boundary | [analysis/artifact_boundary.md](./analysis/artifact_boundary.md) |
+| Artifact manifest | [analysis/artifacts_manifest.json](./analysis/artifacts_manifest.json) |
 | Lexicon taxonomy | [analysis/lexicon_taxonomy.md](./analysis/lexicon_taxonomy.md) |
 
 ## Tools
 
 | 用途 | 路径 |
 |---|---|
+| Agent directory map | `AGENTS.md` |
+| Execution plans | `plans/` |
 | 项目自检 | `tools/project_doctor.py` |
 | Cleanup / drift check | `tools/cleanup_drift_check.py` |
 | JSON contract | `tools/schema_check.py` |

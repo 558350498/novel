@@ -19,12 +19,18 @@ CHECK_DOCS = [
     Path("analysis/reports/README.md"),
 ]
 REQUIRED_ACTIVE_PATHS = [
+    Path("AGENTS.md"),
     Path("README.md"),
     Path("INDEX.md"),
     Path("PROJECT_STATUS.md"),
+    Path("plans/README.md"),
+    Path("plans/current_productization.md"),
+    Path("plans/technical_debt.md"),
     Path("analysis/README.md"),
     Path("analysis/reports/README.md"),
     Path("analysis/project_cleanup_plan.md"),
+    Path("analysis/artifact_boundary.md"),
+    Path("analysis/artifacts_manifest.json"),
     Path("analysis/harness_config.json"),
     Path("analysis/failure_taxonomy.md"),
     Path("analysis/failure_cases.json"),

@@ -84,7 +84,9 @@ Allowed gate states:
 | Artifact | Path |
 |---|---|
 | Project entrypoint | `README.md` |
+| Agent map | `AGENTS.md` |
 | Fast index | `INDEX.md` |
+| Execution plans | `plans/` |
 | Analysis directory map | `analysis/README.md` |
 | Reports directory map | `analysis/reports/README.md` |
 | Cleanup plan | `analysis/project_cleanup_plan.md` |
@@ -117,8 +119,13 @@ Allowed gate states:
 | Regression comparison | `analysis/regression_comparison.md` |
 | Productization gate v1 | `analysis/productization_gate_v1.md` |
 | Lexicon taxonomy | `analysis/lexicon_taxonomy.md` |
+| Artifact manifest | `analysis/artifacts_manifest.json` |
 
 ## Tool Roles
+
+Artifact boundary protocol: `analysis/artifact_boundary.md`.
+
+Generated artifacts are external by default; evidence anchors are pinned in the main repository.
 
 - `tools/style_evaluator.py`: rule risks such as explanation leakage, closed endings, and receiver misalignment.
 - `tools/delta_evaluator.py`: comparative surface-distance observer only.

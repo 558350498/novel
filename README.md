@@ -85,6 +85,12 @@ candidate.md + candidate.json
 - Agent 可以参与评估，但不能替代用户判定。
 - `pending_user_review` 不是成功状态。
 
+## Artifact Boundary
+
+Generated artifacts are external by default; evidence anchors are pinned in the main repository.
+
+Use `analysis/artifact_boundary.md` before moving complete run outputs, large logs, long agent reviews, or generated trend reports out of this repo.
+
 ## Candidate Protocol
 
 完整候选必须成对提交：
@@ -173,13 +179,15 @@ python tools/project_ci.py --strict-warnings --require-regression-review
 
 Use this order when entering the project:
 
-1. `README.md`: current active path and hard rules.
-2. `PROJECT_STATUS.md`: current state, latest risk, and next legal actions.
-3. `skills/novel-gate-harness/SKILL.md`: Codex execution workflow.
-4. `skills/novel-gate-harness/references/project_architecture.md`: directory roles and pipeline.
-5. `analysis/README.md`: durable protocols and analysis artifacts.
-6. `analysis/reports/README.md`: generated report layout and current run reports.
-7. `INDEX.md`: corpus navigation and chapter locations.
+1. `AGENTS.md`: top-level directory map for agents.
+2. `README.md`: current active path and hard rules.
+3. `PROJECT_STATUS.md`: current state, latest risk, and next legal actions.
+4. `plans/README.md`: repo-level productization and technical-debt plans.
+5. `skills/novel-gate-harness/SKILL.md`: Codex execution workflow.
+6. `skills/novel-gate-harness/references/project_architecture.md`: directory roles and pipeline.
+7. `analysis/README.md`: durable protocols and analysis artifacts.
+8. `analysis/reports/README.md`: generated report layout and current run reports.
+9. `INDEX.md`: corpus navigation and chapter locations.
 
 ## Active And Provenance Split
 

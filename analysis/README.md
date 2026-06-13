@@ -21,6 +21,8 @@
 | `productization_gate_v1.md` | Single-kernel tuning lab 产品边界 |
 | `lexicon_taxonomy.md` | 泛化语言学 taxonomy，项目 gate 标签只是映射层 |
 | `project_cleanup_plan.md` | active/provenance/archive/generated 清理策略 |
+| `artifact_boundary.md` | generated artifacts external by default; evidence anchors pinned in main repo |
+| `artifacts_manifest.json` | main-repo index for the external report layer |
 
 ## Active Run
 
@@ -63,6 +65,8 @@ candidate.md + candidate.json
 - `user_feedback`: 用户审稿结论，优先级最高。
 
 ## Tools
+
+Artifact boundary: `artifact_boundary.md` defines which generated artifacts may move to an external report layer and which evidence anchors must stay pinned in the main repository.
 
 | Tool | Role |
 |---|---|
