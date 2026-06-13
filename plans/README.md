@@ -8,6 +8,7 @@ Keep plans short, actionable, and linked to machine-verifiable artifacts when po
 |---|---|
 | `current_productization.md` | Current productization work for turning the harness into a reliable record system. |
 | `technical_debt.md` | Known structural debt that should shape future issues and PRs. |
+| `taxonomy_triplet_issues.md` | Local issue queue for missing F001-F005/F007 case triplets. |
 
 ## Update Rules
 

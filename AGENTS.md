@@ -30,6 +30,8 @@ Use this file as a directory map only. For project state, read `PROJECT_STATUS.m
 
 External report layer: `../novel-reports/`. The main repo index is `analysis/artifacts_manifest.json`.
 
+Trend row contract: `analysis/trend_report_contract.md`.
+
 ## Operating Rules
 
 - Do not describe a candidate as successful before user review.

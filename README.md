@@ -114,6 +114,16 @@ drafts/candidates/<run_id>/candidate_001.json
 python tools/project_doctor.py
 ```
 
+生成派生 trend artifacts：
+```powershell
+python tools/trend_report.py
+```
+
+只检查 trend row contract，不写派生文件：
+```powershell
+python tools/trend_report.py --check-only
+```
+
 生成只读 cleanup / drift summary：
 
 ```powershell

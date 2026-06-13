@@ -1,0 +1,27 @@
+name: trend-report
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 2 * * 1"
+
+jobs:
+  trend-report:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate trend report
+        run: python tools/trend_report.py --output-dir .tmp/trend
+      - name: Add summary
+        shell: pwsh
+        run: Get-Content .tmp/trend/weekly_summary.md | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
+      - name: Upload trend artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: trend-report
+          path: |
+            .tmp/trend/runs.jsonl
+            .tmp/trend/weekly_summary.md

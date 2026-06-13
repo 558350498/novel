@@ -6,9 +6,9 @@ This list tracks repo-level debt, not candidate-specific prose problems.
 
 | Debt | Why It Matters | Preferred Shape |
 |---|---|---|
-| Incomplete case triplets for F001-F005 and F007 | Taxonomy entries without triplets are weaker regression anchors. | Add positive/negative/borderline cases with evidence refs, then require them in schema when ready. |
-| Trend reporting is missing | Single-run diagnosis cannot show whether the harness is improving or drifting. | Generate a Markdown table from `analysis/reports/candidates/*/manifest.json` and ledger entries. |
-| External report layer is not defined | Generated history still lives beside harness code. | Add a manifest-backed report layer before moving bulk artifacts. |
+| Incomplete case triplets for F001-F005 and F007 | Taxonomy entries without triplets are weaker regression anchors. | Use `plans/taxonomy_triplet_issues.md` as the attention queue; add positive/negative/borderline cases with evidence refs, then require them in schema when ready. |
+| Trend reporting is contract-first but visually minimal | The row contract and workflow artifact exist, but there is no richer dashboard or chart layer yet. | Let `runs.jsonl` stabilize before adding Evidence.dev, Quarto, or another dashboard layer. |
+| External report layer is local-only and thin | Generated history can move to `../novel-reports/`, but migration and hash tooling are still manual. | Add manifest-backed copy/hash tooling before moving bulk artifacts. |
 | Cleanup is review-only | The repo knows what may be stale, but does not automate archival decisions. | Keep deletion manual; automate stale summaries and archive proposals first. |
 | GitHub surface is thin | Local docs carry most attention-routing work. | Convert stable plan items into issues and PRs once auth is available. |
 | Commit history hygiene | Agent-readable history needs intentional messages, not file-list commits. | Use short purpose-first commits; keep accidental editor text out of history. |
