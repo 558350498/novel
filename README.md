@@ -179,7 +179,7 @@ python tools/agent_review_runner.py --run-id round6_codex_full_loop_20260609 --r
 python -m unittest discover -s tests
 ```
 
-当前 CI 默认不把 `project_doctor` warning 当作失败；如果需要把文档断链和缺失语料 warning 也升级为失败，使用：
+当前 CI 默认不把 `project_doctor` warning 当作失败；如果需要把文档断链 warning 也升级为失败，使用：
 
 ```powershell
 python tools/project_ci.py --strict-warnings --require-regression-review

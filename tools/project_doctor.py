@@ -82,6 +82,9 @@ STALE_ACTIVE_REFERENCES = [
     "analysis/reports/candidates/existing_rounds_audit",
     "analysis/reports/candidates/round4_three_versions",
 ]
+OPTIONAL_LOCAL_PREFIXES = [
+    "data/raw/",
+]
 
 
 def configure_utf8_stdio() -> None:
@@ -208,6 +211,9 @@ def normalize_target(doc: Path, raw_target: str) -> Path | None:
 
 def target_exists(doc: Path, raw_target: str) -> bool:
     target = raw_target.split("#", 1)[0].strip()
+    normalized_target = target.replace("\\", "/")
+    if any(normalized_target.startswith(prefix) for prefix in OPTIONAL_LOCAL_PREFIXES):
+        return True
     if target.endswith(".md/json"):
         return target_exists(doc, target[:-5]) and target_exists(doc, target[:-8] + ".json")
     if target.endswith(".markdown/json"):
