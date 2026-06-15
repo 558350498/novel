@@ -114,6 +114,16 @@ drafts/candidates/<run_id>/candidate_001.json
 python tools/project_doctor.py
 ```
 
+生成派生 trend artifacts：
+```powershell
+python tools/trend_report.py
+```
+
+只检查 trend row contract，不写派生文件：
+```powershell
+python tools/trend_report.py --check-only
+```
+
 生成只读 cleanup / drift summary：
 
 ```powershell
@@ -169,7 +179,7 @@ python tools/agent_review_runner.py --run-id round6_codex_full_loop_20260609 --r
 python -m unittest discover -s tests
 ```
 
-当前 CI 默认不把 `project_doctor` warning 当作失败；如果需要把文档断链和缺失语料 warning 也升级为失败，使用：
+当前 CI 默认不把 `project_doctor` warning 当作失败；如果需要把文档断链 warning 也升级为失败，使用：
 
 ```powershell
 python tools/project_ci.py --strict-warnings --require-regression-review

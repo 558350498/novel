@@ -23,6 +23,7 @@
 | `project_cleanup_plan.md` | active/provenance/archive/generated 清理策略 |
 | `artifact_boundary.md` | generated artifacts external by default; evidence anchors pinned in main repo |
 | `artifacts_manifest.json` | main-repo index for the external report layer |
+| `trend_report_contract.md` | trend row schema and source semantics for `runs.jsonl` |
 
 ## Active Run
 
@@ -72,7 +73,8 @@ Artifact boundary: `artifact_boundary.md` defines which generated artifacts may 
 |---|---|
 | `../tools/project_doctor.py` | 检查 active 路径、候选配对和文档断链 |
 | `../tools/cleanup_drift_check.py` | 从 `project_cleanup_plan.md` 生成只读 cleanup/drift summary |
-| `../tools/project_ci.py` | 本地 CI contract：doctor、cleanup/drift、gate check、schema/evidence/action checks、agent review contract、unit tests |
+| `../tools/trend_report.py` | 从 manifest、gate report、ledger 生成派生趋势工件并检查 row contract |
+| `../tools/project_ci.py` | 本地 CI contract：doctor、cleanup/drift、gate check、schema/evidence/action checks、trend contract check、agent review contract、unit tests |
 | `../tools/schema_check.py` | JSON contract 检查：candidate、rewrite plan、agent review、ledger、case registry |
 | `../tools/editing_action_check.py` | 检查 rewrite plan / agent notes 引用的 editing action id 是否存在 |
 | `../tools/evidence_ref_check.py` | 检查 rewrite plan、agent claims、case registry 的机器证据引用是否指向 JSON/JSONL 字段 |

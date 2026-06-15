@@ -85,6 +85,9 @@ Allowed gate states:
 |---|---|
 | Project entrypoint | `README.md` |
 | Agent map | `AGENTS.md` |
+| Project CI workflow | `.github/workflows/ci.yml` |
+| Cleanup / drift workflow | `.github/workflows/cleanup-drift.yml` |
+| Trend report workflow | `.github/workflows/trend-report.yml` |
 | Fast index | `INDEX.md` |
 | Execution plans | `plans/` |
 | Analysis directory map | `analysis/README.md` |
@@ -120,6 +123,7 @@ Allowed gate states:
 | Productization gate v1 | `analysis/productization_gate_v1.md` |
 | Lexicon taxonomy | `analysis/lexicon_taxonomy.md` |
 | Artifact manifest | `analysis/artifacts_manifest.json` |
+| Trend report contract | `analysis/trend_report_contract.md` |
 
 ## Tool Roles
 
@@ -137,10 +141,11 @@ Generated artifacts are external by default; evidence anchors are pinned in the 
 - `tools/corpus_profiler.py`: reference-group feature weighting, not RAG.
 - `tools/project_doctor.py`: active path, candidate pairing, and doc drift checks.
 - `tools/cleanup_drift_check.py`: read-only cleanup-plan automation, active-path summary, and drift artifact generator.
+- `tools/trend_report.py`: derived run trend extractor and row-contract checker writing `../novel-reports/trend/runs.jsonl` and `weekly_summary.md`.
 - `tools/schema_check.py`: candidate JSON, rewrite plan, agent review, ledger, and case registry contract checks.
 - `tools/evidence_ref_check.py`: verifies machine evidence refs point to existing JSON/JSONL fields; Markdown remains a human-readable view.
 - `tools/agent_review_runner.py`: verifies mandatory agent review artifacts exist and avoid final verdict claims.
-- `tools/project_ci.py`: local CI wrapper for doctor, cleanup/drift, gate check, schema check, evidence/action checks, agent review contract, and tests.
+- `tools/project_ci.py`: local CI wrapper for doctor, cleanup/drift, gate check, schema check, evidence/action checks, trend contract check, agent review contract, and tests.
 
 ## Confirmed Boundaries
 

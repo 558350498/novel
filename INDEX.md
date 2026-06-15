@@ -47,6 +47,7 @@
 | Productization v1 | [analysis/productization_gate_v1.md](./analysis/productization_gate_v1.md) |
 | Artifact boundary | [analysis/artifact_boundary.md](./analysis/artifact_boundary.md) |
 | Artifact manifest | [analysis/artifacts_manifest.json](./analysis/artifacts_manifest.json) |
+| Trend report contract | [analysis/trend_report_contract.md](./analysis/trend_report_contract.md) |
 | Lexicon taxonomy | [analysis/lexicon_taxonomy.md](./analysis/lexicon_taxonomy.md) |
 
 ## Tools

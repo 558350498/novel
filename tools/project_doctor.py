@@ -20,17 +20,22 @@ CHECK_DOCS = [
 ]
 REQUIRED_ACTIVE_PATHS = [
     Path("AGENTS.md"),
+    Path(".github/workflows/ci.yml"),
+    Path(".github/workflows/cleanup-drift.yml"),
+    Path(".github/workflows/trend-report.yml"),
     Path("README.md"),
     Path("INDEX.md"),
     Path("PROJECT_STATUS.md"),
     Path("plans/README.md"),
     Path("plans/current_productization.md"),
     Path("plans/technical_debt.md"),
+    Path("plans/taxonomy_triplet_issues.md"),
     Path("analysis/README.md"),
     Path("analysis/reports/README.md"),
     Path("analysis/project_cleanup_plan.md"),
     Path("analysis/artifact_boundary.md"),
     Path("analysis/artifacts_manifest.json"),
+    Path("analysis/trend_report_contract.md"),
     Path("analysis/harness_config.json"),
     Path("analysis/failure_taxonomy.md"),
     Path("analysis/failure_cases.json"),
@@ -50,6 +55,7 @@ REQUIRED_ACTIVE_PATHS = [
     Path("skills/novel-gate-harness/scripts/run_candidate_gate.py"),
     Path("tools/project_doctor.py"),
     Path("tools/cleanup_drift_check.py"),
+    Path("tools/trend_report.py"),
     Path("tools/editing_action_check.py"),
     Path("tools/evidence_ref_check.py"),
     Path("tools/light_harness.py"),
@@ -75,6 +81,9 @@ STALE_ACTIVE_REFERENCES = [
     "analysis/reports/source_chapter_shape.md",
     "analysis/reports/candidates/existing_rounds_audit",
     "analysis/reports/candidates/round4_three_versions",
+]
+OPTIONAL_LOCAL_PREFIXES = [
+    "data/raw/",
 ]
 
 
@@ -202,6 +211,9 @@ def normalize_target(doc: Path, raw_target: str) -> Path | None:
 
 def target_exists(doc: Path, raw_target: str) -> bool:
     target = raw_target.split("#", 1)[0].strip()
+    normalized_target = target.replace("\\", "/")
+    if any(normalized_target.startswith(prefix) for prefix in OPTIONAL_LOCAL_PREFIXES):
+        return True
     if target.endswith(".md/json"):
         return target_exists(doc, target[:-5]) and target_exists(doc, target[:-8] + ".json")
     if target.endswith(".markdown/json"):

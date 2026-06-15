@@ -68,6 +68,7 @@ def main(argv: list[str]) -> int:
         run_step("schema_check", [sys.executable, "tools/schema_check.py"]),
         run_step("editing_action_check", [sys.executable, "tools/editing_action_check.py"]),
         run_step("evidence_ref_check", [sys.executable, "tools/evidence_ref_check.py"]),
+        run_step("trend_report", [sys.executable, "tools/trend_report.py", "--check-only"]),
         run_step(
             "agent_review_contract",
             [
